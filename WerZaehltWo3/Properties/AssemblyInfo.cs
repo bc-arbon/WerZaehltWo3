@@ -1,16 +1,15 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("WerZähltWo 3")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Erstellt von Daniel Hafner")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("BC Arbon")]
 [assembly: AssemblyProduct("WerZaehltWo3")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyCopyright("Copyright © 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -45,8 +45,7 @@
                 var players = this.playerboardManager.GetPlayers().Select(player => player.Name).ToArray(); ;
                 foreach (var settingsControl in this.pnlSettingsControls.Controls)
                 {
-                    var control = settingsControl as CourtSettingsControl;
-                    if (control != null)
+                    if (settingsControl is CourtSettingsControl control)
                     {
                         control.SetAutocompletionData(players);
                     }
@@ -77,7 +76,7 @@
 
         private void MnuHelpInfo_Click(object sender, EventArgs e)
         {
-            // TODO
+            new FrmInfo().ShowDialog();
         }
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
