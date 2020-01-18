@@ -4,6 +4,7 @@
     using BCA.WerZaehltWo3.Logic;
     using BCA.WerZaehltWo3.Usercontrols;
     using System;
+    using System.Linq;
     using System.Windows.Forms;
 
     public partial class FrmMain : Form
@@ -41,8 +42,17 @@
             var playerForm = new FrmPlayer(this.playerboardManager.Playerboard);
             if (playerForm.ShowDialog() == DialogResult.OK)
             {
-                // TODO
-                // Re-Read playerlist and populate comboboxes
+                var players = this.playerboardManager.GetPlayers().Select(player => player.Name).ToArray(); ;
+                foreach (var settingsControl in this.pnlSettingsControls.Controls)
+                {
+                    var control = settingsControl as CourtSettingsControl;
+                    if (control != null)
+                    {
+                        control.SetAutocompletionData(players);
+                    }
+                }
+
+                this.playerboardManager.Save();
             }
         }
 
@@ -60,6 +70,8 @@
                 this.playerboardManager.SetCourtCount(courtCountForm.CourtCount);
                 this.displayForm.InitializeDisplayControls();
                 this.InitializeSettingControls();
+
+                this.playerboardManager.Save();
             }
         }
 

@@ -66,7 +66,13 @@
             }
 
             var players = playerlist.Select(player => player.Name).ToArray();
+            this.SetAutocompletionData(players);
+            
+            this.SaveState();
+        }
 
+        public void SetAutocompletionData(string[] players)
+        {
             this.txtReady1.AutoCompleteCustomSource.Clear();
             this.txtReady2.AutoCompleteCustomSource.Clear();
             this.txtCount1.AutoCompleteCustomSource.Clear();
@@ -79,8 +85,6 @@
             this.txtCount2.AutoCompleteCustomSource.AddRange(players);
             this.txtPlay1.AutoCompleteCustomSource.AddRange(players);
             this.txtPlay2.AutoCompleteCustomSource.AddRange(players);
-
-            this.SaveState();
         }
 
         private void BtnClear_Click(object sender, EventArgs e)
