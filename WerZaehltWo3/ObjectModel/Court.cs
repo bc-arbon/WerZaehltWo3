@@ -1,69 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BCA.WerZaehltWo3.ObjectModel
+﻿namespace BCA.WerZaehltWo3.ObjectModel
 {
     using System;
     using System.Xml;
 
     using BCA.WerZaehltWo3.Common;
 
-    /// <summary>
-    /// Court class
-    /// </summary>
     public class Court : BaseObject
     {
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Court"/> class.
-        /// </summary>
         public Court()
         {
             this.InternalClear();
         }
 
-        /// <summary>
-        /// Gets or sets the number.
-        /// </summary>
         public int Number { get; set; }
 
-        /// <summary>
-        /// Gets the players ready.
-        /// </summary>
         public PlayerSet PlayersReady { get; } = new PlayerSet();
 
-        /// <summary>
-        /// Gets the players count.
-        /// </summary>
         public PlayerSet PlayersCount { get; } = new PlayerSet();
 
-        /// <summary>
-        /// Gets the players play.
-        /// </summary>
         public PlayerSet PlayersPlay { get; } = new PlayerSet();
 
-        /// <summary>
-        /// Determines whether the specified <see cref="System.Object" /> is equal to this instance.
-        /// </summary>
-        /// <param name="obj">The <see cref="System.Object" /> to compare with this instance.</param>
-        /// <returns>
-        ///   <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.
-        /// </returns>
         public override bool Equals(object obj)
         {
             return this.Equals((Court)obj);
         }
 
-        /// <summary>
-        /// Determines whether the specified <see cref="System.Object" /> is equal to this instance.
-        /// </summary>
-        /// <param name="other">The <see cref="System.Object" /> to compare with this instance.</param>
-        /// <returns>
-        ///   <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.
-        /// </returns>
         public bool Equals(Court other)
         {
             if (other == null)
@@ -94,12 +55,6 @@ namespace BCA.WerZaehltWo3.ObjectModel
             return true;
         }
 
-        /// <summary>
-        /// Returns a hash code for this instance.
-        /// </summary>
-        /// <returns>
-        /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
-        /// </returns>
         public override int GetHashCode()
         {
             var result = 0;
@@ -112,10 +67,6 @@ namespace BCA.WerZaehltWo3.ObjectModel
             return result;
         }
 
-        /// <summary>
-        /// Clones this instance.
-        /// </summary>
-        /// <returns>Cloned player</returns>
         public Court Clone()
         {
             var result = new Court();
@@ -123,18 +74,11 @@ namespace BCA.WerZaehltWo3.ObjectModel
             return result;
         }
 
-        /// <summary>
-        /// Clears this instance.
-        /// </summary>
         public override void Clear()
         {
             this.InternalClear();
         }
 
-        /// <summary>
-        /// Copies from.
-        /// </summary>
-        /// <param name="other">The other.</param>
         public void CopyFrom(Court other)
         {
             if (other == null) throw new ArgumentNullException("other");
@@ -145,10 +89,6 @@ namespace BCA.WerZaehltWo3.ObjectModel
             this.PlayersPlay.CopyFrom(other.PlayersPlay);
         }
 
-        /// <summary>
-        /// Loads the XML.
-        /// </summary>
-        /// <param name="xmlString">The XML string.</param>
         public void LoadXml(string xmlString)
         {
             if (string.IsNullOrEmpty(xmlString)) throw new ArgumentNullException("xmlString");
@@ -158,10 +98,6 @@ namespace BCA.WerZaehltWo3.ObjectModel
             this.Load(doc.SelectSingleNode("Court"));
         }
 
-        /// <summary>
-        /// Loads this instance.
-        /// </summary>
-        /// <param name="node">The node.</param>
         public override void Load(XmlNode node)
         {
             if (node == null) throw new ArgumentNullException("node");
@@ -189,10 +125,6 @@ namespace BCA.WerZaehltWo3.ObjectModel
             }
         }
 
-        /// <summary>
-        /// Saves this instance.
-        /// </summary>
-        /// <returns> Xml string </returns>
         public override string Save()
         {
             var result = "<Court ";
@@ -204,9 +136,6 @@ namespace BCA.WerZaehltWo3.ObjectModel
             return result;
         }
 
-        /// <summary>
-        /// Internals the clear.
-        /// </summary>
         private void InternalClear()
         {
             this.Number = -1;

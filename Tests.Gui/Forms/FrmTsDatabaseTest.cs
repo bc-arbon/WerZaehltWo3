@@ -7,9 +7,6 @@
 
     public partial class FrmTsDatabaseTest : Form
     {
-        /// <summary>
-        /// The adapter
-        /// </summary>
         private readonly TsDatabaseAdapter adapter = new TsDatabaseAdapter();
 
         public FrmTsDatabaseTest()
@@ -17,31 +14,16 @@
             this.InitializeComponent();
         }
 
-        /// <summary>
-        /// Handles the Load event of the BadmanDatabaseTest control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void TsDatabaseTest_Load(object sender, EventArgs e)
         {
             this.txtDatabaseFilepath.Text = Settings.Default.TsFilepath;
         }
 
-        /// <summary>
-        /// Handles the FormClosing event of the BadmanDatabaseTest control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="FormClosingEventArgs"/> instance containing the event data.</param>
         private void TsDatabaseTest_FormClosing(object sender, FormClosingEventArgs e)
         {
             Settings.Default.TsFilepath = this.txtDatabaseFilepath.Text;
         }
 
-        /// <summary>
-        /// Handles the Click event of the BtnConnect control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void BtnConnect_Click(object sender, EventArgs e)
         {
             this.adapter.Connect(this.txtDatabaseFilepath.Text);
@@ -53,11 +35,6 @@
             //}
         }
 
-        /// <summary>
-        /// Handles the Click event of the BtnGetPlayers control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void BtnGetPlayers_Click(object sender, EventArgs e)
         {
             this.lvwPlayers.Items.Clear();

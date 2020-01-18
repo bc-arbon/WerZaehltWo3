@@ -11,30 +11,14 @@
     using BCA.WerZaehltWo3.Eventing;
     using BCA.WerZaehltWo3.Common;
 
-    /// <summary>
-    /// CourtSettingsControl class
-    /// </summary>
     public partial class CourtSettingsControl : UserControl
     {
-        /// <summary>
-        /// The backup court
-        /// </summary>
         private readonly LimitedStack<string> backups;
 
-        /// <summary>
-        /// The playerboard manager
-        /// </summary>
         private readonly PlayerboardManager playerboardManager;
 
-        /// <summary>
-        /// The court
-        /// </summary>
         private Court court = new Court();
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CourtSettingsControl" /> class.
-        /// </summary>
-        /// <param name="manager">The manager.</param>
         public CourtSettingsControl(PlayerboardManager manager)
         {
             this.InitializeComponent();
@@ -42,23 +26,10 @@
             this.backups = new LimitedStack<string>(100);
         }
 
-        /// <summary>
-        /// The ApplyHandler delegate
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="courtEventArgs">The <see cref="CourtEventArgs"/> instance containing the event data.</param>
         public delegate void ApplyHandler(object sender, CourtEventArgs courtEventArgs);
 
-        /// <summary>
-        /// Occurs when [on apply requested].
-        /// </summary>
         public event ApplyHandler OnApplyRequested;
 
-        /// <summary>
-        /// Sets the data.
-        /// </summary>
-        /// <param name="courtData">The court.</param>
-        /// <param name="playerlist">The playerlist.</param>
         public void SetData(Court courtData, List<Player> playerlist)
         {
             this.court = courtData;
@@ -110,11 +81,6 @@
             this.txtPlay2.AutoCompleteCustomSource.AddRange(players);
         }
 
-        /// <summary>
-        /// Handles the Click event of the BtnClear control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void BtnClear_Click(object sender, EventArgs e)
         {
             this.SaveState();
@@ -127,11 +93,6 @@
             this.txtPlay2.Text = null;
         }
 
-        /// <summary>
-        /// Handles the Click event of the BtnApply control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void BtnApply_Click(object sender, EventArgs e)
         {
             this.SaveState();
@@ -150,11 +111,6 @@
             }
         }
 
-        /// <summary>
-        /// Handles the Click event of the BtnUndo control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void BtnUndo_Click(object sender, EventArgs e)
         {
             this.court.LoadXml(this.backups.Pop());
@@ -168,11 +124,6 @@
             this.btnUndo.Enabled = this.backups.Count > 0;
         }
 
-        /// <summary>
-        /// Handles the Click event of the BtnMove control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void BtnMove_Click(object sender, EventArgs e)
         {
             this.SaveState();
@@ -185,9 +136,6 @@
             this.txtReady2.Text = null;
         }
 
-        /// <summary>
-        /// Saves the state.
-        /// </summary>
         private void SaveState()
         {
             var tempCourt = this.court.Clone();

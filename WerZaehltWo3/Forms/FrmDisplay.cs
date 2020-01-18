@@ -8,32 +8,17 @@
     using BCA.WerZaehltWo3.Usercontrols;
     using BCA.WerZaehltWo3.ObjectModel;
 
-    /// <summary>
-    /// DisplayForm class
-    /// </summary>
     public partial class FrmDisplay : Form
     {
-        /// <summary>
-        /// The brush
-        /// </summary>
         private LinearGradientBrush brush;
         
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FrmDisplay"/> class.
-        /// </summary>
         public FrmDisplay()
         {
             this.InitializeComponent();
         }
 
-        /// <summary>
-        /// Gets or sets the playerboard manager.
-        /// </summary>
         public PlayerboardManager PlayerboardManager { get; set; }
 
-        /// <summary>
-        /// Updates the display controls.
-        /// </summary>
         public void InitializeDisplayControls()
         {
             this.pnlControl.Controls.Clear();
@@ -45,10 +30,6 @@
             }
         }
 
-        /// <summary>
-        /// Updates the display control.
-        /// </summary>
-        /// <param name="court">The court.</param>
         public void UpdateDisplayControl(Court court)
         {
             foreach (CourtDisplayControl control in this.pnlControl.Controls)
@@ -61,11 +42,6 @@
             }
         }
 
-        /// <summary>
-        /// Handles the FormClosing event of the DisplayForm control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="FormClosingEventArgs"/> instance containing the event data.</param>
         private void DisplayForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             // Don't close it, hide it insteand. Preventing it from disposing
@@ -73,11 +49,6 @@
             this.Hide();
         }
 
-        /// <summary>
-        /// Handles the Paint event of the PnlControl control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
         private void PnlControl_Paint(object sender, PaintEventArgs e)
         {
             if (this.brush != null)
@@ -92,11 +63,6 @@
             this.Invalidate();
         }
 
-        /// <summary>
-        /// Handles the Resize event of the PnlControl control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void PnlControl_Resize(object sender, System.EventArgs e)
         {
             this.Invalidate();

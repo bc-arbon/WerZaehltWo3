@@ -8,14 +8,8 @@
 
     public partial class FrmMain : Form
     {
-        /// <summary>
-        /// The playerboard manager
-        /// </summary>
         private readonly PlayerboardManager playerboardManager = new PlayerboardManager();
 
-        /// <summary>
-        /// The display form
-        /// </summary>
         private readonly FrmDisplay displayForm = new FrmDisplay();
 
         public FrmMain()
@@ -43,6 +37,7 @@
             var playerForm = new FrmPlayer(this.playerboardManager.Playerboard);
             if (playerForm.ShowDialog() == DialogResult.OK)
             {
+                // TODO
                 // Re-Read playerlist and populate comboboxes
             }
         }
@@ -74,12 +69,6 @@
             this.playerboardManager.Save();
         }
 
-
-
-
-        /// <summary>
-        /// Updates the setting controls.
-        /// </summary>
         private void InitializeSettingControls()
         {
             this.pnlSettingsControls.Controls.Clear();
@@ -92,11 +81,6 @@
             }
         }
 
-        /// <summary>
-        /// Handles the OnApplyRequested event of the SettingsControl control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="courtEventArgs">The <see cref="CourtEventArgs"/> instance containing the event data.</param>
         private void SettingsControl_OnApplyRequested(object sender, CourtEventArgs courtEventArgs)
         {
             this.displayForm.UpdateDisplayControl(courtEventArgs.Court);

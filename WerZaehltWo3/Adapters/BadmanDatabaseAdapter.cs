@@ -6,25 +6,14 @@
     using System.IO;
     using System.Windows.Forms;
 
-    using BCA.WerZaehltWo3.Properties;
     using BCA.WerZaehltWo3.ObjectModel;
 
-    /// <summary>
-    /// BadmanDatabaseAdapter class
-    /// </summary>
     public class BadmanDatabaseAdapter
     {
-        /// <summary>
-        /// The connection
-        /// </summary>
         private OleDbConnection connection;
 
         private static readonly string badmanConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\Badman.mdb";
 
-        /// <summary>
-        /// Connects the specified database filepath.
-        /// </summary>
-        /// <param name="databaseFilepath">The database filepath.</param>
         public void Connect(string databaseFilepath)
         {
             if (databaseFilepath != Path.Combine(Application.StartupPath, "Badman.mdb"))
@@ -36,9 +25,6 @@
             this.connection.Open();
         }
 
-        /// <summary>
-        /// Closes this instance.
-        /// </summary>
         public void Close()
         {
             if (this.connection.State == ConnectionState.Open)
@@ -47,10 +33,6 @@
             }
         }
 
-        /// <summary>
-        /// Gets the tournaments.
-        /// </summary>
-        /// <returns>The tournament list</returns>
         public List<string> GetTournaments()
         {
             var com = new OleDbCommand("SELECT Name FROM Tournament", this.connection);
@@ -70,11 +52,6 @@
             return new List<string>();
         }
 
-        /// <summary>
-        /// Gets the players.
-        /// </summary>
-        /// <param name="tournament">The tournament.</param>
-        /// <returns> The playerlist </returns>
         public List<Player> GetPlayers(string tournament)
         {
             try
@@ -108,11 +85,6 @@
             return new List<Player>();
         }
 
-        /// <summary>
-        /// Gets the clubname from player.
-        /// </summary>
-        /// <param name="licenseNr">The license nr.</param>
-        /// <returns>The clubname</returns>
         private string GetClubnameFromPlayer(string licenseNr)
         {
             var com = new OleDbCommand("SELECT Clubs.Name FROM ((Players INNER JOIN Clubs ON Players.ClubID = Clubs.ID) INNER JOIN Q_Participants_Single ON Players.LicenseNr = Q_Participants_Single.LicenseNr) WHERE        (Players.LicenseNr = '" + licenseNr + "')", this.connection);

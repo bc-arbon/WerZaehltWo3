@@ -4,10 +4,6 @@
 
     public partial class InitializedObjects
     {
-        /// <summary>
-        /// Creates the new player.
-        /// </summary>
-        /// <returns>new Player</returns>
         public static Court CreateNewCourt()
         {
             var result = new Court { Number = 27 };

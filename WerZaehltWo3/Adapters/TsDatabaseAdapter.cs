@@ -9,17 +9,10 @@
 
     public class TsDatabaseAdapter
     {
-        /// <summary>
-        /// The connection
-        /// </summary>
         private OleDbConnection connection;
 
         private readonly string tsConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\ts.tp;Jet OLEDB:Database Password=d4R2GY76w2qzZ;";
 
-        /// <summary>
-        /// Connects the specified database filepath.
-        /// </summary>
-        /// <param name="databaseFilepath">The database filepath.</param>
         public void Connect(string databaseFilepath)
         {
             if (databaseFilepath != Path.Combine(Application.StartupPath, "ts.tp"))
@@ -31,9 +24,6 @@
             this.connection.Open();
         }
 
-        /// <summary>
-        /// Closes this instance.
-        /// </summary>
         public void Close()
         {
             if (this.connection != null && this.connection.State == ConnectionState.Open)
@@ -42,10 +32,6 @@
             }
         }
 
-        /// <summary>
-        /// Gets the players.
-        /// </summary>
-        /// <returns> The playerlist </returns>
         public List<Player> GetPlayers()
         {
             try

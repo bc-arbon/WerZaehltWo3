@@ -7,44 +7,20 @@
 
     using BCA.WerZaehltWo3.ObjectModel;
 
-    /// <summary>
-    /// CourtDisplayControl class
-    /// </summary>
     public partial class CourtDisplayControl : UserControl
     {
-        /// <summary>
-        /// The brush line
-        /// </summary>
         private readonly LinearGradientBrush brushLine;
 
-        /// <summary>
-        /// The brush ready
-        /// </summary>
         private readonly LinearGradientBrush brushReady;
 
-        /// <summary>
-        /// The brush count
-        /// </summary>
         private readonly LinearGradientBrush brushCount;
 
-        /// <summary>
-        /// The brush play
-        /// </summary>
         private readonly LinearGradientBrush brushPlay;
 
-        /// <summary>
-        /// The gradient rect
-        /// </summary>
         private readonly Rectangle gradientRect;
 
-        /// <summary>
-        /// The line rect
-        /// </summary>
         private readonly Rectangle lineRect;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CourtDisplayControl"/> class.
-        /// </summary>
         public CourtDisplayControl()
         {
             this.InitializeComponent();
@@ -57,15 +33,8 @@
             this.brushPlay = new LinearGradientBrush(this.gradientRect, Color.Green, Color.FromArgb(192, 255, 192), 45f);
         }
 
-        /// <summary>
-        /// Gets the court number.
-        /// </summary>
         public int CourtNumber { get; private set; }
 
-        /// <summary>
-        /// Sets the data.
-        /// </summary>
-        /// <param name="court">The court.</param>
         public void SetData(Court court)
         {
             this.CourtNumber = court.Number;
@@ -79,11 +48,6 @@
             this.SetPlayer(this.lblPlay2, court.PlayersPlay.Player2);
         }
 
-        /// <summary>
-        /// Sets the players.
-        /// </summary>
-        /// <param name="label">The label.</param>
-        /// <param name="player">The player.</param>
         private void SetPlayer(Control label, Player player)
         {
             if (player != null)
@@ -92,33 +56,18 @@
             }
         }
 
-        /// <summary>
-        /// Handles the Paint event of the PnlReady control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
         private void PnlReady_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.FillRectangle(this.brushReady, this.gradientRect);
             e.Graphics.FillRectangle(this.brushLine, 0, 47, 211, 1);
         }
 
-        /// <summary>
-        /// Handles the Paint event of the PnlCount control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
         private void PnlCount_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.FillRectangle(this.brushCount, this.gradientRect);
             e.Graphics.FillRectangle(this.brushLine, 0, 47, 211, 1);
         }
 
-        /// <summary>
-        /// Handles the Paint event of the PnlPlay control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
         private void PnlPlay_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.FillRectangle(this.brushPlay, this.gradientRect);

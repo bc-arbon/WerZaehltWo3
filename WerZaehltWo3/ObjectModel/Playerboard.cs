@@ -4,48 +4,22 @@
     using System.Collections.Generic;
     using System.Xml;
 
-    /// <summary>
-    /// Playerboard class
-    /// </summary>
     public class Playerboard : BaseObject
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Playerboard"/> class.
-        /// </summary>
         public Playerboard()
         {
             this.InternalClear();
         }
 
-        /// <summary>
-        /// Gets the players.
-        /// </summary>
         public List<Player> Players { get; } = new List<Player>();
 
-        /// <summary>
-        /// Gets the courts.
-        /// </summary>
         public List<Court> Courts { get; } = new List<Court>();
 
-        /// <summary>
-        /// Determines whether the specified <see cref="System.Object" /> is equal to this instance.
-        /// </summary>
-        /// <param name="obj">The <see cref="System.Object" /> to compare with this instance.</param>
-        /// <returns>
-        ///   <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.
-        /// </returns>
         public override bool Equals(object obj)
         {
             return this.Equals((Playerboard)obj);
         }
 
-        /// <summary>
-        /// Determines whether the specified <see cref="System.Object" /> is equal to this instance.
-        /// </summary>
-        /// <param name="other">The <see cref="System.Object" /> to compare with this instance.</param>
-        /// <returns>
-        ///   <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.
-        /// </returns>
         public bool Equals(Playerboard other)
         {
             if (other == null)
@@ -82,12 +56,6 @@
             return true;
         }
 
-        /// <summary>
-        /// Returns a hash code for this instance.
-        /// </summary>
-        /// <returns>
-        /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
-        /// </returns>
         public override int GetHashCode()
         {
             var result = 0;
@@ -105,10 +73,6 @@
             return result;
         }
 
-        /// <summary>
-        /// Clones this instance.
-        /// </summary>
-        /// <returns>Cloned player</returns>
         public Playerboard Clone()
         {
             var result = new Playerboard();
@@ -116,18 +80,11 @@
             return result;
         }
 
-        /// <summary>
-        /// Clears this instance.
-        /// </summary>
         public override void Clear()
         {
             this.InternalClear();
         }
 
-        /// <summary>
-        /// Copies from.
-        /// </summary>
-        /// <param name="other">The other.</param>
         public void CopyFrom(Playerboard other)
         {
             this.InternalClear();
@@ -144,10 +101,6 @@
             }
         }
 
-        /// <summary>
-        /// Loads this instance.
-        /// </summary>
-        /// <param name="node">The node.</param>
         public override void Load(XmlNode node)
         {
             if (node == null) throw new ArgumentNullException("node");
@@ -178,10 +131,6 @@
             }
         }
 
-        /// <summary>
-        /// Saves this instance.
-        /// </summary>
-        /// <returns> Xml string </returns>
         public override string Save()
         {
             var result = "<Playerboard>";
@@ -203,9 +152,6 @@
             return result;
         }
 
-        /// <summary>
-        /// Internals the clear.
-        /// </summary>
         private void InternalClear()
         {
             this.Players.Clear();

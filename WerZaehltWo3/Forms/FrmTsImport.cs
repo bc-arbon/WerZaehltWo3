@@ -7,44 +7,22 @@
     using BCA.WerZaehltWo3.Adapters;
     using BCA.WerZaehltWo3.ObjectModel;
 
-    /// <summary>
-    /// BadmanImportForm class
-    /// </summary>
     public partial class FrmTsImport : FrmBase
     {
-        /// <summary>
-        /// The adapter
-        /// </summary>
         private readonly TsDatabaseAdapter adapter = new TsDatabaseAdapter();
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FrmTsImport"/> class.
-        /// </summary>
         public FrmTsImport()
         {
             this.InitializeComponent();
         }
 
-        /// <summary>
-        /// Gets or sets the imported players.
-        /// </summary>
         public List<Player> ImportedPlayers { get; set; }
 
-        /// <summary>
-        /// Handles the Load event of the BadmanImportForm control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void TsImportForm_Load(object sender, EventArgs e)
         {
-            ////this.txtDatabaseFilepath.Text = Settings.Default.BadmanDatabaseFilepath;
+            //this.txtDatabaseFilepath.Text = Settings.Default.BadmanDatabaseFilepath;
         }
 
-        /// <summary>
-        /// Handles the FormClosing event of the BadmanImportForm control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="FormClosingEventArgs"/> instance containing the event data.</param>
         private void TsImportForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (this.bgwWorker.IsBusy)
@@ -58,11 +36,6 @@
             //Settings.Default.Save();
         }
 
-        /// <summary>
-        /// Handles the Click event of the BtnConnect control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void BtnConnect_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(this.txtDatabaseFilepath.Text))
@@ -82,11 +55,6 @@
             }
         }
 
-        /// <summary>
-        /// Handles the Click event of the BtnOpenDatabase control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void BtnOpenDatabase_Click(object sender, EventArgs e)
         {
             if (this.ofdBadmanDatabase.ShowDialog() == DialogResult.OK)
@@ -95,11 +63,6 @@
             }
         }
 
-        /// <summary>
-        /// Handles the Click event of the BtnGetPlayers control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void BtnGetPlayers_Click(object sender, EventArgs e)
         {
             
@@ -109,11 +72,6 @@
             
         }
 
-        /// <summary>
-        /// Handles the Click event of the BtnImport control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void BtnImport_Click(object sender, EventArgs e)
         {
             this.ImportedPlayers = new List<Player>();
@@ -123,11 +81,6 @@
             }
         }
 
-        /// <summary>
-        /// Handles the DoWork event of the BgwWorker control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.ComponentModel.DoWorkEventArgs" /> instance containing the event data.</param>
         private void BgwWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             var players = this.adapter.GetPlayers();
@@ -139,11 +92,6 @@
             }
         }
 
-        /// <summary>
-        /// Handles the ProgressChanged event of the BgwWorker control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.ComponentModel.ProgressChangedEventArgs" /> instance containing the event data.</param>
         private void BgwWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             var player = (Player)e.UserState;
@@ -155,11 +103,6 @@
             this.lvwPlayers.Items.Add(item);
         }
 
-        /// <summary>
-        /// Handles the RunWorkerCompleted event of the BgwWorker control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.ComponentModel.RunWorkerCompletedEventArgs" /> instance containing the event data.</param>
         private void BgwWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             this.btnGetPlayers.Text = "Teilnehmer anzeigen";
@@ -167,10 +110,6 @@
             this.adapter.Close();
         }
 
-        /// <summary>
-        /// Enables the disable.
-        /// </summary>
-        /// <param name="workerisBusy">if set to <c>true</c> [workeris busy].</param>
         private void EnableDisable(bool workerisBusy)
         {
             this.txtDatabaseFilepath.Enabled = !workerisBusy;

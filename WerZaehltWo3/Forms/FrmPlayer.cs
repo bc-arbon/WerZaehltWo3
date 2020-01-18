@@ -5,51 +5,26 @@
 
     using BCA.WerZaehltWo3.ObjectModel;
 
-    /// <summary>
-    /// PlayerForm class
-    /// </summary>
     public partial class FrmPlayer : FrmBase
     {
-        /// <summary>
-        /// The playerboard
-        /// </summary>
         private readonly Playerboard playerboard;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FrmPlayer" /> class.
-        /// </summary>
-        /// <param name="playerboard">The playerboard.</param>
         public FrmPlayer(Playerboard playerboard)
         {
             this.InitializeComponent();
             this.playerboard = playerboard;
         }
 
-        /// <summary>
-        /// Handles the Load event of the PlayerForm control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void PlayerForm_Load(object sender, EventArgs e)
         {
             this.PopulateListview();
         }
 
-        /// <summary>
-        /// Handles the DoubleClick event of the LvwPlayers control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void LvwPlayers_DoubleClick(object sender, EventArgs e)
         {
             this.EditPlayer();
         }
 
-        /// <summary>
-        /// Handles the Click event of the BtnNew control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void BtnNew_Click(object sender, EventArgs e)
         {
             var playerEditorForm = new FrmPlayerEditor();
@@ -61,29 +36,16 @@
             this.PopulateListview();
         }
 
-        /// <summary>
-        /// Handles the Click event of the BtnEdit control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void BtnEdit_Click(object sender, EventArgs e)
         {
             this.EditPlayer();
         }
 
-        /// <summary>
-        /// Handles the Click event of the BtnDelete control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void BtnDelete_Click(object sender, EventArgs e)
         {
             this.DeletePlayers();
         }
 
-        /// <summary>
-        /// Populates the listview.
-        /// </summary>
         private void PopulateListview()
         {
             this.lvwPlayers.Items.Clear();
@@ -98,9 +60,6 @@
             }
         }
 
-        /// <summary>
-        /// Edits the player.
-        /// </summary>
         private void EditPlayer()
         {
             if (this.lvwPlayers.SelectedItems.Count == 1)
@@ -115,9 +74,6 @@
             }
         }
 
-        /// <summary>
-        /// Deletes the players.
-        /// </summary>
         private void DeletePlayers()
         {
             if (this.lvwPlayers.SelectedItems.Count > 0)
@@ -142,11 +98,6 @@
             }
         }
 
-        /// <summary>
-        /// Handles the Click event of the BtnImport control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void BtnImportBadman_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show(

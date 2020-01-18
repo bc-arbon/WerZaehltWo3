@@ -3,48 +3,22 @@
     using System;
     using System.Xml;
 
-    /// <summary>
-    /// PlayerSet class
-    /// </summary>
     public class PlayerSet : BaseObject
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PlayerSet"/> class.
-        /// </summary>
         public PlayerSet()
         {
             this.InternalClear();
         }
 
-        /// <summary>
-        /// Gets or sets the player1.
-        /// </summary>
         public Player Player1 { get; set; }
 
-        /// <summary>
-        /// Gets or sets the player2.
-        /// </summary>
         public Player Player2 { get; set; }
 
-        /// <summary>
-        /// Determines whether the specified <see cref="System.Object" /> is equal to this instance.
-        /// </summary>
-        /// <param name="obj">The <see cref="System.Object" /> to compare with this instance.</param>
-        /// <returns>
-        ///   <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.
-        /// </returns>
         public override bool Equals(object obj)
         {
             return this.Equals((PlayerSet)obj);
         }
 
-        /// <summary>
-        /// Determines whether the specified <see cref="System.Object" /> is equal to this instance.
-        /// </summary>
-        /// <param name="other">The <see cref="System.Object" /> to compare with this instance.</param>
-        /// <returns>
-        ///   <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.
-        /// </returns>
         public bool Equals(PlayerSet other)
         {
             if (other == null)
@@ -85,12 +59,6 @@
             return true;
         }
 
-        /// <summary>
-        /// Returns a hash code for this instance.
-        /// </summary>
-        /// <returns>
-        /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
-        /// </returns>
         public override int GetHashCode()
         {
             var result = 0;
@@ -108,10 +76,6 @@
             return result;
         }
 
-        /// <summary>
-        /// Clones this instance.
-        /// </summary>
-        /// <returns>Cloned player</returns>
         public PlayerSet Clone()
         {
             var result = new PlayerSet();
@@ -119,18 +83,11 @@
             return result;
         }
 
-        /// <summary>
-        /// Clears this instance.
-        /// </summary>
         public override void Clear()
         {
             this.InternalClear();
         }
 
-        /// <summary>
-        /// Copies from.
-        /// </summary>
-        /// <param name="other">The other.</param>
         public void CopyFrom(PlayerSet other)
         {
             if (other.Player1 != null)
@@ -144,10 +101,6 @@
             }
         }
 
-        /// <summary>
-        /// Loads this instance.
-        /// </summary>
-        /// <param name="node">The node.</param>
         public override void Load(XmlNode node)
         {
             if (node == null) throw new ArgumentNullException("node");
@@ -169,10 +122,6 @@
             }
         }
 
-        /// <summary>
-        /// Saves this instance.
-        /// </summary>
-        /// <returns> Xml string </returns>
         public override string Save()
         {
             var result = "<PlayerSet>";
@@ -195,9 +144,6 @@
             return result;
         }
 
-        /// <summary>
-        /// Internals the clear.
-        /// </summary>
         private void InternalClear()
         {
             this.Player1 = null;
