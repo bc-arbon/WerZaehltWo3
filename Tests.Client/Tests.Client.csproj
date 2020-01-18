@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{92B8A64C-974B-476A-B589-5B33576428FD}</ProjectGuid>
+    <ProjectGuid>{137181AB-BAEB-4A46-9F06-51A01395DA3E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>BCA.WerZaehltWo3.Tests.Gui</RootNamespace>
-    <AssemblyName>Tests.Gui</AssemblyName>
+    <RootNamespace>Tests.Client</RootNamespace>
+    <AssemblyName>Tests.Client</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,46 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\FrmBadmanDatabaseTest.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmBadmanDatabaseTest.Designer.cs">
-      <DependentUpon>FrmBadmanDatabaseTest.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FrmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmMain.Designer.cs">
-      <DependentUpon>FrmMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FrmTsDatabaseTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmTsDatabaseTest.Designer.cs">
-      <DependentUpon>FrmTsDatabaseTest.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Usercontrols\CourtCountControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Usercontrols\CourtCountControl.Designer.cs">
-      <DependentUpon>CourtCountControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Usercontrols\PlayerEditorControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Usercontrols\PlayerEditorControl.Designer.cs">
-      <DependentUpon>PlayerEditorControl.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Forms\FrmBadmanDatabaseTest.resx">
-      <DependentUpon>FrmBadmanDatabaseTest.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmMain.resx">
-      <DependentUpon>FrmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmTsDatabaseTest.resx">
-      <DependentUpon>FrmTsDatabaseTest.cs</DependentUpon>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -95,14 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Usercontrols\CourtCountControl.resx">
-      <DependentUpon>CourtCountControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Usercontrols\PlayerEditorControl.resx">
-      <DependentUpon>PlayerEditorControl.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -120,10 +83,6 @@
     <ProjectReference Include="..\ObjectModel\ObjectModel.csproj">
       <Project>{8F506022-1E7C-474A-892E-AD14EE521143}</Project>
       <Name>ObjectModel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WerZaehltWo3\WerZaehltWo3.csproj">
-      <Project>{7B37CD00-5946-4331-A600-32EB5625A89C}</Project>
-      <Name>WerZaehltWo3</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
