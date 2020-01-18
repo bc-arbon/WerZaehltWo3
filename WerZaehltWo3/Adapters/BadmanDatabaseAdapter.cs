@@ -19,7 +19,7 @@
         /// </summary>
         private OleDbConnection connection;
 
-        private static string badmanConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\Badman.mdb";
+        private static readonly string badmanConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\Badman.mdb";
 
         /// <summary>
         /// Connects the specified database filepath.
@@ -117,12 +117,7 @@
         {
             var com = new OleDbCommand("SELECT Clubs.Name FROM ((Players INNER JOIN Clubs ON Players.ClubID = Clubs.ID) INNER JOIN Q_Participants_Single ON Players.LicenseNr = Q_Participants_Single.LicenseNr) WHERE        (Players.LicenseNr = '" + licenseNr + "')", this.connection);
             var result = com.ExecuteScalar();
-            if (result != null)
-            {
-                return result.ToString();
-            }
-
-            return string.Empty;
+            return result != null ? result.ToString() : string.Empty;
         }
     }
 }

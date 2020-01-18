@@ -13,27 +13,16 @@
     public class PlayerboardManager
     {
         /// <summary>
-        /// The playerboard
-        /// </summary>
-        private readonly Playerboard playerboard = new Playerboard();
-
-        /// <summary>
         /// Gets the playerboard.
         /// </summary>
-        public Playerboard Playerboard
-        {
-            get
-            {
-                return this.playerboard;
-            }
-        }
+        public Playerboard Playerboard { get; } = new Playerboard();
 
         /// <summary>
         /// Clears this instance.
         /// </summary>
         public void Clear()
         {
-            this.playerboard.Clear();
+            this.Playerboard.Clear();
         }
 
         /// <summary>
@@ -42,7 +31,7 @@
         /// <returns>The player list</returns>
         public List<Player> GetPlayers()
         {
-            return this.playerboard.Players;
+            return this.Playerboard.Players;
         }
 
         /// <summary>
@@ -52,13 +41,8 @@
         /// <returns>The player</returns>
         public Player GetPlayer(string name)
         {
-            var player = this.playerboard.Players.FirstOrDefault(pl => pl.Name == name);
-            if (player == null)
-            {
-                return new Player { Name = name };
-            }
-
-            return player;
+            var player = this.Playerboard.Players.FirstOrDefault(pl => pl.Name == name);
+            return player ?? new Player { Name = name };
         }
 
         /// <summary>
@@ -67,7 +51,7 @@
         /// <param name="newCount">The new count.</param>
         public void SetCourtCount(int newCount)
         {
-            var currentCount = this.playerboard.Courts.Count;
+            var currentCount = this.Playerboard.Courts.Count;
             var newCourts = new List<Court>();
 
             // Do nothing when its the same
@@ -81,13 +65,13 @@
             {
                 for (var i = 0; i < newCount; i++)
                 {
-                    newCourts.Add(this.playerboard.Courts[i].Clone());
+                    newCourts.Add(this.Playerboard.Courts[i].Clone());
                 }
             }
             else
             {
                 // The new count is higher, clone all existing courts and add some new ones
-                newCourts.AddRange(this.playerboard.Courts.Select(court => court.Clone()));
+                newCourts.AddRange(this.Playerboard.Courts.Select(court => court.Clone()));
 
                 for (var i = currentCount + 1; i <= newCount; i++)
                 {
@@ -95,8 +79,8 @@
                 }
             }
 
-            this.playerboard.Courts.Clear();
-            this.playerboard.Courts.AddRange(newCourts);
+            this.Playerboard.Courts.Clear();
+            this.Playerboard.Courts.AddRange(newCourts);
         }
 
         /// <summary>
@@ -104,10 +88,14 @@
         /// </summary>
         public void Save()
         {
-            var xmlString = this.playerboard.Save();
+            var xmlString = this.Playerboard.Save();
+
+            var doc = new XmlDocument();
+            doc.LoadXml(xmlString);
+            doc.Save("Playerboard.xml");
 
             // Quick and dirty
-            File.WriteAllText("Playerboard.xml", xmlString);
+            //File.WriteAllText("Playerboard.xml", xmlString);
         }
 
         /// <summary>
@@ -126,7 +114,7 @@
             var node = doc.SelectSingleNode("Playerboard");
             if (node != null)
             {
-                this.playerboard.Load(node);
+                this.Playerboard.Load(node);
             }
         }
     }

@@ -16,20 +16,6 @@ namespace BCA.WerZaehltWo3.ObjectModel
     /// </summary>
     public class Court : BaseObject
     {
-        /// <summary>
-        /// The players ready
-        /// </summary>
-        private readonly PlayerSet playersReady = new PlayerSet();
-
-        /// <summary>
-        /// The players count
-        /// </summary>
-        private readonly PlayerSet playersCount = new PlayerSet();
-
-        /// <summary>
-        /// The player play
-        /// </summary>
-        private readonly PlayerSet playersPlay = new PlayerSet();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Court"/> class.
@@ -47,35 +33,17 @@ namespace BCA.WerZaehltWo3.ObjectModel
         /// <summary>
         /// Gets the players ready.
         /// </summary>
-        public PlayerSet PlayersReady
-        {
-            get
-            {
-                return this.playersReady;
-            }
-        }
+        public PlayerSet PlayersReady { get; } = new PlayerSet();
 
         /// <summary>
         /// Gets the players count.
         /// </summary>
-        public PlayerSet PlayersCount
-        {
-            get
-            {
-                return this.playersCount;
-            }
-        }
+        public PlayerSet PlayersCount { get; } = new PlayerSet();
 
         /// <summary>
         /// Gets the players play.
         /// </summary>
-        public PlayerSet PlayersPlay
-        {
-            get
-            {
-                return this.playersPlay;
-            }
-        }
+        public PlayerSet PlayersPlay { get; } = new PlayerSet();
 
         /// <summary>
         /// Determines whether the specified <see cref="System.Object" /> is equal to this instance.
@@ -108,17 +76,17 @@ namespace BCA.WerZaehltWo3.ObjectModel
                 return false;
             }
 
-            if (!this.playersReady.Equals(other.PlayersReady))
+            if (!this.PlayersReady.Equals(other.PlayersReady))
             {
                 return false;
             }
 
-            if (!this.playersCount.Equals(other.PlayersCount))
+            if (!this.PlayersCount.Equals(other.PlayersCount))
             {
                 return false;
             }
 
-            if (!this.playersPlay.Equals(other.PlayersPlay))
+            if (!this.PlayersPlay.Equals(other.PlayersPlay))
             {
                 return false;
             }
@@ -136,10 +104,10 @@ namespace BCA.WerZaehltWo3.ObjectModel
         {
             var result = 0;
 
-            result = result ^ this.Number.GetHashCode();
-            result = result ^ this.playersReady.GetHashCode();
-            result = result ^ this.playersCount.GetHashCode();
-            result = result ^ this.playersPlay.GetHashCode();
+            result ^= this.Number.GetHashCode();
+            result ^= this.PlayersReady.GetHashCode();
+            result ^= this.PlayersCount.GetHashCode();
+            result ^= this.PlayersPlay.GetHashCode();
 
             return result;
         }
@@ -172,8 +140,8 @@ namespace BCA.WerZaehltWo3.ObjectModel
             if (other == null) throw new ArgumentNullException("other");
 
             this.Number = other.Number;
-            this.playersReady.CopyFrom(other.PlayersReady);
-            this.playersCount.CopyFrom(other.playersCount);
+            this.PlayersReady.CopyFrom(other.PlayersReady);
+            this.PlayersCount.CopyFrom(other.PlayersCount);
             this.PlayersPlay.CopyFrom(other.PlayersPlay);
         }
 
@@ -205,19 +173,19 @@ namespace BCA.WerZaehltWo3.ObjectModel
             var readyNode = node.SelectSingleNode("PlayersReady/PlayerSet");
             if (readyNode != null)
             {
-                this.playersReady.Load(readyNode);
+                this.PlayersReady.Load(readyNode);
             }
 
             var countNode = node.SelectSingleNode("PlayersCount/PlayerSet");
             if (countNode != null)
             {
-                this.playersCount.Load(countNode);
+                this.PlayersCount.Load(countNode);
             }
 
             var playNode = node.SelectSingleNode("PlayersPlay/PlayerSet");
             if (playNode != null)
             {
-                this.playersPlay.Load(playNode);
+                this.PlayersPlay.Load(playNode);
             }
         }
 
@@ -229,9 +197,9 @@ namespace BCA.WerZaehltWo3.ObjectModel
         {
             var result = "<Court ";
             result += XmlHelper.SaveAttribute("number", this.Number) + " >";
-            result += "<PlayersReady>" + this.playersReady.Save() + "</PlayersReady>";
-            result += "<PlayersCount>" + this.playersCount.Save() + "</PlayersCount>";
-            result += "<PlayersPlay>" + this.playersPlay.Save() + "</PlayersPlay>";
+            result += "<PlayersReady>" + this.PlayersReady.Save() + "</PlayersReady>";
+            result += "<PlayersCount>" + this.PlayersCount.Save() + "</PlayersCount>";
+            result += "<PlayersPlay>" + this.PlayersPlay.Save() + "</PlayersPlay>";
             result += "</Court>";
             return result;
         }
@@ -242,9 +210,9 @@ namespace BCA.WerZaehltWo3.ObjectModel
         private void InternalClear()
         {
             this.Number = -1;
-            this.playersReady.Clear();
-            this.playersCount.Clear();
-            this.playersPlay.Clear();
+            this.PlayersReady.Clear();
+            this.PlayersCount.Clear();
+            this.PlayersPlay.Clear();
         }
     }
 }

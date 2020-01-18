@@ -14,7 +14,7 @@
         /// </summary>
         private OleDbConnection connection;
 
-        private static string tsConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\ts.tp;Jet OLEDB:Database Password=d4R2GY76w2qzZ;";
+        private readonly string tsConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\ts.tp;Jet OLEDB:Database Password=d4R2GY76w2qzZ;";
 
         /// <summary>
         /// Connects the specified database filepath.
@@ -27,7 +27,7 @@
                 File.Copy(databaseFilepath, Path.Combine(Application.StartupPath, "ts.tp"), true);
             }
 
-            this.connection = new OleDbConnection(tsConnectionString);
+            this.connection = new OleDbConnection(this.tsConnectionString);
             this.connection.Open();
         }
 

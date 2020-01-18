@@ -14,7 +14,7 @@
 
         public FrmTsDatabaseTest()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         /// <summary>

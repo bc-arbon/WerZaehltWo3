@@ -14,7 +14,7 @@
 
         public FrmBadmanDatabaseTest()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         /// <summary>

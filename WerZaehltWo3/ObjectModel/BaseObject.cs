@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BCA.WerZaehltWo3.ObjectModel
+﻿namespace BCA.WerZaehltWo3.ObjectModel
 {
     using System.Xml;
-
-    /// <summary>
-    /// BaseObject class
-    /// </summary>
+    
     public class BaseObject
     {
         /// <summary>

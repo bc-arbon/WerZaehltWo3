@@ -20,7 +20,7 @@
 
         public FrmMain()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
         private void FrmMain_Load(object sender, EventArgs e)
         {
@@ -33,12 +33,12 @@
             this.displayForm.InitializeDisplayControls();
         }
 
-        private void mnuFileShowDisplay_Click(object sender, EventArgs e)
+        private void MnuFileShowDisplay_Click(object sender, EventArgs e)
         {
             this.displayForm.Show();
         }
 
-        private void mnuFileEditPlayers_Click(object sender, EventArgs e)
+        private void MnuFileEditPlayers_Click(object sender, EventArgs e)
         {
             var playerForm = new FrmPlayer(this.playerboardManager.Playerboard);
             if (playerForm.ShowDialog() == DialogResult.OK)
@@ -47,12 +47,12 @@
             }
         }
 
-        private void mnuFileQuit_Click(object sender, EventArgs e)
+        private void MnuFileQuit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void mnuFileSetCourtCount_Click(object sender, EventArgs e)
+        private void MnuFileSetCourtCount_Click(object sender, EventArgs e)
         {
             var courtCountForm = new FrmCourtCount();
             courtCountForm.SetData(this.playerboardManager.Playerboard.Courts.Count);
@@ -64,7 +64,7 @@
             }
         }
 
-        private void mnuHelpInfo_Click(object sender, EventArgs e)
+        private void MnuHelpInfo_Click(object sender, EventArgs e)
         {
             // TODO
         }

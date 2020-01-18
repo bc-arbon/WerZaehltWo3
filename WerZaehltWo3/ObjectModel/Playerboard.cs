@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BCA.WerZaehltWo3.ObjectModel
+﻿namespace BCA.WerZaehltWo3.ObjectModel
 {
     using System;
     using System.Collections.Generic;
@@ -16,16 +10,6 @@ namespace BCA.WerZaehltWo3.ObjectModel
     public class Playerboard : BaseObject
     {
         /// <summary>
-        /// The players
-        /// </summary>
-        private readonly List<Player> players = new List<Player>();
-
-        /// <summary>
-        /// The courts
-        /// </summary>
-        private readonly List<Court> courts = new List<Court>();
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="Playerboard"/> class.
         /// </summary>
         public Playerboard()
@@ -36,24 +20,12 @@ namespace BCA.WerZaehltWo3.ObjectModel
         /// <summary>
         /// Gets the players.
         /// </summary>
-        public List<Player> Players
-        {
-            get
-            {
-                return this.players;
-            }
-        }
+        public List<Player> Players { get; } = new List<Player>();
 
         /// <summary>
         /// Gets the courts.
         /// </summary>
-        public List<Court> Courts
-        {
-            get
-            {
-                return this.courts;
-            }
-        }
+        public List<Court> Courts { get; } = new List<Court>();
 
         /// <summary>
         /// Determines whether the specified <see cref="System.Object" /> is equal to this instance.
@@ -122,12 +94,12 @@ namespace BCA.WerZaehltWo3.ObjectModel
 
             foreach (var player in this.Players)
             {
-                result = result ^ player.GetHashCode();
+                result ^= player.GetHashCode();
             }
 
             foreach (var court in this.Courts)
             {
-                result = result ^ court.GetHashCode();
+                result ^= court.GetHashCode();
             }
 
             return result;
@@ -212,22 +184,22 @@ namespace BCA.WerZaehltWo3.ObjectModel
         /// <returns> Xml string </returns>
         public override string Save()
         {
-            var result = "<Playerboard>" + Environment.NewLine;
+            var result = "<Playerboard>";
 
-            result += "<Courts>" + Environment.NewLine;
+            result += "<Courts>";
             foreach (var court in this.Courts)
             {
                 result += court.Save();
             }
 
-            result += "</Courts>" + Environment.NewLine;
-            result += "<Players>" + Environment.NewLine;
+            result += "</Courts>";
+            result += "<Players>";
             foreach (var player in this.Players)
             {
                 result += player.Save();
             }
 
-            result += "</Players>" + Environment.NewLine  + "</Playerboard>";
+            result += "</Players></Playerboard>";
             return result;
         }
 

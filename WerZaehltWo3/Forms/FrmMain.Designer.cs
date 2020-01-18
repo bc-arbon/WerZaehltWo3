@@ -70,21 +70,21 @@
             this.mnuFileShowDisplay.Name = "mnuFileShowDisplay";
             this.mnuFileShowDisplay.Size = new System.Drawing.Size(205, 22);
             this.mnuFileShowDisplay.Text = "Display anzeigen";
-            this.mnuFileShowDisplay.Click += new System.EventHandler(this.mnuFileShowDisplay_Click);
+            this.mnuFileShowDisplay.Click += new System.EventHandler(this.MnuFileShowDisplay_Click);
             // 
             // mnuFileSetCourtCount
             // 
             this.mnuFileSetCourtCount.Name = "mnuFileSetCourtCount";
             this.mnuFileSetCourtCount.Size = new System.Drawing.Size(205, 22);
             this.mnuFileSetCourtCount.Text = "Anzahl Felder festlegen...";
-            this.mnuFileSetCourtCount.Click += new System.EventHandler(this.mnuFileSetCourtCount_Click);
+            this.mnuFileSetCourtCount.Click += new System.EventHandler(this.MnuFileSetCourtCount_Click);
             // 
             // mnuFileEditPlayers
             // 
             this.mnuFileEditPlayers.Name = "mnuFileEditPlayers";
             this.mnuFileEditPlayers.Size = new System.Drawing.Size(205, 22);
             this.mnuFileEditPlayers.Text = "Spieler bearbeiten...";
-            this.mnuFileEditPlayers.Click += new System.EventHandler(this.mnuFileEditPlayers_Click);
+            this.mnuFileEditPlayers.Click += new System.EventHandler(this.MnuFileEditPlayers_Click);
             // 
             // toolStripSeparator1
             // 
@@ -96,7 +96,7 @@
             this.mnuFileQuit.Name = "mnuFileQuit";
             this.mnuFileQuit.Size = new System.Drawing.Size(205, 22);
             this.mnuFileQuit.Text = "Beenden";
-            this.mnuFileQuit.Click += new System.EventHandler(this.mnuFileQuit_Click);
+            this.mnuFileQuit.Click += new System.EventHandler(this.MnuFileQuit_Click);
             // 
             // mnuHelp
             // 
@@ -111,7 +111,7 @@
             this.mnuHelpInfo.Name = "mnuHelpInfo";
             this.mnuHelpInfo.Size = new System.Drawing.Size(95, 22);
             this.mnuHelpInfo.Text = "Info";
-            this.mnuHelpInfo.Click += new System.EventHandler(this.mnuHelpInfo_Click);
+            this.mnuHelpInfo.Click += new System.EventHandler(this.MnuHelpInfo_Click);
             // 
             // pnlSettingsControls
             // 
