@@ -8,6 +8,8 @@
 
     public partial class FrmMain : Form
     {
+        private readonly SettingsManager settingsManager = new SettingsManager();
+
         private readonly PlayerboardManager playerboardManager = new PlayerboardManager();
 
         private readonly FrmDisplay displayForm = new FrmDisplay();
@@ -19,6 +21,8 @@
         private void FrmMain_Load(object sender, EventArgs e)
         {
             this.playerboardManager.Load();
+            this.settingsManager.Load();
+            this.Size = this.settingsManager.AppSettings.WindowSize;
 
             this.displayForm.PlayerboardManager = this.playerboardManager;
             this.displayForm.Show();
@@ -67,6 +71,9 @@
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.playerboardManager.Save();
+
+            this.settingsManager.AppSettings.WindowSize = this.Size;
+            this.settingsManager.Save();
         }
 
         private void InitializeSettingControls()

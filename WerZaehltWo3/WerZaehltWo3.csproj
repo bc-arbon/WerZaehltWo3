@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="Adapters\BadmanDatabaseAdapter.cs" />
     <Compile Include="Adapters\TsDatabaseAdapter.cs" />
+    <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\LimitedStack.cs" />
     <Compile Include="Common\XmlHelper.cs" />
     <Compile Include="Eventing\CourtEventArgs.cs" />
@@ -122,6 +123,8 @@
       <DependentUpon>FrmTsImport.cs</DependentUpon>
     </Compile>
     <Compile Include="Logic\PlayerboardManager.cs" />
+    <Compile Include="Logic\SettingsManager.cs" />
+    <Compile Include="ObjectModel\AppSettings.cs" />
     <Compile Include="ObjectModel\BaseObject.cs" />
     <Compile Include="ObjectModel\Court.cs" />
     <Compile Include="ObjectModel\Player.cs" />

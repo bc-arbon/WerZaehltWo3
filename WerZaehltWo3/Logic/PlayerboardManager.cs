@@ -4,7 +4,7 @@
     using System.IO;
     using System.Linq;
     using System.Xml;
-
+    using BCA.WerZaehltWo3.Common;
     using BCA.WerZaehltWo3.ObjectModel;
 
     public class PlayerboardManager
@@ -67,19 +67,19 @@
 
             var doc = new XmlDocument();
             doc.LoadXml(xmlString);
-            doc.Save("Playerboard.xml");
+            doc.Save(Constants.PlayerboardFilename);
         }
 
         public void Load()
         {
-            if (!File.Exists("Playerboard.xml"))
+            if (!File.Exists(Constants.PlayerboardFilename))
             {
                 // Do nothing, when the file is not present
                 return;
             }
 
             var doc = new XmlDocument();
-            doc.Load("Playerboard.xml");
+            doc.Load(Constants.PlayerboardFilename);
             var node = doc.SelectSingleNode("Playerboard");
             if (node != null)
             {
