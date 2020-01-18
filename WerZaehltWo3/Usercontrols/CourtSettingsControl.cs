@@ -79,6 +79,8 @@
             this.txtCount2.AutoCompleteCustomSource.AddRange(players);
             this.txtPlay1.AutoCompleteCustomSource.AddRange(players);
             this.txtPlay2.AutoCompleteCustomSource.AddRange(players);
+
+            this.SaveState();
         }
 
         private void BtnClear_Click(object sender, EventArgs e)
@@ -90,7 +92,7 @@
             this.txtCount1.Text = null;
             this.txtCount2.Text = null;
             this.txtPlay1.Text = null;
-            this.txtPlay2.Text = null;
+            this.txtPlay2.Text = null;            
         }
 
         private void BtnApply_Click(object sender, EventArgs e)
@@ -113,27 +115,26 @@
 
         private void BtnUndo_Click(object sender, EventArgs e)
         {
-            this.court.LoadXml(this.backups.Pop());
-            this.txtReady1.Text = this.court.PlayersReady.Player1.Name;
-            this.txtReady2.Text = this.court.PlayersReady.Player2.Name;
-            this.txtCount1.Text = this.court.PlayersCount.Player1.Name;
-            this.txtCount2.Text = this.court.PlayersCount.Player2.Name;
-            this.txtPlay1.Text = this.court.PlayersPlay.Player1.Name;
-            this.txtPlay2.Text = this.court.PlayersPlay.Player2.Name;
+            var tempCourt = new Court();
+            tempCourt.LoadXml(this.backups.Pop());
+            this.txtReady1.Text = tempCourt.PlayersReady.Player1.Name;
+            this.txtReady2.Text = tempCourt.PlayersReady.Player2.Name;
+            this.txtCount1.Text = tempCourt.PlayersCount.Player1.Name;
+            this.txtCount2.Text = tempCourt.PlayersCount.Player2.Name;
+            this.txtPlay1.Text = tempCourt.PlayersPlay.Player1.Name;
+            this.txtPlay2.Text = tempCourt.PlayersPlay.Player2.Name;
 
             this.btnUndo.Enabled = this.backups.Count > 0;
         }
 
         private void BtnMove_Click(object sender, EventArgs e)
         {
-            this.SaveState();
-
             this.txtPlay1.Text = this.txtCount1.Text;
             this.txtPlay2.Text = this.txtCount2.Text;
             this.txtCount1.Text = this.txtReady1.Text;
             this.txtCount2.Text = this.txtReady2.Text;
             this.txtReady1.Text = null;
-            this.txtReady2.Text = null;
+            this.txtReady2.Text = null;            
         }
 
         private void SaveState()
@@ -144,9 +145,9 @@
             tempCourt.PlayersCount.Player1 = new Player(this.txtCount1.Text);
             tempCourt.PlayersCount.Player2 = new Player(this.txtCount2.Text);
             tempCourt.PlayersPlay.Player1 = new Player(this.txtPlay1.Text);
-            tempCourt.PlayersPlay.Player2 = new Player(this.txtPlay1.Text);
+            tempCourt.PlayersPlay.Player2 = new Player(this.txtPlay2.Text);
             this.backups.Push(tempCourt.Save());
-            this.btnUndo.Enabled = true;
+            this.btnUndo.Enabled = this.backups.Count > 0;
         }
     }
 }
