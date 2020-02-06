@@ -1,26 +1,16 @@
 ﻿using BCA.WerZaehltWo3.Common;
 using BCA.WerZaehltWo3.ObjectModel;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
 
 namespace BCA.WerZaehltWo3.Logic
 {
     public class SettingsManager
     {
-        public AppSettings AppSettings { get; } = new AppSettings();
+        public AppSettings AppSettings { get; private set; }
 
         public void Save()
         {
-            var xmlString = this.AppSettings.Save();
-
-            var doc = new XmlDocument();
-            doc.LoadXml(xmlString);
-            doc.Save(Constants.AppSettingsFilename);
+            JsonHelper.SaveToFile(this.AppSettings, Constants.AppSettingsFilename);
         }
 
         public void Load()
@@ -28,17 +18,12 @@ namespace BCA.WerZaehltWo3.Logic
             if (!File.Exists(Constants.AppSettingsFilename))
             {
                 // Do nothing, when the file is not present
+                this.AppSettings = new AppSettings();
                 return;
             }
 
-            var doc = new XmlDocument();
-            doc.Load(Constants.AppSettingsFilename);
-
-            var node = doc.SelectSingleNode("AppSettings");
-            if (node != null)
-            {
-                this.AppSettings.Load(node);
-            }
+            
+            this.AppSettings = (AppSettings)JsonHelper.LoadFromFile(Constants.AppSettingsFilename, typeof(AppSettings));            
         }
     }
 }

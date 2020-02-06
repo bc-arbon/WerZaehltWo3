@@ -9,7 +9,7 @@
 
     public class PlayerboardManager
     {
-        public Playerboard Playerboard { get; } = new Playerboard();
+        public Playerboard Playerboard { get; private set; }
 
         public void Clear()
         {
@@ -63,28 +63,20 @@
 
         public void Save()
         {
-            var xmlString = this.Playerboard.Save();
-
-            var doc = new XmlDocument();
-            doc.LoadXml(xmlString);
-            doc.Save(Constants.PlayerboardFilename);
+            JsonHelper.SaveToFile(this.Playerboard, Constants.PlayerboardFilename);
         }
 
         public void Load()
         {
             if (!File.Exists(Constants.PlayerboardFilename))
             {
-                // Do nothing, when the file is not present
+                // Create 8 courts as default
+                this.Playerboard = new Playerboard();
+                this.SetCourtCount(8);
                 return;
             }
 
-            var doc = new XmlDocument();
-            doc.Load(Constants.PlayerboardFilename);
-            var node = doc.SelectSingleNode("Playerboard");
-            if (node != null)
-            {
-                this.Playerboard.Load(node);
-            }
+            this.Playerboard = (Playerboard)JsonHelper.LoadFromFile(Constants.PlayerboardFilename, typeof(Playerboard));
         }
     }
 }

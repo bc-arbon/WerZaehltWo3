@@ -13,12 +13,7 @@
         public Player Player1 { get; set; }
 
         public Player Player2 { get; set; }
-
-        public override bool Equals(object obj)
-        {
-            return this.Equals((PlayerSet)obj);
-        }
-
+        
         public bool Equals(PlayerSet other)
         {
             if (other == null)
@@ -99,55 +94,12 @@
             {
                 this.Player2 = other.Player2.Clone();
             }
-        }
-
-        public override void Load(XmlNode node)
-        {
-            if (node == null) throw new ArgumentNullException("node");
-
-            this.InternalClear();
-
-            var player1Node = node.SelectSingleNode("Player1/Player");
-            if (player1Node != null)
-            {
-                this.Player1 = new Player();
-                this.Player1.Load(player1Node);
-            }
-
-            var player2Node = node.SelectSingleNode("Player2/Player");
-            if (player2Node != null)
-            {
-                this.Player2 = new Player();
-                this.Player2.Load(player2Node);
-            }
-        }
-
-        public override string Save()
-        {
-            var result = "<PlayerSet>";
-
-            if (this.Player1 != null)
-            {
-                result += "<Player1>";
-                result += this.Player1.Save();
-                result += "</Player1>";
-            }
-
-            if (this.Player2 != null)
-            {
-                result += "<Player2>";
-                result += this.Player2.Save();
-                result += "</Player2>";
-            }
-
-            result += "</PlayerSet>";
-            return result;
-        }
+        }       
 
         private void InternalClear()
         {
-            this.Player1 = null;
-            this.Player2 = null;
+            this.Player1 = new Player();
+            this.Player2 = new Player();
         }
     }
 }

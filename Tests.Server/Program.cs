@@ -83,7 +83,7 @@
             var result = "<Players>";
             foreach (var player in players)
             {
-                result += player.Save();
+                result += JsonHelper.Save(player);
             }
             result += "</Players>";
 

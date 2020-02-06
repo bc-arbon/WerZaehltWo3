@@ -8,8 +8,8 @@ namespace BCA.WerZaehltWo3.Common
 {
     public class Constants
     {
-        public const string AppSettingsFilename = "AppSettings.xml";
+        public const string AppSettingsFilename = "AppSettings.json";
 
-        public const string PlayerboardFilename = "Playerboard.xml";
+        public const string PlayerboardFilename = "Playerboard.json";
     }
 }

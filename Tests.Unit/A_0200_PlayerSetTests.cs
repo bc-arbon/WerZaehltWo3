@@ -1,7 +1,6 @@
 ﻿namespace BCA.WerZaehltWo3.Tests.Unit
 {
-    using System;
-    using System.Xml;
+    using BCA.WerZaehltWo3.Common;
     using BCA.WerZaehltWo3.ObjectModel;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -71,25 +70,14 @@
             var actual = object1.Equals(object2);
             Assert.IsTrue(actual);
         }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void E_SaveLoad_ArgumentNull_00()
-        {
-            var object1 = new PlayerSet();
-            object1.Load(null);
-        }
-
+        
         [TestMethod]
         public void E_SaveLoad_Functional_00()
         {
             var object1 = InitializedObjects.CreateNewPlayerSet();
-            var object2 = new PlayerSet();
 
-            var xml = object1.Save();
-            var doc = new XmlDocument();
-            doc.LoadXml(xml);
-            object2.Load(doc.SelectSingleNode("PlayerSet"));
+            var json = JsonHelper.Save(object1);
+            var object2 = (PlayerSet)JsonHelper.Load(json, typeof(PlayerSet));
 
             var actual = object1.Equals(object2);
             Assert.IsTrue(actual);
@@ -99,12 +87,9 @@
         public void E_SaveLoad_Functional_01()
         {
             var object1 = new PlayerSet();
-            var object2 = new PlayerSet();
 
-            var xml = object1.Save();
-            var doc = new XmlDocument();
-            doc.LoadXml(xml);
-            object2.Load(doc.SelectSingleNode("PlayerSet"));
+            var json = JsonHelper.Save(object1);
+            var object2 = (PlayerSet)JsonHelper.Load(json, typeof(PlayerSet));
 
             var actual = object1.Equals(object2);
             Assert.IsTrue(actual);

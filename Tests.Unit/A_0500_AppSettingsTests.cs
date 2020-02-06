@@ -2,6 +2,7 @@
 {
     using System;
     using System.Xml;
+    using BCA.WerZaehltWo3.Common;
     using BCA.WerZaehltWo3.ObjectModel;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -61,25 +62,14 @@
             var hash2 = object2.GetHashCode();
             Assert.AreNotEqual(hash1, hash2);
         }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void E_SaveLoad_ArgumentNull_00()
-        {
-            var object1 = new AppSettings();
-            object1.Load(null);
-        }
-
+                
         [TestMethod]
         public void E_SaveLoad_Functional_00()
         {
             var object1 = InitializedObjects.CreateNewAppSettings();
-            var object2 = new AppSettings();
 
-            var xml = object1.Save();
-            var doc = new XmlDocument();
-            doc.LoadXml(xml);
-            object2.Load(doc.SelectSingleNode("AppSettings"));
+            var json = JsonHelper.Save(object1);
+            var object2 = (AppSettings)JsonHelper.Load(json, typeof(AppSettings));
 
             var actual = object1.Equals(object2);
             Assert.IsTrue(actual);
@@ -89,12 +79,9 @@
         public void E_SaveLoad_Functional_01()
         {
             var object1 = new AppSettings();
-            var object2 = new AppSettings();
 
-            var xml = object1.Save();
-            var doc = new XmlDocument();
-            doc.LoadXml(xml);
-            object2.Load(doc.SelectSingleNode("AppSettings"));
+            var json = JsonHelper.Save(object1);
+            var object2 = (AppSettings)JsonHelper.Load(json, typeof(AppSettings));
 
             var actual = object1.Equals(object2);
             Assert.IsTrue(actual);

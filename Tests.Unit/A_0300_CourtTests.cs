@@ -2,6 +2,7 @@
 {
     using System;
     using System.Xml;
+    using BCA.WerZaehltWo3.Common;
     using BCA.WerZaehltWo3.ObjectModel;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -71,25 +72,14 @@
             var actual = object1.Equals(object2);
             Assert.IsTrue(actual);
         }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void E_SaveLoad_ArgumentNull_00()
-        {
-            var object1 = new Court();
-            object1.Load(null);
-        }
-
+        
         [TestMethod]
         public void E_SaveLoad_Functional_00()
         {
             var object1 = InitializedObjects.CreateNewCourt();
-            var object2 = new Court();
 
-            var xml = object1.Save();
-            var doc = new XmlDocument();
-            doc.LoadXml(xml);
-            object2.Load(doc.SelectSingleNode("Court"));
+            var json = JsonHelper.Save(object1);
+            var object2 = (Court)JsonHelper.Load(json, typeof(Court));
 
             var actual = object1.Equals(object2);
             Assert.IsTrue(actual);
@@ -99,12 +89,9 @@
         public void E_SaveLoad_Functional_01()
         {
             var object1 = new Court();
-            var object2 = new Court();
 
-            var xml = object1.Save();
-            var doc = new XmlDocument();
-            doc.LoadXml(xml);
-            object2.Load(doc.SelectSingleNode("Court"));
+            var json = JsonHelper.Save(object1);
+            var object2 = (Court)JsonHelper.Load(json, typeof(Court));
 
             var actual = object1.Equals(object2);
             Assert.IsTrue(actual);

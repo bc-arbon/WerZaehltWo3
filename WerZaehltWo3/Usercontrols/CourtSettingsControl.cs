@@ -119,8 +119,7 @@
 
         private void BtnUndo_Click(object sender, EventArgs e)
         {
-            var tempCourt = new Court();
-            tempCourt.LoadXml(this.backups.Pop());
+            var tempCourt = (Court)JsonHelper.Load(this.backups.Pop(), typeof(Court));
             this.txtReady1.Text = tempCourt.PlayersReady.Player1.Name;
             this.txtReady2.Text = tempCourt.PlayersReady.Player2.Name;
             this.txtCount1.Text = tempCourt.PlayersCount.Player1.Name;
@@ -150,7 +149,7 @@
             tempCourt.PlayersCount.Player2 = new Player(this.txtCount2.Text);
             tempCourt.PlayersPlay.Player1 = new Player(this.txtPlay1.Text);
             tempCourt.PlayersPlay.Player2 = new Player(this.txtPlay2.Text);
-            this.backups.Push(tempCourt.Save());
+            this.backups.Push(JsonHelper.Save(tempCourt));
             this.btnUndo.Enabled = this.backups.Count > 0;
         }
     }

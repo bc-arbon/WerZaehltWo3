@@ -14,12 +14,7 @@
         public List<Player> Players { get; } = new List<Player>();
 
         public List<Court> Courts { get; } = new List<Court>();
-
-        public override bool Equals(object obj)
-        {
-            return this.Equals((Playerboard)obj);
-        }
-
+        
         public bool Equals(Playerboard other)
         {
             if (other == null)
@@ -101,62 +96,10 @@
             }
         }
 
-        public override void Load(XmlNode node)
-        {
-            if (node == null) throw new ArgumentNullException("node");
-
-            this.InternalClear();
-
-            var courtNodes = node.SelectNodes("Courts/Court");
-            if (courtNodes != null)
-            {
-                this.Courts.Clear();
-                foreach (XmlNode courtNode in courtNodes)
-                {
-                    var court = new Court();
-                    court.Load(courtNode);
-                    this.Courts.Add(court);
-                }
-            }
-
-            var playerNodes = node.SelectNodes("Players/Player");
-            if (playerNodes != null)
-            {
-                foreach (XmlNode playerNode in playerNodes)
-                {
-                    var player = new Player();
-                    player.Load(playerNode);
-                    this.Players.Add(player);
-                }
-            }
-        }
-
-        public override string Save()
-        {
-            var result = "<Playerboard>";
-
-            result += "<Courts>";
-            foreach (var court in this.Courts)
-            {
-                result += court.Save();
-            }
-
-            result += "</Courts>";
-            result += "<Players>";
-            foreach (var player in this.Players)
-            {
-                result += player.Save();
-            }
-
-            result += "</Players></Playerboard>";
-            return result;
-        }
-
         private void InternalClear()
         {
             this.Players.Clear();
             this.Courts.Clear();
-            this.Courts.Add(new Court { Number = 1 });
         }
     }
 }

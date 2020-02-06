@@ -2,6 +2,7 @@
 {
     using System;
     using System.Xml;
+    using BCA.WerZaehltWo3.Common;
     using BCA.WerZaehltWo3.ObjectModel;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -73,23 +74,12 @@
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void E_SaveLoad_ArgumentNull_00()
-        {
-            var object1 = new Playerboard();
-            object1.Load(null);
-        }
-
-        [TestMethod]
         public void E_SaveLoad_Functional_00()
         {
             var object1 = InitializedObjects.CreateNewPlayerboard();
-            var object2 = new Playerboard();
 
-            var xml = object1.Save();
-            var doc = new XmlDocument();
-            doc.LoadXml(xml);
-            object2.Load(doc.SelectSingleNode("Playerboard"));
+            var json = JsonHelper.Save(object1);
+            var object2 = (Playerboard)JsonHelper.Load(json, typeof(Playerboard));
 
             var actual = object1.Equals(object2);
             Assert.IsTrue(actual);
@@ -99,12 +89,9 @@
         public void E_SaveLoad_Functional_01()
         {
             var object1 = new Playerboard();
-            var object2 = new Playerboard();
 
-            var xml = object1.Save();
-            var doc = new XmlDocument();
-            doc.LoadXml(xml);
-            object2.Load(doc.SelectSingleNode("Playerboard"));
+            var json = JsonHelper.Save(object1);
+            var object2 = (Playerboard)JsonHelper.Load(json, typeof(Playerboard));
 
             var actual = object1.Equals(object2);
             Assert.IsTrue(actual);

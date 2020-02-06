@@ -106,29 +106,7 @@
             this.Category = other.Category;
             this.Id = other.Id;
         }
-
-        public override void Load(XmlNode node)
-        {
-            if (node == null) throw new ArgumentNullException("node");
-
-            this.InternalClear();
-
-            this.Id = XmlHelper.LoadAttribute(node, "id", this.Id);
-            this.Name = XmlHelper.LoadAttribute(node, "name", this.Name);
-            this.Club = XmlHelper.LoadAttribute(node, "club", this.Club);
-            this.Category = XmlHelper.LoadAttribute(node, "category", this.Category);
-        }
-
-        public override string Save()
-        {
-            var result = "<Player ";
-            result += XmlHelper.SaveAttribute("id", this.Id) + " ";
-            result += XmlHelper.SaveAttribute("name", this.Name) + " ";
-            result += XmlHelper.SaveAttribute("category", this.Category) + " ";
-            result += XmlHelper.SaveAttribute("club", this.Club) + " />";
-            return result;
-        }
-
+        
         private void InternalClear()
         {
             this.Id = null;
