@@ -1,5 +1,6 @@
 ﻿namespace BCA.WerZaehltWo3.Usercontrols
 {
+    using System;
     using System.Drawing;
     using System.Drawing.Drawing2D;
     using System.Globalization;
@@ -52,7 +53,18 @@
         {
             if (player != null)
             {
-                label.Text = player.Name;
+                if (!string.IsNullOrEmpty(player.Name) && player.Name.Contains("/"))
+                {
+                    var split = player.Name.Split('/');
+                    if (split.Length > 1)
+                    {
+                        label.Text = split[0].Trim() + Environment.NewLine + split[1].Trim();
+                    }
+                }
+                else
+                {
+                    label.Text = player.Name;
+                }
             }
         }
 

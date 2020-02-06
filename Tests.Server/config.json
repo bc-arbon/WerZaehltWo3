@@ -1,0 +1,7 @@
+﻿{
+  "serveraddress": "127.0.0.1",
+  "port": "9320",
+  "adapter": "test",
+  "databaseFilepath": "C:\\btsync\\BCA - Juniorenturnier\\2020\\Schülerturnier 2020.TP",
+  "debug": true
+}

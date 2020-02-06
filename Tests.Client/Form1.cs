@@ -1,5 +1,6 @@
 ﻿namespace Tests.Client
 {
+    using BCA.WerZaehltWo3.Common;
     using BCA.WerZaehltWo3.ObjectModel;
     using System;
     using System.Net.Sockets;

@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{EDD6FB90-4FD9-44EE-A908-4154F742BA71}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Tests.Server</RootNamespace>
+    <RootNamespace>BCA.WerZaehltWo3.Tests.Server.Adapters</RootNamespace>
     <AssemblyName>Tests.Server</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,13 +46,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapters\IAdapter.cs" />
+    <Compile Include="Adapters\TestAdapter.cs" />
+    <Compile Include="Adapters\TsDatabaseAdapter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServerSettings.cs" />
+    <Compile Include="SettingsProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{9ef114eb-6e13-457b-8dea-d6d7c29ea1c4}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ObjectModel\ObjectModel.csproj">
       <Project>{8f506022-1e7c-474a-892e-ad14ee521143}</Project>
       <Name>ObjectModel</Name>

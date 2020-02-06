@@ -1,21 +1,36 @@
-﻿namespace Tests.Server
+﻿namespace BCA.WerZaehltWo3.Tests.Server
 {
-    using BCA.WerZaehltWo3.ObjectModel;
+    using BCA.WerZaehltWo3.Tests.Server.Adapters;
+    using BCA.WerZaehltWo3.Common;
     using System;
     using System.Net;
     using System.Net.Sockets;
     using System.Text;
+    using BCA.WerZaehltWo3.Tests.Server.Adapters.Adapters;
 
-    public class Program
+    public static class Program
     {
-        const int PORT_NO = 9320;
-        const string SERVER_IP = "127.0.0.1";
-
+        private static IAdapter adapter;
+        private static ServerSettings settings;
         public static void Main(string[] args)
         {
+            //---initialize settings
+            settings = new SettingsProvider().Settings;
+
+            //---initialize adapter ---
+            switch(settings.Adapter)
+            {
+                case "ts":
+                    adapter = new TsDatabaseAdapter();
+                    break;
+                case "test":
+                    adapter = new TestAdapter();
+                    break;
+            }            
+
             //---listen at the specified IP and port no.---
-            var localAdd = IPAddress.Parse(SERVER_IP);
-            var listener = new TcpListener(localAdd, PORT_NO);
+            var localAdd = IPAddress.Parse(settings.ServerAddress);
+            var listener = new TcpListener(localAdd, settings.Port);
             Console.WriteLine("Listening...");
             listener.Start();
             while (true)
@@ -37,7 +52,7 @@
                 var result = handleReceivedData(dataReceived);
 
                 //---write back the text to the client---
-                Console.WriteLine("Sending back : " + result);
+                Console.Write("Sending back : " + result);
                 var bytesToSend = ASCIIEncoding.ASCII.GetBytes(result);
                 nwStream.Write(bytesToSend, 0, bytesToSend.Length);
                 client.Close();
@@ -48,8 +63,31 @@
         {
             var split = dataReceived.Split(';');
             var function = (Functions)Convert.ToInt32(split[0]);
-            Console.WriteLine(function.ToString());
-            return split[1] + " bla";
+            Console.WriteLine("Processing " + function.ToString() + "...");
+            var result = string.Empty;
+            switch (function)
+            {
+                case Functions.GetPlayers:
+                    result = getPlayers();
+                    break;
+            }
+
+            return result;
+        }
+
+        private static string getPlayers()
+        {            
+            adapter.Connect(settings.DatabaseFilepath);
+            var players = adapter.GetPlayers();
+            adapter.Close();
+            var result = "<Players>";
+            foreach (var player in players)
+            {
+                result += player.Save();
+            }
+            result += "</Players>";
+
+            return result;
         }
     }
 }

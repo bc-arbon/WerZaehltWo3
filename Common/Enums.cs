@@ -1,4 +1,4 @@
-﻿namespace BCA.WerZaehltWo3.ObjectModel
+﻿namespace BCA.WerZaehltWo3.Common
 {
     public enum Functions
     {

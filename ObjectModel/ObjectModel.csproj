@@ -45,7 +45,6 @@
     <Compile Include="AppSettings.cs" />
     <Compile Include="BaseObject.cs" />
     <Compile Include="Court.cs" />
-    <Compile Include="Enums.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Playerboard.cs" />
     <Compile Include="PlayerSet.cs" />

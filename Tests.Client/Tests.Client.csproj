@@ -80,6 +80,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{9EF114EB-6E13-457B-8DEA-D6D7C29EA1C4}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ObjectModel\ObjectModel.csproj">
       <Project>{8F506022-1E7C-474A-892E-AD14EE521143}</Project>
       <Name>ObjectModel</Name>
