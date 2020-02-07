@@ -36,6 +36,24 @@
 
         public int CourtNumber { get; private set; }
 
+        public float FontSize
+        {
+            get
+            {
+                return this.lblPlay1.Font.Size;
+            }
+
+            set
+            {
+                this.lblPlay1.Font = new Font(this.lblPlay1.Font.Name, value, FontStyle.Bold);
+                this.lblPlay2.Font = new Font(this.lblPlay2.Font.Name, value, FontStyle.Bold);
+                this.lblReady1.Font = new Font(this.lblReady1.Font.Name, value, FontStyle.Bold);
+                this.lblReady2.Font = new Font(this.lblReady2.Font.Name, value, FontStyle.Bold);
+                this.lblCounting1.Font = new Font(this.lblCounting1.Font.Name, value, FontStyle.Bold);
+                this.lblCounting2.Font = new Font(this.lblCounting2.Font.Name, value, FontStyle.Bold);
+            }
+        }
+
         public void SetData(Court court)
         {
             this.CourtNumber = court.Number;

@@ -19,17 +19,19 @@
         {
             this.InitializeComponent();
         }
+
         private void FrmMain_Load(object sender, EventArgs e)
         {
             this.playerboardManager.Load();
             this.settingsManager.Load();
             this.Size = this.settingsManager.AppSettings.WindowSize;
 
-            this.displayForm.PlayerboardManager = this.playerboardManager;
+            this.displayForm.PlayerboardManager = this.playerboardManager;           
             this.displayForm.Show();
 
             this.InitializeSettingControls();
             this.displayForm.InitializeDisplayControls();
+            this.displayForm.SetFontSize(this.playerboardManager.Playerboard.Settings.FontSize);
         }
 
         private void MnuFileShowDisplay_Click(object sender, EventArgs e)

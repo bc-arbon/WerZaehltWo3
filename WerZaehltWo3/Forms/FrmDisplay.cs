@@ -67,5 +67,13 @@
         {
             this.Invalidate();
         }
+
+        public void SetFontSize(float fontSize)
+        {            
+            foreach (CourtDisplayControl control in this.pnlControl.Controls)
+            {
+                control.FontSize = fontSize;           
+            }
+        }
     }
 }

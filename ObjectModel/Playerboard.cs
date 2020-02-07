@@ -8,12 +8,16 @@
     {
         public Playerboard()
         {
+            this.Players = new List<Player>();
+            this.Courts = new List<Court>();
             this.InternalClear();
         }
 
-        public List<Player> Players { get; } = new List<Player>();
+        public List<Player> Players { get; private set; }
 
-        public List<Court> Courts { get; } = new List<Court>();
+        public List<Court> Courts { get; private set; }
+
+        public PlayerboardSettings Settings { get; private set; }
         
         public bool Equals(Playerboard other)
         {
@@ -100,6 +104,7 @@
         {
             this.Players.Clear();
             this.Courts.Clear();
+            this.Settings = new PlayerboardSettings();
         }
     }
 }
