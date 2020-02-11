@@ -48,6 +48,10 @@
     <Compile Include="PlayerboardSettings.cs" />
     <Compile Include="PlayerSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TournamentSoftware\Entry.cs" />
+    <Compile Include="TournamentSoftware\Event.cs" />
+    <Compile Include="TournamentSoftware\PlanningPlayer.cs" />
+    <Compile Include="TournamentSoftware\PlayerMatch.cs" />
     <Compile Include="TsRequest.cs" />
   </ItemGroup>
   <ItemGroup>

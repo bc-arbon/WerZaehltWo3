@@ -43,6 +43,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Forms\FrmBadmanDatabaseTest.cs">
@@ -62,6 +63,12 @@
     </Compile>
     <Compile Include="Forms\FrmTsDatabaseTest.Designer.cs">
       <DependentUpon>FrmTsDatabaseTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TsPlanningTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TsPlanningTestForm.Designer.cs">
+      <DependentUpon>TsPlanningTestForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmTsDatabaseTest.resx">
       <DependentUpon>FrmTsDatabaseTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TsPlanningTestForm.resx">
+      <DependentUpon>TsPlanningTestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

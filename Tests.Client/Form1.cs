@@ -1,6 +1,7 @@
 ﻿namespace Tests.Client
 {
     using BCA.WerZaehltWo3.Common;
+    using BCA.WerZaehltWo3.Adapters;
     using BCA.WerZaehltWo3.ObjectModel;
     using System;
     using System.Net.Sockets;
@@ -37,6 +38,6 @@
             Console.WriteLine("Received : " + Encoding.ASCII.GetString(bytesToRead, 0, bytesRead));
             Console.ReadLine();
             client.Close();
-        }
+        }        
     }
 }
