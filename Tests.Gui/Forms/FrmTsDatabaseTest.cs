@@ -26,7 +26,7 @@
 
         private void BtnConnect_Click(object sender, EventArgs e)
         {
-            this.adapter.Connect(this.txtDatabaseFilepath.Text);
+            //this.adapter.Connect(this.txtDatabaseFilepath.Text);
             //var tournaments = this.adapter.GetTournaments();
             //this.txtTournaments.AutoCompleteCustomSource.Clear();
             //foreach (var tournament in tournaments)

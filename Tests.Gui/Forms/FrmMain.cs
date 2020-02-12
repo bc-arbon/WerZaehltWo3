@@ -1,4 +1,4 @@
-﻿namespace Tests.Gui
+﻿namespace BCA.WerZaehltWo3.Tests.Gui.Forms
 {
     using BCA.WerZaehltWo3.ObjectModel;
     using Newtonsoft.Json;
@@ -20,6 +20,12 @@
 
             File.WriteAllText(file, JsonConvert.SerializeObject(board, Formatting.Indented));
             var board2 = JsonConvert.DeserializeObject<Playerboard>(File.ReadAllText(file));
+        }
+
+        private void btnTsPlanningTest_Click(object sender, EventArgs e)
+        {
+            var bla = new TsPlanningTestForm();
+            bla.ShowDialog();
         }
     }
 }

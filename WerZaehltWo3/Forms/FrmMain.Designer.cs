@@ -51,7 +51,7 @@
             this.mnuHelp});
             this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
-            this.mnuMain.Size = new System.Drawing.Size(1200, 35);
+            this.mnuMain.Size = new System.Drawing.Size(1200, 36);
             this.mnuMain.TabIndex = 0;
             this.mnuMain.Text = "menuStrip1";
             // 
@@ -64,7 +64,7 @@
             this.toolStripSeparator1,
             this.mnuFileQuit});
             this.mnuFile.Name = "mnuFile";
-            this.mnuFile.Size = new System.Drawing.Size(69, 29);
+            this.mnuFile.Size = new System.Drawing.Size(69, 30);
             this.mnuFile.Text = "Datei";
             // 
             // mnuFileShowDisplay
@@ -105,7 +105,7 @@
             this.mnuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuHelpInfo});
             this.mnuHelp.Name = "mnuHelp";
-            this.mnuHelp.Size = new System.Drawing.Size(36, 29);
+            this.mnuHelp.Size = new System.Drawing.Size(36, 30);
             this.mnuHelp.Text = "?";
             // 
             // mnuHelpInfo
@@ -118,10 +118,10 @@
             // pnlSettingsControls
             // 
             this.pnlSettingsControls.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlSettingsControls.Location = new System.Drawing.Point(0, 35);
+            this.pnlSettingsControls.Location = new System.Drawing.Point(0, 36);
             this.pnlSettingsControls.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlSettingsControls.Name = "pnlSettingsControls";
-            this.pnlSettingsControls.Size = new System.Drawing.Size(1200, 657);
+            this.pnlSettingsControls.Size = new System.Drawing.Size(1200, 656);
             this.pnlSettingsControls.TabIndex = 1;
             // 
             // FrmMain

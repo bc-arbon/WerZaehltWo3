@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BCA.WerZaehltWo3.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +12,9 @@ namespace BCA.WerZaehltWo3.ObjectModel.TournamentSoftware
         public int Id { get; set; }
 
         public string Name { get; set; }
+
+        public EventType EventType { get; set; }
+
+        public Gender Gender { get; set; }
     }
 }

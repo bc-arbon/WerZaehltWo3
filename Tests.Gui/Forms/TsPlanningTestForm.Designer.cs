@@ -33,6 +33,7 @@
             this.btnGetPlanningIds = new System.Windows.Forms.Button();
             this.txtEventId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnGetCurrentMatches = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -50,7 +51,7 @@
             this.txtOutput.Location = new System.Drawing.Point(38, 147);
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
-            this.txtOutput.Size = new System.Drawing.Size(450, 239);
+            this.txtOutput.Size = new System.Drawing.Size(750, 239);
             this.txtOutput.TabIndex = 1;
             // 
             // btnGetPlanningIds
@@ -79,11 +80,22 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Event:";
             // 
+            // btnGetCurrentMatches
+            // 
+            this.btnGetCurrentMatches.Location = new System.Drawing.Point(483, 65);
+            this.btnGetCurrentMatches.Name = "btnGetCurrentMatches";
+            this.btnGetCurrentMatches.Size = new System.Drawing.Size(138, 55);
+            this.btnGetCurrentMatches.TabIndex = 5;
+            this.btnGetCurrentMatches.Text = "get current matches";
+            this.btnGetCurrentMatches.UseVisualStyleBackColor = true;
+            this.btnGetCurrentMatches.Click += new System.EventHandler(this.btnGetCurrentMatches_Click);
+            // 
             // TsPlanningTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnGetCurrentMatches);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtEventId);
             this.Controls.Add(this.btnGetPlanningIds);
@@ -103,5 +115,6 @@
         private System.Windows.Forms.Button btnGetPlanningIds;
         private System.Windows.Forms.TextBox txtEventId;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnGetCurrentMatches;
     }
 }

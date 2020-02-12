@@ -1,4 +1,4 @@
-﻿namespace Tests.Gui
+﻿namespace BCA.WerZaehltWo3.Tests.Gui.Forms
 {
     partial class FrmMain
     {
@@ -33,6 +33,7 @@
             this.courtCountControl1 = new BCA.WerZaehltWo3.Tests.Gui.Usercontrols.CourtCountControl();
             this.playerEditorControl1 = new BCA.WerZaehltWo3.Tests.Gui.Usercontrols.PlayerEditorControl();
             this.btnJsonTest = new System.Windows.Forms.Button();
+            this.btnTsPlanningTest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnTsTest
@@ -81,11 +82,23 @@
             this.btnJsonTest.UseVisualStyleBackColor = true;
             this.btnJsonTest.Click += new System.EventHandler(this.btnJsonTest_Click);
             // 
+            // btnTsPlanningTest
+            // 
+            this.btnTsPlanningTest.Location = new System.Drawing.Point(18, 273);
+            this.btnTsPlanningTest.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnTsPlanningTest.Name = "btnTsPlanningTest";
+            this.btnTsPlanningTest.Size = new System.Drawing.Size(213, 35);
+            this.btnTsPlanningTest.TabIndex = 9;
+            this.btnTsPlanningTest.Text = "TS Planning Test";
+            this.btnTsPlanningTest.UseVisualStyleBackColor = true;
+            this.btnTsPlanningTest.Click += new System.EventHandler(this.btnTsPlanningTest_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(597, 414);
+            this.Controls.Add(this.btnTsPlanningTest);
             this.Controls.Add(this.btnJsonTest);
             this.Controls.Add(this.playerEditorControl1);
             this.Controls.Add(this.courtCountControl1);
@@ -105,6 +118,7 @@
         private BCA.WerZaehltWo3.Tests.Gui.Usercontrols.CourtCountControl courtCountControl1;
         private BCA.WerZaehltWo3.Tests.Gui.Usercontrols.PlayerEditorControl playerEditorControl1;
         private System.Windows.Forms.Button btnJsonTest;
+        private System.Windows.Forms.Button btnTsPlanningTest;
     }
 }
 
