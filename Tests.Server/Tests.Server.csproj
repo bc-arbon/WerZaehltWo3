@@ -59,13 +59,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj">
+    <ProjectReference Include="..\Shared\Shared.csproj">
       <Project>{9ef114eb-6e13-457b-8dea-d6d7c29ea1c4}</Project>
-      <Name>Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ObjectModel\ObjectModel.csproj">
-      <Project>{8f506022-1e7c-474a-892e-ad14ee521143}</Project>
-      <Name>ObjectModel</Name>
+      <Name>Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

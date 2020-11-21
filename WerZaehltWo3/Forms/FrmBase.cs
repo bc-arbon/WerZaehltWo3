@@ -1,7 +1,7 @@
-﻿namespace BCA.WerZaehltWo3.Forms
-{
-    using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
+namespace BCA.WerZaehltWo3.Forms
+{
     public partial class FrmBase : Form
     {
         public FrmBase()

@@ -1,16 +1,16 @@
-﻿namespace BCA.WerZaehltWo3.Usercontrols
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Windows.Forms;
+
+using BCA.WerZaehltWo3.Shared.Logic;
+using BCA.WerZaehltWo3.Shared.Eventing;
+using BCA.WerZaehltWo3.Shared.Helpers;
+using BCA.WerZaehltWo3.Shared.ObjectModel;
+
+namespace BCA.WerZaehltWo3.Usercontrols
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Globalization;
-    using System.Linq;
-    using System.Windows.Forms;
-
-    using BCA.WerZaehltWo3.ObjectModel;
-    using BCA.WerZaehltWo3.Logic;
-    using BCA.WerZaehltWo3.Eventing;
-    using BCA.WerZaehltWo3.Common;
-
     public partial class CourtSettingsControl : UserControl
     {
         private readonly LimitedStack<string> backups;

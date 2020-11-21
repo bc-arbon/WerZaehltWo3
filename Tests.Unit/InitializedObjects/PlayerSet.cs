@@ -1,7 +1,7 @@
-﻿namespace BCA.WerZaehltWo3.Tests.Unit
+﻿using BCA.WerZaehltWo3.Shared.ObjectModel;
+
+namespace BCA.WerZaehltWo3.Tests.Unit
 {
-    using BCA.WerZaehltWo3.ObjectModel;
-    
     public partial class InitializedObjects
     {
         public static PlayerSet CreateNewPlayerSet()

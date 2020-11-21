@@ -1,10 +1,10 @@
-﻿namespace BCA.WerZaehltWo3.Forms
+﻿using System;
+using System.Windows.Forms;
+
+using BCA.WerZaehltWo3.Shared.ObjectModel;
+
+namespace BCA.WerZaehltWo3.Forms
 {
-    using System;
-    using System.Windows.Forms;
-
-    using BCA.WerZaehltWo3.ObjectModel;
-
     public partial class FrmPlayer : FrmBase
     {
         private readonly Playerboard playerboard;

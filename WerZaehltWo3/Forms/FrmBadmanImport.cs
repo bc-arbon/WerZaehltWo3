@@ -1,13 +1,12 @@
-﻿namespace BCA.WerZaehltWo3.Forms
+﻿using BCA.WerZaehltWo3.Shared.Adapters;
+using BCA.WerZaehltWo3.Shared.ObjectModel;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace BCA.WerZaehltWo3.Forms
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Windows.Forms;
-
-    using BCA.WerZaehltWo3.ObjectModel;
-    using BCA.WerZaehltWo3.Adapters;
-
     public partial class FrmBadmanImport : FrmBase
     {
         private readonly BadmanDatabaseAdapter adapter = new BadmanDatabaseAdapter();

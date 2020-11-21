@@ -1,13 +1,13 @@
-﻿namespace BCA.WerZaehltWo3.Forms
+﻿using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Windows.Forms;
+
+using BCA.WerZaehltWo3.Shared.Logic;
+using BCA.WerZaehltWo3.Usercontrols;
+using BCA.WerZaehltWo3.Shared.ObjectModel;
+
+namespace BCA.WerZaehltWo3.Forms
 {
-    using System.Drawing;
-    using System.Drawing.Drawing2D;
-    using System.Windows.Forms;
-
-    using BCA.WerZaehltWo3.Logic;
-    using BCA.WerZaehltWo3.Usercontrols;
-    using BCA.WerZaehltWo3.ObjectModel;
-
     public partial class FrmDisplay : Form
     {
         private LinearGradientBrush brush;

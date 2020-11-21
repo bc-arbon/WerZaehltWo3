@@ -80,7 +80,7 @@
             this.btnJsonTest.TabIndex = 8;
             this.btnJsonTest.Text = "Json Test";
             this.btnJsonTest.UseVisualStyleBackColor = true;
-            this.btnJsonTest.Click += new System.EventHandler(this.btnJsonTest_Click);
+            this.btnJsonTest.Click += new System.EventHandler(this.BtnJsonTest_Click);
             // 
             // btnTsPlanningTest
             // 

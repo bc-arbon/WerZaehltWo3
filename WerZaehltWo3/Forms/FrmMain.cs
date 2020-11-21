@@ -1,12 +1,12 @@
-﻿namespace BCA.WerZaehltWo3.Forms
-{
-    using BCA.WerZaehltWo3.Eventing;
-    using BCA.WerZaehltWo3.Logic;
-    using BCA.WerZaehltWo3.Usercontrols;
-    using System;
-    using System.Linq;
-    using System.Windows.Forms;
+﻿using BCA.WerZaehltWo3.Shared.Logic;
+using BCA.WerZaehltWo3.Shared.Eventing;
+using BCA.WerZaehltWo3.Usercontrols;
+using System;
+using System.Linq;
+using System.Windows.Forms;
 
+namespace BCA.WerZaehltWo3.Forms
+{
     public partial class FrmMain : Form
     {
         private readonly SettingsManager settingsManager = new SettingsManager();

@@ -1,13 +1,14 @@
-﻿namespace BCA.WerZaehltWo3.Tests.Server
-{
-    using BCA.WerZaehltWo3.Tests.Server.Adapters;
-    using BCA.WerZaehltWo3.Common;
-    using System;
-    using System.Net;
-    using System.Net.Sockets;
-    using System.Text;
-    using BCA.WerZaehltWo3.Tests.Server.Adapters.Adapters;
+﻿using BCA.WerZaehltWo3.Tests.Server.Adapters;
+using System;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
+using BCA.WerZaehltWo3.Tests.Server.Adapters.Adapters;
+using BCA.WerZaehltWo3.Shared;
+using BCA.WerZaehltWo3.Shared.Helpers;
 
+namespace BCA.WerZaehltWo3.Tests.Server
+{
     public static class Program
     {
         private static IAdapter adapter;
@@ -49,7 +50,7 @@
                 var dataReceived = Encoding.ASCII.GetString(buffer, 0, bytesRead);
                 Console.WriteLine("Received : " + dataReceived);
 
-                var result = handleReceivedData(dataReceived);
+                var result = HandleReceivedData(dataReceived);
 
                 //---write back the text to the client---
                 Console.Write("Sending back : " + result);
@@ -59,7 +60,7 @@
             }
         }
 
-        private static string handleReceivedData(string dataReceived)
+        private static string HandleReceivedData(string dataReceived)
         {
             var split = dataReceived.Split(';');
             var function = (Functions)Convert.ToInt32(split[0]);
@@ -68,14 +69,14 @@
             switch (function)
             {
                 case Functions.GetPlayers:
-                    result = getPlayers();
+                    result = GetPlayers();
                     break;
             }
 
             return result;
         }
 
-        private static string getPlayers()
+        private static string GetPlayers()
         {            
             adapter.Connect(settings.DatabaseFilepath);
             var players = adapter.GetPlayers();

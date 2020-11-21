@@ -1,13 +1,14 @@
-﻿namespace BCA.WerZaehltWo3.Usercontrols
+﻿using System;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Globalization;
+using System.Windows.Forms;
+
+using BCA.WerZaehltWo3.ObjectModel;
+using BCA.WerZaehltWo3.Shared.ObjectModel;
+
+namespace BCA.WerZaehltWo3.Usercontrols
 {
-    using System;
-    using System.Drawing;
-    using System.Drawing.Drawing2D;
-    using System.Globalization;
-    using System.Windows.Forms;
-
-    using BCA.WerZaehltWo3.ObjectModel;
-
     public partial class CourtDisplayControl : UserControl
     {
         private readonly LinearGradientBrush brushLine;

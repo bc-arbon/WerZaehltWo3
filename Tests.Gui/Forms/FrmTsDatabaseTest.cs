@@ -1,10 +1,10 @@
-﻿namespace BCA.WerZaehltWo3.Tests.Gui.Forms
-{
-    using BCA.WerZaehltWo3.Adapters;
-    using BCA.WerZaehltWo3.Tests.Gui.Properties;
-    using System;
-    using System.Windows.Forms;
+﻿using BCA.WerZaehltWo3.Shared.Adapters;
+using BCA.WerZaehltWo3.Tests.Gui.Properties;
+using System;
+using System.Windows.Forms;
 
+namespace BCA.WerZaehltWo3.Tests.Gui.Forms
+{
     public partial class FrmTsDatabaseTest : Form
     {
         private readonly TsDatabaseAdapter adapter = new TsDatabaseAdapter();

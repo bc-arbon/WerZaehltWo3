@@ -1,10 +1,10 @@
-﻿namespace BCA.WerZaehltWo3.Tests.Gui.Usercontrols
-{
-    using System;
-    using System.Globalization;
-    using System.Windows.Forms;
-    using BCA.WerZaehltWo3.Forms;    
+﻿using System;
+using System.Globalization;
+using System.Windows.Forms;
+using BCA.WerZaehltWo3.Forms;    
 
+namespace BCA.WerZaehltWo3.Tests.Gui.Usercontrols
+{
     public partial class CourtCountControl : UserControl
     {
         public CourtCountControl()

@@ -1,9 +1,8 @@
-﻿namespace BCA.WerZaehltWo3.Forms
-{
-    using System;
-    using System.Reflection;
-    using System.Windows.Forms;
+﻿using System.Reflection;
+using System.Windows.Forms;
 
+namespace BCA.WerZaehltWo3.Forms
+{
     partial class FrmInfo : Form
     {
         public FrmInfo()

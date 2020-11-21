@@ -1,8 +1,7 @@
 ﻿namespace Tests.Client
 {
-    using BCA.WerZaehltWo3.Common;
-    using BCA.WerZaehltWo3.Adapters;
     using BCA.WerZaehltWo3.ObjectModel;
+    using BCA.WerZaehltWo3.Shared;
     using System;
     using System.Net.Sockets;
     using System.Text;
@@ -18,7 +17,7 @@
             this.InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             //---data to send to the server---
             var textToSend = new TsRequest(Functions.GetPlayers, "aaa").ToString();

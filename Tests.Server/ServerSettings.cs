@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BCA.WerZaehltWo3.Tests.Server.Adapters
+﻿namespace BCA.WerZaehltWo3.Tests.Server.Adapters
 {
     public class ServerSettings
     {
         public ServerSettings()
         {
-            Debug = false;
+            this.Debug = false;
         }
 
         public string ServerAddress { get; set; }

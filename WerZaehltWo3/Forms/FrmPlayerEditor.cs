@@ -1,8 +1,8 @@
-﻿namespace BCA.WerZaehltWo3.Forms
-{
-    using BCA.WerZaehltWo3.ObjectModel;
-    using System;
+﻿using BCA.WerZaehltWo3.Shared.ObjectModel;
+using System;
     
+namespace BCA.WerZaehltWo3.Forms
+{
     public partial class FrmPlayerEditor : FrmBase
     {
         public FrmPlayerEditor()

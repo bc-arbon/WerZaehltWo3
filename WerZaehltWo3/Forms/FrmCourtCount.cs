@@ -1,7 +1,7 @@
-﻿namespace BCA.WerZaehltWo3.Forms
-{
-    using System;
+﻿using System;
 
+namespace BCA.WerZaehltWo3.Forms
+{
     public partial class FrmCourtCount : FrmBase
     {
         private int courtCount;

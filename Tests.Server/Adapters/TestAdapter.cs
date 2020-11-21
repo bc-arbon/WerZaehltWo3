@@ -1,4 +1,4 @@
-﻿using BCA.WerZaehltWo3.ObjectModel;
+﻿using BCA.WerZaehltWo3.Shared.ObjectModel;
 using System;
 using System.Collections.Generic;
 

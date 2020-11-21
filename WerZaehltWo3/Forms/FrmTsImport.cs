@@ -1,12 +1,12 @@
-﻿namespace BCA.WerZaehltWo3.Forms
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Windows.Forms;
-    using BCA.WerZaehltWo3.Adapters;
-    using BCA.WerZaehltWo3.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using BCA.WerZaehltWo3.Shared.Adapters;
+using BCA.WerZaehltWo3.Shared.ObjectModel;
 
+namespace BCA.WerZaehltWo3.Forms
+{
     public partial class FrmTsImport : FrmBase
     {
         private readonly TsDatabaseAdapter adapter = new TsDatabaseAdapter();

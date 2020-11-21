@@ -1,10 +1,10 @@
-﻿namespace BCA.WerZaehltWo3.Tests.Gui.Usercontrols
-{
-    using BCA.WerZaehltWo3.Forms;
-    using BCA.WerZaehltWo3.ObjectModel;
-    using System;
-    using System.Windows.Forms;
+﻿using BCA.WerZaehltWo3.Forms;
+using BCA.WerZaehltWo3.Shared.ObjectModel;
+using System;
+using System.Windows.Forms;
 
+namespace BCA.WerZaehltWo3.Tests.Gui.Usercontrols
+{
     public partial class PlayerEditorControl : UserControl
     {
         private readonly Playerboard playerboard = new Playerboard();

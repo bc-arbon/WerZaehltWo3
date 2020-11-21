@@ -1,9 +1,9 @@
-﻿namespace BCA.WerZaehltWo3
-{
-    using BCA.WerZaehltWo3.Forms;
-    using System;
-    using System.Windows.Forms;
+﻿using BCA.WerZaehltWo3.Forms;
+using System;
+using System.Windows.Forms;
 
+namespace BCA.WerZaehltWo3
+{
     public static class Program
     {
         /// <summary>

@@ -1,11 +1,10 @@
-﻿namespace BCA.WerZaehltWo3.Tests.Server.Adapters
-{
-    using BCA.WerZaehltWo3.ObjectModel;
-    using System.Collections.Generic;
-    using System.Data;
-    using System.Data.OleDb;
-    using System.IO;
+﻿using BCA.WerZaehltWo3.Shared.ObjectModel;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.OleDb;
 
+namespace BCA.WerZaehltWo3.Tests.Server.Adapters
+{
     public class TsDatabaseAdapter : IAdapter
     {
         private OleDbConnection connection;

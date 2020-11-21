@@ -1,12 +1,9 @@
-﻿namespace BCA.WerZaehltWo3.Tests.Unit
+﻿using BCA.WerZaehltWo3.Shared.Helpers;
+using BCA.WerZaehltWo3.Shared.ObjectModel;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace BCA.WerZaehltWo3.Tests.Unit
 {
-    using System;
-    using System.Xml;
-    using BCA.WerZaehltWo3.Common;
-    using BCA.WerZaehltWo3.ObjectModel;
-
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
     [TestClass]
     public class A_0100_PlayerTests
     {
