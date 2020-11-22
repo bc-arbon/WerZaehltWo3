@@ -44,7 +44,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Get Events";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // txtOutput
             // 
@@ -62,7 +62,7 @@
             this.btnGetPlanningIds.TabIndex = 2;
             this.btnGetPlanningIds.Text = "Get Planning Ids";
             this.btnGetPlanningIds.UseVisualStyleBackColor = true;
-            this.btnGetPlanningIds.Click += new System.EventHandler(this.btnGetPlanningIds_Click);
+            this.btnGetPlanningIds.Click += new System.EventHandler(this.BtnGetPlanningIds_Click);
             // 
             // txtEventId
             // 
@@ -88,7 +88,7 @@
             this.btnGetCurrentMatches.TabIndex = 5;
             this.btnGetCurrentMatches.Text = "get current matches";
             this.btnGetCurrentMatches.UseVisualStyleBackColor = true;
-            this.btnGetCurrentMatches.Click += new System.EventHandler(this.btnGetCurrentMatches_Click);
+            this.btnGetCurrentMatches.Click += new System.EventHandler(this.BtnGetCurrentMatches_Click);
             // 
             // TsPlanningTestForm
             // 

@@ -13,7 +13,7 @@ namespace BCA.WerZaehltWo3.Tests.Server.Adapters
 
         public void Connect(string databaseFilepath)
         {
-            var path = tsConnectionString.Replace("$path$", databaseFilepath);
+            var path = this.tsConnectionString.Replace("$path$", databaseFilepath);
 
             this.connection = new OleDbConnection(path);
             this.connection.Open();

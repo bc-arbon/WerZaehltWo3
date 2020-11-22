@@ -8,10 +8,6 @@
     /// <typeparam name="T">The type</typeparam>
     public class LimitedStack<T> where T : class
     {
-        /// <summary>
-        /// The stack
-        /// </summary>
-        private T[] stack;
 
         /// <summary>
         /// The capacity of the stack
@@ -38,11 +34,7 @@
         /// <summary>
         /// Gets or sets the items.
         /// </summary>
-        public T[] Items
-        {
-            get { return this.stack; }
-            set { this.stack = value; }
-        }
+        public T[] Items { get; set; }
 
         /// <summary>
         /// Gets the current count of items.
@@ -64,7 +56,7 @@
         {
             get
             {
-                return this.stack.Length;
+                return this.Items.Length;
             }
 
             set
@@ -81,7 +73,7 @@
         /// </summary>
         public void Clear()
         {
-            this.stack = new T[this.capacity];
+            this.Items = new T[this.capacity];
             this.current = -1;
         }
 
@@ -93,8 +85,8 @@
         {
             if (this.Count == 0) throw new InvalidOperationException("Stack is empty. Push an item before calling pop.");
 
-            var result = this.stack[this.current];
-            this.stack[this.current] = default(T);
+            var result = this.Items[this.current];
+            this.Items[this.current] = default;
             this.current--;
 
             return result;
@@ -110,7 +102,7 @@
             {
                 for (var i = 1; i < this.capacity; i++)
                 {
-                    this.stack[i - 1] = this.stack[i];
+                    this.Items[i - 1] = this.Items[i];
                 }
             }
             else
@@ -118,7 +110,7 @@
                 this.current++;
             }
 
-            this.stack[this.current] = newItem;
+            this.Items[this.current] = newItem;
         }
     }
 }

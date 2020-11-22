@@ -8,12 +8,12 @@ namespace BCA.WerZaehltWo3.Tests.Gui.Forms
     {
         public TsPlanningTestForm()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
-            var adapter = new TsDatabaseAdapter();
+            //var adapter = new TsDatabaseAdapter();
             //adapter.Connect("C:\\Users\\dani\\Documents\\Turniere\\Testturnier.TP");
             //var bla = adapter.GetEvents();
 
@@ -23,11 +23,11 @@ namespace BCA.WerZaehltWo3.Tests.Gui.Forms
             //}
         }
 
-        private void btnGetPlanningIds_Click(object sender, EventArgs e)
+        private void BtnGetPlanningIds_Click(object sender, EventArgs e)
         {
             var adapter = new TsDatabaseAdapter();
             adapter.SetupConnection("C:\\Users\\dani\\Documents\\Turniere\\Testturnier.TP");
-            var matches = adapter.GetMatches();
+            //var matches = adapter.GetMatches();
             //var evnts = adapter.GetEvents();
 
             //var entries = new List<Entry>();
@@ -41,7 +41,7 @@ namespace BCA.WerZaehltWo3.Tests.Gui.Forms
             //adapter.Close();
         }
 
-        private void btnGetCurrentMatches_Click(object sender, EventArgs e)
+        private void BtnGetCurrentMatches_Click(object sender, EventArgs e)
         {
             var adapter = new TsDatabaseAdapter();
             adapter.SetupConnection("C:\\Users\\dani\\Documents\\Turniere\\Testturnier.TP");

@@ -91,7 +91,7 @@
             this.btnTsPlanningTest.TabIndex = 9;
             this.btnTsPlanningTest.Text = "TS Planning Test";
             this.btnTsPlanningTest.UseVisualStyleBackColor = true;
-            this.btnTsPlanningTest.Click += new System.EventHandler(this.btnTsPlanningTest_Click);
+            this.btnTsPlanningTest.Click += new System.EventHandler(this.BtnTsPlanningTest_Click);
             // 
             // FrmMain
             // 

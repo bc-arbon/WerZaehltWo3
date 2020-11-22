@@ -49,13 +49,14 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Eventing\CourtEventArgs.cs" />
+    <Compile Include="Eventing\CourtUpdateEvent.cs" />
+    <Compile Include="Eventing\PlayerBaseChangedEvent.cs" />
     <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Logic\PlayerboardManager.cs" />
     <Compile Include="Logic\SettingsManager.cs" />
     <Compile Include="ObjectModel\AppSettings.cs" />
     <Compile Include="ObjectModel\BaseObject.cs" />
     <Compile Include="ObjectModel\Court.cs" />
-    <Compile Include="ObjectModel\GlobalSuppressions.cs" />
     <Compile Include="ObjectModel\LimitedStack.cs" />
     <Compile Include="ObjectModel\Player.cs" />
     <Compile Include="ObjectModel\Playerboard.cs" />

@@ -16,8 +16,8 @@
         private readonly string tsConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\ts.tp;Jet OLEDB:Database Password=d4R2GY76w2qzZ;";
 
         private readonly List<KeyValuePair<int, Team>> teamById = new List<KeyValuePair<int, Team>>();
-        private List<KeyValuePair<int, Draw>> drawById = new List<KeyValuePair<int, Draw>>();
-        private List<KeyValuePair<int, Event>> eventById = new List<KeyValuePair<int, Event>>();
+        private readonly List<KeyValuePair<int, Draw>> drawById = new List<KeyValuePair<int, Draw>>();
+        private readonly List<KeyValuePair<int, Event>> eventById = new List<KeyValuePair<int, Event>>();
 
         public void SetupConnection(string databaseFilepath)
         {
@@ -202,7 +202,7 @@
                 currentTeam.Player1 = player1;
                 currentTeam.Player2 = player2;
 
-                teamById.Add(new KeyValuePair<int, Team>(teamid, currentTeam));
+                this.teamById.Add(new KeyValuePair<int, Team>(teamid, currentTeam));
             }
         }
 
@@ -260,8 +260,8 @@
                     {
                         Id = Convert.ToInt32(reader["id"]),
                         Name = reader["name"].ToString(),
-                        Gender = eventToGender(Convert.ToInt32(reader["gender"])),
-                        EventType = getEventType(Convert.ToInt32(reader["eventtype"]))
+                        Gender = this.EventToGender(Convert.ToInt32(reader["gender"])),
+                        EventType = this.GetEventType(Convert.ToInt32(reader["eventtype"]))
 
                     };
                     this.eventById.Add(new KeyValuePair<int, Event>(evnt.Id, evnt));
@@ -273,7 +273,7 @@
             }
         }
 
-        private EventType getEventType(int eventTypeId)
+        private EventType GetEventType(int eventTypeId)
         {
             switch (eventTypeId)
             {
@@ -288,7 +288,7 @@
             }
         }
 
-        private Gender eventToGender(int gender)
+        private Gender EventToGender(int gender)
         {
             switch (gender)
             {

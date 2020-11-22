@@ -118,7 +118,7 @@ namespace BCA.WerZaehltWo3.Forms
             }
         }
 
-        private void btnImportTs_Click(object sender, EventArgs e)
+        private void BtnImportTs_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show(
                 "Achtung: Alle bestehenden Spieler werden dadurch gelöscht. Fortfahren?",

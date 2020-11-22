@@ -19,10 +19,10 @@ namespace BCA.WerZaehltWo3.Tests.Gui.Forms
             var file = "config.json";
 
             File.WriteAllText(file, JsonConvert.SerializeObject(board, Formatting.Indented));
-            var board2 = JsonConvert.DeserializeObject<Playerboard>(File.ReadAllText(file));
+            //var board2 = JsonConvert.DeserializeObject<Playerboard>(File.ReadAllText(file));
         }
 
-        private void btnTsPlanningTest_Click(object sender, EventArgs e)
+        private void BtnTsPlanningTest_Click(object sender, EventArgs e)
         {
             var bla = new TsPlanningTestForm();
             bla.ShowDialog();

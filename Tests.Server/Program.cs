@@ -13,7 +13,7 @@ namespace BCA.WerZaehltWo3.Tests.Server
     {
         private static IAdapter adapter;
         private static ServerSettings settings;
-        public static void Main(string[] args)
+        public static void Main()
         {
             //---initialize settings
             settings = new SettingsProvider().Settings;

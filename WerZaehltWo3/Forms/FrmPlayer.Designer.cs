@@ -146,7 +146,7 @@
             this.btnImportTs.TabIndex = 4;
             this.btnImportTs.Text = "Tournamentsoftware...";
             this.btnImportTs.UseVisualStyleBackColor = true;
-            this.btnImportTs.Click += new System.EventHandler(this.btnImportTs_Click);
+            this.btnImportTs.Click += new System.EventHandler(this.BtnImportTs_Click);
             // 
             // lblImport
             // 

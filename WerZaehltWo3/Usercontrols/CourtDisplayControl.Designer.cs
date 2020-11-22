@@ -85,7 +85,7 @@
             this.tlpRed.Controls.Add(this.lblReady1, 0, 0);
             this.tlpRed.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpRed.Location = new System.Drawing.Point(0, 0);
-            this.tlpRed.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tlpRed.Margin = new System.Windows.Forms.Padding(2);
             this.tlpRed.Name = "tlpRed";
             this.tlpRed.RowCount = 2;
             this.tlpRed.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -136,7 +136,7 @@
             this.tlpYellow.Controls.Add(this.lblCounting2, 0, 1);
             this.tlpYellow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpYellow.Location = new System.Drawing.Point(0, 0);
-            this.tlpYellow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tlpYellow.Margin = new System.Windows.Forms.Padding(2);
             this.tlpYellow.Name = "tlpYellow";
             this.tlpYellow.RowCount = 2;
             this.tlpYellow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -187,7 +187,7 @@
             this.tlpGreen.Controls.Add(this.lblPlay1, 0, 0);
             this.tlpGreen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpGreen.Location = new System.Drawing.Point(0, 0);
-            this.tlpGreen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tlpGreen.Margin = new System.Windows.Forms.Padding(2);
             this.tlpGreen.Name = "tlpGreen";
             this.tlpGreen.RowCount = 2;
             this.tlpGreen.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -230,7 +230,7 @@
             this.tlpCourt.Controls.Add(this.pnlReady, 1, 0);
             this.tlpCourt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpCourt.Location = new System.Drawing.Point(0, 0);
-            this.tlpCourt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tlpCourt.Margin = new System.Windows.Forms.Padding(2);
             this.tlpCourt.Name = "tlpCourt";
             this.tlpCourt.RowCount = 1;
             this.tlpCourt.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
