@@ -5,13 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WerZaehltWo3.Wpf" xmlns:usercontrols="clr-namespace:WerZaehltWo3.Wpf.Usercontrols"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="25"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <usercontrols:CourtDisplayControl Grid.Row="0"/>
-        <usercontrols:CourtSettingsControl x:Name="CtlSettings" Grid.Row="1"/>
+        <Menu Grid.Row="0">
+            <Menu.Items>
+                <MenuItem Header="Display anzeigen" Click="MnuShowDisplay_Click"/>
+                <MenuItem Header="Spieler bearbeiten..." Click="MnuEditPlayers_Click"/>
+                <MenuItem Header="Anzahl Felder..." Click="MnuSetCourtCount_Click"/>
+            </Menu.Items>
+        </Menu>
+        <ScrollViewer Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <StackPanel Orientation="Vertical" Grid.Row="1">
+                <usercontrols:CourtSettingsControl/>
+                <usercontrols:CourtSettingsControl/>
+                <usercontrols:CourtSettingsControl/>
+                <usercontrols:CourtSettingsControl/>
+                <usercontrols:CourtSettingsControl/>
+                <usercontrols:CourtSettingsControl/>
+                <usercontrols:CourtSettingsControl/>
+                <usercontrols:CourtSettingsControl/>
+            </StackPanel>
+        </ScrollViewer>
+
     </Grid>
 </Window>

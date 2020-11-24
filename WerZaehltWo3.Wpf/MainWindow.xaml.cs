@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using BCA.WerZaehltWo3.Shared.Logic;
+using System;
+using System.Windows;
+using WerZaehltWo3.Wpf.Forms;
 
 namespace WerZaehltWo3.Wpf
 {
@@ -7,9 +10,48 @@ namespace WerZaehltWo3.Wpf
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly SettingsManager settingsManager = new SettingsManager();
+
+        private readonly PlayerboardManager playerboardManager = new PlayerboardManager();
+
+        private readonly FrmDisplay displayForm = new FrmDisplay();
+
         public MainWindow()
         {
             this.InitializeComponent();            
+        }
+
+        private void MnuShowDisplay_Click(object sender, RoutedEventArgs e)
+        {
+            this.displayForm.Show();
+        }
+
+        private void MnuEditPlayers_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException("open edit players");
+        }
+
+        private void MnuSetCourtCount_Click(object sender, RoutedEventArgs e)
+        {
+            var frmCourtCount = new FrmCourtCount();
+            if (frmCourtCount.ShowDialog() == true)
+            {
+                throw new NotImplementedException("update settings after court count change");
+            }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.playerboardManager.Load();
+            this.settingsManager.Load();
+            //this.Size = this.settingsManager.AppSettings.WindowSize;
+
+            //this.displayForm.PlayerboardManager = this.playerboardManager;
+            this.displayForm.Show();
+
+            //this.InitializeSettingControls();
+            //this.displayForm.InitializeDisplayControls();
+            //this.displayForm.SetFontSize(this.playerboardManager.Playerboard.Settings.FontSize);
         }
     }
 }

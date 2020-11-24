@@ -20,9 +20,6 @@ using System.Windows.Shapes;
 
 namespace WerZaehltWo3.Wpf.Usercontrols
 {
-    /// <summary>
-    /// Interaction logic for CourtSettingsControl.xaml
-    /// </summary>
     public partial class CourtSettingsControl : UserControl
     {
         private readonly List<string> players = new List<string>();
