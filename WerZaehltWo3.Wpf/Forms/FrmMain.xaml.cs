@@ -5,10 +5,7 @@ using WerZaehltWo3.Wpf.Forms;
 
 namespace WerZaehltWo3.Wpf
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public partial class FrmMain : Window
     {
         private readonly SettingsManager settingsManager = new SettingsManager();
 
@@ -16,7 +13,7 @@ namespace WerZaehltWo3.Wpf
 
         private readonly FrmDisplay displayForm = new FrmDisplay();
 
-        public MainWindow()
+        public FrmMain()
         {
             this.InitializeComponent();            
         }
