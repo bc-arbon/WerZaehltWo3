@@ -36,29 +36,7 @@ namespace BCA.WerZaehltWo3.Tests.Unit
 
             var actual = object1.Equals(object2);
             Assert.IsTrue(actual);
-        }
-
-        [TestMethod]
-        public void C_GetHashCode_Functional_00()
-        {
-            var object1 = InitializedObjects.CreateNewPlayerboard();
-            var object2 = InitializedObjects.CreateNewPlayerboard();
-
-            var hash1 = object1.GetHashCode();
-            var hash2 = object2.GetHashCode();
-            Assert.AreEqual(hash1, hash2);
-        }
-
-        [TestMethod]
-        public void C_GetHashCode_Functional_01()
-        {
-            var object1 = InitializedObjects.CreateNewPlayerboard();
-            var object2 = new Playerboard();
-
-            var hash1 = object1.GetHashCode();
-            var hash2 = object2.GetHashCode();
-            Assert.AreNotEqual(hash1, hash2);
-        }        
+        }       
 
         [TestMethod]
         public void E_SaveLoad_Functional_00()

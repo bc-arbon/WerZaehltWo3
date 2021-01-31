@@ -66,44 +66,6 @@
             return true;
         }
 
-        public override int GetHashCode()
-        {
-            var result = 0;
-
-            result ^= this.Number.GetHashCode();
-            if (this.PlayerReady1 != null)
-            {
-                result ^= this.PlayerReady1.GetHashCode();
-            }
-
-            if (this.PlayerReady2 != null)
-            {
-                result ^= this.PlayerReady2.GetHashCode();
-            }
-
-            if (this.PlayerCount1 != null)
-            {
-                result ^= this.PlayerCount1.GetHashCode();
-            }
-
-            if (this.PlayerCount2 != null)
-            {
-                result ^= this.PlayerCount2.GetHashCode();
-            }
-
-            if (this.PlayerPlay1 != null)
-            {
-                result ^= this.PlayerPlay1.GetHashCode();
-            }
-
-            if (this.PlayerPlay2 != null)
-            {
-                result ^= this.PlayerPlay2.GetHashCode();
-            }
-
-            return result;
-        }
-
         public Court Clone()
         {
             var result = new Court();

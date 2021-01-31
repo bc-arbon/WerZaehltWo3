@@ -6,27 +6,7 @@ namespace BCA.WerZaehltWo3.Tests.Unit
 {
     [TestClass]
     public class A_0300_CourtTests
-    {
-        [TestMethod]
-        public void A_Equals_Functional_00()
-        {
-            var object1 = InitializedObjects.CreateNewCourt();
-            var object2 = InitializedObjects.CreateNewCourt();
-
-            var actual = object1.Equals(object2);
-            Assert.IsTrue(actual);
-        }
-
-        [TestMethod]
-        public void A_Equals_Functional_01()
-        {
-            var object1 = InitializedObjects.CreateNewCourt();
-            var object2 = new Court();
-
-            var actual = object1.Equals(object2);
-            Assert.IsFalse(actual);
-        }
-
+    {       
         [TestMethod]
         public void B_Clear_Functional_00()
         {
@@ -36,29 +16,7 @@ namespace BCA.WerZaehltWo3.Tests.Unit
 
             var actual = object1.Equals(object2);
             Assert.IsTrue(actual);
-        }
-
-        [TestMethod]
-        public void C_GetHashCode_Functional_00()
-        {
-            var object1 = InitializedObjects.CreateNewCourt();
-            var object2 = InitializedObjects.CreateNewCourt();
-
-            var hash1 = object1.GetHashCode();
-            var hash2 = object2.GetHashCode();
-            Assert.AreEqual(hash1, hash2);
-        }
-
-        [TestMethod]
-        public void C_GetHashCode_Functional_01()
-        {
-            var object1 = InitializedObjects.CreateNewCourt();
-            var object2 = new Court();
-
-            var hash1 = object1.GetHashCode();
-            var hash2 = object2.GetHashCode();
-            Assert.AreNotEqual(hash1, hash2);
-        }
+        }        
 
         [TestMethod]
         public void D_Clone_Functional_00()

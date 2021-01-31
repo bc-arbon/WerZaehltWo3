@@ -55,50 +55,10 @@
             return true;
         }
 
-        public override int GetHashCode()
-        {
-            var result = 0;
-
-            foreach (var player in this.Players)
-            {
-                result ^= player.GetHashCode();
-            }
-
-            foreach (var court in this.Courts)
-            {
-                result ^= court.GetHashCode();
-            }
-
-            return result;
-        }
-
-        //public Playerboard Clone()
-        //{
-        //    var result = new Playerboard();
-        //    result.CopyFrom(this);
-        //    return result;
-        //}
-
         public override void Clear()
         {
             this.InternalClear();
-        }
-
-        //public void CopyFrom(Playerboard other)
-        //{
-        //    this.InternalClear();
-
-        //    foreach (var player in other.Players)
-        //    {
-        //        this.Players.Add(player.Clone());
-        //    }
-
-        //    this.Courts.Clear();
-        //    foreach (var court in other.Courts)
-        //    {
-        //        this.Courts.Add(court.Clone());
-        //    }
-        //}
+        }       
 
         private void InternalClear()
         {
