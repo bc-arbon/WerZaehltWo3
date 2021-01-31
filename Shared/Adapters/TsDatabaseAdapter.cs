@@ -17,7 +17,7 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
         private readonly List<KeyValuePair<int, Draw>> drawById = new List<KeyValuePair<int, Draw>>();
         private readonly List<KeyValuePair<int, Event>> eventById = new List<KeyValuePair<int, Event>>();
 
-        public void SetupConnection(string databaseFilepath)
+        public void Connect(string databaseFilepath)
         {
             if (databaseFilepath != Path.Combine(Application.StartupPath, "ts.tp"))
             {
@@ -328,29 +328,22 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
         {
             try
             {
-                var com = new OleDbCommand("SELECT Player.firstname, Player.name, Club.name, Player.memberid FROM Club INNER JOIN Player ON Club.id = Player.club", this.connection);
-                var reader = com.ExecuteReader();
+                var reader = this.ExecuteSql("SELECT firstname, name FROM Player");
 
                 if (reader != null)
                 {
                     var players = new List<string>();
                     while (reader.Read())
                     {
-                        //var player = new Player
-                        //{
-                        //    Name = reader["firstname"] + " " + reader["Player.name"],
-                        //    //Category = reader["Categories.Name"].ToString(),
-                        //    Id = reader["memberid"].ToString(),
-                        //    Club = reader["Club.name"].ToString()
-                        //};
-                        players.Add(reader["firstname"] + " " + reader["Player.name"]);
+                        players.Add(reader["firstname"] + " " + reader["name"]);
                     }
 
                     return players;
                 }
             }
-            catch
+            catch(Exception ex)
             {
+                throw ex;
             }
 
             return new List<string>();

@@ -27,5 +27,11 @@ namespace BCA.WerZaehltWo3.Tests.Gui.Forms
             var bla = new TsPlanningTestForm();
             bla.ShowDialog();
         }
+
+        private void btnTsTest_Click(object sender, EventArgs e)
+        {
+            var bla = new FrmTsDatabaseTest();
+            bla.ShowDialog();
+        }
     }
 }

@@ -26,7 +26,7 @@ namespace BCA.WerZaehltWo3.Tests.Gui.Forms
         private void BtnGetPlanningIds_Click(object sender, EventArgs e)
         {
             var adapter = new TsDatabaseAdapter();
-            adapter.SetupConnection("C:\\Users\\dani\\Documents\\Turniere\\Testturnier.TP");
+            adapter.Connect("C:\\Users\\dani\\Documents\\Turniere\\Testturnier.TP");
             //var matches = adapter.GetMatches();
             //var evnts = adapter.GetEvents();
 
@@ -44,7 +44,7 @@ namespace BCA.WerZaehltWo3.Tests.Gui.Forms
         private void BtnGetCurrentMatches_Click(object sender, EventArgs e)
         {
             var adapter = new TsDatabaseAdapter();
-            adapter.SetupConnection("C:\\Users\\dani\\Documents\\Turniere\\Testturnier.TP");
+            adapter.Connect("C:\\Users\\dani\\Documents\\Turniere\\Testturnier.TP");
             var matches = adapter.GetCurrentMatches();
 
             for (var i = 1; i <= 8; i++)

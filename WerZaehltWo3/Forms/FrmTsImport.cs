@@ -44,7 +44,7 @@ namespace BCA.WerZaehltWo3.Forms
 
             try
             {
-                //this.adapter.Connect(this.txtDatabaseFilepath.Text);
+                this.adapter.Connect(this.txtDatabaseFilepath.Text);
                 this.btnGetPlayers.Enabled = true;
                 MessageBox.Show("Verbunden", "Spieler importieren", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
