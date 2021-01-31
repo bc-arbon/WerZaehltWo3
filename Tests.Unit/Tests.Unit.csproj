@@ -50,9 +50,10 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="A_0300_CourtTests.cs" />
-    <Compile Include="A_0500_AppSettingsTests.cs" />
-    <Compile Include="A_0400_PlayerboardTests.cs" />
+    <Compile Include="Logic\PlayerboardLogicTests.cs" />
+    <Compile Include="ObjectModel\A_0300_CourtTests.cs" />
+    <Compile Include="ObjectModel\A_0500_AppSettingsTests.cs" />
+    <Compile Include="ObjectModel\A_0400_PlayerboardTests.cs" />
     <Compile Include="InitializedObjects\Court.cs" />
     <Compile Include="InitializedObjects\AppSettings.cs" />
     <Compile Include="InitializedObjects\Playerboard.cs" />

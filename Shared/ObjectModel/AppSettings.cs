@@ -1,7 +1,7 @@
-﻿namespace BCA.WerZaehltWo3.Shared.ObjectModel
-{
-    using System.Drawing;
+﻿using System.Drawing;
 
+namespace BCA.WerZaehltWo3.Shared.ObjectModel
+{
     public class AppSettings : BaseObject
     {
         public AppSettings()

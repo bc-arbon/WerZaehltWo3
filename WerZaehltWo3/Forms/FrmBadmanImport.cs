@@ -1,5 +1,4 @@
 ﻿using BCA.WerZaehltWo3.Shared.Adapters;
-using BCA.WerZaehltWo3.Shared.ObjectModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

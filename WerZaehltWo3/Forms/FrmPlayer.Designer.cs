@@ -30,10 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPlayer));
             this.lvwPlayers = new System.Windows.Forms.ListView();
-            this.chrId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chrName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chrCategory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chrClub = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnClose = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -49,10 +46,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lvwPlayers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.chrId,
-            this.chrName,
-            this.chrCategory,
-            this.chrClub});
+            this.chrName});
             this.lvwPlayers.FullRowSelect = true;
             this.lvwPlayers.HideSelection = false;
             this.lvwPlayers.Location = new System.Drawing.Point(12, 12);
@@ -63,24 +57,10 @@
             this.lvwPlayers.View = System.Windows.Forms.View.Details;
             this.lvwPlayers.DoubleClick += new System.EventHandler(this.LvwPlayers_DoubleClick);
             // 
-            // chrId
-            // 
-            this.chrId.Text = "Id";
-            // 
             // chrName
             // 
             this.chrName.Text = "Name";
-            this.chrName.Width = 168;
-            // 
-            // chrCategory
-            // 
-            this.chrCategory.Text = "Kategorie";
-            this.chrCategory.Width = 80;
-            // 
-            // chrClub
-            // 
-            this.chrClub.Text = "Club";
-            this.chrClub.Width = 180;
+            this.chrName.Width = 300;
             // 
             // btnClose
             // 
@@ -189,9 +169,6 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.ColumnHeader chrName;
-        private System.Windows.Forms.ColumnHeader chrCategory;
-        private System.Windows.Forms.ColumnHeader chrClub;
-        private System.Windows.Forms.ColumnHeader chrId;
         private System.Windows.Forms.Button btnImportBadman;
         private System.Windows.Forms.Button btnImportTs;
         private System.Windows.Forms.Label lblImport;

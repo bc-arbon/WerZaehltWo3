@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using BCA.WerZaehltWo3.Shared.Adapters;
-using BCA.WerZaehltWo3.Shared.ObjectModel;
 
 namespace BCA.WerZaehltWo3.Forms
 {

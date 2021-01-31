@@ -3,8 +3,6 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.Windows.Forms;
-
-using BCA.WerZaehltWo3.ObjectModel;
 using BCA.WerZaehltWo3.Shared.ObjectModel;
 
 namespace BCA.WerZaehltWo3.Usercontrols
@@ -12,15 +10,10 @@ namespace BCA.WerZaehltWo3.Usercontrols
     public partial class CourtDisplayControl : UserControl
     {
         private readonly LinearGradientBrush brushLine;
-
         private readonly LinearGradientBrush brushReady;
-
         private readonly LinearGradientBrush brushCount;
-
         private readonly LinearGradientBrush brushPlay;
-
         private readonly Rectangle gradientRect;
-
         private readonly Rectangle lineRect;
 
         public CourtDisplayControl()

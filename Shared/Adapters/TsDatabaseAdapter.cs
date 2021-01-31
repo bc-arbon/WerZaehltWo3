@@ -1,15 +1,13 @@
-﻿namespace BCA.WerZaehltWo3.Shared.Adapters
-{
-    using BCA.WerZaehltWo3.Shared;
-    using BCA.WerZaehltWo3.Shared.ObjectModel;
-    using BCA.WerZaehltWo3.Shared.TournamentSoftware;
-    using System;
-    using System.Collections.Generic;
-    using System.Data;
-    using System.Data.OleDb;
-    using System.IO;
-    using System.Windows.Forms;
+﻿using BCA.WerZaehltWo3.Shared.TournamentSoftware;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.OleDb;
+using System.IO;
+using System.Windows.Forms;
 
+namespace BCA.WerZaehltWo3.Shared.Adapters
+{
     public class TsDatabaseAdapter
     {
         private OleDbConnection connection;

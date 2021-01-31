@@ -2,7 +2,7 @@
 using BCA.WerZaehltWo3.Shared.ObjectModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace BCA.WerZaehltWo3.Tests.Unit
+namespace BCA.WerZaehltWo3.Tests.Unit.ObjectModel
 {
     [TestClass]
     public class A_0300_CourtTests

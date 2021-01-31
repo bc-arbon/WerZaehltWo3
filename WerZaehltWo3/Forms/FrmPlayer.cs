@@ -27,13 +27,7 @@ namespace BCA.WerZaehltWo3.Forms
 
         private void BtnNew_Click(object sender, EventArgs e)
         {
-            var playerEditorForm = new FrmPlayerEditor();
-            if (playerEditorForm.ShowDialog() == DialogResult.OK)
-            {
-                this.playerboard.Players.Add(playerEditorForm.Player);
-            }
-
-            this.PopulateListview();
+            this.AddPlayer();
         }
 
         private void BtnEdit_Click(object sender, EventArgs e)
@@ -57,6 +51,20 @@ namespace BCA.WerZaehltWo3.Forms
             }
         }
 
+        private void AddPlayer()
+        {
+            var playerEditorForm = new FrmPlayerEditor();
+
+            if (playerEditorForm.ShowDialog() == DialogResult.OK)
+            {
+                var newPlayer = playerEditorForm.Player;
+                PlayerboardLogic.AddPlayer(this.playerboard, newPlayer);
+                PlayerboardLogic.Save(this.playerboard);
+                this.PopulateListview();
+            }
+
+        }
+
         private void EditPlayer()
         {
             if (this.lvwPlayers.SelectedItems.Count == 1)
@@ -64,10 +72,12 @@ namespace BCA.WerZaehltWo3.Forms
                 var oldPlayer = this.lvwPlayers.SelectedItems[0].Text;
                 var editor = new FrmPlayerEditor();
                 editor.SetData(oldPlayer);
+
                 if (editor.ShowDialog() == DialogResult.OK)
                 {
                     var newPlayer = editor.Player;
                     PlayerboardLogic.UpdatePlayer(this.playerboard, oldPlayer, newPlayer);
+                    PlayerboardLogic.Save(this.playerboard);
                     this.PopulateListview();
                 }
             }
@@ -78,8 +88,10 @@ namespace BCA.WerZaehltWo3.Forms
             if (this.lvwPlayers.SelectedItems.Count > 0)
             {
                 if (MessageBox.Show(this.lvwPlayers.SelectedItems.Count + " Spieler löschen?", "Spielereditor", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-                {                    
-                    this.playerboard.Players.Remove(this.lvwPlayers.SelectedItems[0].ToString());
+                {
+                    var player = this.lvwPlayers.SelectedItems[0].Text;
+                    PlayerboardLogic.RemovePlayer(this.playerboard, player);
+                    PlayerboardLogic.Save(this.playerboard);
                     this.PopulateListview();
                 }
             }

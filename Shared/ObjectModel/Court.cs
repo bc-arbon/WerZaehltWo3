@@ -1,10 +1,7 @@
-﻿namespace BCA.WerZaehltWo3.Shared.ObjectModel
+﻿using System;
+
+namespace BCA.WerZaehltWo3.Shared.ObjectModel
 {
-    using System;
-    using System.Xml;
-
-    using BCA.WerZaehltWo3.Shared;
-
     public class Court : BaseObject
     {
         public Court()

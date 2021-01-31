@@ -2,7 +2,6 @@
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-using BCA.WerZaehltWo3.Shared.Logic;
 using BCA.WerZaehltWo3.Usercontrols;
 using BCA.WerZaehltWo3.Shared.ObjectModel;
 

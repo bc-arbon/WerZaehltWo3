@@ -2,7 +2,6 @@
 using BCA.WerZaehltWo3.Shared.Eventing;
 using BCA.WerZaehltWo3.Usercontrols;
 using System;
-using System.Linq;
 using System.Windows.Forms;
 using BCA.WerZaehltWo3.Shared.ObjectModel;
 
@@ -103,6 +102,7 @@ namespace BCA.WerZaehltWo3.Forms
         private void SettingsControl_OnApplyRequested(object sender, CourtEventArgs courtEventArgs)
         {
             this.displayForm.UpdateDisplayControl(courtEventArgs.Court);
+            PlayerboardLogic.Save(this.playerboard);
         }
     }
 }

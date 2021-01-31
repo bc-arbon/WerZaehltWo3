@@ -1,12 +1,11 @@
-﻿namespace BCA.WerZaehltWo3.Shared.Logic
-{
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
-    using BCA.WerZaehltWo3.Shared.Helpers;
-    using BCA.WerZaehltWo3.Shared;
-    using BCA.WerZaehltWo3.Shared.ObjectModel;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using BCA.WerZaehltWo3.Shared.Helpers;
+using BCA.WerZaehltWo3.Shared.ObjectModel;
 
+namespace BCA.WerZaehltWo3.Shared.Logic
+{
     public static class PlayerboardLogic
     { 
         public static void Clear(Playerboard playerboard)
@@ -14,10 +13,20 @@
             playerboard.Clear();
         }
 
+        public static void AddPlayer(Playerboard playerboard, string newPlayer)
+        {
+            playerboard.Players.Add(newPlayer);
+        }
+
         public static void UpdatePlayer(Playerboard playerboard, string oldPlayer, string newPlayer)
         {
             var index = playerboard.Players.FindIndex(player => player == oldPlayer);
             playerboard.Players[index] = newPlayer;
+        }
+
+        public static void RemovePlayer(Playerboard playerboard, string player)
+        {
+            playerboard.Players.Remove(player);
         }
 
         public static void SetCourtCount(Playerboard playerboard, int newCount)

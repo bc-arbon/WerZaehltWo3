@@ -62,7 +62,6 @@
     <Compile Include="ObjectModel\PlayerboardSettings.cs" />
     <Compile Include="ObjectModel\TsRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Helpers\XmlHelper.cs" />
     <Compile Include="TournamentSoftware\Draw.cs" />
     <Compile Include="TournamentSoftware\Entry.cs" />
     <Compile Include="TournamentSoftware\Event.cs" />

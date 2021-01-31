@@ -1,9 +1,7 @@
-﻿namespace BCA.WerZaehltWo3.Shared.ObjectModel
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Xml;
+﻿using System.Collections.Generic;
 
+namespace BCA.WerZaehltWo3.Shared.ObjectModel
+{
     public class Playerboard : BaseObject
     {
         public Playerboard()
