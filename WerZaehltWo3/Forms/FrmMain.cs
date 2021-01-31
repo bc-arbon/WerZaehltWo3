@@ -4,15 +4,14 @@ using BCA.WerZaehltWo3.Usercontrols;
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using BCA.WerZaehltWo3.Shared.ObjectModel;
 
 namespace BCA.WerZaehltWo3.Forms
 {
     public partial class FrmMain : Form
     {
-        private readonly SettingsManager settingsManager = new SettingsManager();
-
-        private readonly PlayerboardManager playerboardManager = new PlayerboardManager();
-
+        private AppSettings appSettings = new AppSettings();
+        private Playerboard playerboard = new Playerboard();
         private readonly FrmDisplay displayForm = new FrmDisplay();
 
         public FrmMain()
@@ -22,16 +21,16 @@ namespace BCA.WerZaehltWo3.Forms
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            this.playerboardManager.Load();
-            this.settingsManager.Load();
-            this.Size = this.settingsManager.AppSettings.WindowSize;
+            this.playerboard = PlayerboardLogic.Load();
+            this.appSettings = AppSettingsLogic.Load();
+            this.Size = this.appSettings.WindowSize;
 
-            this.displayForm.PlayerboardManager = this.playerboardManager;           
+            this.displayForm.Playerboard = this.playerboard;
             this.displayForm.Show();
 
             this.InitializeSettingControls();
             this.displayForm.InitializeDisplayControls();
-            this.displayForm.SetFontSize(this.playerboardManager.Playerboard.Settings.FontSize);
+            this.displayForm.SetFontSize(this.playerboard.Settings.FontSize);
         }
 
         private void MnuFileShowDisplay_Click(object sender, EventArgs e)
@@ -41,10 +40,10 @@ namespace BCA.WerZaehltWo3.Forms
 
         private void MnuFileEditPlayers_Click(object sender, EventArgs e)
         {
-            var playerForm = new FrmPlayer(this.playerboardManager.Playerboard);
+            var playerForm = new FrmPlayer(this.playerboard);
             if (playerForm.ShowDialog() == DialogResult.OK)
             {
-                var players = this.playerboardManager.GetPlayers().Select(player => player).ToArray(); ;
+                var players = this.playerboard.Players.ToArray();
                 foreach (var settingsControl in this.pnlSettingsControls.Controls)
                 {
                     if (settingsControl is CourtSettingsControl control)
@@ -53,7 +52,7 @@ namespace BCA.WerZaehltWo3.Forms
                     }
                 }
 
-                this.playerboardManager.Save();
+                PlayerboardLogic.Save(this.playerboard);
             }
         }
 
@@ -65,14 +64,14 @@ namespace BCA.WerZaehltWo3.Forms
         private void MnuFileSetCourtCount_Click(object sender, EventArgs e)
         {
             var courtCountForm = new FrmCourtCount();
-            courtCountForm.SetData(this.playerboardManager.Playerboard.Courts.Count);
+            courtCountForm.SetData(this.playerboard.Courts.Count);
             if (courtCountForm.ShowDialog() == DialogResult.OK)
             {
-                this.playerboardManager.SetCourtCount(courtCountForm.CourtCount);
+                PlayerboardLogic.SetCourtCount(this.playerboard, courtCountForm.CourtCount);
                 this.displayForm.InitializeDisplayControls();
                 this.InitializeSettingControls();
 
-                this.playerboardManager.Save();
+                PlayerboardLogic.Save(this.playerboard);
             }
         }
 
@@ -83,19 +82,19 @@ namespace BCA.WerZaehltWo3.Forms
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.playerboardManager.Save();
+            PlayerboardLogic.Save(this.playerboard);
 
-            this.settingsManager.AppSettings.WindowSize = this.Size;
-            this.settingsManager.Save();
+            this.appSettings.WindowSize = this.Size;
+            AppSettingsLogic.Save(this.appSettings);
         }
 
         private void InitializeSettingControls()
         {
             this.pnlSettingsControls.Controls.Clear();
-            foreach (var court in this.playerboardManager.Playerboard.Courts)
+            foreach (var court in this.playerboard.Courts)
             {
-                var settingsControl = new CourtSettingsControl(this.playerboardManager);
-                settingsControl.SetData(court, this.playerboardManager.GetPlayers());
+                var settingsControl = new CourtSettingsControl();
+                settingsControl.SetData(court, this.playerboard.Players);
                 settingsControl.OnApplyRequested += this.SettingsControl_OnApplyRequested;
                 this.pnlSettingsControls.Controls.Add(settingsControl);
             }

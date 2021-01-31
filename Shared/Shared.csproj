@@ -52,8 +52,8 @@
     <Compile Include="Eventing\CourtUpdateEvent.cs" />
     <Compile Include="Eventing\PlayerBaseChangedEvent.cs" />
     <Compile Include="Helpers\JsonHelper.cs" />
-    <Compile Include="Logic\PlayerboardManager.cs" />
-    <Compile Include="Logic\SettingsManager.cs" />
+    <Compile Include="Logic\PlayerboardLogic.cs" />
+    <Compile Include="Logic\AppSettingsLogic.cs" />
     <Compile Include="ObjectModel\AppSettings.cs" />
     <Compile Include="ObjectModel\BaseObject.cs" />
     <Compile Include="ObjectModel\Court.cs" />

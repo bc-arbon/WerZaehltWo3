@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-
-using BCA.WerZaehltWo3.Shared.Logic;
 using BCA.WerZaehltWo3.Shared.Eventing;
 using BCA.WerZaehltWo3.Shared.Helpers;
 using BCA.WerZaehltWo3.Shared.ObjectModel;
@@ -15,14 +13,11 @@ namespace BCA.WerZaehltWo3.Usercontrols
     {
         private readonly LimitedStack<string> backups;
 
-        private readonly PlayerboardManager playerboardManager;
-
         private Court court = new Court();
 
-        public CourtSettingsControl(PlayerboardManager manager)
+        public CourtSettingsControl()
         {
             this.InitializeComponent();
-            this.playerboardManager = manager;
             this.backups = new LimitedStack<string>(100);
         }
 

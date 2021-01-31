@@ -1,4 +1,5 @@
 ﻿using BCA.WerZaehltWo3.Shared.Logic;
+using BCA.WerZaehltWo3.Shared.ObjectModel;
 using System;
 using System.Windows;
 using WerZaehltWo3.Wpf.Forms;
@@ -7,10 +8,8 @@ namespace WerZaehltWo3.Wpf
 {
     public partial class FrmMain : Window
     {
-        private readonly SettingsManager settingsManager = new SettingsManager();
-
-        private readonly PlayerboardManager playerboardManager = new PlayerboardManager();
-
+        private AppSettings appSettings = new AppSettings();
+        private Playerboard playerboard = new Playerboard();
         private readonly FrmDisplay displayForm = new FrmDisplay();
 
         public FrmMain()
@@ -25,7 +24,7 @@ namespace WerZaehltWo3.Wpf
 
         private void MnuEditPlayers_Click(object sender, RoutedEventArgs e)
         {
-            var frmPlayers = new FrmPlayers(this.playerboardManager.Playerboard);
+            var frmPlayers = new FrmPlayers(this.playerboard);
             frmPlayers.ShowDialog();
         }
 
@@ -40,8 +39,8 @@ namespace WerZaehltWo3.Wpf
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            this.playerboardManager.Load();
-            this.settingsManager.Load();
+            this.playerboard = PlayerboardLogic.Load();
+            this.appSettings = AppSettingsLogic.Load();
             //this.Size = this.settingsManager.AppSettings.WindowSize;
 
             //this.displayForm.PlayerboardManager = this.playerboardManager;

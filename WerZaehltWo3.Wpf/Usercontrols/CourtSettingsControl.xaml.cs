@@ -24,7 +24,6 @@ namespace WerZaehltWo3.Wpf.Usercontrols
     {
         private readonly List<string> players = new List<string>();
         private readonly LimitedStack<string> backups = new LimitedStack<string>(100);
-        private PlayerboardManager playerboardManager;
         private Hub hub;
         private Court court = new Court();
 
@@ -33,7 +32,7 @@ namespace WerZaehltWo3.Wpf.Usercontrols
             this.InitializeComponent();            
         }
 
-        public void SetData(Hub hub, PlayerboardManager manager, Court courtData, List<string> playerlist)
+        public void SetData(Hub hub, Court courtData, List<string> playerlist)
         {
             if (this.hub != null)
             {
@@ -42,8 +41,6 @@ namespace WerZaehltWo3.Wpf.Usercontrols
 
             this.hub = hub;
             this.hub.Subscribe<PlayerBaseChangedEvent>(this.PlayerBaseChanged);
-
-            this.playerboardManager = manager;
 
             this.court = courtData;
             this.LblCourtNumber.Text = courtData.Number.ToString();

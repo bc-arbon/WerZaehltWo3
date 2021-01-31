@@ -17,12 +17,12 @@ namespace BCA.WerZaehltWo3.Forms
             this.InitializeComponent();
         }
 
-        public PlayerboardManager PlayerboardManager { get; set; }
+        public Playerboard Playerboard { get; set; }
 
         public void InitializeDisplayControls()
         {
             this.pnlControl.Controls.Clear();
-            foreach (var court in this.PlayerboardManager.Playerboard.Courts)
+            foreach (var court in this.Playerboard.Courts)
             {
                 var settingsControl = new CourtDisplayControl();
                 settingsControl.SetData(court);

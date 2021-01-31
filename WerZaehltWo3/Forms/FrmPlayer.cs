@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-
+using BCA.WerZaehltWo3.Shared.Logic;
 using BCA.WerZaehltWo3.Shared.ObjectModel;
 
 namespace BCA.WerZaehltWo3.Forms
@@ -61,11 +61,13 @@ namespace BCA.WerZaehltWo3.Forms
         {
             if (this.lvwPlayers.SelectedItems.Count == 1)
             {
-                var player = this.lvwPlayers.SelectedItems[0].ToString();
+                var oldPlayer = this.lvwPlayers.SelectedItems[0].Text;
                 var editor = new FrmPlayerEditor();
-                editor.SetData(player);
+                editor.SetData(oldPlayer);
                 if (editor.ShowDialog() == DialogResult.OK)
                 {
+                    var newPlayer = editor.Player;
+                    PlayerboardLogic.UpdatePlayer(this.playerboard, oldPlayer, newPlayer);
                     this.PopulateListview();
                 }
             }
