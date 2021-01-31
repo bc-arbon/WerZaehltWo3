@@ -16,7 +16,7 @@ namespace BCA.WerZaehltWo3.Forms
             this.InitializeComponent();
         }
 
-        public List<Player> ImportedPlayers { get; set; }
+        public List<string> ImportedPlayers { get; set; }
 
         private void BadmanImportForm_Load(object sender, EventArgs e)
         {
@@ -86,10 +86,10 @@ namespace BCA.WerZaehltWo3.Forms
 
         private void BtnImport_Click(object sender, EventArgs e)
         {
-            this.ImportedPlayers = new List<Player>();
+            this.ImportedPlayers = new List<string>();
             foreach (ListViewItem item in this.lvwPlayers.Items)
             {
-                this.ImportedPlayers.Add((Player)item.Tag);
+                this.ImportedPlayers.Add(item.ToString());
             }
         }
 
@@ -106,12 +106,8 @@ namespace BCA.WerZaehltWo3.Forms
 
         private void BgwWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            var player = (Player)e.UserState;
-            var item = new ListViewItem(player.Id);
-            item.SubItems.Add(player.Name);
-            item.SubItems.Add(player.Club);
-            item.SubItems.Add(player.Category);
-            item.Tag = player;
+            var player = e.UserState.ToString();
+            var item = new ListViewItem(player);
             this.lvwPlayers.Items.Add(item);
         }
 

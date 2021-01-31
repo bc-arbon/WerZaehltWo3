@@ -58,17 +58,7 @@ namespace BCA.WerZaehltWo3.Tests.Unit
             var hash1 = object1.GetHashCode();
             var hash2 = object2.GetHashCode();
             Assert.AreNotEqual(hash1, hash2);
-        }
-
-        [TestMethod]
-        public void D_Clone_Functional_00()
-        {
-            var object1 = InitializedObjects.CreateNewPlayerboard();
-            var object2 = object1.Clone();
-
-            var actual = object1.Equals(object2);
-            Assert.IsTrue(actual);
-        }
+        }        
 
         [TestMethod]
         public void E_SaveLoad_Functional_00()

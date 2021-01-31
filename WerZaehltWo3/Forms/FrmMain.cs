@@ -44,7 +44,7 @@ namespace BCA.WerZaehltWo3.Forms
             var playerForm = new FrmPlayer(this.playerboardManager.Playerboard);
             if (playerForm.ShowDialog() == DialogResult.OK)
             {
-                var players = this.playerboardManager.GetPlayers().Select(player => player.Name).ToArray(); ;
+                var players = this.playerboardManager.GetPlayers().Select(player => player).ToArray(); ;
                 foreach (var settingsControl in this.pnlSettingsControls.Controls)
                 {
                     if (settingsControl is CourtSettingsControl control)

@@ -30,7 +30,7 @@ namespace BCA.WerZaehltWo3.Forms
             var playerEditorForm = new FrmPlayerEditor();
             if (playerEditorForm.ShowDialog() == DialogResult.OK)
             {
-                this.playerboard.Players.Add(playerEditorForm.Player.Clone());
+                this.playerboard.Players.Add(playerEditorForm.Player);
             }
 
             this.PopulateListview();
@@ -51,10 +51,7 @@ namespace BCA.WerZaehltWo3.Forms
             this.lvwPlayers.Items.Clear();
             foreach (var player in this.playerboard.Players)
             {
-                var item = new ListViewItem(player.Id);
-                item.SubItems.Add(player.Name);
-                item.SubItems.Add(player.Category);
-                item.SubItems.Add(player.Club);
+                var item = new ListViewItem(player);
                 item.Tag = player;
                 this.lvwPlayers.Items.Add(item);
             }
@@ -64,7 +61,7 @@ namespace BCA.WerZaehltWo3.Forms
         {
             if (this.lvwPlayers.SelectedItems.Count == 1)
             {
-                var player = (Player)this.lvwPlayers.SelectedItems[0].Tag;
+                var player = this.lvwPlayers.SelectedItems[0].ToString();
                 var editor = new FrmPlayerEditor();
                 editor.SetData(player);
                 if (editor.ShowDialog() == DialogResult.OK)
@@ -79,20 +76,8 @@ namespace BCA.WerZaehltWo3.Forms
             if (this.lvwPlayers.SelectedItems.Count > 0)
             {
                 if (MessageBox.Show(this.lvwPlayers.SelectedItems.Count + " Spieler löschen?", "Spielereditor", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-                {
-                    foreach (ListViewItem item in this.lvwPlayers.SelectedItems)
-                    {
-                        var player1 = (Player)item.Tag;
-                        foreach (var player2 in this.playerboard.Players)
-                        {
-                            if (player1.Id == player2.Id)
-                            {
-                                this.playerboard.Players.Remove(player2);
-                                break;
-                            }
-                        }
-                    }
-
+                {                    
+                    this.playerboard.Players.Remove(this.lvwPlayers.SelectedItems[0].ToString());
                     this.PopulateListview();
                 }
             }

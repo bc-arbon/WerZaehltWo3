@@ -8,12 +8,12 @@
     {
         public Playerboard()
         {
-            this.Players = new List<Player>();
+            this.Players = new List<string>();
             this.Courts = new List<Court>();
             this.InternalClear();
         }
 
-        public List<Player> Players { get; private set; }
+        public List<string> Players { get; private set; }
 
         public List<Court> Courts { get; private set; }
 
@@ -72,33 +72,33 @@
             return result;
         }
 
-        public Playerboard Clone()
-        {
-            var result = new Playerboard();
-            result.CopyFrom(this);
-            return result;
-        }
+        //public Playerboard Clone()
+        //{
+        //    var result = new Playerboard();
+        //    result.CopyFrom(this);
+        //    return result;
+        //}
 
         public override void Clear()
         {
             this.InternalClear();
         }
 
-        public void CopyFrom(Playerboard other)
-        {
-            this.InternalClear();
+        //public void CopyFrom(Playerboard other)
+        //{
+        //    this.InternalClear();
 
-            foreach (var player in other.Players)
-            {
-                this.Players.Add(player.Clone());
-            }
+        //    foreach (var player in other.Players)
+        //    {
+        //        this.Players.Add(player.Clone());
+        //    }
 
-            this.Courts.Clear();
-            foreach (var court in other.Courts)
-            {
-                this.Courts.Add(court.Clone());
-            }
-        }
+        //    this.Courts.Clear();
+        //    foreach (var court in other.Courts)
+        //    {
+        //        this.Courts.Add(court.Clone());
+        //    }
+        //}
 
         private void InternalClear()
         {

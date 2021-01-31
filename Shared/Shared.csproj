@@ -58,7 +58,6 @@
     <Compile Include="ObjectModel\BaseObject.cs" />
     <Compile Include="ObjectModel\Court.cs" />
     <Compile Include="ObjectModel\LimitedStack.cs" />
-    <Compile Include="ObjectModel\Player.cs" />
     <Compile Include="ObjectModel\Playerboard.cs" />
     <Compile Include="ObjectModel\PlayerboardSettings.cs" />
     <Compile Include="ObjectModel\TsRequest.cs" />

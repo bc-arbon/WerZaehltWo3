@@ -33,7 +33,7 @@ namespace WerZaehltWo3.Wpf.Usercontrols
             this.InitializeComponent();            
         }
 
-        public void SetData(Hub hub, PlayerboardManager manager, Court courtData, List<Player> playerlist)
+        public void SetData(Hub hub, PlayerboardManager manager, Court courtData, List<string> playerlist)
         {
             if (this.hub != null)
             {
@@ -78,8 +78,7 @@ namespace WerZaehltWo3.Wpf.Usercontrols
                 this.CbxPlay2.Text = courtData.PlayerPlay2;
             }
 
-            var players = playerlist.Select(player => player.Name).ToList();
-            this.SetAutocompletionData(players);
+            this.SetAutocompletionData(playerlist);
 
             this.SaveState();
         }

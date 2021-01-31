@@ -9,6 +9,6 @@ namespace BCA.WerZaehltWo3.Tests.Server.Adapters
 
         void Close();
 
-        List<Player> GetPlayers();
+        List<string> GetPlayers();
     }
 }

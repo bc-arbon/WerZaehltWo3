@@ -19,21 +19,19 @@ namespace BCA.WerZaehltWo3.Tests.Gui.Usercontrols
             var playerEditor = new FrmPlayerEditor();
             if (playerEditor.ShowDialog() == DialogResult.OK)
             {
-                this.lblName.Text = playerEditor.Player.Name;
-                this.lblClub.Text = playerEditor.Player.Club;
+                this.lblName.Text = playerEditor.Player;
             }
         }
 
         private void BtnEditPlayer_Click(object sender, EventArgs e)
         {
-            var player = new Player { Name = this.lblName.Text, Club = this.lblClub.Text };
+            var player = this.lblName.Text;
             var playerEditor = new FrmPlayerEditor();
             playerEditor.SetData(player);
 
             if (playerEditor.ShowDialog() == DialogResult.OK)
             {
-                this.lblName.Text = playerEditor.Player.Name;
-                this.lblClub.Text = playerEditor.Player.Club;
+                this.lblName.Text = playerEditor.Player;
             }
         }
 

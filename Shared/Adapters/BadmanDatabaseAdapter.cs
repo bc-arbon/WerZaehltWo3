@@ -51,7 +51,7 @@
             return new List<string>();
         }
 
-        public List<Player> GetPlayers(string tournament)
+        public List<string> GetPlayers(string tournament)
         {
             try
             {
@@ -60,17 +60,17 @@
 
                 if (reader != null)
                 {
-                    var players = new List<Player>();
+                    var players = new List<string>();
                     while (reader.Read())
                     {
-                        var player = new Player
-                        {
-                            Name = reader["FirstName"] + " " + reader["LastName"],
-                            Category = reader["Categories.Name"].ToString(),
-                            Id = reader["LicenseNr"].ToString(),
-                            Club = this.GetClubnameFromPlayer(reader["LicenseNr"].ToString())
-                        };
-                        players.Add(player);
+                        //var player = new Player
+                        //{
+                        //    Name = reader["FirstName"] + " " + reader["LastName"],
+                        //    Category = reader["Categories.Name"].ToString(),
+                        //    Id = reader["LicenseNr"].ToString(),
+                        //    Club = this.GetClubnameFromPlayer(reader["LicenseNr"].ToString())
+                        //};
+                        players.Add(reader["FirstName"] + " " + reader["LastName"]);
                     }
 
                     return players;
@@ -81,7 +81,7 @@
                 this.connection.Close();
             }
 
-            return new List<Player>();
+            return new List<string>();
         }
 
         private string GetClubnameFromPlayer(string licenseNr)

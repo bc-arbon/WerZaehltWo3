@@ -7,8 +7,8 @@ namespace BCA.WerZaehltWo3.Tests.Unit
         public static Playerboard CreateNewPlayerboard()
         {
             var result = new Playerboard();
-            result.Players.Add(CreateNewPlayer());
-            result.Players.Add(CreateNewPlayer2());
+            result.Players.Add("Daniel Hafner");
+            result.Players.Add("Anna Anliker / Bobby Bangeter");
             result.Courts.Add(CreateNewCourt());
             return result;
         }

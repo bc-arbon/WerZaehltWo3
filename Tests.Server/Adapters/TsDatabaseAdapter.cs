@@ -27,7 +27,7 @@ namespace BCA.WerZaehltWo3.Tests.Server.Adapters
             }
         }
 
-        public List<Player> GetPlayers()
+        public List<string> GetPlayers()
         {
             try
             {
@@ -36,17 +36,17 @@ namespace BCA.WerZaehltWo3.Tests.Server.Adapters
 
                 if (reader != null)
                 {
-                    var players = new List<Player>();
+                    var players = new List<string>();
                     while (reader.Read())
                     {
-                        var player = new Player
-                        {
-                            Name = reader["firstname"] + " " + reader["Player.name"],
-                            //Category = reader["Categories.Name"].ToString(),
-                            Id = reader["memberid"].ToString(),
-                            Club = reader["Club.name"].ToString()
-                        };
-                        players.Add(player);
+                        //var player = new Player
+                        //{
+                        //    Name = reader["firstname"] + " " + reader["Player.name"],
+                        //    //Category = reader["Categories.Name"].ToString(),
+                        //    Id = reader["memberid"].ToString(),
+                        //    Club = reader["Club.name"].ToString()
+                        //};
+                        players.Add(reader["firstname"] + " " + reader["Player.name"]);
                     }
 
                     return players;
@@ -57,7 +57,7 @@ namespace BCA.WerZaehltWo3.Tests.Server.Adapters
                 this.connection.Close();
             }
 
-            return new List<Player>();
+            return new List<string>();
         }
     }
 }

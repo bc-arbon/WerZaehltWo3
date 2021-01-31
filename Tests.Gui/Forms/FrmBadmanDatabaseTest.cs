@@ -41,10 +41,7 @@ namespace BCA.WerZaehltWo3.Tests.Gui.Forms
             var players = this.adapter.GetPlayers(this.txtTournaments.Text);
             foreach (var player in players)
             {
-                var item = new ListViewItem(player.Id);
-                item.SubItems.Add(player.Name);
-                item.SubItems.Add(player.Club);
-                item.SubItems.Add(player.Category);
+                var item = new ListViewItem(player);               
                 this.lvwPlayers.Items.Add(item);
             }
         }

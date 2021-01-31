@@ -30,7 +30,7 @@ namespace BCA.WerZaehltWo3.Usercontrols
 
         public event ApplyHandler OnApplyRequested;
 
-        public void SetData(Court courtData, List<Player> playerlist)
+        public void SetData(Court courtData, List<string> playerlist)
         {
             this.court = courtData;
             this.lblCourtNumber.Text = courtData.Number.ToString(CultureInfo.InvariantCulture);
@@ -65,7 +65,7 @@ namespace BCA.WerZaehltWo3.Usercontrols
                 this.txtPlay2.Text = courtData.PlayerPlay2;
             }
 
-            var players = playerlist.Select(player => player.Name).ToArray();
+            var players = playerlist.Select(player => player).ToArray();
             this.SetAutocompletionData(players);
             
             this.SaveState();

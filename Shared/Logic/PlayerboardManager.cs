@@ -16,16 +16,16 @@
             this.Playerboard.Clear();
         }
 
-        public List<Player> GetPlayers()
+        public List<string> GetPlayers()
         {
             return this.Playerboard.Players;
         }
 
-        public Player GetPlayer(string name)
-        {
-            var player = this.Playerboard.Players.FirstOrDefault(pl => pl.Name == name);
-            return player ?? new Player { Name = name };
-        }
+        //public string GetPlayer(string name)
+        //{
+        //    var player = this.Playerboard.Players.FirstOrDefault(pl => pl == name);
+        //    return player ?? new Player { Name = name };
+        //}
 
         public void SetCourtCount(int newCount)
         {
