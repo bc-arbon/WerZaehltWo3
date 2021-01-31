@@ -51,7 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="A_0100_PlayerTests.cs" />
-    <Compile Include="A_0200_PlayerSetTests.cs" />
     <Compile Include="A_0300_CourtTests.cs" />
     <Compile Include="A_0500_AppSettingsTests.cs" />
     <Compile Include="A_0400_PlayerboardTests.cs" />
@@ -59,7 +58,6 @@
     <Compile Include="InitializedObjects\Player.cs" />
     <Compile Include="InitializedObjects\AppSettings.cs" />
     <Compile Include="InitializedObjects\Playerboard.cs" />
-    <Compile Include="InitializedObjects\PlayerSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

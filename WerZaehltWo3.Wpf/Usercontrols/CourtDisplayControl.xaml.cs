@@ -18,21 +18,21 @@ namespace WerZaehltWo3.Wpf.Usercontrols
             this.CourtNumber = court.Number;
             this.LblCourtNumber.Text = court.Number.ToString();
 
-            this.SetPlayer(this.LblReady1, court.PlayersReady.Player1);
-            this.SetPlayer(this.LblReady2, court.PlayersReady.Player2);
-            this.SetPlayer(this.LblCount1, court.PlayersCount.Player1);
-            this.SetPlayer(this.LblCount2, court.PlayersCount.Player2);
-            this.SetPlayer(this.LblPlay1, court.PlayersPlay.Player1);
-            this.SetPlayer(this.LblPlay2, court.PlayersPlay.Player2);
+            this.SetPlayer(this.LblReady1, court.PlayerReady1);
+            this.SetPlayer(this.LblReady2, court.PlayerReady2);
+            this.SetPlayer(this.LblCount1, court.PlayerCount1);
+            this.SetPlayer(this.LblCount2, court.PlayerCount2);
+            this.SetPlayer(this.LblPlay1, court.PlayerPlay1);
+            this.SetPlayer(this.LblPlay2, court.PlayerPlay2);
         }
 
-        private void SetPlayer(TextBlock label, Player player)
+        private void SetPlayer(TextBlock label, string player)
         {
             if (player != null)
             {
-                if (!string.IsNullOrEmpty(player.Name) && player.Name.Contains("/"))
+                if (!string.IsNullOrEmpty(player) && player.Contains("/"))
                 {
-                    var split = player.Name.Split('/');
+                    var split = player.Split('/');
                     if (split.Length > 1)
                     {
                         label.Text = split[0].Trim() + Environment.NewLine + split[1].Trim();
@@ -40,7 +40,7 @@ namespace WerZaehltWo3.Wpf.Usercontrols
                 }
                 else
                 {
-                    label.Text = player.Name;
+                    label.Text = player;
                 }
             }
         }

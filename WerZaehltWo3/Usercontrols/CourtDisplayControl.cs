@@ -60,21 +60,21 @@ namespace BCA.WerZaehltWo3.Usercontrols
             this.CourtNumber = court.Number;
             this.lblCourtNumber.Text = court.Number.ToString(CultureInfo.InvariantCulture);
 
-            this.SetPlayer(this.lblReady1, court.PlayersReady.Player1);
-            this.SetPlayer(this.lblReady2, court.PlayersReady.Player2);
-            this.SetPlayer(this.lblCounting1, court.PlayersCount.Player1);
-            this.SetPlayer(this.lblCounting2, court.PlayersCount.Player2);
-            this.SetPlayer(this.lblPlay1, court.PlayersPlay.Player1);
-            this.SetPlayer(this.lblPlay2, court.PlayersPlay.Player2);
+            this.SetPlayer(this.lblReady1, court.PlayerReady1);
+            this.SetPlayer(this.lblReady2, court.PlayerReady2);
+            this.SetPlayer(this.lblCounting1, court.PlayerCount1);
+            this.SetPlayer(this.lblCounting2, court.PlayerCount2);
+            this.SetPlayer(this.lblPlay1, court.PlayerPlay1);
+            this.SetPlayer(this.lblPlay2, court.PlayerPlay2);
         }
 
-        private void SetPlayer(Control label, Player player)
+        private void SetPlayer(Control label, string player)
         {
             if (player != null)
             {
-                if (!string.IsNullOrEmpty(player.Name) && player.Name.Contains("/"))
+                if (!string.IsNullOrEmpty(player) && player.Contains("/"))
                 {
-                    var split = player.Name.Split('/');
+                    var split = player.Split('/');
                     if (split.Length > 1)
                     {
                         label.Text = split[0].Trim() + Environment.NewLine + split[1].Trim();
@@ -82,7 +82,7 @@ namespace BCA.WerZaehltWo3.Usercontrols
                 }
                 else
                 {
-                    label.Text = player.Name;
+                    label.Text = player;
                 }
             }
         }

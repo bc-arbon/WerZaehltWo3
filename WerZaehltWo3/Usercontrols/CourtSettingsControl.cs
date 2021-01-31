@@ -35,34 +35,34 @@ namespace BCA.WerZaehltWo3.Usercontrols
             this.court = courtData;
             this.lblCourtNumber.Text = courtData.Number.ToString(CultureInfo.InvariantCulture);
 
-            if (courtData.PlayersReady.Player1 != null)
+            if (courtData.PlayerReady1 != null)
             {
-                this.txtReady1.Text = courtData.PlayersReady.Player1.Name;
+                this.txtReady1.Text = courtData.PlayerReady1;
             }
 
-            if (courtData.PlayersReady.Player1 != null)
+            if (courtData.PlayerReady2 != null)
             {
-                this.txtReady2.Text = courtData.PlayersReady.Player2.Name;
+                this.txtReady2.Text = courtData.PlayerReady2;
             }
 
-            if (courtData.PlayersCount.Player1 != null)
+            if (courtData.PlayerCount1 != null)
             {
-                this.txtCount1.Text = courtData.PlayersCount.Player1.Name;
+                this.txtCount1.Text = courtData.PlayerCount1;
             }
 
-            if (courtData.PlayersCount.Player2 != null)
+            if (courtData.PlayerCount2 != null)
             {
-                this.txtCount2.Text = courtData.PlayersCount.Player2.Name;
+                this.txtCount2.Text = courtData.PlayerCount2;
             }
 
-            if (courtData.PlayersPlay.Player1 != null)
+            if (courtData.PlayerPlay1 != null)
             {
-                this.txtPlay1.Text = courtData.PlayersPlay.Player1.Name;
+                this.txtPlay1.Text = courtData.PlayerPlay1;
             }
 
-            if (courtData.PlayersPlay.Player2 != null)
+            if (courtData.PlayerPlay2 != null)
             {
-                this.txtPlay2.Text = courtData.PlayersPlay.Player2.Name;
+                this.txtPlay2.Text = courtData.PlayerPlay2;
             }
 
             var players = playerlist.Select(player => player.Name).ToArray();
@@ -103,12 +103,12 @@ namespace BCA.WerZaehltWo3.Usercontrols
         {
             this.SaveState();
 
-            this.court.PlayersReady.Player1 = this.playerboardManager.GetPlayer(this.txtReady1.Text);
-            this.court.PlayersReady.Player2 = this.playerboardManager.GetPlayer(this.txtReady2.Text);
-            this.court.PlayersCount.Player1 = this.playerboardManager.GetPlayer(this.txtCount1.Text);
-            this.court.PlayersCount.Player2 = this.playerboardManager.GetPlayer(this.txtCount2.Text);
-            this.court.PlayersPlay.Player1 = this.playerboardManager.GetPlayer(this.txtPlay1.Text);
-            this.court.PlayersPlay.Player2 = this.playerboardManager.GetPlayer(this.txtPlay2.Text);
+            this.court.PlayerReady1 = this.txtReady1.Text;
+            this.court.PlayerReady2 = this.txtReady2.Text;
+            this.court.PlayerCount1 = this.txtCount1.Text;
+            this.court.PlayerCount2 = this.txtCount2.Text;
+            this.court.PlayerPlay1 = this.txtPlay1.Text;
+            this.court.PlayerPlay2 = this.txtPlay2.Text;
 
             var handler = this.OnApplyRequested;
             if (handler != null)
@@ -120,12 +120,12 @@ namespace BCA.WerZaehltWo3.Usercontrols
         private void BtnUndo_Click(object sender, EventArgs e)
         {
             var tempCourt = (Court)JsonHelper.Load(this.backups.Pop(), typeof(Court));
-            this.txtReady1.Text = tempCourt.PlayersReady.Player1.Name;
-            this.txtReady2.Text = tempCourt.PlayersReady.Player2.Name;
-            this.txtCount1.Text = tempCourt.PlayersCount.Player1.Name;
-            this.txtCount2.Text = tempCourt.PlayersCount.Player2.Name;
-            this.txtPlay1.Text = tempCourt.PlayersPlay.Player1.Name;
-            this.txtPlay2.Text = tempCourt.PlayersPlay.Player2.Name;
+            this.txtReady1.Text = tempCourt.PlayerReady1;
+            this.txtReady2.Text = tempCourt.PlayerReady2;
+            this.txtCount1.Text = tempCourt.PlayerCount1;
+            this.txtCount2.Text = tempCourt.PlayerCount2;
+            this.txtPlay1.Text = tempCourt.PlayerPlay1;
+            this.txtPlay2.Text = tempCourt.PlayerPlay2;
 
             this.btnUndo.Enabled = this.backups.Count > 0;
         }
@@ -143,12 +143,12 @@ namespace BCA.WerZaehltWo3.Usercontrols
         private void SaveState()
         {
             var tempCourt = this.court.Clone();
-            tempCourt.PlayersReady.Player1 = new Player(this.txtReady1.Text);
-            tempCourt.PlayersReady.Player2 = new Player(this.txtReady2.Text);
-            tempCourt.PlayersCount.Player1 = new Player(this.txtCount1.Text);
-            tempCourt.PlayersCount.Player2 = new Player(this.txtCount2.Text);
-            tempCourt.PlayersPlay.Player1 = new Player(this.txtPlay1.Text);
-            tempCourt.PlayersPlay.Player2 = new Player(this.txtPlay2.Text);
+            tempCourt.PlayerReady1 = this.txtReady1.Text;
+            tempCourt.PlayerReady2 = this.txtReady2.Text;
+            tempCourt.PlayerCount1 = this.txtCount1.Text;
+            tempCourt.PlayerCount2 = this.txtCount2.Text;
+            tempCourt.PlayerPlay1 = this.txtPlay1.Text;
+            tempCourt.PlayerPlay2 = this.txtPlay2.Text;
             this.backups.Push(JsonHelper.Save(tempCourt));
             this.btnUndo.Enabled = this.backups.Count > 0;
         }

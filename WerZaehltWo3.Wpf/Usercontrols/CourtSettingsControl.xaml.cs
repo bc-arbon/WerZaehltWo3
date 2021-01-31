@@ -48,34 +48,34 @@ namespace WerZaehltWo3.Wpf.Usercontrols
             this.court = courtData;
             this.LblCourtNumber.Text = courtData.Number.ToString();
 
-            if (courtData.PlayersReady.Player1 != null)
+            if (courtData.PlayerReady1 != null)
             {
-                this.CbxReady1.Text = courtData.PlayersReady.Player1.Name;
+                this.CbxReady1.Text = courtData.PlayerReady1;
             }
 
-            if (courtData.PlayersReady.Player1 != null)
+            if (courtData.PlayerReady2 != null)
             {
-                this.CbxReady2.Text = courtData.PlayersReady.Player2.Name;
+                this.CbxReady2.Text = courtData.PlayerReady2;
             }
 
-            if (courtData.PlayersCount.Player1 != null)
+            if (courtData.PlayerCount1 != null)
             {
-                this.CbxCount1.Text = courtData.PlayersCount.Player1.Name;
+                this.CbxCount1.Text = courtData.PlayerCount1;
             }
 
-            if (courtData.PlayersCount.Player2 != null)
+            if (courtData.PlayerCount2 != null)
             {
-                this.CbxCount2.Text = courtData.PlayersCount.Player2.Name;
+                this.CbxCount2.Text = courtData.PlayerCount2;
             }
 
-            if (courtData.PlayersPlay.Player1 != null)
+            if (courtData.PlayerPlay1 != null)
             {
-                this.CbxPlay1.Text = courtData.PlayersPlay.Player1.Name;
+                this.CbxPlay1.Text = courtData.PlayerPlay1;
             }
 
-            if (courtData.PlayersPlay.Player2 != null)
+            if (courtData.PlayerPlay2 != null)
             {
-                this.CbxPlay2.Text = courtData.PlayersPlay.Player2.Name;
+                this.CbxPlay2.Text = courtData.PlayerPlay2;
             }
 
             var players = playerlist.Select(player => player.Name).ToList();
@@ -97,12 +97,12 @@ namespace WerZaehltWo3.Wpf.Usercontrols
         private void SaveState()
         {
             var tempCourt = this.court.Clone();
-            tempCourt.PlayersReady.Player1 = new Player(this.CbxReady1.Text);
-            tempCourt.PlayersReady.Player2 = new Player(this.CbxReady2.Text);
-            tempCourt.PlayersCount.Player1 = new Player(this.CbxCount1.Text);
-            tempCourt.PlayersCount.Player2 = new Player(this.CbxCount2.Text);
-            tempCourt.PlayersPlay.Player1 = new Player(this.CbxPlay1.Text);
-            tempCourt.PlayersPlay.Player2 = new Player(this.CbxPlay2.Text);
+            tempCourt.PlayerReady1 = this.CbxReady1.Text;
+            tempCourt.PlayerReady2 = this.CbxReady2.Text;
+            tempCourt.PlayerCount1 = this.CbxCount1.Text;
+            tempCourt.PlayerCount2 = this.CbxCount2.Text;
+            tempCourt.PlayerPlay1 = this.CbxPlay1.Text;
+            tempCourt.PlayerPlay2 = this.CbxPlay2.Text;
             this.backups.Push(JsonHelper.Save(tempCourt));
             this.BtnUndo.IsEnabled = this.backups.Count > 0;
         }
@@ -110,12 +110,12 @@ namespace WerZaehltWo3.Wpf.Usercontrols
         private void BtnUndo_Click(object sender, RoutedEventArgs e)
         {
             var tempCourt = (Court)JsonHelper.Load(this.backups.Pop(), typeof(Court));
-            this.CbxReady1.Text = tempCourt.PlayersReady.Player1.Name;
-            this.CbxReady2.Text = tempCourt.PlayersReady.Player2.Name;
-            this.CbxCount1.Text = tempCourt.PlayersCount.Player1.Name;
-            this.CbxCount2.Text = tempCourt.PlayersCount.Player2.Name;
-            this.CbxPlay1.Text = tempCourt.PlayersPlay.Player1.Name;
-            this.CbxPlay2.Text = tempCourt.PlayersPlay.Player2.Name;
+            this.CbxReady1.Text = tempCourt.PlayerReady1;
+            this.CbxReady2.Text = tempCourt.PlayerReady2;
+            this.CbxCount1.Text = tempCourt.PlayerCount1;
+            this.CbxCount2.Text = tempCourt.PlayerCount2;
+            this.CbxPlay1.Text = tempCourt.PlayerPlay1;
+            this.CbxPlay2.Text = tempCourt.PlayerPlay2;
 
             this.BtnUndo.IsEnabled = this.backups.Count > 0;
         }
@@ -146,12 +146,12 @@ namespace WerZaehltWo3.Wpf.Usercontrols
         {
             this.SaveState();
 
-            this.court.PlayersReady.Player1 = this.playerboardManager.GetPlayer(this.CbxReady1.Text);
-            this.court.PlayersReady.Player2 = this.playerboardManager.GetPlayer(this.CbxReady2.Text);
-            this.court.PlayersCount.Player1 = this.playerboardManager.GetPlayer(this.CbxCount1.Text);
-            this.court.PlayersCount.Player2 = this.playerboardManager.GetPlayer(this.CbxCount2.Text);
-            this.court.PlayersPlay.Player1 = this.playerboardManager.GetPlayer(this.CbxPlay1.Text);
-            this.court.PlayersPlay.Player2 = this.playerboardManager.GetPlayer(this.CbxPlay2.Text);
+            this.court.PlayerReady1 = this.CbxReady1.Text;
+            this.court.PlayerReady2 = this.CbxReady2.Text;
+            this.court.PlayerCount1 = this.CbxCount1.Text;
+            this.court.PlayerCount2 = this.CbxCount2.Text;
+            this.court.PlayerPlay1 = this.CbxPlay1.Text;
+            this.court.PlayerPlay2 = this.CbxPlay2.Text;
 
             this.hub.Publish<CourtUpdateEvent>(new CourtUpdateEvent(this.court ));
         }

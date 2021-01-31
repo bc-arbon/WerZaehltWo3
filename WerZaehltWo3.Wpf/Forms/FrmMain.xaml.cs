@@ -25,7 +25,8 @@ namespace WerZaehltWo3.Wpf
 
         private void MnuEditPlayers_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException("open edit players");
+            var frmPlayers = new FrmPlayers(this.playerboardManager.Playerboard);
+            frmPlayers.ShowDialog();
         }
 
         private void MnuSetCourtCount_Click(object sender, RoutedEventArgs e)

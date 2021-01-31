@@ -61,7 +61,6 @@
     <Compile Include="ObjectModel\Player.cs" />
     <Compile Include="ObjectModel\Playerboard.cs" />
     <Compile Include="ObjectModel\PlayerboardSettings.cs" />
-    <Compile Include="ObjectModel\PlayerSet.cs" />
     <Compile Include="ObjectModel\TsRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helpers\XmlHelper.cs" />
