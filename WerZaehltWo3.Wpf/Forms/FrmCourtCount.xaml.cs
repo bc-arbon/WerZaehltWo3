@@ -20,5 +20,18 @@ namespace WerZaehltWo3.Wpf.Forms
         {
             this.InitializeComponent();
         }
+
+        public int CourtCount { get; private set; }
+
+        public void SetData(int courtCount)
+        {
+            this.CourtCount = courtCount;
+            this.SldCount.Value = courtCount;
+        }
+
+        private void BtnOk_Click(object sender, EventArgs e)
+        {
+            this.CourtCount = Convert.ToInt32(this.SldCount.Value);
+        }
     }
 }

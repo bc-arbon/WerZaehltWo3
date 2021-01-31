@@ -19,15 +19,8 @@
             </Menu.Items>
         </Menu>
         <ScrollViewer Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto">
-            <StackPanel Orientation="Vertical" Grid.Row="1">
-                <usercontrols:CourtSettingsControl/>
-                <usercontrols:CourtSettingsControl/>
-                <usercontrols:CourtSettingsControl/>
-                <usercontrols:CourtSettingsControl/>
-                <usercontrols:CourtSettingsControl/>
-                <usercontrols:CourtSettingsControl/>
-                <usercontrols:CourtSettingsControl/>
-                <usercontrols:CourtSettingsControl/>
+            <StackPanel x:Name="PnlSettingsControls" Orientation="Vertical" Grid.Row="1">
+               
             </StackPanel>
         </ScrollViewer>
 

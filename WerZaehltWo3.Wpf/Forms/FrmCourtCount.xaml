@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WerZaehltWo3.Wpf"
         mc:Ignorable="d"
-        Title="FrmCourtCount" Height="450" Width="800">
+        Title="FrmCourtCount">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Header="Anzahl Felder" Grid.Row="0" Margin="5">
+            <StackPanel Margin="5">
+                <TextBlock x:Name="LblCount" Text="{Binding ElementName=SldCount, Path=Value}" HorizontalAlignment="Center"/>
+                <Slider x:Name="SldCount" Minimum="1" Maximum="9"/>
+            </StackPanel>
+        </GroupBox>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Button Margin="10" Content="OK" Width="70"/>
+            <Button Margin="10" Content="Abbrechen" Width="70"/>
+        </StackPanel>
     </Grid>
 </Window>

@@ -1,27 +1,47 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BCA.WerZaehltWo3.Shared.ObjectModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using WerZaehltWo3.Wpf.Usercontrols;
 
 namespace WerZaehltWo3.Wpf.Forms
 {
-    /// <summary>
-    /// Interaction logic for FrmDisplay.xaml
-    /// </summary>
     public partial class FrmDisplay : Window
     {
         public FrmDisplay()
         {
-            InitializeComponent();
+            this.InitializeComponent();
+        }
+
+        public Playerboard Playerboard { get; set; }
+
+        public void InitializeDisplayControls()
+        {
+            this.PnlControls.Children.Clear();
+            foreach (var court in this.Playerboard.Courts)
+            {
+                var settingsControl = new CourtDisplayControl();
+                settingsControl.SetData(court);
+                this.PnlControls.Children.Add(settingsControl);
+            }
+        }
+
+        public void UpdateDisplayControl(Court court)
+        {
+            foreach (CourtDisplayControl control in this.PnlControls.Children)
+            {
+                if (control.CourtNumber == court.Number)
+                {
+                    control.SetData(court);
+                    return;
+                }
+            }
+        }
+        
+        public void SetFontSize(float fontSize)
+        {
+            foreach (CourtDisplayControl control in this.PnlControls.Children)
+            {
+                control.FontSize = fontSize;
+            }
         }
     }
 }

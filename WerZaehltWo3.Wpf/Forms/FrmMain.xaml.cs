@@ -3,6 +3,7 @@ using BCA.WerZaehltWo3.Shared.ObjectModel;
 using System;
 using System.Windows;
 using WerZaehltWo3.Wpf.Forms;
+using WerZaehltWo3.Wpf.Usercontrols;
 
 namespace WerZaehltWo3.Wpf
 {
@@ -31,9 +32,14 @@ namespace WerZaehltWo3.Wpf
         private void MnuSetCourtCount_Click(object sender, RoutedEventArgs e)
         {
             var frmCourtCount = new FrmCourtCount();
+            frmCourtCount.SetData(this.playerboard.Courts.Count);
             if (frmCourtCount.ShowDialog() == true)
             {
-                throw new NotImplementedException("update settings after court count change");
+                PlayerboardLogic.SetCourtCount(this.playerboard, frmCourtCount.CourtCount);
+                this.displayForm.InitializeDisplayControls();
+                this.InitializeSettingControls();
+
+                PlayerboardLogic.Save(this.playerboard);
             }
         }
 
@@ -49,6 +55,18 @@ namespace WerZaehltWo3.Wpf
             //this.InitializeSettingControls();
             //this.displayForm.InitializeDisplayControls();
             //this.displayForm.SetFontSize(this.playerboardManager.Playerboard.Settings.FontSize);
+        }
+
+        private void InitializeSettingControls()
+        {
+            this.PnlSettingsControls.Children.Clear();
+            foreach (var court in this.playerboard.Courts)
+            {
+                var settingsControl = new CourtSettingsControl();
+                //settingsControl.SetData(court, this.playerboard.Players);
+                //settingsControl.OnApplyRequested += this.SettingsControl_OnApplyRequested;
+                this.PnlSettingsControls.Children.Add(settingsControl);
+            }
         }
     }
 }
