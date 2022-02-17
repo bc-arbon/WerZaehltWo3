@@ -76,7 +76,7 @@ namespace BCA.WerZaehltWo3.Forms
             this.ImportedPlayers = new List<string>();
             foreach (ListViewItem item in this.lvwPlayers.Items)
             {
-                this.ImportedPlayers.Add(item.ToString());
+                this.ImportedPlayers.Add(item.Text.ToString());
             }
         }
 
