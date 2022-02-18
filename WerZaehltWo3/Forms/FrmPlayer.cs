@@ -89,8 +89,12 @@ namespace BCA.WerZaehltWo3.Forms
             {
                 if (MessageBox.Show(this.lvwPlayers.SelectedItems.Count + " Spieler löschen?", "Spielereditor", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
-                    var player = this.lvwPlayers.SelectedItems[0].Text;
-                    PlayerboardLogic.RemovePlayer(this.playerboard, player);
+                    foreach (ListViewItem item in this.lvwPlayers.SelectedItems)
+                    {
+                        var player = item.Text;
+                        PlayerboardLogic.RemovePlayer(this.playerboard, player);
+                    }
+
                     PlayerboardLogic.Save(this.playerboard);
                     this.PopulateListview();
                 }
