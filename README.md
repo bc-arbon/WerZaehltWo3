@@ -1,4 +1,4 @@
-![Is this project still maintained?](https://img.shields.io/badge/maintained-yes-green.svg?style=plastic)](https://github.com/badges/shields)
+[![Is this project still maintained?](https://img.shields.io/badge/maintained-yes-green.svg?style=plastic)](https://github.com/badges/shields)
 
 # WerZaehltWo3
 Hilfsprogramm für Junioren-Badmintonturniere
