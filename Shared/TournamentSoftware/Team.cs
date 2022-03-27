@@ -18,6 +18,7 @@ namespace BCA.WerZaehltWo3.Shared.TournamentSoftware
                 sb.Append(" / ");
                 sb.Append(this.Player2.FirstName).Append(" ").Append(this.Player2.LastName).Append("");
             }            
+
             return sb.ToString();
         }
     }
