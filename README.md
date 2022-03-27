@@ -9,7 +9,9 @@ Hilfsprogramm für Junioren-Badmintonturniere
 - Schnelleingabe von Spielernamen mit Autovervollständigung
 - Übersichtlicher Editor der Spielernamen
 
-# Todo
-- Port nach .NET 5 und WPF
+# In Progress
 - Direkte Anzeige/Import der Felderbelegung aus TournamentSoftware
 - Auslesen der geplanten Spiele aus TournamentSoftware
+
+# Todo
+- Port nach .NET 5 und WPF
