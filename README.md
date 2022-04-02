@@ -3,6 +3,8 @@
 # WerZaehltWo3
 Hilfsprogramm für Junioren-Badmintonturniere
 
+![Aufbau](https://raw.githubusercontent.com/dahafner/WerZaehltWo3/master/doc/setup.jpg)
+
 ## Features
 - Anzeigen wer auf welchem Feld aktuell spielt, zählen oder sich bereit halten muss
 - Import von Spielern aus Badman und TournamentSoftware
