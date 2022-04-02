@@ -24,7 +24,8 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
 
             var conString = this.tsConnectionString.Replace("|DataDirectory|\\ts.tp", databaseFilepath);
 
-            this.connection = new OleDbConnection(conString);            
+            this.connection = new OleDbConnection(conString);  
+            this.connection.Open();
         }
 
         public void Close()
