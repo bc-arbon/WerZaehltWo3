@@ -18,7 +18,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BFFF1EAD-AABD-44B5-824F-25A0E0E15987}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		INSTALL.md = INSTALL.md
 		README.md = README.md
+		doc\setup.jpg = doc\setup.jpg
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WerZaehltWo3.Wpf", "WerZaehltWo3.Wpf\WerZaehltWo3.Wpf.csproj", "{436A7253-6206-4BF5-886D-F62AB8191FE0}"
