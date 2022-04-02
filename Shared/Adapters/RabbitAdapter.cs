@@ -29,7 +29,13 @@ namespace BCA.WerZaehltWo3.Common.Adapters
             var message = JsonConvert.SerializeObject(payload);
             var body = Encoding.UTF8.GetBytes(message);
             this.Channel.BasicPublish(exchange: exchangeName, routingKey: routingKey, basicProperties: null, body: body);
-            //Debug.WriteLine(" [x] Sent {0}", message);
+            //Debug.WriteLine(" [x] Sent {0}", message);            
+        }
+
+        public void Close()
+        {
+            this.Channel.Close();
+            this.Channel.Dispose();
         }
     }
 }

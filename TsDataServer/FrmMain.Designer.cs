@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.LvwPlannedMatches = new System.Windows.Forms.ListView();
             this.ChrCourt2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ChrPlanDate2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -45,6 +46,8 @@
             this.ChrDraw = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ChrRound = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.NudInterval = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.TxtRabbitVhost = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -60,19 +63,19 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.LblNextUpdate = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.LblStatusRabbit = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.LblStatusDatabase = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.LblStatusRabbit = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.NudInterval = new System.Windows.Forms.NumericUpDown();
+            this.TmrUpdater = new System.Windows.Forms.Timer(this.components);
+            this.TmrCountdown = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NudInterval)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NudInterval)).BeginInit();
             this.SuspendLayout();
             // 
             // LvwPlannedMatches
@@ -90,7 +93,7 @@
             this.LvwPlannedMatches.HideSelection = false;
             this.LvwPlannedMatches.Location = new System.Drawing.Point(6, 19);
             this.LvwPlannedMatches.Name = "LvwPlannedMatches";
-            this.LvwPlannedMatches.Size = new System.Drawing.Size(735, 329);
+            this.LvwPlannedMatches.Size = new System.Drawing.Size(735, 363);
             this.LvwPlannedMatches.TabIndex = 8;
             this.LvwPlannedMatches.UseCompatibleStateImageBehavior = false;
             this.LvwPlannedMatches.View = System.Windows.Forms.View.Details;
@@ -131,6 +134,7 @@
             this.BtnStopAutoupdate.TabIndex = 5;
             this.BtnStopAutoupdate.Text = "Stop";
             this.BtnStopAutoupdate.UseVisualStyleBackColor = true;
+            this.BtnStopAutoupdate.Click += new System.EventHandler(this.BtnStopAutoupdate_Click);
             // 
             // BtnStartAutoUpdate
             // 
@@ -157,7 +161,7 @@
             this.LvwCurrentMatches.HideSelection = false;
             this.LvwCurrentMatches.Location = new System.Drawing.Point(6, 19);
             this.LvwCurrentMatches.Name = "LvwCurrentMatches";
-            this.LvwCurrentMatches.Size = new System.Drawing.Size(735, 195);
+            this.LvwCurrentMatches.Size = new System.Drawing.Size(735, 170);
             this.LvwCurrentMatches.TabIndex = 4;
             this.LvwCurrentMatches.UseCompatibleStateImageBehavior = false;
             this.LvwCurrentMatches.View = System.Windows.Forms.View.Details;
@@ -214,6 +218,27 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Konfiguration";
+            // 
+            // NudInterval
+            // 
+            this.NudInterval.Location = new System.Drawing.Point(97, 76);
+            this.NudInterval.Name = "NudInterval";
+            this.NudInterval.Size = new System.Drawing.Size(93, 20);
+            this.NudInterval.TabIndex = 20;
+            this.NudInterval.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 78);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(85, 13);
+            this.label11.TabIndex = 19;
+            this.label11.Text = "Update Intervall:";
             // 
             // label8
             // 
@@ -323,7 +348,7 @@
             this.groupBox2.Controls.Add(this.LvwCurrentMatches);
             this.groupBox2.Location = new System.Drawing.Point(12, 214);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(747, 220);
+            this.groupBox2.Size = new System.Drawing.Size(747, 195);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Laufende Spiele";
@@ -333,9 +358,9 @@
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.LvwPlannedMatches);
-            this.groupBox3.Location = new System.Drawing.Point(12, 440);
+            this.groupBox3.Location = new System.Drawing.Point(12, 415);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(747, 354);
+            this.groupBox3.Size = new System.Drawing.Size(747, 388);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Geplante Spiele";
@@ -344,7 +369,7 @@
             // 
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.Controls.Add(this.label10);
+            this.groupBox4.Controls.Add(this.LblNextUpdate);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.LblStatusRabbit);
             this.groupBox4.Controls.Add(this.label2);
@@ -358,6 +383,43 @@
             this.groupBox4.TabIndex = 12;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Steuerung";
+            // 
+            // LblNextUpdate
+            // 
+            this.LblNextUpdate.AutoSize = true;
+            this.LblNextUpdate.Location = new System.Drawing.Point(480, 24);
+            this.LblNextUpdate.Name = "LblNextUpdate";
+            this.LblNextUpdate.Size = new System.Drawing.Size(18, 13);
+            this.LblNextUpdate.TabIndex = 12;
+            this.LblNextUpdate.Text = "--s";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(381, 24);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(93, 13);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "Nächstes Update:";
+            // 
+            // LblStatusRabbit
+            // 
+            this.LblStatusRabbit.AutoSize = true;
+            this.LblStatusRabbit.ForeColor = System.Drawing.Color.Red;
+            this.LblStatusRabbit.Location = new System.Drawing.Point(266, 53);
+            this.LblStatusRabbit.Name = "LblStatusRabbit";
+            this.LblStatusRabbit.Size = new System.Drawing.Size(86, 13);
+            this.LblStatusRabbit.TabIndex = 10;
+            this.LblStatusRabbit.Text = "Nicht verbunden";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(197, 53);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "RabbitMQ:";
             // 
             // LblStatusDatabase
             // 
@@ -378,58 +440,15 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Datenbank:";
             // 
-            // label2
+            // TmrUpdater
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(197, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "RabbitMQ:";
+            this.TmrUpdater.Interval = 10000;
+            this.TmrUpdater.Tick += new System.EventHandler(this.TmrUpdater_Tick);
             // 
-            // LblStatusRabbit
+            // TmrCountdown
             // 
-            this.LblStatusRabbit.AutoSize = true;
-            this.LblStatusRabbit.ForeColor = System.Drawing.Color.Red;
-            this.LblStatusRabbit.Location = new System.Drawing.Point(266, 53);
-            this.LblStatusRabbit.Name = "LblStatusRabbit";
-            this.LblStatusRabbit.Size = new System.Drawing.Size(86, 13);
-            this.LblStatusRabbit.TabIndex = 10;
-            this.LblStatusRabbit.Text = "Nicht verbunden";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(381, 24);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(93, 13);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "Nächstes Update:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(480, 24);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(34, 13);
-            this.label10.TabIndex = 12;
-            this.label10.Text = "00:10";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 78);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(85, 13);
-            this.label11.TabIndex = 19;
-            this.label11.Text = "Update Intervall:";
-            // 
-            // NudInterval
-            // 
-            this.NudInterval.Location = new System.Drawing.Point(97, 76);
-            this.NudInterval.Name = "NudInterval";
-            this.NudInterval.Size = new System.Drawing.Size(93, 20);
-            this.NudInterval.TabIndex = 20;
+            this.TmrCountdown.Interval = 900;
+            this.TmrCountdown.Tick += new System.EventHandler(this.TmrCountdown_Tick);
             // 
             // FrmMain
             // 
@@ -447,11 +466,11 @@
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NudInterval)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NudInterval)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -494,10 +513,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown NudInterval;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label LblNextUpdate;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label LblStatusRabbit;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer TmrUpdater;
+        private System.Windows.Forms.Timer TmrCountdown;
     }
 }
 
