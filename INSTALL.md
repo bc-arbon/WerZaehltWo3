@@ -18,7 +18,7 @@ Die Import-Funktion ist im Spielereditor zu finden.
 Zum Importieren aller gemeldeten Spieler muss die entsprechende *.ts-Datei ausgewählt werden.
 
 ### Verwalten der Spielerbestände
-Im Programmverzeichnis befindet sich die Datei playerboard.json. Falls man z.B. am Morgen und am Nachmittag verschiedene Spieler in der Halle, kann man vorgängig verschiedene Versionen der playerboard.json 
+Im Programmverzeichnis befindet sich die Datei playerboard.json. Falls man z.B. am Morgen und am Nachmittag verschiedene Spieler in der Halle hat kann man vorgängig verschiedene Versionen der playerboard.json 
 vorbereiten und je nach Bedarf im Programmverzeichnis ablegen.
 
 ### Doppelpaarungen
