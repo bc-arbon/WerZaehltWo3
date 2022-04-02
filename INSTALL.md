@@ -1,5 +1,5 @@
 # Installation
-![Aufbau](https://raw.githubusercontent.com/dahafner/WerZaehltWo3/master/doc/setup.jpg)
+![Aufbau](doc/setup.jpg)
 
 ## Prerequisites
 - .NET Framework 4.8
@@ -23,4 +23,5 @@ vorbereiten und je nach Bedarf im Programmverzeichnis ablegen.
 
 ### Doppelpaarungen
 Die beiden Namen bei Doppel und Mixed können mit einem " / " getrennt werden. Auf dem Display wird dies dann als Zeilenumbruch angezeigt.
-![Doppelpaarungen](https://raw.githubusercontent.com/dahafner/WerZaehltWo3/master/doc/slash.png)
+
+![Doppelpaarungen](doc/slash.png)

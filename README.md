@@ -1,9 +1,9 @@
 [![Is this project still maintained?](https://img.shields.io/badge/maintained-yes-green.svg?style=plastic)](https://github.com/badges/shields)
 
-# WerZaehltWo3
+# Wer zählt wo
 Hilfsprogramm für Junioren-Badmintonturniere
 
-![Aufbau](https://raw.githubusercontent.com/dahafner/WerZaehltWo3/master/doc/setup.jpg)
+![Aufbau](doc/setup.jpg)
 
 ## Features
 - Anzeigen wer auf welchem Feld aktuell spielt, zählen oder sich bereit halten muss
@@ -20,3 +20,6 @@ Hilfsprogramm für Junioren-Badmintonturniere
 
 # Kontakt
 - Bei Fragen und Anregungen: [Discord](https://discord.gg/gG7S4y5HZd)
+
+# Installation
+- [INSTALL.md](INSTALL.md)
