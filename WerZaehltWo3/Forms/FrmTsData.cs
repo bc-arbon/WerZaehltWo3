@@ -26,9 +26,9 @@ namespace BCA.WerZaehltWo3.Forms
             this.PnlControls.Controls.Clear();
             foreach (var court in this.Playerboard.Courts)
             {
-                //var settingsControl = new TsCourtControl();
-                //settingsControl.SetData(court);
-                //this.PnlControls.Controls.Add(settingsControl);
+                var settingsControl = new TsCourtControl();
+                settingsControl.SetData(court.Number);
+                this.PnlControls.Controls.Add(settingsControl);
             }
         }
 

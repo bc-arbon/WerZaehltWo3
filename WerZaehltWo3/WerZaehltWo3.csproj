@@ -234,7 +234,6 @@
   <ItemGroup>
     <Content Include="icon.ico" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Shared\Shared.csproj">
       <Project>{9ef114eb-6e13-457b-8dea-d6d7c29ea1c4}</Project>

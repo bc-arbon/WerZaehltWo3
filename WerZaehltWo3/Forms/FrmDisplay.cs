@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 using BCA.WerZaehltWo3.Usercontrols;
 using BCA.WerZaehltWo3.Shared.ObjectModel;
+using BCA.WerZaehltWo3.Shared.Logic;
 using PubSub;
 using BCA.WerZaehltWo3.Shared.Eventing;
-using BCA.WerZaehltWo3.Shared.Logic;
 
 namespace BCA.WerZaehltWo3.Forms
 {
@@ -14,7 +14,7 @@ namespace BCA.WerZaehltWo3.Forms
     {
         private readonly Hub hub = Hub.Default;
         private LinearGradientBrush brush;
-        
+
         public FrmDisplay()
         {
             this.InitializeComponent();
@@ -24,7 +24,7 @@ namespace BCA.WerZaehltWo3.Forms
 
         public void InitializeDisplayControls()
         {
-            this.hub.Subscribe<CourtEventArgs>(x => this.UpdateDisplayControl(x.Court));
+            this.hub.Subscribe<CourtUpdateEvent>(x => this.UpdateDisplayControl(x.Court));
 
             this.pnlControl.Controls.Clear();
             foreach (var court in this.Playerboard.Courts)
@@ -75,10 +75,10 @@ namespace BCA.WerZaehltWo3.Forms
         }
 
         public void SetFontSize(float fontSize)
-        {            
+        {
             foreach (CourtDisplayControl control in this.pnlControl.Controls)
             {
-                control.FontSize = fontSize;           
+                control.FontSize = fontSize;
             }
         }
     }

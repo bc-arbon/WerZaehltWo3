@@ -1,8 +1,7 @@
-﻿using BCA.WerZaehltWo3.Shared.TournamentSoftware;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace BCA.WerZaehltWo3.Common.TournamentSoftware
+namespace BCA.WerZaehltWo3.Shared.TournamentSoftware
 {
     public class MatchesPayload
     {

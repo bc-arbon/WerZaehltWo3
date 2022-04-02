@@ -1,9 +1,9 @@
-﻿using BCA.WerZaehltWo3.Common.TournamentSoftware;
+﻿using BCA.WerZaehltWo3.Shared.TournamentSoftware;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using System.Text;
 
-namespace BCA.WerZaehltWo3.Common.Adapters
+namespace BCA.WerZaehltWo3.Shared.Adapters
 {
     public class RabbitAdapter
     {

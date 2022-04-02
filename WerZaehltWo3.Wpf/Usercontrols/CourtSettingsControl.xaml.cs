@@ -1,4 +1,4 @@
-﻿using BCA.WerZaehltWo3.Common.Eventing;
+﻿using BCA.WerZaehltWo3.Shared.Eventing;
 using BCA.WerZaehltWo3.Shared.Helpers;
 using BCA.WerZaehltWo3.Shared.ObjectModel;
 using PubSub;
@@ -18,7 +18,7 @@ namespace WerZaehltWo3.Wpf.Usercontrols
 
         public CourtSettingsControl()
         {
-            this.InitializeComponent();            
+            this.InitializeComponent();
         }
 
         public void SetData(Hub hub, Court courtData, List<string> playerlist)
@@ -138,7 +138,7 @@ namespace WerZaehltWo3.Wpf.Usercontrols
             this.court.PlayerPlay1 = this.CbxPlay1.Text;
             this.court.PlayerPlay2 = this.CbxPlay2.Text;
 
-            this.hub.Publish<CourtUpdateEvent>(new CourtUpdateEvent(this.court ));
+            this.hub.Publish<CourtUpdateEvent>(new CourtUpdateEvent(this.court));
         }
         private void PlayerBaseChanged(PlayerBaseChangedEvent obj)
         {
@@ -146,7 +146,7 @@ namespace WerZaehltWo3.Wpf.Usercontrols
         }
 
         private void Players_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {            
+        {
             //var filter = this.players.Where(p => p.Contains(e.Text)).ToList();
             var cbx = (ComboBox)sender;
             //if (filter.Count > 0)

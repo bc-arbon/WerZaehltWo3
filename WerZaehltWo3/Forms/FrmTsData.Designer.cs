@@ -33,7 +33,7 @@
             // 
             // PnlControls
             // 
-            this.PnlControls.Location = new System.Drawing.Point(49, 36);
+            this.PnlControls.Location = new System.Drawing.Point(12, 50);
             this.PnlControls.Name = "PnlControls";
             this.PnlControls.Size = new System.Drawing.Size(711, 363);
             this.PnlControls.TabIndex = 0;

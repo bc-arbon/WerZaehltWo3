@@ -128,7 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Shared\Shared.csproj">
-      <Project>{9ef114eb-6e13-457b-8dea-d6d7c29ea1c4}</Project>
+      <Project>{9EF114EB-6E13-457B-8DEA-D6D7C29EA1C4}</Project>
       <Name>Shared</Name>
     </ProjectReference>
     <ProjectReference Include="..\WerZaehltWo3\WerZaehltWo3.csproj">

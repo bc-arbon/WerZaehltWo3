@@ -16,7 +16,6 @@ namespace BCA.WerZaehltWo3.Usercontrols
         private readonly LinearGradientBrush brushPlay;
         private readonly Rectangle gradientRect;
         private readonly Rectangle lineRect;
-        private readonly Hub hub = Hub.Default;
 
         public CourtDisplayControl()
         {

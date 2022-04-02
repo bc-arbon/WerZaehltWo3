@@ -1,9 +1,6 @@
-﻿using BCA.WerZaehltWo3.Common.Adapters;
-using BCA.WerZaehltWo3.Common.Eventing;
-using BCA.WerZaehltWo3.Common.TournamentSoftware;
-using BCA.WerZaehltWo3.Shared.Adapters;
+﻿using BCA.WerZaehltWo3.Shared.Adapters;
+using BCA.WerZaehltWo3.Shared.TournamentSoftware;
 using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;

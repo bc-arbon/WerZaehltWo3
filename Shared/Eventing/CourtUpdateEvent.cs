@@ -1,6 +1,6 @@
 ﻿using BCA.WerZaehltWo3.Shared.ObjectModel;
 
-namespace BCA.WerZaehltWo3.Common.Eventing
+namespace BCA.WerZaehltWo3.Shared.Eventing
 {
     public class CourtUpdateEvent
     {

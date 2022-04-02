@@ -7,8 +7,8 @@
     <ProjectGuid>{9EF114EB-6E13-457B-8DEA-D6D7C29EA1C4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BCA.WerZaehltWo3.Common</RootNamespace>
-    <AssemblyName>WerZaehltWo3.Common</AssemblyName>
+    <RootNamespace>BCA.WerZaehltWo3.Shared</RootNamespace>
+    <AssemblyName>WerZaehltWo3.Shared</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -71,9 +71,10 @@
     <Compile Include="Adapters\TsDatabaseAdapter.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Enums.cs" />
-    <Compile Include="Eventing\CourtEventArgs.cs" />
     <Compile Include="Eventing\CourtUpdateEvent.cs" />
     <Compile Include="Eventing\PlayerBaseChangedEvent.cs" />
+    <Compile Include="Eventing\TsCourtUpdateEvent.cs" />
+    <Compile Include="ObjectModel\Enums.cs" />
     <Compile Include="TournamentSoftware\MatchesPayload.cs" />
     <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Logic\PlayerboardLogic.cs" />

@@ -3,6 +3,8 @@ using BCA.WerZaehltWo3.Usercontrols;
 using System;
 using System.Windows.Forms;
 using BCA.WerZaehltWo3.Shared.ObjectModel;
+using PubSub;
+using BCA.WerZaehltWo3.Shared.Eventing;
 
 namespace BCA.WerZaehltWo3.Forms
 {
@@ -11,7 +13,8 @@ namespace BCA.WerZaehltWo3.Forms
         private AppSettings appSettings = new AppSettings();
         private Playerboard playerboard = new Playerboard();
         private readonly FrmDisplay displayForm = new FrmDisplay();
-        private readonly FrmTsData tsdataForm = new FrmTsData();        
+        private readonly FrmTsData tsdataForm = new FrmTsData();
+        private readonly Hub hub = Hub.Default;
 
         public FrmMain()
         {
@@ -33,6 +36,8 @@ namespace BCA.WerZaehltWo3.Forms
 
             this.tsdataForm.Playerboard = this.playerboard;
             this.tsdataForm.Show();
+
+            this.hub.Subscribe<TsCourtUpdateEvent>(x => this.ApplyTsData(x.CourtNumber, x.DataType, x.Player1, x.Player2));
         }
 
         private void MnuFileShowDisplay_Click(object sender, EventArgs e)
@@ -98,6 +103,30 @@ namespace BCA.WerZaehltWo3.Forms
                 var settingsControl = new CourtSettingsControl();
                 settingsControl.SetData(court, this.playerboard.Players);
                 this.pnlSettingsControls.Controls.Add(settingsControl);
+            }
+        }
+
+        private void ApplyTsData(int courtNumber, DataType dataType, string player1, string player2)
+        {
+            foreach (CourtSettingsControl control in this.pnlSettingsControls.Controls)
+            {
+                if (control.CourtNumber == courtNumber)
+                {
+                    switch (dataType)
+                    {
+                        case DataType.Ready:
+                            control.SetPlayersReady(player1, player2);
+                            break;
+                        case DataType.Count:
+                            control.SetPlayersCount(player1, player2);
+                            break;
+                        case DataType.Play:
+                            control.SetPlayersPlay(player1, player2);
+                            break;
+                    }
+                    
+                    return;
+                }
             }
         }
     }

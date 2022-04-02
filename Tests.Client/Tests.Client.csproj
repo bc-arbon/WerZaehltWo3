@@ -83,7 +83,7 @@
       <Name>Shared</Name>
     </ProjectReference>
     <ProjectReference Include="..\WerZaehltWo3\WerZaehltWo3.csproj">
-      <Project>{7B37CD00-5946-4331-A600-32EB5625A89C}</Project>
+      <Project>{7b37cd00-5946-4331-a600-32eb5625a89c}</Project>
       <Name>WerZaehltWo3</Name>
     </ProjectReference>
   </ItemGroup>

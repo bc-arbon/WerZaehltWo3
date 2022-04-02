@@ -23,45 +23,61 @@ namespace BCA.WerZaehltWo3.Usercontrols
             this.backups = new LimitedStack<string>(100);
         }
 
+        public int CourtNumber { get; private set; }
+
         public void SetData(Court courtData, List<string> playerlist)
         {
             this.court = courtData;
+            this.CourtNumber = court.Number;
             this.lblCourtNumber.Text = courtData.Number.ToString(CultureInfo.InvariantCulture);
 
-            if (courtData.PlayerReady1 != null)
-            {
-                this.txtReady1.Text = courtData.PlayerReady1;
-            }
-
-            if (courtData.PlayerReady2 != null)
-            {
-                this.txtReady2.Text = courtData.PlayerReady2;
-            }
-
-            if (courtData.PlayerCount1 != null)
-            {
-                this.txtCount1.Text = courtData.PlayerCount1;
-            }
-
-            if (courtData.PlayerCount2 != null)
-            {
-                this.txtCount2.Text = courtData.PlayerCount2;
-            }
-
-            if (courtData.PlayerPlay1 != null)
-            {
-                this.txtPlay1.Text = courtData.PlayerPlay1;
-            }
-
-            if (courtData.PlayerPlay2 != null)
-            {
-                this.txtPlay2.Text = courtData.PlayerPlay2;
-            }
+            this.SetPlayersReady(courtData.PlayerReady1, courtData.PlayerReady2);
+            this.SetPlayersCount(courtData.PlayerCount1, courtData.PlayerCount2);
+            this.SetPlayersPlay(courtData.PlayerPlay1, courtData.PlayerPlay2);
 
             var players = playerlist.Select(player => player).ToArray();
             this.SetAutocompletionData(players);
             
             this.SaveState();
+        }
+
+        public void SetPlayersReady(string player1, string player2)
+        {
+            if (player1 != null)
+            {
+                this.txtReady1.Text = player1;
+            }
+
+            if (player2 != null)
+            {
+                this.txtReady2.Text = player2;
+            }
+        }
+
+        public void SetPlayersCount(string player1, string player2)
+        {
+            if (player1 != null)
+            {
+                this.txtCount1.Text = player1;
+            }
+
+            if (player2 != null)
+            {
+                this.txtCount2.Text = player2;
+            }
+        }
+
+        public void SetPlayersPlay(string player1, string player2)
+        {
+            if (player1 != null)
+            {
+                this.txtPlay1.Text = player1;
+            }
+
+            if (player2 != null)
+            {
+                this.txtPlay2.Text = player2;
+            }
         }
 
         public void SetAutocompletionData(string[] players)
@@ -103,7 +119,7 @@ namespace BCA.WerZaehltWo3.Usercontrols
             this.court.PlayerPlay1 = this.txtPlay1.Text;
             this.court.PlayerPlay2 = this.txtPlay2.Text;
 
-            this.hub.Publish<CourtEventArgs>(new CourtEventArgs(this.court));
+            this.hub.Publish<CourtUpdateEvent>(new CourtUpdateEvent(this.court));
         }
 
         private void BtnUndo_Click(object sender, EventArgs e)

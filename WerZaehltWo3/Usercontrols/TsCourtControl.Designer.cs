@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.btnApply = new System.Windows.Forms.Button();
+            this.BtnApplyPlay = new System.Windows.Forms.Button();
             this.txtPlay2 = new System.Windows.Forms.TextBox();
             this.txtCount2 = new System.Windows.Forms.TextBox();
             this.txtReady2 = new System.Windows.Forms.TextBox();
@@ -38,20 +38,21 @@
             this.txtReady1 = new System.Windows.Forms.TextBox();
             this.lblCourtNumber = new System.Windows.Forms.Label();
             this.ttpButtons = new System.Windows.Forms.ToolTip(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BtnApplyCount = new System.Windows.Forms.Button();
+            this.BtnApplyReady = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnApply
+            // BtnApplyPlay
             // 
-            this.btnApply.BackgroundImage = global::BCA.WerZaehltWo3.Properties.Resources.Apply;
-            this.btnApply.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnApply.Location = new System.Drawing.Point(572, 16);
-            this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(27, 27);
-            this.btnApply.TabIndex = 20;
-            this.ttpButtons.SetToolTip(this.btnApply, "Text auf Display übertragen");
-            this.btnApply.UseVisualStyleBackColor = true;
+            this.BtnApplyPlay.BackgroundImage = global::BCA.WerZaehltWo3.Properties.Resources.Apply;
+            this.BtnApplyPlay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnApplyPlay.Location = new System.Drawing.Point(572, 16);
+            this.BtnApplyPlay.Name = "BtnApplyPlay";
+            this.BtnApplyPlay.Size = new System.Drawing.Size(27, 27);
+            this.BtnApplyPlay.TabIndex = 20;
+            this.ttpButtons.SetToolTip(this.BtnApplyPlay, "Text auf Display übertragen");
+            this.BtnApplyPlay.UseVisualStyleBackColor = true;
+            this.BtnApplyPlay.Click += new System.EventHandler(this.BtnApplyPlay_Click);
             // 
             // txtPlay2
             // 
@@ -123,35 +124,37 @@
             this.lblCourtNumber.TabIndex = 11;
             this.lblCourtNumber.Text = "0";
             // 
-            // button1
+            // BtnApplyCount
             // 
-            this.button1.BackgroundImage = global::BCA.WerZaehltWo3.Properties.Resources.Apply;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.Location = new System.Drawing.Point(384, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(27, 27);
-            this.button1.TabIndex = 21;
-            this.ttpButtons.SetToolTip(this.button1, "Text auf Display übertragen");
-            this.button1.UseVisualStyleBackColor = true;
+            this.BtnApplyCount.BackgroundImage = global::BCA.WerZaehltWo3.Properties.Resources.Apply;
+            this.BtnApplyCount.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnApplyCount.Location = new System.Drawing.Point(384, 16);
+            this.BtnApplyCount.Name = "BtnApplyCount";
+            this.BtnApplyCount.Size = new System.Drawing.Size(27, 27);
+            this.BtnApplyCount.TabIndex = 21;
+            this.ttpButtons.SetToolTip(this.BtnApplyCount, "Text auf Display übertragen");
+            this.BtnApplyCount.UseVisualStyleBackColor = true;
+            this.BtnApplyCount.Click += new System.EventHandler(this.BtnApplyCount_Click);
             // 
-            // button2
+            // BtnApplyReady
             // 
-            this.button2.BackgroundImage = global::BCA.WerZaehltWo3.Properties.Resources.Apply;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button2.Location = new System.Drawing.Point(195, 16);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(27, 27);
-            this.button2.TabIndex = 22;
-            this.ttpButtons.SetToolTip(this.button2, "Text auf Display übertragen");
-            this.button2.UseVisualStyleBackColor = true;
+            this.BtnApplyReady.BackgroundImage = global::BCA.WerZaehltWo3.Properties.Resources.Apply;
+            this.BtnApplyReady.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnApplyReady.Location = new System.Drawing.Point(195, 16);
+            this.BtnApplyReady.Name = "BtnApplyReady";
+            this.BtnApplyReady.Size = new System.Drawing.Size(27, 27);
+            this.BtnApplyReady.TabIndex = 22;
+            this.ttpButtons.SetToolTip(this.BtnApplyReady, "Text auf Display übertragen");
+            this.BtnApplyReady.UseVisualStyleBackColor = true;
+            this.BtnApplyReady.Click += new System.EventHandler(this.BtnApplyReady_Click);
             // 
             // TsCourtControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnApply);
+            this.Controls.Add(this.BtnApplyReady);
+            this.Controls.Add(this.BtnApplyCount);
+            this.Controls.Add(this.BtnApplyPlay);
             this.Controls.Add(this.txtPlay2);
             this.Controls.Add(this.txtCount2);
             this.Controls.Add(this.txtReady2);
@@ -168,7 +171,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnApply;
+        private System.Windows.Forms.Button BtnApplyPlay;
         private System.Windows.Forms.ToolTip ttpButtons;
         private System.Windows.Forms.TextBox txtPlay2;
         private System.Windows.Forms.TextBox txtCount2;
@@ -177,7 +180,7 @@
         private System.Windows.Forms.TextBox txtCount1;
         private System.Windows.Forms.TextBox txtReady1;
         private System.Windows.Forms.Label lblCourtNumber;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BtnApplyCount;
+        private System.Windows.Forms.Button BtnApplyReady;
     }
 }
