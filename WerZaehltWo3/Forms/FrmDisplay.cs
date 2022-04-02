@@ -4,11 +4,15 @@ using System.Windows.Forms;
 
 using BCA.WerZaehltWo3.Usercontrols;
 using BCA.WerZaehltWo3.Shared.ObjectModel;
+using PubSub;
+using BCA.WerZaehltWo3.Shared.Eventing;
+using BCA.WerZaehltWo3.Shared.Logic;
 
 namespace BCA.WerZaehltWo3.Forms
 {
     public partial class FrmDisplay : Form
     {
+        private readonly Hub hub = Hub.Default;
         private LinearGradientBrush brush;
         
         public FrmDisplay()
@@ -20,6 +24,8 @@ namespace BCA.WerZaehltWo3.Forms
 
         public void InitializeDisplayControls()
         {
+            this.hub.Subscribe<CourtEventArgs>(x => this.UpdateDisplayControl(x.Court));
+
             this.pnlControl.Controls.Clear();
             foreach (var court in this.Playerboard.Courts)
             {
@@ -36,6 +42,7 @@ namespace BCA.WerZaehltWo3.Forms
                 if (control.CourtNumber == court.Number)
                 {
                     control.SetData(court);
+                    PlayerboardLogic.Save(this.Playerboard);
                     return;
                 }
             }

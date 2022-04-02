@@ -83,12 +83,12 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
             return new List<string>();
         }
 
-        private string GetClubnameFromPlayer(string licenseNr)
-        {
-            var com = new OleDbCommand("SELECT Clubs.Name FROM ((Players INNER JOIN Clubs ON Players.ClubID = Clubs.ID) INNER JOIN Q_Participants_Single ON Players.LicenseNr = Q_Participants_Single.LicenseNr) WHERE        (Players.LicenseNr = '" + licenseNr + "')", this.connection);
-            var result = com.ExecuteScalar();
-            return result != null ? result.ToString() : string.Empty;
-        }
+        //private string GetClubnameFromPlayer(string licenseNr)
+        //{
+        //    var com = new OleDbCommand("SELECT Clubs.Name FROM ((Players INNER JOIN Clubs ON Players.ClubID = Clubs.ID) INNER JOIN Q_Participants_Single ON Players.LicenseNr = Q_Participants_Single.LicenseNr) WHERE        (Players.LicenseNr = '" + licenseNr + "')", this.connection);
+        //    var result = com.ExecuteScalar();
+        //    return result != null ? result.ToString() : string.Empty;
+        //}
     }
 }
 

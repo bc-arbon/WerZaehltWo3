@@ -4,6 +4,7 @@ using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.Windows.Forms;
 using BCA.WerZaehltWo3.Shared.ObjectModel;
+using PubSub;
 
 namespace BCA.WerZaehltWo3.Usercontrols
 {
@@ -15,6 +16,7 @@ namespace BCA.WerZaehltWo3.Usercontrols
         private readonly LinearGradientBrush brushPlay;
         private readonly Rectangle gradientRect;
         private readonly Rectangle lineRect;
+        private readonly Hub hub = Hub.Default;
 
         public CourtDisplayControl()
         {

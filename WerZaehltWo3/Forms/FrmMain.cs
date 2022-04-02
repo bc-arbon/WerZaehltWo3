@@ -1,5 +1,4 @@
 ﻿using BCA.WerZaehltWo3.Shared.Logic;
-using BCA.WerZaehltWo3.Shared.Eventing;
 using BCA.WerZaehltWo3.Usercontrols;
 using System;
 using System.Windows.Forms;
@@ -12,6 +11,7 @@ namespace BCA.WerZaehltWo3.Forms
         private AppSettings appSettings = new AppSettings();
         private Playerboard playerboard = new Playerboard();
         private readonly FrmDisplay displayForm = new FrmDisplay();
+        private readonly FrmTsData tsdataForm = new FrmTsData();        
 
         public FrmMain()
         {
@@ -30,6 +30,9 @@ namespace BCA.WerZaehltWo3.Forms
             this.InitializeSettingControls();
             this.displayForm.InitializeDisplayControls();
             this.displayForm.SetFontSize(this.playerboard.Settings.FontSize);
+
+            this.tsdataForm.Playerboard = this.playerboard;
+            this.tsdataForm.Show();
         }
 
         private void MnuFileShowDisplay_Click(object sender, EventArgs e)
@@ -94,15 +97,8 @@ namespace BCA.WerZaehltWo3.Forms
             {
                 var settingsControl = new CourtSettingsControl();
                 settingsControl.SetData(court, this.playerboard.Players);
-                settingsControl.OnApplyRequested += this.SettingsControl_OnApplyRequested;
                 this.pnlSettingsControls.Controls.Add(settingsControl);
             }
-        }
-
-        private void SettingsControl_OnApplyRequested(object sender, CourtEventArgs courtEventArgs)
-        {
-            this.displayForm.UpdateDisplayControl(courtEventArgs.Court);
-            PlayerboardLogic.Save(this.playerboard);
         }
     }
 }

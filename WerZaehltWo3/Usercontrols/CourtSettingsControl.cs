@@ -6,12 +6,14 @@ using System.Windows.Forms;
 using BCA.WerZaehltWo3.Shared.Eventing;
 using BCA.WerZaehltWo3.Shared.Helpers;
 using BCA.WerZaehltWo3.Shared.ObjectModel;
+using PubSub;
 
 namespace BCA.WerZaehltWo3.Usercontrols
 {
     public partial class CourtSettingsControl : UserControl
     {
         private readonly LimitedStack<string> backups;
+        private readonly Hub hub = Hub.Default;
 
         private Court court = new Court();
 
@@ -20,10 +22,6 @@ namespace BCA.WerZaehltWo3.Usercontrols
             this.InitializeComponent();
             this.backups = new LimitedStack<string>(100);
         }
-
-        public delegate void ApplyHandler(object sender, CourtEventArgs courtEventArgs);
-
-        public event ApplyHandler OnApplyRequested;
 
         public void SetData(Court courtData, List<string> playerlist)
         {
@@ -105,11 +103,7 @@ namespace BCA.WerZaehltWo3.Usercontrols
             this.court.PlayerPlay1 = this.txtPlay1.Text;
             this.court.PlayerPlay2 = this.txtPlay2.Text;
 
-            var handler = this.OnApplyRequested;
-            if (handler != null)
-            {
-                handler(this, new CourtEventArgs(this.court));
-            }
+            this.hub.Publish<CourtEventArgs>(new CourtEventArgs(this.court));
         }
 
         private void BtnUndo_Click(object sender, EventArgs e)
