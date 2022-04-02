@@ -158,9 +158,12 @@ namespace TsDataServer
             this.TmrUpdater.Stop();
             this.BtnStartAutoUpdate.Enabled = true;
             this.BtnStopAutoupdate.Enabled = false;
-
+                        
             this.tsAdapter.Close();
-            this.rabbitAdapter.Close();
+            if (this.rabbitAdapter != null)
+            {
+                this.rabbitAdapter.Close();
+            }
 
             this.LblStatusDatabase.Text = "Nicht verbunden";
             this.LblStatusDatabase.ForeColor = Color.Red;
