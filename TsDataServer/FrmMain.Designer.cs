@@ -51,7 +51,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.TxtRabbitVhost = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.TxtRabbitPassword = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.TxtRabbitUser = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -71,6 +70,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TmrUpdater = new System.Windows.Forms.Timer(this.components);
             this.TmrCountdown = new System.Windows.Forms.Timer(this.components);
+            this.TxtRabbitPassword = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NudInterval)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -197,12 +197,12 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.TxtRabbitPassword);
             this.groupBox1.Controls.Add(this.NudInterval);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.TxtRabbitVhost);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.TxtRabbitPassword);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.TxtRabbitUser);
             this.groupBox1.Controls.Add(this.label5);
@@ -264,13 +264,6 @@
             this.label7.Size = new System.Drawing.Size(53, 13);
             this.label7.TabIndex = 16;
             this.label7.Text = "Passwort:";
-            // 
-            // TxtRabbitPassword
-            // 
-            this.TxtRabbitPassword.Location = new System.Drawing.Point(619, 44);
-            this.TxtRabbitPassword.Name = "TxtRabbitPassword";
-            this.TxtRabbitPassword.Size = new System.Drawing.Size(121, 20);
-            this.TxtRabbitPassword.TabIndex = 15;
             // 
             // label6
             // 
@@ -450,6 +443,14 @@
             this.TmrCountdown.Interval = 900;
             this.TmrCountdown.Tick += new System.EventHandler(this.TmrCountdown_Tick);
             // 
+            // TxtRabbitPassword
+            // 
+            this.TxtRabbitPassword.Location = new System.Drawing.Point(621, 44);
+            this.TxtRabbitPassword.Name = "TxtRabbitPassword";
+            this.TxtRabbitPassword.Size = new System.Drawing.Size(120, 20);
+            this.TxtRabbitPassword.TabIndex = 21;
+            this.TxtRabbitPassword.UseSystemPasswordChar = true;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -497,7 +498,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox TxtRabbitVhost;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox TxtRabbitPassword;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TxtRabbitUser;
         private System.Windows.Forms.Label label5;
@@ -519,6 +519,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer TmrUpdater;
         private System.Windows.Forms.Timer TmrCountdown;
+        private System.Windows.Forms.MaskedTextBox TxtRabbitPassword;
     }
 }
 

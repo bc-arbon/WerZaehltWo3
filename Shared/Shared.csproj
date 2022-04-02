@@ -74,6 +74,7 @@
     <Compile Include="Eventing\CourtEventArgs.cs" />
     <Compile Include="Eventing\CourtUpdateEvent.cs" />
     <Compile Include="Eventing\PlayerBaseChangedEvent.cs" />
+    <Compile Include="TournamentSoftware\MatchesPayload.cs" />
     <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Logic\PlayerboardLogic.cs" />
     <Compile Include="Logic\AppSettingsLogic.cs" />

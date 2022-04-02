@@ -1,4 +1,6 @@
 ﻿using BCA.WerZaehltWo3.Common.Adapters;
+using BCA.WerZaehltWo3.Common.Eventing;
+using BCA.WerZaehltWo3.Common.TournamentSoftware;
 using BCA.WerZaehltWo3.Shared.Adapters;
 using System;
 using System.Diagnostics;
@@ -36,6 +38,8 @@ namespace TsDataServer
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
+            this.Stop();
+
             this.appSettings.Database = this.TxtDatabaseFilepath.Text;
             this.appSettings.RabbitServer = this.TxtRabbitServer.Text;
             this.appSettings.RabbitVhost = this.TxtRabbitVhost.Text;
@@ -53,9 +57,32 @@ namespace TsDataServer
 
         private void BtnStartAutoUpdate_Click(object sender, EventArgs e)
         {
+            this.Start();
+        }
+
+        private void BtnStopAutoupdate_Click(object sender, EventArgs e)
+        {
+            this.Stop();
+        }
+
+        private void TmrUpdater_Tick(object sender, EventArgs e)
+        {
+            //Debug.WriteLine("tmrUpdate_Tick");
+            this.LoadMatches();
+        }
+
+        private void TmrCountdown_Tick(object sender, EventArgs e)
+        {            
+            var timeLeft = this.lastUpdate.AddSeconds((int)this.NudInterval.Value) - DateTime.Now;
+            //Debug.WriteLine("Timelft: " + timeLeft);
+            this.LblNextUpdate.Text = timeLeft.Seconds.ToString() + "s";
+        }
+
+        private void Start()
+        {
             // Connect database
             try
-            {                
+            {
                 this.tsAdapter.Connect(this.TxtDatabaseFilepath.Text);
                 this.LblStatusDatabase.Text = "Verbunden";
                 this.LblStatusDatabase.ForeColor = Color.Green;
@@ -88,7 +115,44 @@ namespace TsDataServer
             this.BtnStopAutoupdate.Enabled = true;
         }
 
-        private void BtnStopAutoupdate_Click(object sender, EventArgs e)
+        private void LoadMatches()
+        {
+            // Load current matches
+            var currentMatches = this.tsAdapter.GetCurrentMatches();
+            this.LvwCurrentMatches.Items.Clear();
+            foreach (var match in currentMatches)
+            {
+                var item = new ListViewItem(match.Court.ToString());
+                item.SubItems.Add(match.PlanDate.ToString());
+                item.SubItems.Add(match.Team1.ToStringShort());
+                item.SubItems.Add(match.Team2.ToStringShort());
+                item.SubItems.Add(match.Draw.Name);
+                item.SubItems.Add(match.Roundnr.ToString());
+                this.LvwCurrentMatches.Items.Add(item);
+            }
+
+            // Load planned matches
+            var plannedMatches = this.tsAdapter.GetPlannedMatches();
+            this.LvwPlannedMatches.Items.Clear();
+            foreach (var match in plannedMatches)
+            {
+                var item = new ListViewItem(match.Court.ToString());
+                item.SubItems.Add(match.PlanDate.ToString());
+                item.SubItems.Add(match.Team1.ToStringShort());
+                item.SubItems.Add(match.Team2.ToStringShort());
+                item.SubItems.Add(match.Draw.Name);
+                item.SubItems.Add(match.Roundnr.ToString());
+                this.LvwPlannedMatches.Items.Add(item);
+            }
+
+            // Create and send payload
+            var messagePayload = new MatchesPayload { CurrentMatches = currentMatches, PlannedMatches = plannedMatches, Timestamp = DateTime.Now };
+            this.rabbitAdapter.Send(messagePayload);
+
+            this.lastUpdate = DateTime.Now;
+        }
+
+        private void Stop()
         {
             this.TmrCountdown.Stop();
             this.TmrUpdater.Stop();
@@ -108,52 +172,6 @@ namespace TsDataServer
 
             this.LvwCurrentMatches.Items.Clear();
             this.LvwPlannedMatches.Items.Clear();
-        }
-
-        private void TmrUpdater_Tick(object sender, EventArgs e)
-        {
-            //Debug.WriteLine("tmrUpdate_Tick");
-            this.LoadMatches();
-        }
-
-        private void TmrCountdown_Tick(object sender, EventArgs e)
-        {            
-            var timeLeft = this.lastUpdate.AddSeconds((int)this.NudInterval.Value) - DateTime.Now;
-            //Debug.WriteLine("Timelft: " + timeLeft);
-            this.LblNextUpdate.Text = timeLeft.Seconds.ToString() + "s";
-        }
-
-        private void LoadMatches()
-        {
-            //Debug.WriteLine("Load matches");
-            var currentMatches = this.tsAdapter.GetCurrentMatches();
-
-            this.LvwCurrentMatches.Items.Clear();
-            foreach (var match in currentMatches)
-            {
-                var item = new ListViewItem(match.Court.ToString());
-                item.SubItems.Add(match.PlanDate.ToString());
-                item.SubItems.Add(match.Team1.ToStringShort());
-                item.SubItems.Add(match.Team2.ToStringShort());
-                item.SubItems.Add(match.Draw.Name);
-                item.SubItems.Add(match.Roundnr.ToString());
-                this.LvwCurrentMatches.Items.Add(item);
-            }
-
-            var plannedMatches = this.tsAdapter.GetPlannedMatches();
-            this.LvwPlannedMatches.Items.Clear();
-            foreach (var match in plannedMatches)
-            {
-                var item = new ListViewItem(match.Court.ToString());
-                item.SubItems.Add(match.PlanDate.ToString());
-                item.SubItems.Add(match.Team1.ToStringShort());
-                item.SubItems.Add(match.Team2.ToStringShort());
-                item.SubItems.Add(match.Draw.Name);
-                item.SubItems.Add(match.Roundnr.ToString());
-                this.LvwPlannedMatches.Items.Add(item);
-            }
-
-            this.lastUpdate = DateTime.Now;
         }
     }
 }
