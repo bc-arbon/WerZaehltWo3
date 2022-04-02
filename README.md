@@ -19,4 +19,4 @@ Hilfsprogramm für Junioren-Badmintonturniere
 - Port nach .NET 6 und WPF
 
 # Kontakt
-- Discord: [Discord](https://discord.gg/gG7S4y5HZd)
+- Bei Fragen und Anregungen: [Discord](https://discord.gg/gG7S4y5HZd)
