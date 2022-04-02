@@ -13,7 +13,6 @@ namespace BCA.WerZaehltWo3.Forms
         private AppSettings appSettings = new AppSettings();
         private Playerboard playerboard = new Playerboard();
         private readonly FrmDisplay displayForm = new FrmDisplay();
-        private readonly FrmTsData tsdataForm = new FrmTsData();
         private readonly Hub hub = Hub.Default;
 
         public FrmMain()
@@ -33,16 +32,20 @@ namespace BCA.WerZaehltWo3.Forms
             this.InitializeSettingControls();
             this.displayForm.InitializeDisplayControls();
             this.displayForm.SetFontSize(this.playerboard.Settings.FontSize);
-
-            this.tsdataForm.Playerboard = this.playerboard;
-            this.tsdataForm.Show();
-
+            
             this.hub.Subscribe<TsCourtUpdateEvent>(x => this.ApplyTsData(x.CourtNumber, x.DataType, x.Player1, x.Player2));
         }
 
         private void MnuFileShowDisplay_Click(object sender, EventArgs e)
         {
             this.displayForm.Show();
+        }
+
+        private void MnuFileShowTsDisplay_Click(object sender, EventArgs e)
+        {
+            var tsdataForm = new FrmTsData(this.appSettings) { Playerboard = this.playerboard };
+            tsdataForm.InitializeDisplayControls();
+            tsdataForm.Show();
         }
 
         private void MnuFileEditPlayers_Click(object sender, EventArgs e)

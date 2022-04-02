@@ -39,19 +39,20 @@
             this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelpInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlSettingsControls = new System.Windows.Forms.FlowLayoutPanel();
+            this.MnuFileShowTsDisplay = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuMain
             // 
-            this.mnuMain.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.mnuMain.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.mnuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuFile,
             this.mnuHelp});
             this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
-            this.mnuMain.Size = new System.Drawing.Size(1200, 36);
+            this.mnuMain.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.mnuMain.Size = new System.Drawing.Size(800, 24);
             this.mnuMain.TabIndex = 0;
             this.mnuMain.Text = "menuStrip1";
             // 
@@ -59,44 +60,45 @@
             // 
             this.mnuFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuFileShowDisplay,
+            this.MnuFileShowTsDisplay,
             this.mnuFileSetCourtCount,
             this.mnuFileEditPlayers,
             this.toolStripSeparator1,
             this.mnuFileQuit});
             this.mnuFile.Name = "mnuFile";
-            this.mnuFile.Size = new System.Drawing.Size(69, 30);
+            this.mnuFile.Size = new System.Drawing.Size(46, 22);
             this.mnuFile.Text = "Datei";
             // 
             // mnuFileShowDisplay
             // 
             this.mnuFileShowDisplay.Name = "mnuFileShowDisplay";
-            this.mnuFileShowDisplay.Size = new System.Drawing.Size(309, 34);
+            this.mnuFileShowDisplay.Size = new System.Drawing.Size(288, 22);
             this.mnuFileShowDisplay.Text = "Display anzeigen";
             this.mnuFileShowDisplay.Click += new System.EventHandler(this.MnuFileShowDisplay_Click);
             // 
             // mnuFileSetCourtCount
             // 
             this.mnuFileSetCourtCount.Name = "mnuFileSetCourtCount";
-            this.mnuFileSetCourtCount.Size = new System.Drawing.Size(309, 34);
+            this.mnuFileSetCourtCount.Size = new System.Drawing.Size(288, 22);
             this.mnuFileSetCourtCount.Text = "Anzahl Felder festlegen...";
             this.mnuFileSetCourtCount.Click += new System.EventHandler(this.MnuFileSetCourtCount_Click);
             // 
             // mnuFileEditPlayers
             // 
             this.mnuFileEditPlayers.Name = "mnuFileEditPlayers";
-            this.mnuFileEditPlayers.Size = new System.Drawing.Size(309, 34);
+            this.mnuFileEditPlayers.Size = new System.Drawing.Size(288, 22);
             this.mnuFileEditPlayers.Text = "Spieler bearbeiten...";
             this.mnuFileEditPlayers.Click += new System.EventHandler(this.MnuFileEditPlayers_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(306, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(285, 6);
             // 
             // mnuFileQuit
             // 
             this.mnuFileQuit.Name = "mnuFileQuit";
-            this.mnuFileQuit.Size = new System.Drawing.Size(309, 34);
+            this.mnuFileQuit.Size = new System.Drawing.Size(288, 22);
             this.mnuFileQuit.Text = "Beenden";
             this.mnuFileQuit.Click += new System.EventHandler(this.MnuFileQuit_Click);
             // 
@@ -105,34 +107,39 @@
             this.mnuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuHelpInfo});
             this.mnuHelp.Name = "mnuHelp";
-            this.mnuHelp.Size = new System.Drawing.Size(36, 30);
+            this.mnuHelp.Size = new System.Drawing.Size(24, 22);
             this.mnuHelp.Text = "?";
             // 
             // mnuHelpInfo
             // 
             this.mnuHelpInfo.Name = "mnuHelpInfo";
-            this.mnuHelpInfo.Size = new System.Drawing.Size(146, 34);
+            this.mnuHelpInfo.Size = new System.Drawing.Size(95, 22);
             this.mnuHelpInfo.Text = "Info";
             this.mnuHelpInfo.Click += new System.EventHandler(this.MnuHelpInfo_Click);
             // 
             // pnlSettingsControls
             // 
             this.pnlSettingsControls.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlSettingsControls.Location = new System.Drawing.Point(0, 36);
-            this.pnlSettingsControls.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnlSettingsControls.Location = new System.Drawing.Point(0, 24);
             this.pnlSettingsControls.Name = "pnlSettingsControls";
-            this.pnlSettingsControls.Size = new System.Drawing.Size(1200, 656);
+            this.pnlSettingsControls.Size = new System.Drawing.Size(800, 426);
             this.pnlSettingsControls.TabIndex = 1;
+            // 
+            // MnuFileShowTsDisplay
+            // 
+            this.MnuFileShowTsDisplay.Name = "MnuFileShowTsDisplay";
+            this.MnuFileShowTsDisplay.Size = new System.Drawing.Size(288, 22);
+            this.MnuFileShowTsDisplay.Text = "Tournamentsoftware Monitor anzeigen...";
+            this.MnuFileShowTsDisplay.Click += new System.EventHandler(this.MnuFileShowTsDisplay_Click);
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pnlSettingsControls);
             this.Controls.Add(this.mnuMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Wer Zählt Wo 3";
@@ -157,6 +164,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuHelp;
         private System.Windows.Forms.ToolStripMenuItem mnuHelpInfo;
         private System.Windows.Forms.FlowLayoutPanel pnlSettingsControls;
+        private System.Windows.Forms.ToolStripMenuItem MnuFileShowTsDisplay;
     }
 }
 

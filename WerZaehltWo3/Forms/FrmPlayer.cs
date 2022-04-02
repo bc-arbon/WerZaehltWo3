@@ -45,8 +45,7 @@ namespace BCA.WerZaehltWo3.Forms
             this.lvwPlayers.Items.Clear();
             foreach (var player in this.playerboard.Players)
             {
-                var item = new ListViewItem(player);
-                item.Tag = player;
+                var item = new ListViewItem(player) { Tag = player };
                 this.lvwPlayers.Items.Add(item);
             }
         }

@@ -10,31 +10,12 @@ namespace BCA.WerZaehltWo3.Shared.ObjectModel
         }
 
         public Size WindowSize { get; set; }
-        
-        public bool Equals(AppSettings other)
-        {
-            if (other == null)
-            {
-                return false;
-            }
 
-            return this.WindowSize == other.WindowSize;
-        }
+        public string RabbitServer { get; set; }
+        public string RabbitUser { get; set; }
+        public string RabbitPassword { get; set; }
+        public string RabbitVhost { get; set; }
 
-        public override int GetHashCode()
-        {
-            var result = 0;
-
-            result ^= this.WindowSize.GetHashCode();
-
-            return result;
-        }
-
-        public override void Clear()
-        {
-            this.InternalClear();
-        }
-                
         private void InternalClear()
         {
             this.WindowSize = new Size(651, 604);
