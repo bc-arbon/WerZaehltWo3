@@ -1,0 +1,8 @@
+{
+  "Database": "C:\\pfad\\zum\\turnier.ts",
+  "RabbitServer": "127.0.0.1",
+  "RabbitUser": "user",
+  "RabbitPassword": "password",
+  "RabbitVhost": "/",
+  "Interval": 10
+}
