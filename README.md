@@ -11,8 +11,8 @@ Hilfsprogramm für Junioren-Badmintonturniere
 - Schnelleingabe von Spielernamen mit Autovervollständigung
 
 ## In Progress
-- Direkte Anzeige/Import der Felderbelegung aus TournamentSoftware
-- Auslesen der geplanten Spiele aus TournamentSoftware
+- Direkte Anzeige/Import der Felderbelegung aus TournamentSoftware via RabbitMQ
+- Auslesen der geplanten Spiele aus TournamentSoftware (funktioniert in Testapp)
 
 ## Todo
 - Port nach .NET 6 und WPF
