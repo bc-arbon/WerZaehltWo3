@@ -62,7 +62,6 @@ namespace BCA.WerZaehltWo3.Forms
                 PlayerboardLogic.Save(this.playerboard);
                 this.PopulateListview();
             }
-
         }
 
         private void EditPlayer()
