@@ -41,10 +41,10 @@
             this.btnTsTest.Location = new System.Drawing.Point(12, 148);
             this.btnTsTest.Name = "btnTsTest";
             this.btnTsTest.Size = new System.Drawing.Size(142, 23);
-            this.btnTsTest.TabIndex = 5;
-            this.btnTsTest.Text = "TS Databse Test";
+            this.btnTsTest.TabIndex = 0;
+            this.btnTsTest.Text = "TS Database Test";
             this.btnTsTest.UseVisualStyleBackColor = true;
-            this.btnTsTest.Click += new System.EventHandler(this.btnTsTest_Click);
+            this.btnTsTest.Click += new System.EventHandler(this.BtnTsTest_Click);
             // 
             // btnBadmanTest
             // 
@@ -74,7 +74,7 @@
             // btnJsonTest
             // 
             this.btnJsonTest.Location = new System.Drawing.Point(242, 62);
-            this.btnJsonTest.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnJsonTest.Margin = new System.Windows.Forms.Padding(2);
             this.btnJsonTest.Name = "btnJsonTest";
             this.btnJsonTest.Size = new System.Drawing.Size(75, 23);
             this.btnJsonTest.TabIndex = 8;

@@ -25,7 +25,7 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
 
         public void Close()
         {
-            if (this.connection.State == ConnectionState.Open)
+            if (this.connection != null && this.connection.State == ConnectionState.Open)
             {
                 this.connection.Close();
             }

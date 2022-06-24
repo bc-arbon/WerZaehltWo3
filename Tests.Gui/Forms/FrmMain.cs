@@ -28,7 +28,7 @@ namespace BCA.WerZaehltWo3.Tests.Gui.Forms
             bla.ShowDialog();
         }
 
-        private void btnTsTest_Click(object sender, EventArgs e)
+        private void BtnTsTest_Click(object sender, EventArgs e)
         {
             var bla = new FrmTsDatabaseTest();
             bla.ShowDialog();

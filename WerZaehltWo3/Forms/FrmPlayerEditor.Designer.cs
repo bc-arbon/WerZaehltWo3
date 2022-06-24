@@ -29,89 +29,97 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPlayerEditor));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnOk = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.GbxName = new System.Windows.Forms.GroupBox();
+            this.TxtName = new System.Windows.Forms.TextBox();
+            this.LblName = new System.Windows.Forms.Label();
+            this.BtnCancel = new System.Windows.Forms.Button();
+            this.BtnOk = new System.Windows.Forms.Button();
+            this.GbxName.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // GbxName
             // 
-            this.groupBox1.Controls.Add(this.txtName);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(13, 13);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(279, 50);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Spielerinformationen";
+            this.GbxName.Controls.Add(this.TxtName);
+            this.GbxName.Controls.Add(this.LblName);
+            this.GbxName.Location = new System.Drawing.Point(20, 20);
+            this.GbxName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.GbxName.Name = "GbxName";
+            this.GbxName.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.GbxName.Size = new System.Drawing.Size(418, 77);
+            this.GbxName.TabIndex = 0;
+            this.GbxName.TabStop = false;
+            this.GbxName.Text = "Spielerinformationen";
             // 
-            // txtName
+            // TxtName
             // 
-            this.txtName.Location = new System.Drawing.Point(72, 17);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(201, 20);
-            this.txtName.TabIndex = 0;
+            this.TxtName.Location = new System.Drawing.Point(108, 26);
+            this.TxtName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TxtName.Name = "TxtName";
+            this.TxtName.Size = new System.Drawing.Size(300, 26);
+            this.TxtName.TabIndex = 0;
+            this.TxtName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtName_KeyDown);
             // 
-            // label1
+            // LblName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Name:";
+            this.LblName.AutoSize = true;
+            this.LblName.Location = new System.Drawing.Point(9, 31);
+            this.LblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblName.Name = "LblName";
+            this.LblName.Size = new System.Drawing.Size(55, 20);
+            this.LblName.TabIndex = 0;
+            this.LblName.Text = "Name:";
             // 
-            // button1
+            // BtnCancel
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(217, 72);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Abbrechen";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BtnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BtnCancel.Location = new System.Drawing.Point(326, 111);
+            this.BtnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BtnCancel.Name = "BtnCancel";
+            this.BtnCancel.Size = new System.Drawing.Size(112, 35);
+            this.BtnCancel.TabIndex = 4;
+            this.BtnCancel.Text = "Abbrechen";
+            this.BtnCancel.UseVisualStyleBackColor = true;
             // 
-            // btnOk
+            // BtnOk
             // 
-            this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOk.Location = new System.Drawing.Point(136, 72);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(75, 23);
-            this.btnOk.TabIndex = 3;
-            this.btnOk.Text = "OK";
-            this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Click += new System.EventHandler(this.BtnOk_Click);
+            this.BtnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.BtnOk.Location = new System.Drawing.Point(204, 111);
+            this.BtnOk.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BtnOk.Name = "BtnOk";
+            this.BtnOk.Size = new System.Drawing.Size(112, 35);
+            this.BtnOk.TabIndex = 3;
+            this.BtnOk.Text = "OK";
+            this.BtnOk.UseVisualStyleBackColor = true;
+            this.BtnOk.Click += new System.EventHandler(this.BtnOk_Click);
             // 
             // FrmPlayerEditor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(304, 106);
-            this.Controls.Add(this.btnOk);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(456, 163);
+            this.Controls.Add(this.BtnOk);
+            this.Controls.Add(this.BtnCancel);
+            this.Controls.Add(this.GbxName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.Name = "FrmPlayerEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Spieler bearbeiten";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.GbxName.ResumeLayout(false);
+            this.GbxName.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.GroupBox GbxName;
+        private System.Windows.Forms.TextBox TxtName;
+        private System.Windows.Forms.Label LblName;
+        private System.Windows.Forms.Button BtnCancel;
+        private System.Windows.Forms.Button BtnOk;
     }
 }

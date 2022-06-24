@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
-using System.IO;
-using System.Windows.Forms;
 
 namespace BCA.WerZaehltWo3.Shared.Adapters
 {
@@ -19,12 +17,15 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
 
         public void Connect(string databaseFilepath)
         {
-            if (databaseFilepath != Path.Combine(Application.StartupPath, "ts.tp"))
-            {
-                File.Copy(databaseFilepath, Path.Combine(Application.StartupPath, "ts.tp"), true);
-            }
+            //if (databaseFilepath != Path.Combine(Application.StartupPath, "ts.tp"))
+            //{
+            //    File.Copy(databaseFilepath, Path.Combine(Application.StartupPath, "ts.tp"), true);
+            //}
 
-            this.connection = new OleDbConnection(this.tsConnectionString);            
+            var conString = this.tsConnectionString.Replace("|DataDirectory|\\ts.tp", databaseFilepath);
+
+            this.connection = new OleDbConnection(conString);  
+            this.connection.Open();
         }
 
         public void Close()
@@ -41,6 +42,7 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
             {
                 this.FillTeams();
             }
+
             if (this.drawById.Count == 0)
             {
                 this.FillDraws();
@@ -65,21 +67,26 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
 
                     var id = reader["id"].ToString();
 
-                    var match = new Match
+                    var match = new Match();
+
+                    match.Id = Convert.ToInt64(id);
+                    match.Team1 = this.teamById.Find(x => x.Key == entry1).Value;
+                    match.Team2 = this.teamById.Find(x => x.Key == entry2).Value;
+                    match.Set1 = this.BuildSet(reader, 3, 4);
+                    match.Set2 = this.BuildSet(reader, 5, 6);
+                    match.Set3 = this.BuildSet(reader, 7, 8);
+                    match.Winner = this.teamById.Find(x => x.Key == Convert.ToInt32(reader["winner"])).Value;
+                    match.Draw = this.drawById.Find(x => x.Key == draw).Value;
+                    match.Matchnr = reader.GetInt32(9);
+                    match.Roundnr = reader.GetInt32(10);
+                    var blubb = reader.GetValue(13);
+                    if (!(blubb is DBNull))
                     {
-                        Id = Convert.ToInt64(id),
-                        Team1 = this.teamById.Find(x => x.Key == entry1).Value,
-                        Team2 = this.teamById.Find(x => x.Key == entry2).Value,
-                        Set1 = this.BuildSet(reader, 3, 4),
-                        Set2 = this.BuildSet(reader, 5, 6),
-                        Set3 = this.BuildSet(reader, 7, 8),
-                        Winner = this.teamById.Find(x => x.Key == Convert.ToInt32(reader["winner"])).Value,
-                        Draw = this.drawById.Find(x => x.Key == draw).Value,
-                        Matchnr = reader.GetInt32(9),
-                        Roundnr = reader.GetInt32(10),
-                        Court = reader.GetInt32(13),
-                        PlanDate = reader.GetDateTime(14)
-                    };
+                        match.Court = reader.GetInt32(13);
+                    }
+
+                    match.PlanDate = reader.GetDateTime(14);
+                    
 
                     // Check if match already added
                     var bla = result.Find(x => x.Draw.Id == match.Draw.Id && x.Team1.Id == match.Team2.Id && x.Team2.Id == match.Team1.Id);
@@ -126,6 +133,37 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
             catch (Exception e)
             {
                 Console.WriteLine("Something went wrong: " + e);
+            }
+
+            return result;
+        }
+
+        public List<Match> GetPlannedMatches()
+        {
+            var result = new List<Match>();
+
+            var currentMatches = this.GetCurrentMatches();
+            var matches = this.GetMatches();
+            foreach (var match in matches)
+            {                
+                // Skip if no court present
+                if (match.Court == 0)
+                {
+                    continue;
+                }
+
+                // Skip if a result was entered
+                if (match.Set1 != null)
+                {
+                    continue;
+                }
+
+                // Check if match is currently on a court, add it if not
+                var actualPlayingMatch = currentMatches.Find(x => x.Id == match.Id);
+                if (actualPlayingMatch == null)
+                {
+                    result.Add(match);
+                }
             }
 
             return result;
