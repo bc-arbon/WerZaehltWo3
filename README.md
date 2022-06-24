@@ -15,7 +15,7 @@ Hilfsprogramm für Junioren-Badmintonturniere
 - Auslesen der geplanten Spiele aus TournamentSoftware (funktioniert in Testapp)
 
 ## Todo
-- Port nach .NET 6 und WPF
+- Port nach .NET6 und WPF
 
 # Kontakt
 - Bei Fragen und Anregungen: [Discord](https://discord.gg/gG7S4y5HZd)
