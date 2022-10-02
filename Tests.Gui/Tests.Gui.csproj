@@ -131,10 +131,6 @@
       <Project>{9EF114EB-6E13-457B-8DEA-D6D7C29EA1C4}</Project>
       <Name>Shared</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WerZaehltWo3\WerZaehltWo3.csproj">
-      <Project>{7B37CD00-5946-4331-A600-32EB5625A89C}</Project>
-      <Name>WerZaehltWo3</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
