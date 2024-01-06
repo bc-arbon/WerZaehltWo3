@@ -1,6 +1,5 @@
-[![Is this project still maintained?](https://img.shields.io/badge/maintained-yes-green.svg?style=plastic)](https://github.com/badges/shields)
-
 # Wer zählt wo
+[![Is this project still maintained?](https://img.shields.io/badge/maintained-yes-green.svg?style=plastic)](https://github.com/badges/shields)
 Hilfsprogramm für Junioren-Badmintonturniere
 
 ![Aufbau](doc/setup.jpg)
