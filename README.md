@@ -11,14 +11,14 @@ Hilfsprogramm für Junioren-Badmintonturniere
 - Schnelleingabe von Spielernamen mit Autovervollständigung
 
 ## In Progress
-- Direkte Anzeige/Import der Felderbelegung aus TournamentSoftware via RabbitMQ
-- Auslesen der geplanten Spiele aus TournamentSoftware (funktioniert in Testapp)
+- Direkte Anzeige/Import der Felderbelegung aus TournamentSoftware
+- Auslesen der geplanten Spiele aus TournamentSoftware
 
 ## Todo
 - Port nach .NET6 und WPF
 
 # Kontakt
-- Bei Fragen und Anregungen: [Discord](https://discord.gg/gG7S4y5HZd)
+- Bei Fragen und Anregungen: [Github Issues](https://github.com/bc-arbon/WerZaehltWo3/issues) oder [Discord](https://discord.gg/gG7S4y5HZd)
 
 # Installation
 - [INSTALL.md](INSTALL.md)

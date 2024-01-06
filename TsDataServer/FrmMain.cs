@@ -1,12 +1,11 @@
 ﻿using BCA.WerZaehltWo3.Common.Adapters;
-using BCA.WerZaehltWo3.Common.Eventing;
 using BCA.WerZaehltWo3.Common.TournamentSoftware;
 using BCA.WerZaehltWo3.Shared.Adapters;
 using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
 namespace TsDataServer
 {
@@ -67,14 +66,20 @@ namespace TsDataServer
 
         private void TmrUpdater_Tick(object sender, EventArgs e)
         {
-            //Debug.WriteLine("tmrUpdate_Tick");
-            this.LoadMatches();
+            try
+            {
+                this.LoadMatches();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong:\r\n\r\n" + ex, "TS Data Server", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.TmrUpdater.Stop();
+            }
         }
 
         private void TmrCountdown_Tick(object sender, EventArgs e)
         {            
             var timeLeft = this.lastUpdate.AddSeconds((int)this.NudInterval.Value) - DateTime.Now;
-            //Debug.WriteLine("Timelft: " + timeLeft);
             this.LblNextUpdate.Text = timeLeft.Seconds.ToString() + "s";
         }
 
@@ -93,21 +98,25 @@ namespace TsDataServer
                 return;
             }
 
-            // Connect to rabbitmq
-            try
+            // Connect the rabbit
+            if (this.ChbRabbit.Checked)
             {
-                this.rabbitAdapter = new RabbitAdapter(this.TxtRabbitServer.Text, this.TxtRabbitVhost.Text, this.TxtRabbitUser.Text, this.TxtRabbitPassword.Text);
-                this.LblStatusRabbit.Text = "Verbunden";
-                this.LblStatusRabbit.ForeColor = Color.Green;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Verbindung zu RabbitMQ Server fehlgeschlagen:\r\n\r\n" + ex, "TsDataServer", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                try
+                {
+                    this.rabbitAdapter = new RabbitAdapter(this.TxtRabbitServer.Text, this.TxtRabbitVhost.Text, this.TxtRabbitUser.Text, this.TxtRabbitPassword.Text);
+                    this.LblStatusRabbit.Text = "Verbunden";
+                    this.LblStatusRabbit.ForeColor = Color.Green;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Verbindung zu RabbitMQ Server fehlgeschlagen:\r\n\r\n" + ex, "TsDataServer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
 
             // Set and start timer
             this.TmrUpdater.Interval = (int)this.NudInterval.Value * 1000;
+            this.LblNextUpdate.Text = this.NudInterval.Value + "s";
             this.LoadMatches();
             this.TmrUpdater.Start();
             this.TmrCountdown.Start();
@@ -119,6 +128,7 @@ namespace TsDataServer
         {
             // Load current matches
             var currentMatches = this.tsAdapter.GetCurrentMatches();
+            this.LvwCurrentMatches.BeginUpdate();
             this.LvwCurrentMatches.Items.Clear();
             foreach (var match in currentMatches)
             {
@@ -131,8 +141,11 @@ namespace TsDataServer
                 this.LvwCurrentMatches.Items.Add(item);
             }
 
+            this.LvwCurrentMatches.EndUpdate();
+
             // Load planned matches
             var plannedMatches = this.tsAdapter.GetPlannedMatches();
+            this.LvwPlannedMatches.BeginUpdate();
             this.LvwPlannedMatches.Items.Clear();
             foreach (var match in plannedMatches)
             {
@@ -145,9 +158,14 @@ namespace TsDataServer
                 this.LvwPlannedMatches.Items.Add(item);
             }
 
-            // Create and send payload
-            var messagePayload = new MatchesPayload { CurrentMatches = currentMatches, PlannedMatches = plannedMatches, Timestamp = DateTime.Now };
-            this.rabbitAdapter.Send(messagePayload);
+            this.LvwPlannedMatches.EndUpdate();
+
+            // Create and send payload to rabbit
+            if (this.ChbRabbit.Checked)
+            {
+                var messagePayload = new MatchesPayload { CurrentMatches = currentMatches, PlannedMatches = plannedMatches, Timestamp = DateTime.Now };
+                this.rabbitAdapter.Send(messagePayload);
+            }
 
             this.lastUpdate = DateTime.Now;
         }
@@ -175,6 +193,22 @@ namespace TsDataServer
 
             this.LvwCurrentMatches.Items.Clear();
             this.LvwPlannedMatches.Items.Clear();
+        }
+
+        private void BtnOpenDatabase_Click(object sender, EventArgs e)
+        {
+            if (this.OfdDatabase.ShowDialog() == DialogResult.OK)
+            {
+                this.TxtDatabaseFilepath.Text = this.OfdDatabase.FileName;
+            }
+        }
+
+        private void ChbRabbit_CheckedChanged(object sender, EventArgs e)
+        {
+            this.TxtRabbitServer.Enabled = this.ChbRabbit.Checked;
+            this.TxtRabbitVhost.Enabled = this.ChbRabbit.Checked;
+            this.TxtRabbitUser.Enabled = this.ChbRabbit.Checked;
+            this.TxtRabbitPassword.Enabled = this.ChbRabbit.Checked;
         }
     }
 }
