@@ -18,4 +18,14 @@
         Female,
         Unknown
     }
+
+    public enum DrawType
+    {
+        KoSystem = 1,
+        Groupsystem = 2,
+        FullGroupsystem = 4,
+        SwissLadder = 17,
+        DoubleEliminiation = 18,
+        Unknown = -1
+    }
 }

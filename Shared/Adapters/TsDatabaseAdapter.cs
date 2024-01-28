@@ -24,7 +24,7 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
 
             var conString = this.tsConnectionString.Replace("|DataDirectory|\\ts.tp", databaseFilepath);
 
-            this.connection = new OleDbConnection(conString);  
+            this.connection = new OleDbConnection(conString);
             this.connection.Open();
         }
 
@@ -48,10 +48,10 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
                 this.FillDraws();
             }
 
-            var result = new List<Match>();            
+            var result = new List<Match>();
             var query = "SELECT id, van1, van2, team1set1, team2set1, team1set2, team2set2, team1set3, team2set3, matchnr, roundnr, draw, winner, court, plandate "
                     + "FROM PlayerMatch thematch "
-                    + "WHERE reversehomeaway = FALSE AND roundnr > 0 AND plandate > #2000-01-01 00:00:00# "
+                    + "WHERE reversehomeaway = FALSE AND roundnr >= 0 AND plandate > #2000-01-01 00:00:00# "
                     + "ORDER BY plandate, court";
 
             try
@@ -86,13 +86,13 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
                     }
 
                     match.PlanDate = reader.GetDateTime(14);
-                    
+
 
                     // Check if match already added
                     var bla = result.Find(x => x.Draw.Id == match.Draw.Id && x.Team1.Id == match.Team2.Id && x.Team2.Id == match.Team1.Id);
                     //if (bla == null)
                     //{
-                        result.Add(match);
+                    result.Add(match);
                     //}
                     //else
                     //{
@@ -145,7 +145,7 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
             var currentMatches = this.GetCurrentMatches();
             var matches = this.GetMatches();
             foreach (var match in matches)
-            {                
+            {
                 // Skip if no court present
                 if (match.Court == 0)
                 {
@@ -158,12 +158,27 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
                     continue;
                 }
 
-                // Check if match is currently on a court, add it if not
-                var actualPlayingMatch = currentMatches.Find(x => x.Id == match.Id);
-                if (actualPlayingMatch == null)
+                // Check if this match is the same but with reversed teams (Schoch matches)
+                var schochMatchInReverse = currentMatches.Find(x => x.Draw.Id == match.Draw.Id && x.Team1.Id == match.Team2.Id && x.Team2.Id == match.Team1.Id);
+                if (schochMatchInReverse != null)
                 {
-                    result.Add(match);
+                    continue;
                 }
+
+                var koMatchInReverse = result.Find(x => x.Draw.Id == match.Draw.Id && x.Team1.Id == match.Team1.Id && x.Team2.Id == match.Team2.Id);
+                if (koMatchInReverse != null)
+                {
+                    continue;
+                }
+
+                // Check if match is currently on a court
+                var actualPlayingMatch = currentMatches.Find(x => x.Id == match.Id);
+                if (actualPlayingMatch != null)
+                {
+                    continue;
+                }
+
+                result.Add(match);
             }
 
             return result;
@@ -273,8 +288,11 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
                         Id = Convert.ToInt32(reader["id"]),
                         Name = reader["name"].ToString(),
                         Event = this.eventById.Find(x => x.Key == Convert.ToInt32(reader["event"])).Value,
-                        Size = Convert.ToInt32(reader["drawsize"])
+                        Size = Convert.ToInt32(reader["drawsize"]),
+                        Type = this.GetDrawType(Convert.ToInt32(reader["drawtype"])),
                     };
+
+                    draw.TypeName = this.GetDrawTypeName(draw.Type);
 
                     this.drawById.Add(new KeyValuePair<int, Draw>(draw.Id, draw));
                 }
@@ -337,6 +355,37 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
             }
         }
 
+        private DrawType GetDrawType(int id)
+        {
+            if (Enum.TryParse(id.ToString(), out DrawType drawType))
+            {
+                return drawType;
+            }
+            else
+            {
+                return DrawType.Unknown;
+            }
+        }
+
+        private string GetDrawTypeName(DrawType drawType)
+        {
+            switch (drawType)
+            {
+                case DrawType.SwissLadder:
+                    return "Schoch";
+                case DrawType.FullGroupsystem:
+                    return "Vollständiges Gruppensystem";
+                case DrawType.Groupsystem:
+                    return "Gruppensystem";
+                case DrawType.DoubleEliminiation:
+                    return "Double Eliminiation";
+                case DrawType.KoSystem:
+                    return "KO-System";
+                default:
+                    return string.Empty;
+            }
+        }
+
         private OleDbDataReader ExecuteSql(string sql)
         {
             try
@@ -379,7 +428,7 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
                     return players;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }

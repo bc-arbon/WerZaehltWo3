@@ -64,6 +64,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Forms\FrmBadmanImport.cs">
@@ -114,6 +115,12 @@
     <Compile Include="Forms\FrmPlayer.Designer.cs">
       <DependentUpon>FrmPlayer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmTsMonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTsMonitor.Designer.cs">
+      <DependentUpon>FrmTsMonitor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmTsImport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmPlayer.resx">
       <DependentUpon>FrmPlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTsMonitor.resx">
+      <DependentUpon>FrmTsMonitor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmTsImport.resx">
       <DependentUpon>FrmTsImport.cs</DependentUpon>

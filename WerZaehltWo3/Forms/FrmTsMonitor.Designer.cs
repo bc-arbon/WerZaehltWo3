@@ -1,6 +1,6 @@
-﻿namespace TsDataServer
+﻿namespace BCA.WerZaehltWo3.Forms
 {
-    partial class FrmMain
+    partial class FrmTsMonitor
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.OfdDatabase = new System.Windows.Forms.OpenFileDialog();
+            this.TmrUpdater = new System.Windows.Forms.Timer(this.components);
+            this.LblNextUpdate = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.LblStatusRabbit = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.LblStatusDatabase = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.BtnStartAutoUpdate = new System.Windows.Forms.Button();
+            this.BtnStopAutoupdate = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.LvwPlannedMatches = new System.Windows.Forms.ListView();
             this.ChrCourt2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ChrPlanDate2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -36,8 +48,7 @@
             this.ChrPlayer22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ChrDraw2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ChrRound2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.BtnStopAutoupdate = new System.Windows.Forms.Button();
-            this.BtnStartAutoUpdate = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.LvwCurrentMatches = new System.Windows.Forms.ListView();
             this.ChrCourt = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ChrPlanDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -45,7 +56,7 @@
             this.ChrPlayer2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ChrDraw = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ChrRound = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TmrCountdown = new System.Windows.Forms.Timer(this.components);
             this.ChbRabbit = new System.Windows.Forms.CheckBox();
             this.TxtRabbitPassword = new System.Windows.Forms.MaskedTextBox();
             this.NudInterval = new System.Windows.Forms.NumericUpDown();
@@ -60,24 +71,132 @@
             this.label3 = new System.Windows.Forms.Label();
             this.BtnOpenDatabase = new System.Windows.Forms.Button();
             this.TxtDatabaseFilepath = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.LblNextUpdate = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.LblStatusRabbit = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.LblStatusDatabase = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.TmrUpdater = new System.Windows.Forms.Timer(this.components);
-            this.TmrCountdown = new System.Windows.Forms.Timer(this.components);
-            this.OfdDatabase = new System.Windows.Forms.OpenFileDialog();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NudInterval)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ChrDrawType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ChrDrawType2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NudInterval)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // OfdDatabase
+            // 
+            this.OfdDatabase.FileName = "*.tp";
+            // 
+            // TmrUpdater
+            // 
+            this.TmrUpdater.Interval = 10000;
+            this.TmrUpdater.Tick += new System.EventHandler(this.TmrUpdater_Tick);
+            // 
+            // LblNextUpdate
+            // 
+            this.LblNextUpdate.AutoSize = true;
+            this.LblNextUpdate.Location = new System.Drawing.Point(480, 24);
+            this.LblNextUpdate.Name = "LblNextUpdate";
+            this.LblNextUpdate.Size = new System.Drawing.Size(18, 13);
+            this.LblNextUpdate.TabIndex = 12;
+            this.LblNextUpdate.Text = "--s";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(381, 24);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(93, 13);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "Nächstes Update:";
+            // 
+            // LblStatusRabbit
+            // 
+            this.LblStatusRabbit.AutoSize = true;
+            this.LblStatusRabbit.ForeColor = System.Drawing.Color.Red;
+            this.LblStatusRabbit.Location = new System.Drawing.Point(266, 53);
+            this.LblStatusRabbit.Name = "LblStatusRabbit";
+            this.LblStatusRabbit.Size = new System.Drawing.Size(86, 13);
+            this.LblStatusRabbit.TabIndex = 10;
+            this.LblStatusRabbit.Text = "Nicht verbunden";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(197, 53);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "RabbitMQ:";
+            // 
+            // LblStatusDatabase
+            // 
+            this.LblStatusDatabase.AutoSize = true;
+            this.LblStatusDatabase.ForeColor = System.Drawing.Color.Red;
+            this.LblStatusDatabase.Location = new System.Drawing.Point(266, 24);
+            this.LblStatusDatabase.Name = "LblStatusDatabase";
+            this.LblStatusDatabase.Size = new System.Drawing.Size(86, 13);
+            this.LblStatusDatabase.TabIndex = 8;
+            this.LblStatusDatabase.Text = "Nicht verbunden";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(197, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Datenbank:";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Controls.Add(this.LblNextUpdate);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.LblStatusRabbit);
+            this.groupBox4.Controls.Add(this.label2);
+            this.groupBox4.Controls.Add(this.LblStatusDatabase);
+            this.groupBox4.Controls.Add(this.label1);
+            this.groupBox4.Controls.Add(this.BtnStartAutoUpdate);
+            this.groupBox4.Controls.Add(this.BtnStopAutoupdate);
+            this.groupBox4.Location = new System.Drawing.Point(15, 127);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(874, 83);
+            this.groupBox4.TabIndex = 16;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Steuerung";
+            // 
+            // BtnStartAutoUpdate
+            // 
+            this.BtnStartAutoUpdate.Location = new System.Drawing.Point(6, 19);
+            this.BtnStartAutoUpdate.Name = "BtnStartAutoUpdate";
+            this.BtnStartAutoUpdate.Size = new System.Drawing.Size(157, 23);
+            this.BtnStartAutoUpdate.TabIndex = 6;
+            this.BtnStartAutoUpdate.Text = "Start";
+            this.BtnStartAutoUpdate.UseVisualStyleBackColor = true;
+            this.BtnStartAutoUpdate.Click += new System.EventHandler(this.BtnStartAutoUpdate_Click);
+            // 
+            // BtnStopAutoupdate
+            // 
+            this.BtnStopAutoupdate.Enabled = false;
+            this.BtnStopAutoupdate.Location = new System.Drawing.Point(6, 48);
+            this.BtnStopAutoupdate.Name = "BtnStopAutoupdate";
+            this.BtnStopAutoupdate.Size = new System.Drawing.Size(157, 23);
+            this.BtnStopAutoupdate.TabIndex = 5;
+            this.BtnStopAutoupdate.Text = "Stop";
+            this.BtnStopAutoupdate.UseVisualStyleBackColor = true;
+            this.BtnStopAutoupdate.Click += new System.EventHandler(this.BtnStopAutoupdate_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.LvwPlannedMatches);
+            this.groupBox3.Location = new System.Drawing.Point(9, 417);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(874, 388);
+            this.groupBox3.TabIndex = 15;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Geplante Spiele";
             // 
             // LvwPlannedMatches
             // 
@@ -90,11 +209,13 @@
             this.ChrPlayer12,
             this.ChrPlayer22,
             this.ChrDraw2,
-            this.ChrRound2});
+            this.ChrRound2,
+            this.ChrDrawType2});
+            this.LvwPlannedMatches.FullRowSelect = true;
             this.LvwPlannedMatches.HideSelection = false;
             this.LvwPlannedMatches.Location = new System.Drawing.Point(6, 19);
             this.LvwPlannedMatches.Name = "LvwPlannedMatches";
-            this.LvwPlannedMatches.Size = new System.Drawing.Size(735, 363);
+            this.LvwPlannedMatches.Size = new System.Drawing.Size(862, 363);
             this.LvwPlannedMatches.TabIndex = 8;
             this.LvwPlannedMatches.UseCompatibleStateImageBehavior = false;
             this.LvwPlannedMatches.View = System.Windows.Forms.View.Details;
@@ -126,26 +247,17 @@
             // 
             this.ChrRound2.Text = "Round";
             // 
-            // BtnStopAutoupdate
+            // groupBox2
             // 
-            this.BtnStopAutoupdate.Enabled = false;
-            this.BtnStopAutoupdate.Location = new System.Drawing.Point(6, 48);
-            this.BtnStopAutoupdate.Name = "BtnStopAutoupdate";
-            this.BtnStopAutoupdate.Size = new System.Drawing.Size(157, 23);
-            this.BtnStopAutoupdate.TabIndex = 5;
-            this.BtnStopAutoupdate.Text = "Stop";
-            this.BtnStopAutoupdate.UseVisualStyleBackColor = true;
-            this.BtnStopAutoupdate.Click += new System.EventHandler(this.BtnStopAutoupdate_Click);
-            // 
-            // BtnStartAutoUpdate
-            // 
-            this.BtnStartAutoUpdate.Location = new System.Drawing.Point(6, 19);
-            this.BtnStartAutoUpdate.Name = "BtnStartAutoUpdate";
-            this.BtnStartAutoUpdate.Size = new System.Drawing.Size(157, 23);
-            this.BtnStartAutoUpdate.TabIndex = 6;
-            this.BtnStartAutoUpdate.Text = "Start";
-            this.BtnStartAutoUpdate.UseVisualStyleBackColor = true;
-            this.BtnStartAutoUpdate.Click += new System.EventHandler(this.BtnStartAutoUpdate_Click);
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.LvwCurrentMatches);
+            this.groupBox2.Location = new System.Drawing.Point(9, 216);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(874, 195);
+            this.groupBox2.TabIndex = 14;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Laufende Spiele";
             // 
             // LvwCurrentMatches
             // 
@@ -158,11 +270,13 @@
             this.ChrPlayer1,
             this.ChrPlayer2,
             this.ChrDraw,
-            this.ChrRound});
+            this.ChrRound,
+            this.ChrDrawType});
+            this.LvwCurrentMatches.FullRowSelect = true;
             this.LvwCurrentMatches.HideSelection = false;
             this.LvwCurrentMatches.Location = new System.Drawing.Point(6, 19);
             this.LvwCurrentMatches.Name = "LvwCurrentMatches";
-            this.LvwCurrentMatches.Size = new System.Drawing.Size(735, 170);
+            this.LvwCurrentMatches.Size = new System.Drawing.Size(862, 170);
             this.LvwCurrentMatches.TabIndex = 4;
             this.LvwCurrentMatches.UseCompatibleStateImageBehavior = false;
             this.LvwCurrentMatches.View = System.Windows.Forms.View.Details;
@@ -194,31 +308,10 @@
             // 
             this.ChrRound.Text = "Round";
             // 
-            // groupBox1
+            // TmrCountdown
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.ChbRabbit);
-            this.groupBox1.Controls.Add(this.TxtRabbitPassword);
-            this.groupBox1.Controls.Add(this.NudInterval);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.TxtRabbitVhost);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.TxtRabbitUser);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.TxtRabbitServer);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.BtnOpenDatabase);
-            this.groupBox1.Controls.Add(this.TxtDatabaseFilepath);
-            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.groupBox1.Location = new System.Drawing.Point(12, 8);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(747, 111);
-            this.groupBox1.TabIndex = 9;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Konfiguration";
+            this.TmrCountdown.Interval = 900;
+            this.TmrCountdown.Tick += new System.EventHandler(this.TmrCountdown_Tick);
             // 
             // ChbRabbit
             // 
@@ -226,7 +319,7 @@
             this.ChbRabbit.Checked = true;
             this.ChbRabbit.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ChbRabbit.Location = new System.Drawing.Point(5, 46);
-            this.ChbRabbit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ChbRabbit.Margin = new System.Windows.Forms.Padding(2);
             this.ChbRabbit.Name = "ChbRabbit";
             this.ChbRabbit.Size = new System.Drawing.Size(74, 17);
             this.ChbRabbit.TabIndex = 22;
@@ -332,7 +425,7 @@
             // BtnOpenDatabase
             // 
             this.BtnOpenDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnOpenDatabase.Location = new System.Drawing.Point(711, 15);
+            this.BtnOpenDatabase.Location = new System.Drawing.Point(838, 15);
             this.BtnOpenDatabase.Name = "BtnOpenDatabase";
             this.BtnOpenDatabase.Size = new System.Drawing.Size(30, 23);
             this.BtnOpenDatabase.TabIndex = 8;
@@ -346,149 +439,81 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtDatabaseFilepath.Location = new System.Drawing.Point(97, 17);
             this.TxtDatabaseFilepath.Name = "TxtDatabaseFilepath";
-            this.TxtDatabaseFilepath.Size = new System.Drawing.Size(608, 20);
+            this.TxtDatabaseFilepath.Size = new System.Drawing.Size(735, 20);
             this.TxtDatabaseFilepath.TabIndex = 7;
             // 
-            // groupBox2
+            // groupBox1
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.LvwCurrentMatches);
-            this.groupBox2.Location = new System.Drawing.Point(12, 214);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(747, 195);
-            this.groupBox2.TabIndex = 10;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Laufende Spiele";
+            this.groupBox1.Controls.Add(this.ChbRabbit);
+            this.groupBox1.Controls.Add(this.TxtRabbitPassword);
+            this.groupBox1.Controls.Add(this.NudInterval);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.TxtRabbitVhost);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.TxtRabbitUser);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.TxtRabbitServer);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.BtnOpenDatabase);
+            this.groupBox1.Controls.Add(this.TxtDatabaseFilepath);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.groupBox1.Location = new System.Drawing.Point(9, 10);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(874, 111);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Konfiguration";
             // 
-            // groupBox3
+            // ChrDrawType
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.LvwPlannedMatches);
-            this.groupBox3.Location = new System.Drawing.Point(12, 415);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(747, 388);
-            this.groupBox3.TabIndex = 11;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Geplante Spiele";
+            this.ChrDrawType.Text = "Drawtype";
             // 
-            // groupBox4
+            // ChrDrawType2
             // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.Controls.Add(this.LblNextUpdate);
-            this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.LblStatusRabbit);
-            this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Controls.Add(this.LblStatusDatabase);
-            this.groupBox4.Controls.Add(this.label1);
-            this.groupBox4.Controls.Add(this.BtnStartAutoUpdate);
-            this.groupBox4.Controls.Add(this.BtnStopAutoupdate);
-            this.groupBox4.Location = new System.Drawing.Point(18, 125);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(747, 83);
-            this.groupBox4.TabIndex = 12;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Steuerung";
+            this.ChrDrawType2.Text = "Drawtype";
             // 
-            // LblNextUpdate
-            // 
-            this.LblNextUpdate.AutoSize = true;
-            this.LblNextUpdate.Location = new System.Drawing.Point(480, 24);
-            this.LblNextUpdate.Name = "LblNextUpdate";
-            this.LblNextUpdate.Size = new System.Drawing.Size(18, 13);
-            this.LblNextUpdate.TabIndex = 12;
-            this.LblNextUpdate.Text = "--s";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(381, 24);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(93, 13);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "Nächstes Update:";
-            // 
-            // LblStatusRabbit
-            // 
-            this.LblStatusRabbit.AutoSize = true;
-            this.LblStatusRabbit.ForeColor = System.Drawing.Color.Red;
-            this.LblStatusRabbit.Location = new System.Drawing.Point(266, 53);
-            this.LblStatusRabbit.Name = "LblStatusRabbit";
-            this.LblStatusRabbit.Size = new System.Drawing.Size(86, 13);
-            this.LblStatusRabbit.TabIndex = 10;
-            this.LblStatusRabbit.Text = "Nicht verbunden";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(197, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "RabbitMQ:";
-            // 
-            // LblStatusDatabase
-            // 
-            this.LblStatusDatabase.AutoSize = true;
-            this.LblStatusDatabase.ForeColor = System.Drawing.Color.Red;
-            this.LblStatusDatabase.Location = new System.Drawing.Point(266, 24);
-            this.LblStatusDatabase.Name = "LblStatusDatabase";
-            this.LblStatusDatabase.Size = new System.Drawing.Size(86, 13);
-            this.LblStatusDatabase.TabIndex = 8;
-            this.LblStatusDatabase.Text = "Nicht verbunden";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(197, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Datenbank:";
-            // 
-            // TmrUpdater
-            // 
-            this.TmrUpdater.Interval = 10000;
-            this.TmrUpdater.Tick += new System.EventHandler(this.TmrUpdater_Tick);
-            // 
-            // TmrCountdown
-            // 
-            this.TmrCountdown.Interval = 900;
-            this.TmrCountdown.Tick += new System.EventHandler(this.TmrCountdown_Tick);
-            // 
-            // OfdDatabase
-            // 
-            this.OfdDatabase.FileName = "*.tp";
-            // 
-            // FrmMain
+            // FrmTsMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(771, 815);
+            this.ClientSize = new System.Drawing.Size(898, 815);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "FrmMain";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TS Data Server";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
-            this.Load += new System.EventHandler(this.FrmMain_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NudInterval)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
+            this.Name = "FrmTsMonitor";
+            this.Text = "FrmTsData";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmTsMonitor_FormClosing);
+            this.Load += new System.EventHandler(this.FrmTsData_Load);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.NudInterval)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.OpenFileDialog OfdDatabase;
+        private System.Windows.Forms.Timer TmrUpdater;
+        private System.Windows.Forms.Label LblNextUpdate;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label LblStatusRabbit;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LblStatusDatabase;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button BtnStartAutoUpdate;
+        private System.Windows.Forms.Button BtnStopAutoupdate;
+        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ListView LvwPlannedMatches;
         private System.Windows.Forms.ColumnHeader ChrCourt2;
         private System.Windows.Forms.ColumnHeader ChrPlanDate2;
@@ -496,8 +521,7 @@
         private System.Windows.Forms.ColumnHeader ChrPlayer22;
         private System.Windows.Forms.ColumnHeader ChrDraw2;
         private System.Windows.Forms.ColumnHeader ChrRound2;
-        private System.Windows.Forms.Button BtnStopAutoupdate;
-        private System.Windows.Forms.Button BtnStartAutoUpdate;
+        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ListView LvwCurrentMatches;
         private System.Windows.Forms.ColumnHeader ChrCourt;
         private System.Windows.Forms.ColumnHeader ChrPlanDate;
@@ -505,7 +529,11 @@
         private System.Windows.Forms.ColumnHeader ChrPlayer2;
         private System.Windows.Forms.ColumnHeader ChrDraw;
         private System.Windows.Forms.ColumnHeader ChrRound;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Timer TmrCountdown;
+        private System.Windows.Forms.CheckBox ChbRabbit;
+        private System.Windows.Forms.MaskedTextBox TxtRabbitPassword;
+        private System.Windows.Forms.NumericUpDown NudInterval;
+        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox TxtRabbitVhost;
         private System.Windows.Forms.Label label7;
@@ -516,22 +544,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button BtnOpenDatabase;
         private System.Windows.Forms.TextBox TxtDatabaseFilepath;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label LblStatusDatabase;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown NudInterval;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label LblNextUpdate;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label LblStatusRabbit;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Timer TmrUpdater;
-        private System.Windows.Forms.Timer TmrCountdown;
-        private System.Windows.Forms.MaskedTextBox TxtRabbitPassword;
-        private System.Windows.Forms.OpenFileDialog OfdDatabase;
-        private System.Windows.Forms.CheckBox ChbRabbit;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ColumnHeader ChrDrawType2;
+        private System.Windows.Forms.ColumnHeader ChrDrawType;
     }
 }
-

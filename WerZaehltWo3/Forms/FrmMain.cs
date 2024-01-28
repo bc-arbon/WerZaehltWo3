@@ -12,6 +12,7 @@ namespace BCA.WerZaehltWo3.Forms
         private AppSettings appSettings = new AppSettings();
         private Playerboard playerboard = new Playerboard();
         private readonly FrmDisplay displayForm = new FrmDisplay();
+        private FrmTsMonitor frmTsMonitor;
 
         public FrmMain()
         {
@@ -30,11 +31,19 @@ namespace BCA.WerZaehltWo3.Forms
             this.InitializeSettingControls();
             this.displayForm.InitializeDisplayControls();
             this.displayForm.SetFontSize(this.playerboard.Settings.FontSize);
+
+            this.frmTsMonitor = new FrmTsMonitor(this.appSettings);
+            this.frmTsMonitor.Show();
         }
 
         private void MnuFileShowDisplay_Click(object sender, EventArgs e)
         {
             this.displayForm.Show();
+        }
+
+        private void MnuFileTsMonitor_Click(object sender, EventArgs e)
+        {
+            this.frmTsMonitor.Show();
         }
 
         private void MnuFileEditPlayers_Click(object sender, EventArgs e)
