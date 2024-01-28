@@ -1,4 +1,4 @@
-# Wer z‰hlt wo
+# Wer z√§hlt wo
 ![Aufbau](doc/setup.jpg)
 
 ## Prerequisites
@@ -11,23 +11,23 @@
 3. Spieler erfassen im Spielereditor
 4. Displayfenster auf den 2. Monitor schieben
 5. Spieler auf den Feldern eintragen
-6. Gr¸ner Haken klicken, um Anzeige zu aktualisieren
+6. Gr√ºner Haken klicken, um Anzeige zu aktualisieren
 
 ## Tipps
 ### Spieler aus Tournamentsoftware importieren
 Die Import-Funktion ist im Spielereditor zu finden.
-Zum Importieren aller gemeldeten Spieler muss die entsprechende *.ts-Datei ausgew‰hlt werden.
+Zum Importieren aller gemeldeten Spieler muss die entsprechende *.ts-Datei ausgew√§hlt werden.
 
-### Verwalten der Spielerbest‰nde
-Im Programmverzeichnis befindet sich die Datei playerboard.json. Falls man z.B. am Morgen und am Nachmittag verschiedene Spieler in der Halle hat kann man vorg‰ngig verschiedene Versionen der playerboard.json 
+### Verwalten der Spielerbest√§nde
+Im Programmverzeichnis befindet sich die Datei playerboard.json. Falls man z.B. am Morgen und am Nachmittag verschiedene Spieler in der Halle hat kann man vorg√§ngig verschiedene Versionen der playerboard.json 
 vorbereiten und je nach Bedarf im Programmverzeichnis ablegen.
 
 ### Doppelpaarungen
-Die beiden Namen bei Doppel und Mixed kˆnnen mit einem " / " getrennt werden. Auf dem Display wird dies dann als Zeilenumbruch angezeigt.
+Die beiden Namen bei Doppel und Mixed k√∂nnen mit einem " / " getrennt werden. Auf dem Display wird dies dann als Zeilenumbruch angezeigt.
 
 ![Doppelpaarungen](doc/slash.png)
 
-# Tournamentsoftware Data Server
+# Tournamentsoftware Data Server (in Entwicklung)
 
 ## Prerequisites
 - .NET Framework 4.8
