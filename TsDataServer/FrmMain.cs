@@ -1,6 +1,7 @@
 ﻿using BCA.WerZaehltWo3.Common.Adapters;
 using BCA.WerZaehltWo3.Common.TournamentSoftware;
 using BCA.WerZaehltWo3.Shared.Adapters;
+using Newtonsoft.Json;
 using System;
 using System.Drawing;
 using System.IO;
@@ -166,6 +167,14 @@ namespace TsDataServer
                 this.rabbitAdapter.Send(messagePayload);
             }
 
+            // Create and send payload to rabbit
+            if (this.ChbJson.Checked)
+            {
+                var messagePayload = new MatchesPayload { CurrentMatches = currentMatches, PlannedMatches = plannedMatches, Timestamp = DateTime.Now };
+                var json = JsonConvert.SerializeObject(messagePayload);
+                File.WriteAllText(this.TxtJson.Text, json);
+            }
+
             this.lastUpdate = DateTime.Now;
         }
 
@@ -208,6 +217,14 @@ namespace TsDataServer
             this.TxtRabbitVhost.Enabled = this.ChbRabbit.Checked;
             this.TxtRabbitUser.Enabled = this.ChbRabbit.Checked;
             this.TxtRabbitPassword.Enabled = this.ChbRabbit.Checked;
+        }
+
+        private void BtnOpenJson_Click(object sender, EventArgs e)
+        {
+            if (this.SfdJson.ShowDialog() == DialogResult.OK)
+            {
+                this.TxtJson.Text = this.SfdJson.FileName;
+            }
         }
     }
 }
