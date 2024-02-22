@@ -165,6 +165,12 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
                     continue;
                 }
 
+                var schochMatchInReverse2 = result.Find(x => x.Draw.Id == match.Draw.Id && x.Team1.Id == match.Team2.Id && x.Team2.Id == match.Team1.Id);
+                if (schochMatchInReverse2 != null)
+                {
+                    continue;
+                }
+
                 var koMatchInReverse = result.Find(x => x.Draw.Id == match.Draw.Id && x.Team1.Id == match.Team1.Id && x.Team2.Id == match.Team2.Id);
                 if (koMatchInReverse != null)
                 {
