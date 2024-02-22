@@ -1,7 +1,6 @@
-﻿using BCA.WerZaehltWo3.Common.Adapters;
-using BCA.WerZaehltWo3.Common.Helpers;
-using BCA.WerZaehltWo3.Common.TournamentSoftware;
-using BCA.WerZaehltWo3.Shared.Adapters;
+﻿using BCA.WerZaehltWo3.Shared.Adapters;
+using BCA.WerZaehltWo3.Shared.Helpers;
+using BCA.WerZaehltWo3.Shared.TournamentSoftware;
 using Newtonsoft.Json;
 using System;
 using System.Drawing;

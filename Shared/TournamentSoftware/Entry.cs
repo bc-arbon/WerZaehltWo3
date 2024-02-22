@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BCA.WerZaehltWo3.Shared.TournamentSoftware
+﻿namespace BCA.WerZaehltWo3.Shared.TournamentSoftware
 {
     //public class Entry
     //{

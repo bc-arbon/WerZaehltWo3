@@ -225,6 +225,11 @@
   <ItemGroup>
     <Content Include="icon.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\Shared.csproj">
+      <Project>{9EF114EB-6E13-457B-8DEA-D6D7C29EA1C4}</Project>
+      <Name>Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

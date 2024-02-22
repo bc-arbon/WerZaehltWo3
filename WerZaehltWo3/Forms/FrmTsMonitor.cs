@@ -1,6 +1,4 @@
-﻿using BCA.WerZaehltWo3.Common.Adapters;
-using BCA.WerZaehltWo3.Common.TournamentSoftware;
-using BCA.WerZaehltWo3.Shared;
+﻿using BCA.WerZaehltWo3.Shared;
 using BCA.WerZaehltWo3.Shared.Adapters;
 using BCA.WerZaehltWo3.Shared.Eventing;
 using BCA.WerZaehltWo3.Shared.Logic;
@@ -251,21 +249,46 @@ namespace BCA.WerZaehltWo3.Forms
             var sourceObject = (ListView)((ContextMenuStrip)sender).SourceControl;
             if (sourceObject.Name == "LvwPlay")
             {
-                var match = (Match)this.LvwPlay.SelectedItems[0].Tag;
-                this.MnuApply.Text = "Übernehmen bei Spielen auf Feld " + match.Court;
-                this.MnuApply.Tag = new KeyValuePair<TsDataType, Match>(TsDataType.Play, match);
+                if (this.LvwPlay.SelectedItems.Count > 0)
+                {
+                    var match = (Match)this.LvwPlay.SelectedItems[0].Tag;
+                    this.MnuApply.Text = "Übernehmen bei Spielen auf Feld " + match.Court;
+                    this.MnuApply.Tag = new KeyValuePair<TsDataType, Match>(TsDataType.Play, match);
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
             }
             else if (sourceObject.Name == "LvwCounting")
             {
-                var match = (Match)this.LvwCounting.SelectedItems[0].Tag;
-                this.MnuApply.Text = "Übernehmen bei Zählen auf Feld " + match.Court;
-                this.MnuApply.Tag = new KeyValuePair<TsDataType, Match>(TsDataType.Counting, match);
+                if (this.LvwCounting.SelectedItems.Count > 0)
+                {
+                    var match = (Match)this.LvwCounting.SelectedItems[0].Tag;
+                    this.MnuApply.Text = "Übernehmen bei Zählen auf Feld " + match.Court;
+                    this.MnuApply.Tag = new KeyValuePair<TsDataType, Match>(TsDataType.Counting, match);
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
             }
             else if (sourceObject.Name == "LvwReady")
             {
-                var match = (Match)this.LvwReady.SelectedItems[0].Tag;
-                this.MnuApply.Text = "Übernehmen bei Bereit halten auf Feld " + match.Court;
-                this.MnuApply.Tag = new KeyValuePair<TsDataType, Match>(TsDataType.Ready, match);
+                if (this.LvwReady.SelectedItems.Count > 0)
+                {
+                    var match = (Match)this.LvwReady.SelectedItems[0].Tag;
+                    this.MnuApply.Text = "Übernehmen bei Bereit halten auf Feld " + match.Court;
+                    this.MnuApply.Tag = new KeyValuePair<TsDataType, Match>(TsDataType.Ready, match);
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
+            }
+            else
+            {
+                e.Cancel = true;
             }
         }
 

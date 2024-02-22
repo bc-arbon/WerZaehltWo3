@@ -1,4 +1,4 @@
-﻿using BCA.WerZaehltWo3.Common.Eventing;
+﻿using BCA.WerZaehltWo3.Shared.Eventing;
 using BCA.WerZaehltWo3.Shared.Helpers;
 using BCA.WerZaehltWo3.Shared.ObjectModel;
 using PubSub;

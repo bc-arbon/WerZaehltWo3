@@ -1,12 +1,12 @@
-﻿namespace Tests.Client
-{
-    using BCA.WerZaehltWo3.ObjectModel;
-    using BCA.WerZaehltWo3.Shared;
-    using System;
-    using System.Net.Sockets;
-    using System.Text;
-    using System.Windows.Forms;
+﻿using BCA.WerZaehltWo3.ObjectModel;
+using BCA.WerZaehltWo3.Shared;
+using System;
+using System.Net.Sockets;
+using System.Text;
+using System.Windows.Forms;
 
+namespace Tests.Client
+{
     public partial class Form1 : Form
     {
         const int PORT_NO = 9320;

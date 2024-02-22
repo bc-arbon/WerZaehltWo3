@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BCA.WerZaehltWo3.Common.Eventing
+namespace BCA.WerZaehltWo3.Shared.Eventing
 {
     public class PlayerBaseChangedEvent
     {

@@ -1,6 +1,6 @@
 ﻿using BCA.WerZaehltWo3.Shared.TournamentSoftware;
 
-namespace BCA.WerZaehltWo3.Common.Helpers
+namespace BCA.WerZaehltWo3.Shared.Helpers
 {
     public static class SortingHelper
     {
