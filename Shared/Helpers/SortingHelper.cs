@@ -35,7 +35,7 @@ namespace BCA.WerZaehltWo3.Shared.Helpers
                     // ...and y is not null, compare the
                     // lengths of the two strings.
                     //
-                    int retval = x.Order.CompareTo(y.Order);
+                    int retval = x.OrderSorting.CompareTo(y.OrderSorting);
 
                     if (retval != 0)
                     {
@@ -49,7 +49,7 @@ namespace BCA.WerZaehltWo3.Shared.Helpers
                         // If the strings are of equal length,
                         // sort them with ordinary string comparison.
                         //
-                        return x.Order.CompareTo(y.Order);
+                        return x.OrderSorting.CompareTo(y.OrderSorting);
                     }
                 }
             }

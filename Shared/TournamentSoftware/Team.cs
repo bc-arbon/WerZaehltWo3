@@ -24,7 +24,14 @@ namespace BCA.WerZaehltWo3.Shared.TournamentSoftware
 
         public override string ToString()
         {
-            return this.Player1.ToString() + " / " + this.Player2.ToString();
+            var sb = new StringBuilder();
+            sb.Append(this.Player1.ToString());
+            if (this.Player2 != null)
+            {
+                sb.Append(" / ").Append(this.Player2.ToString()); ;
+            }
+
+            return sb.ToString();
         }
     }
 }

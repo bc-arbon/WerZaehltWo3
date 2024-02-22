@@ -87,6 +87,7 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
 
                     match.PlanDate = reader.GetDateTime(14);
                     match.Order = reader.GetInt32(15);
+                    match.OrderSorting = match.PlanDate.ToString() + " " + match.Order;
 
                     // Check if match already added
                     try
@@ -151,6 +152,12 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
             {
                 // Skip if no court present
                 if (match.Court == 0)
+                {
+                    continue;
+                }
+
+                // Skip if order is zero
+                if (match.Order == 0)
                 {
                     continue;
                 }

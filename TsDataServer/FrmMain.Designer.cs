@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.BtnStopAutoupdate = new System.Windows.Forms.Button();
             this.BtnStartAutoUpdate = new System.Windows.Forms.Button();
             this.LvwCurrentMatches = new System.Windows.Forms.ListView();
@@ -198,10 +199,13 @@
             this.TxtJson.Name = "TxtJson";
             this.TxtJson.Size = new System.Drawing.Size(608, 20);
             this.TxtJson.TabIndex = 23;
+            this.TxtJson.Text = "C:\\btsync\\BCA - Juniorenturnier\\2024\\output.json";
             // 
             // ChbJson
             // 
             this.ChbJson.AutoSize = true;
+            this.ChbJson.Checked = true;
+            this.ChbJson.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ChbJson.Location = new System.Drawing.Point(5, 77);
             this.ChbJson.Margin = new System.Windows.Forms.Padding(2);
             this.ChbJson.Name = "ChbJson";
@@ -225,6 +229,7 @@
             // 
             // TxtRabbitPassword
             // 
+            this.TxtRabbitPassword.Enabled = false;
             this.TxtRabbitPassword.Location = new System.Drawing.Point(621, 44);
             this.TxtRabbitPassword.Name = "TxtRabbitPassword";
             this.TxtRabbitPassword.Size = new System.Drawing.Size(120, 20);
@@ -263,6 +268,7 @@
             // 
             // TxtRabbitVhost
             // 
+            this.TxtRabbitVhost.Enabled = false;
             this.TxtRabbitVhost.Location = new System.Drawing.Point(302, 44);
             this.TxtRabbitVhost.Name = "TxtRabbitVhost";
             this.TxtRabbitVhost.Size = new System.Drawing.Size(84, 20);
@@ -288,6 +294,7 @@
             // 
             // TxtRabbitUser
             // 
+            this.TxtRabbitUser.Enabled = false;
             this.TxtRabbitUser.Location = new System.Drawing.Point(434, 44);
             this.TxtRabbitUser.Name = "TxtRabbitUser";
             this.TxtRabbitUser.Size = new System.Drawing.Size(121, 20);
@@ -304,6 +311,7 @@
             // 
             // TxtRabbitServer
             // 
+            this.TxtRabbitServer.Enabled = false;
             this.TxtRabbitServer.Location = new System.Drawing.Point(135, 44);
             this.TxtRabbitServer.Name = "TxtRabbitServer";
             this.TxtRabbitServer.Size = new System.Drawing.Size(118, 20);
@@ -597,6 +605,8 @@
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TS Data Server";
