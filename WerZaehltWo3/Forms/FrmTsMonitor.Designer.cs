@@ -84,12 +84,15 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CmsApply = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.MnuApply = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NudInterval)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.CmsApply.SuspendLayout();
             this.SuspendLayout();
             // 
             // OfdJason
@@ -223,6 +226,7 @@
             this.ChrDraw2,
             this.ChrRound2,
             this.ChrDrawType2});
+            this.LvwCounting.ContextMenuStrip = this.CmsApply;
             this.LvwCounting.FullRowSelect = true;
             this.LvwCounting.HideSelection = false;
             this.LvwCounting.Location = new System.Drawing.Point(6, 19);
@@ -289,6 +293,7 @@
             this.ChrDraw,
             this.ChrRound,
             this.ChrDrawType});
+            this.LvwPlay.ContextMenuStrip = this.CmsApply;
             this.LvwPlay.FullRowSelect = true;
             this.LvwPlay.HideSelection = false;
             this.LvwPlay.Location = new System.Drawing.Point(6, 19);
@@ -517,6 +522,7 @@
             this.columnHeader5,
             this.columnHeader6,
             this.columnHeader7});
+            this.LvwReady.ContextMenuStrip = this.CmsApply;
             this.LvwReady.FullRowSelect = true;
             this.LvwReady.HideSelection = false;
             this.LvwReady.Location = new System.Drawing.Point(6, 19);
@@ -558,6 +564,21 @@
             // 
             this.columnHeader7.Text = "Drawtype";
             // 
+            // CmsApply
+            // 
+            this.CmsApply.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MnuApply});
+            this.CmsApply.Name = "CmsApply";
+            this.CmsApply.Size = new System.Drawing.Size(234, 26);
+            this.CmsApply.Opening += new System.ComponentModel.CancelEventHandler(this.CmsPlay_Opening);
+            // 
+            // MnuApply
+            // 
+            this.MnuApply.Name = "MnuApply";
+            this.MnuApply.Size = new System.Drawing.Size(233, 22);
+            this.MnuApply.Text = "Übernehmen zu xx auf Feld yy";
+            this.MnuApply.Click += new System.EventHandler(this.MnuApply_Click);
+            // 
             // FrmTsMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -582,6 +603,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox5.ResumeLayout(false);
+            this.CmsApply.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -642,5 +664,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ContextMenuStrip CmsApply;
+        private System.Windows.Forms.ToolStripMenuItem MnuApply;
     }
 }

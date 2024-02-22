@@ -1,9 +1,8 @@
-﻿namespace BCA.WerZaehltWo3.Shared.Eventing
+﻿using System;
+using BCA.WerZaehltWo3.Shared.ObjectModel;
+
+namespace BCA.WerZaehltWo3.Shared.Eventing
 {
-    using System;
-
-    using BCA.WerZaehltWo3.Shared.ObjectModel;
-
     public class CourtEventArgs : EventArgs
     {
         public CourtEventArgs(Court court)

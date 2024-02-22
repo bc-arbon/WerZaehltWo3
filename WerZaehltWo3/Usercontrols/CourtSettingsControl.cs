@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using BCA.WerZaehltWo3.Shared;
 using BCA.WerZaehltWo3.Shared.Eventing;
 using BCA.WerZaehltWo3.Shared.Helpers;
 using BCA.WerZaehltWo3.Shared.ObjectModel;
@@ -24,6 +25,33 @@ namespace BCA.WerZaehltWo3.Usercontrols
         public delegate void ApplyHandler(object sender, CourtEventArgs courtEventArgs);
 
         public event ApplyHandler OnApplyRequested;
+
+        public int CourtNumber
+        {
+            get
+            {
+                return this.court.Number;
+            }
+        }
+
+        public void SetTeams(TsDataType type, string team1, string team2)
+        {
+            switch (type)
+            {
+                case TsDataType.Play:
+                    this.txtPlay1.Text = team1;
+                    this.txtPlay2.Text = team2;
+                    break;
+                case TsDataType.Counting:
+                    this.txtCount1.Text = team1;
+                    this.txtCount2.Text = team2;
+                    break;
+                case TsDataType.Ready:
+                    this.txtReady1.Text = team1;
+                    this.txtReady2.Text = team2;
+                    break;
+            }
+        }
 
         public void SetData(Court courtData, List<string> playerlist)
         {

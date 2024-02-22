@@ -1,10 +1,14 @@
 ﻿using BCA.WerZaehltWo3.Common.Adapters;
 using BCA.WerZaehltWo3.Common.TournamentSoftware;
+using BCA.WerZaehltWo3.Shared;
 using BCA.WerZaehltWo3.Shared.Adapters;
+using BCA.WerZaehltWo3.Shared.Eventing;
 using BCA.WerZaehltWo3.Shared.Logic;
 using BCA.WerZaehltWo3.Shared.ObjectModel;
+using BCA.WerZaehltWo3.Shared.TournamentSoftware;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -17,6 +21,10 @@ namespace BCA.WerZaehltWo3.Forms
         {
             this.InitializeComponent();
         }
+
+        public delegate void SetTsDataHandler(object sender, SetTsDataEventArgs setTsDatatEventArgs);
+
+        public event SetTsDataHandler OnSetTsData;
 
         public FrmTsMonitor(AppSettings appSettings) : this()
         {
@@ -115,6 +123,7 @@ namespace BCA.WerZaehltWo3.Forms
                 item.SubItems.Add(match.Draw.Name);
                 item.SubItems.Add(match.Roundnr >= 1 ? match.Roundnr.ToString() : string.Empty);
                 item.SubItems.Add(match.Draw.TypeName);
+                item.Tag = match;
                 this.LvwPlay.Items.Add(item);
             }
 
@@ -138,6 +147,7 @@ namespace BCA.WerZaehltWo3.Forms
                     item.SubItems.Add(courtMatches[0].Draw.Name);
                     item.SubItems.Add(courtMatches[0].Roundnr.ToString());
                     item.SubItems.Add(courtMatches[0].Draw.TypeName);
+                    item.Tag = courtMatches[0];
                     this.LvwCounting.Items.Add(item);
                 }
 
@@ -150,6 +160,7 @@ namespace BCA.WerZaehltWo3.Forms
                     item.SubItems.Add(courtMatches[1].Draw.Name);
                     item.SubItems.Add(courtMatches[1].Roundnr.ToString());
                     item.SubItems.Add(courtMatches[1].Draw.TypeName);
+                    item.Tag = courtMatches[1];
                     this.LvwReady.Items.Add(item);
                 }
             }            
@@ -233,6 +244,39 @@ namespace BCA.WerZaehltWo3.Forms
 
             this.LvwPlay.Items.Clear();
             this.LvwCounting.Items.Clear();
-        }       
+        }
+
+        private void CmsPlay_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            var sourceObject = (ListView)((ContextMenuStrip)sender).SourceControl;
+            if (sourceObject.Name == "LvwPlay")
+            {
+                var match = (Match)this.LvwPlay.SelectedItems[0].Tag;
+                this.MnuApply.Text = "Übernehmen bei Spielen auf Feld " + match.Court;
+                this.MnuApply.Tag = new KeyValuePair<TsDataType, Match>(TsDataType.Play, match);
+            }
+            else if (sourceObject.Name == "LvwCounting")
+            {
+                var match = (Match)this.LvwCounting.SelectedItems[0].Tag;
+                this.MnuApply.Text = "Übernehmen bei Zählen auf Feld " + match.Court;
+                this.MnuApply.Tag = new KeyValuePair<TsDataType, Match>(TsDataType.Counting, match);
+            }
+            else if (sourceObject.Name == "LvwReady")
+            {
+                var match = (Match)this.LvwReady.SelectedItems[0].Tag;
+                this.MnuApply.Text = "Übernehmen bei Bereit halten auf Feld " + match.Court;
+                this.MnuApply.Tag = new KeyValuePair<TsDataType, Match>(TsDataType.Ready, match);
+            }
+        }
+
+        private void MnuApply_Click(object sender, EventArgs e)
+        {
+            var handler = this.OnSetTsData;
+            if (handler != null)
+            {
+                var match = (KeyValuePair<TsDataType, Match>)this.MnuApply.Tag;
+                handler(this, new SetTsDataEventArgs { Type = match.Key, Court = match.Value.Court, Team1 = match.Value.Team1.ToStringShort(), Team2 = match.Value.Team2.ToStringShort() });
+            }
+        }
     }
 }

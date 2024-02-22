@@ -7,7 +7,7 @@
 
     public enum EventType
     {
-        Single, 
+        Single,
         Double,
         Mixed
     }
@@ -29,5 +29,12 @@
         SwissLadder = 17,
         DoubleEliminiation = 18,
         Unknown = -1
+    }
+
+    public enum TsDataType
+    {
+        Play,
+        Counting,
+        Ready
     }
 }

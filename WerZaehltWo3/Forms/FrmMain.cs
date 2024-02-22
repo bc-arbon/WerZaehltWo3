@@ -33,6 +33,7 @@ namespace BCA.WerZaehltWo3.Forms
             this.displayForm.SetFontSize(this.playerboard.Settings.FontSize);
 
             this.frmTsMonitor = new FrmTsMonitor(this.appSettings);
+            this.frmTsMonitor.OnSetTsData += FrmTsMonitor_OnSetTsData;
             this.frmTsMonitor.Show();
         }
 
@@ -113,6 +114,19 @@ namespace BCA.WerZaehltWo3.Forms
         {
             this.displayForm.UpdateDisplayControl(courtEventArgs.Court);
             PlayerboardLogic.Save(this.playerboard);
+        }
+
+        private void FrmTsMonitor_OnSetTsData(object sender, SetTsDataEventArgs setTsDataEventArgs)
+        {
+            foreach (var control in this.pnlSettingsControls.Controls)
+            {
+                var settingsControl = (CourtSettingsControl)control;
+                if (settingsControl.CourtNumber == setTsDataEventArgs.Court)
+                {
+                    settingsControl.SetTeams(setTsDataEventArgs.Type, setTsDataEventArgs.Team1, setTsDataEventArgs.Team2);
+                    break;
+                }
+            }
         }
     }
 }
