@@ -3,8 +3,10 @@ using BCA.WerZaehltWo3.Common.TournamentSoftware;
 using BCA.WerZaehltWo3.Shared.Adapters;
 using BCA.WerZaehltWo3.Shared.Logic;
 using BCA.WerZaehltWo3.Shared.ObjectModel;
+using Newtonsoft.Json;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace BCA.WerZaehltWo3.Forms
@@ -30,7 +32,7 @@ namespace BCA.WerZaehltWo3.Forms
 
         private void FrmTsData_Load(object sender, EventArgs e)
         {
-            this.TxtDatabaseFilepath.Text = this.appSettings.TsMonitorDatabase;
+            this.TxtJsonFilePath.Text = this.appSettings.TsJsonFilePath;
             this.TxtRabbitServer.Text = this.appSettings.RabbitServer;
             this.TxtRabbitUser.Text = this.appSettings.RabbitUser;
             this.TxtRabbitPassword.Text = this.appSettings.RabbitPassword;
@@ -47,9 +49,9 @@ namespace BCA.WerZaehltWo3.Forms
 
         private void BtnOpenDatabase_Click(object sender, EventArgs e)
         {
-            if (this.OfdDatabase.ShowDialog() == DialogResult.OK)
+            if (this.OfdJason.ShowDialog() == DialogResult.OK)
             {
-                this.TxtDatabaseFilepath.Text = this.OfdDatabase.FileName;
+                this.TxtJsonFilePath.Text = this.OfdJason.FileName;
             }
         }
 
@@ -92,11 +94,19 @@ namespace BCA.WerZaehltWo3.Forms
 
         private void LoadMatches()
         {
+            if (!File.Exists(this.TxtJsonFilePath.Text))
+            {
+                return;
+            }
+
+            var json = File.ReadAllText(this.TxtJsonFilePath.Text);
+            var matches = JsonConvert.DeserializeObject<MatchesPayload>(json);
+                        
+
             // Load current matches
-            var currentMatches = this.tsAdapter.GetCurrentMatches();
-            this.LvwCurrentMatches.BeginUpdate();
-            this.LvwCurrentMatches.Items.Clear();
-            foreach (var match in currentMatches)
+            this.LvwPlay.BeginUpdate();
+            this.LvwPlay.Items.Clear();
+            foreach (var match in matches.CurrentMatches)
             {
                 var item = new ListViewItem(match.Court.ToString());
                 item.SubItems.Add(match.PlanDate.ToString());
@@ -105,35 +115,47 @@ namespace BCA.WerZaehltWo3.Forms
                 item.SubItems.Add(match.Draw.Name);
                 item.SubItems.Add(match.Roundnr >= 1 ? match.Roundnr.ToString() : string.Empty);
                 item.SubItems.Add(match.Draw.TypeName);
-                this.LvwCurrentMatches.Items.Add(item);
+                this.LvwPlay.Items.Add(item);
             }
 
-            this.LvwCurrentMatches.EndUpdate();
+            this.LvwPlay.EndUpdate();
 
-            // Load planned matches
-            var plannedMatches = this.tsAdapter.GetPlannedMatches();
-            this.LvwPlannedMatches.BeginUpdate();
-            this.LvwPlannedMatches.Items.Clear();
-            foreach (var match in plannedMatches)
+            // Load planned matches            
+            this.LvwCounting.BeginUpdate();
+            this.LvwReady.BeginUpdate();
+            this.LvwCounting.Items.Clear();
+            this.LvwReady.Items.Clear();
+
+            for (var i = 1; i <= this.appSettings.CourtCount; i++)
             {
-                var item = new ListViewItem(match.Court.ToString());
-                item.SubItems.Add(match.PlanDate.ToString());
-                item.SubItems.Add(match.Team1.ToStringShort());
-                item.SubItems.Add(match.Team2.ToStringShort());
-                item.SubItems.Add(match.Draw.Name);
-                item.SubItems.Add(match.Roundnr.ToString());
-                item.SubItems.Add(match.Draw.TypeName);
-                this.LvwPlannedMatches.Items.Add(item);
-            }
+                var courtMatches = matches.PlannedMatches.FindAll(x => x.Court == i);
+                if (courtMatches.Count >= 1)
+                {
+                    var item = new ListViewItem(courtMatches[0].Court.ToString());
+                    item.SubItems.Add(courtMatches[0].PlanDate.ToString());
+                    item.SubItems.Add(courtMatches[0].Team1.ToStringShort());
+                    item.SubItems.Add(courtMatches[0].Team2.ToStringShort());
+                    item.SubItems.Add(courtMatches[0].Draw.Name);
+                    item.SubItems.Add(courtMatches[0].Roundnr.ToString());
+                    item.SubItems.Add(courtMatches[0].Draw.TypeName);
+                    this.LvwCounting.Items.Add(item);
+                }
 
-            this.LvwPlannedMatches.EndUpdate();
+                if (courtMatches.Count >= 2)
+                {
+                    var item = new ListViewItem(courtMatches[1].Court.ToString());
+                    item.SubItems.Add(courtMatches[1].PlanDate.ToString());
+                    item.SubItems.Add(courtMatches[1].Team1.ToStringShort());
+                    item.SubItems.Add(courtMatches[1].Team2.ToStringShort());
+                    item.SubItems.Add(courtMatches[1].Draw.Name);
+                    item.SubItems.Add(courtMatches[1].Roundnr.ToString());
+                    item.SubItems.Add(courtMatches[1].Draw.TypeName);
+                    this.LvwReady.Items.Add(item);
+                }
+            }            
 
-            // Create and send payload to rabbit
-            if (this.ChbRabbit.Checked)
-            {
-                var messagePayload = new MatchesPayload { CurrentMatches = currentMatches, PlannedMatches = plannedMatches, Timestamp = DateTime.Now };
-                this.rabbitAdapter.Send(messagePayload);
-            }
+            this.LvwCounting.EndUpdate();
+            this.LvwReady.EndUpdate();
 
             this.lastUpdate = DateTime.Now;
         }
@@ -146,15 +168,15 @@ namespace BCA.WerZaehltWo3.Forms
             this.appSettings.RabbitUser = this.TxtRabbitUser.Text;
             this.appSettings.RabbitPassword = this.TxtRabbitPassword.Text;
             this.appSettings.TsMonitorInterval = (int)this.NudInterval.Value;
-            this.appSettings.TsMonitorDatabase = this.TxtDatabaseFilepath.Text;
+            this.appSettings.TsJsonFilePath = this.TxtJsonFilePath.Text;
             AppSettingsLogic.Save(this.appSettings);
 
             // Connect database
             try
             {
-                this.tsAdapter.Connect(this.TxtDatabaseFilepath.Text);
-                this.LblStatusDatabase.Text = "Verbunden";
-                this.LblStatusDatabase.ForeColor = Color.Green;
+                var json = File.ReadAllText(this.TxtJsonFilePath.Text);
+                this.LblStatusJson.Text = "Verbunden";
+                this.LblStatusJson.ForeColor = Color.Green;
             }
             catch (Exception ex)
             {
@@ -201,16 +223,16 @@ namespace BCA.WerZaehltWo3.Forms
                 this.rabbitAdapter.Close();
             }
 
-            this.LblStatusDatabase.Text = "Nicht verbunden";
-            this.LblStatusDatabase.ForeColor = Color.Red;
+            this.LblStatusJson.Text = "Nicht verbunden";
+            this.LblStatusJson.ForeColor = Color.Red;
 
             this.LblStatusRabbit.Text = "Nicht verbunden";
             this.LblStatusRabbit.ForeColor = Color.Red;
 
             this.LblNextUpdate.Text = "--s";
 
-            this.LvwCurrentMatches.Items.Clear();
-            this.LvwPlannedMatches.Items.Clear();
+            this.LvwPlay.Items.Clear();
+            this.LvwCounting.Items.Clear();
         }       
     }
 }

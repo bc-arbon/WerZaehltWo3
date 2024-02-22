@@ -11,11 +11,13 @@ namespace BCA.WerZaehltWo3.Shared.ObjectModel
 
         public Size WindowSize { get; set; }
         public string TsMonitorDatabase { get; set; }
+        public string TsJsonFilePath { get; set; }
         public string RabbitServer { get; set; }
         public string RabbitUser { get; set; }
         public string RabbitPassword { get; set; }
         public string RabbitVhost { get; set; }
         public int TsMonitorInterval { get; set; }
+        public int CourtCount { get; set; }
 
         public bool Equals(AppSettings other)
         {

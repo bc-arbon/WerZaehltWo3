@@ -75,6 +75,7 @@ namespace BCA.WerZaehltWo3.Forms
             courtCountForm.SetData(this.playerboard.Courts.Count);
             if (courtCountForm.ShowDialog() == DialogResult.OK)
             {
+                this.appSettings.CourtCount = courtCountForm.CourtCount;
                 PlayerboardLogic.SetCourtCount(this.playerboard, courtCountForm.CourtCount);
                 this.displayForm.InitializeDisplayControls();
                 this.InitializeSettingControls();
