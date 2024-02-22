@@ -16,6 +16,8 @@
     {
         Male,
         Female,
+        Boys,
+        Girls,
         Unknown
     }
 

@@ -89,14 +89,17 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
 
 
                     // Check if match already added
-                    var bla = result.Find(x => x.Draw.Id == match.Draw.Id && x.Team1.Id == match.Team2.Id && x.Team2.Id == match.Team1.Id);
-                    //if (bla == null)
-                    //{
-                    result.Add(match);
-                    //}
-                    //else
-                    //{
-                    //}
+                    try
+                    {
+                        var bla = result.Find(x => x.Draw.Id == match.Draw.Id && x.Team1.Id == match.Team2.Id && x.Team2.Id == match.Team1.Id);
+                        result.Add(match);
+                    }
+                    catch (Exception)
+                    {
+                        // Maybe the a draw was added or something. Reload draws and teams and try again next time.
+                        this.FillDraws();
+                        this.FillTeams();
+                    }
                 }
             }
             catch (Exception e)
@@ -356,6 +359,10 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
                     return Gender.Male;
                 case 2:
                     return Gender.Female;
+                case 4:
+                    return Gender.Boys;
+                case 5:
+                    return Gender.Girls;
                 default:
                     return Gender.Unknown;
             }

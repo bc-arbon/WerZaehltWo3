@@ -120,7 +120,7 @@ namespace BCA.WerZaehltWo3.Forms
 
             this.LvwPlay.EndUpdate();
 
-            // Load planned matches            
+            // Load counting and ready matches            
             this.LvwCounting.BeginUpdate();
             this.LvwReady.BeginUpdate();
             this.LvwCounting.Items.Clear();

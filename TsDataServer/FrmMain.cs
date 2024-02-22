@@ -145,20 +145,43 @@ namespace TsDataServer
 
             // Load planned matches
             var plannedMatches = this.tsAdapter.GetPlannedMatches();
-            this.LvwPlannedMatches.BeginUpdate();
-            this.LvwPlannedMatches.Items.Clear();
-            foreach (var match in plannedMatches)
+
+            // Load counting and ready matches            
+            this.LvwCounting.BeginUpdate();
+            this.LvwReady.BeginUpdate();
+            this.LvwCounting.Items.Clear();
+            this.LvwReady.Items.Clear();
+
+            for (var i = 1; i <= 8; i++) // TODO: Make court count dynamic
             {
-                var item = new ListViewItem(match.Court.ToString());
-                item.SubItems.Add(match.PlanDate.ToString());
-                item.SubItems.Add(match.Team1.ToStringShort());
-                item.SubItems.Add(match.Team2.ToStringShort());
-                item.SubItems.Add(match.Draw.Name);
-                item.SubItems.Add(match.Roundnr.ToString());
-                this.LvwPlannedMatches.Items.Add(item);
+                var courtMatches = plannedMatches.FindAll(x => x.Court == i);
+                if (courtMatches.Count >= 1)
+                {
+                    var item = new ListViewItem(courtMatches[0].Court.ToString());
+                    item.SubItems.Add(courtMatches[0].PlanDate.ToString());
+                    item.SubItems.Add(courtMatches[0].Team1.ToStringShort());
+                    item.SubItems.Add(courtMatches[0].Team2.ToStringShort());
+                    item.SubItems.Add(courtMatches[0].Draw.Name);
+                    item.SubItems.Add(courtMatches[0].Roundnr.ToString());
+                    item.SubItems.Add(courtMatches[0].Draw.TypeName);
+                    this.LvwCounting.Items.Add(item);
+                }
+
+                if (courtMatches.Count >= 2)
+                {
+                    var item = new ListViewItem(courtMatches[1].Court.ToString());
+                    item.SubItems.Add(courtMatches[1].PlanDate.ToString());
+                    item.SubItems.Add(courtMatches[1].Team1.ToStringShort());
+                    item.SubItems.Add(courtMatches[1].Team2.ToStringShort());
+                    item.SubItems.Add(courtMatches[1].Draw.Name);
+                    item.SubItems.Add(courtMatches[1].Roundnr.ToString());
+                    item.SubItems.Add(courtMatches[1].Draw.TypeName);
+                    this.LvwReady.Items.Add(item);
+                }
             }
 
-            this.LvwPlannedMatches.EndUpdate();
+            this.LvwCounting.EndUpdate();
+            this.LvwReady.EndUpdate();
 
             // Create and send payload to rabbit
             if (this.ChbRabbit.Checked)
@@ -200,7 +223,8 @@ namespace TsDataServer
             this.LblNextUpdate.Text = "--s";
 
             this.LvwCurrentMatches.Items.Clear();
-            this.LvwPlannedMatches.Items.Clear();
+            this.LvwCounting.Items.Clear();
+            this.LvwReady.Items.Clear();
         }
 
         private void BtnOpenDatabase_Click(object sender, EventArgs e)

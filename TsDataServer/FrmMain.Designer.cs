@@ -29,13 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.LvwPlannedMatches = new System.Windows.Forms.ListView();
-            this.ChrCourt2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ChrPlanDate2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ChrPlayer12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ChrPlayer22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ChrDraw2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ChrRound2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.BtnStopAutoupdate = new System.Windows.Forms.Button();
             this.BtnStartAutoUpdate = new System.Windows.Forms.Button();
             this.LvwCurrentMatches = new System.Windows.Forms.ListView();
@@ -47,6 +40,7 @@
             this.ChrRound = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TxtJson = new System.Windows.Forms.TextBox();
+            this.ChbJson = new System.Windows.Forms.CheckBox();
             this.ChbRabbit = new System.Windows.Forms.CheckBox();
             this.TxtRabbitPassword = new System.Windows.Forms.MaskedTextBox();
             this.NudInterval = new System.Windows.Forms.NumericUpDown();
@@ -63,7 +57,6 @@
             this.BtnOpenDatabase = new System.Windows.Forms.Button();
             this.TxtDatabaseFilepath = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.LblNextUpdate = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -75,60 +68,31 @@
             this.TmrCountdown = new System.Windows.Forms.Timer(this.components);
             this.OfdDatabase = new System.Windows.Forms.OpenFileDialog();
             this.SfdJson = new System.Windows.Forms.SaveFileDialog();
-            this.ChbJson = new System.Windows.Forms.CheckBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.LvwReady = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.LvwCounting = new System.Windows.Forms.ListView();
+            this.ChrCourt2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ChrPlanDate2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ChrPlayer12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ChrPlayer22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ChrDraw2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ChrRound2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ChrDrawType2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NudInterval)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // LvwPlannedMatches
-            // 
-            this.LvwPlannedMatches.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.LvwPlannedMatches.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ChrCourt2,
-            this.ChrPlanDate2,
-            this.ChrPlayer12,
-            this.ChrPlayer22,
-            this.ChrDraw2,
-            this.ChrRound2});
-            this.LvwPlannedMatches.HideSelection = false;
-            this.LvwPlannedMatches.Location = new System.Drawing.Point(6, 19);
-            this.LvwPlannedMatches.Name = "LvwPlannedMatches";
-            this.LvwPlannedMatches.Size = new System.Drawing.Size(735, 363);
-            this.LvwPlannedMatches.TabIndex = 8;
-            this.LvwPlannedMatches.UseCompatibleStateImageBehavior = false;
-            this.LvwPlannedMatches.View = System.Windows.Forms.View.Details;
-            // 
-            // ChrCourt2
-            // 
-            this.ChrCourt2.Text = "Court";
-            // 
-            // ChrPlanDate2
-            // 
-            this.ChrPlanDate2.Text = "Plan Date";
-            this.ChrPlanDate2.Width = 120;
-            // 
-            // ChrPlayer12
-            // 
-            this.ChrPlayer12.Text = "Player 1";
-            this.ChrPlayer12.Width = 200;
-            // 
-            // ChrPlayer22
-            // 
-            this.ChrPlayer22.Text = "Player 2";
-            this.ChrPlayer22.Width = 200;
-            // 
-            // ChrDraw2
-            // 
-            this.ChrDraw2.Text = "Draw";
-            // 
-            // ChrRound2
-            // 
-            this.ChrRound2.Text = "Round";
             // 
             // BtnStopAutoupdate
             // 
@@ -166,7 +130,7 @@
             this.LvwCurrentMatches.HideSelection = false;
             this.LvwCurrentMatches.Location = new System.Drawing.Point(6, 19);
             this.LvwCurrentMatches.Name = "LvwCurrentMatches";
-            this.LvwCurrentMatches.Size = new System.Drawing.Size(735, 139);
+            this.LvwCurrentMatches.Size = new System.Drawing.Size(776, 170);
             this.LvwCurrentMatches.TabIndex = 4;
             this.LvwCurrentMatches.UseCompatibleStateImageBehavior = false;
             this.LvwCurrentMatches.View = System.Windows.Forms.View.Details;
@@ -222,7 +186,7 @@
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBox1.Location = new System.Drawing.Point(12, 8);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(747, 142);
+            this.groupBox1.Size = new System.Drawing.Size(788, 142);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Konfiguration";
@@ -234,6 +198,18 @@
             this.TxtJson.Name = "TxtJson";
             this.TxtJson.Size = new System.Drawing.Size(608, 20);
             this.TxtJson.TabIndex = 23;
+            // 
+            // ChbJson
+            // 
+            this.ChbJson.AutoSize = true;
+            this.ChbJson.Location = new System.Drawing.Point(5, 77);
+            this.ChbJson.Margin = new System.Windows.Forms.Padding(2);
+            this.ChbJson.Name = "ChbJson";
+            this.ChbJson.Size = new System.Drawing.Size(54, 17);
+            this.ChbJson.TabIndex = 22;
+            this.ChbJson.Text = "JSON";
+            this.ChbJson.UseVisualStyleBackColor = true;
+            this.ChbJson.CheckedChanged += new System.EventHandler(this.ChbRabbit_CheckedChanged);
             // 
             // ChbRabbit
             // 
@@ -345,7 +321,7 @@
             // BtnOpenJson
             // 
             this.BtnOpenJson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnOpenJson.Location = new System.Drawing.Point(709, 73);
+            this.BtnOpenJson.Location = new System.Drawing.Point(750, 73);
             this.BtnOpenJson.Name = "BtnOpenJson";
             this.BtnOpenJson.Size = new System.Drawing.Size(30, 23);
             this.BtnOpenJson.TabIndex = 8;
@@ -356,7 +332,7 @@
             // BtnOpenDatabase
             // 
             this.BtnOpenDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnOpenDatabase.Location = new System.Drawing.Point(711, 15);
+            this.BtnOpenDatabase.Location = new System.Drawing.Point(752, 15);
             this.BtnOpenDatabase.Name = "BtnOpenDatabase";
             this.BtnOpenDatabase.Size = new System.Drawing.Size(30, 23);
             this.BtnOpenDatabase.TabIndex = 8;
@@ -370,7 +346,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtDatabaseFilepath.Location = new System.Drawing.Point(97, 17);
             this.TxtDatabaseFilepath.Name = "TxtDatabaseFilepath";
-            this.TxtDatabaseFilepath.Size = new System.Drawing.Size(608, 20);
+            this.TxtDatabaseFilepath.Size = new System.Drawing.Size(649, 20);
             this.TxtDatabaseFilepath.TabIndex = 7;
             // 
             // groupBox2
@@ -380,22 +356,10 @@
             this.groupBox2.Controls.Add(this.LvwCurrentMatches);
             this.groupBox2.Location = new System.Drawing.Point(12, 245);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(747, 164);
+            this.groupBox2.Size = new System.Drawing.Size(788, 195);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Laufende Spiele";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.LvwPlannedMatches);
-            this.groupBox3.Location = new System.Drawing.Point(12, 415);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(747, 388);
-            this.groupBox3.TabIndex = 11;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Geplante Spiele";
             // 
             // groupBox4
             // 
@@ -411,7 +375,7 @@
             this.groupBox4.Controls.Add(this.BtnStopAutoupdate);
             this.groupBox4.Location = new System.Drawing.Point(21, 156);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(747, 83);
+            this.groupBox4.Size = new System.Drawing.Size(779, 83);
             this.groupBox4.TabIndex = 12;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Steuerung";
@@ -491,25 +455,146 @@
             this.SfdJson.FileName = "*.json";
             this.SfdJson.Filter = "*.json|JSON Files";
             // 
-            // ChbJson
+            // groupBox5
             // 
-            this.ChbJson.AutoSize = true;
-            this.ChbJson.Location = new System.Drawing.Point(5, 77);
-            this.ChbJson.Margin = new System.Windows.Forms.Padding(2);
-            this.ChbJson.Name = "ChbJson";
-            this.ChbJson.Size = new System.Drawing.Size(54, 17);
-            this.ChbJson.TabIndex = 22;
-            this.ChbJson.Text = "JSON";
-            this.ChbJson.UseVisualStyleBackColor = true;
-            this.ChbJson.CheckedChanged += new System.EventHandler(this.ChbRabbit_CheckedChanged);
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox5.Controls.Add(this.LvwReady);
+            this.groupBox5.Location = new System.Drawing.Point(12, 647);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(788, 195);
+            this.groupBox5.TabIndex = 18;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Bereit halten:";
+            // 
+            // LvwReady
+            // 
+            this.LvwReady.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LvwReady.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7});
+            this.LvwReady.FullRowSelect = true;
+            this.LvwReady.HideSelection = false;
+            this.LvwReady.Location = new System.Drawing.Point(6, 19);
+            this.LvwReady.Name = "LvwReady";
+            this.LvwReady.Size = new System.Drawing.Size(776, 170);
+            this.LvwReady.TabIndex = 8;
+            this.LvwReady.UseCompatibleStateImageBehavior = false;
+            this.LvwReady.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Court";
+            this.columnHeader1.Width = 50;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Plan Date";
+            this.columnHeader2.Width = 120;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Player 1";
+            this.columnHeader3.Width = 200;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Player 2";
+            this.columnHeader4.Width = 200;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Draw";
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Round";
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Drawtype";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.LvwCounting);
+            this.groupBox3.Location = new System.Drawing.Point(12, 446);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(788, 195);
+            this.groupBox3.TabIndex = 17;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Zählen:";
+            // 
+            // LvwCounting
+            // 
+            this.LvwCounting.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LvwCounting.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ChrCourt2,
+            this.ChrPlanDate2,
+            this.ChrPlayer12,
+            this.ChrPlayer22,
+            this.ChrDraw2,
+            this.ChrRound2,
+            this.ChrDrawType2});
+            this.LvwCounting.FullRowSelect = true;
+            this.LvwCounting.HideSelection = false;
+            this.LvwCounting.Location = new System.Drawing.Point(6, 19);
+            this.LvwCounting.Name = "LvwCounting";
+            this.LvwCounting.Size = new System.Drawing.Size(776, 170);
+            this.LvwCounting.TabIndex = 8;
+            this.LvwCounting.UseCompatibleStateImageBehavior = false;
+            this.LvwCounting.View = System.Windows.Forms.View.Details;
+            // 
+            // ChrCourt2
+            // 
+            this.ChrCourt2.Text = "Court";
+            this.ChrCourt2.Width = 50;
+            // 
+            // ChrPlanDate2
+            // 
+            this.ChrPlanDate2.Text = "Plan Date";
+            this.ChrPlanDate2.Width = 120;
+            // 
+            // ChrPlayer12
+            // 
+            this.ChrPlayer12.Text = "Player 1";
+            this.ChrPlayer12.Width = 200;
+            // 
+            // ChrPlayer22
+            // 
+            this.ChrPlayer22.Text = "Player 2";
+            this.ChrPlayer22.Width = 200;
+            // 
+            // ChrDraw2
+            // 
+            this.ChrDraw2.Text = "Draw";
+            // 
+            // ChrRound2
+            // 
+            this.ChrRound2.Text = "Round";
+            // 
+            // ChrDrawType2
+            // 
+            this.ChrDrawType2.Text = "Drawtype";
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(771, 815);
-            this.Controls.Add(this.groupBox4);
+            this.ClientSize = new System.Drawing.Size(812, 853);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmMain";
@@ -521,22 +606,15 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NudInterval)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ListView LvwPlannedMatches;
-        private System.Windows.Forms.ColumnHeader ChrCourt2;
-        private System.Windows.Forms.ColumnHeader ChrPlanDate2;
-        private System.Windows.Forms.ColumnHeader ChrPlayer12;
-        private System.Windows.Forms.ColumnHeader ChrPlayer22;
-        private System.Windows.Forms.ColumnHeader ChrDraw2;
-        private System.Windows.Forms.ColumnHeader ChrRound2;
         private System.Windows.Forms.Button BtnStopAutoupdate;
         private System.Windows.Forms.Button BtnStartAutoUpdate;
         private System.Windows.Forms.ListView LvwCurrentMatches;
@@ -558,7 +636,6 @@
         private System.Windows.Forms.Button BtnOpenDatabase;
         private System.Windows.Forms.TextBox TxtDatabaseFilepath;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label LblStatusDatabase;
         private System.Windows.Forms.Label label1;
@@ -577,6 +654,24 @@
         private System.Windows.Forms.Button BtnOpenJson;
         private System.Windows.Forms.SaveFileDialog SfdJson;
         private System.Windows.Forms.CheckBox ChbJson;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.ListView LvwReady;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ListView LvwCounting;
+        private System.Windows.Forms.ColumnHeader ChrCourt2;
+        private System.Windows.Forms.ColumnHeader ChrPlanDate2;
+        private System.Windows.Forms.ColumnHeader ChrPlayer12;
+        private System.Windows.Forms.ColumnHeader ChrPlayer22;
+        private System.Windows.Forms.ColumnHeader ChrDraw2;
+        private System.Windows.Forms.ColumnHeader ChrRound2;
+        private System.Windows.Forms.ColumnHeader ChrDrawType2;
     }
 }
 
