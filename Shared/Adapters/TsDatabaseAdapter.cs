@@ -49,7 +49,7 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
             }
 
             var result = new List<Match>();
-            var query = "SELECT id, van1, van2, team1set1, team2set1, team1set2, team2set2, team1set3, team2set3, matchnr, roundnr, draw, winner, court, plandate "
+            var query = "SELECT id, van1, van2, team1set1, team2set1, team1set2, team2set2, team1set3, team2set3, matchnr, roundnr, draw, winner, court, plandate, matchorder "
                     + "FROM PlayerMatch thematch "
                     + "WHERE reversehomeaway = FALSE AND roundnr >= 0 AND plandate > #2000-01-01 00:00:00# "
                     + "ORDER BY plandate, court";
@@ -86,7 +86,7 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
                     }
 
                     match.PlanDate = reader.GetDateTime(14);
-
+                    match.Order = reader.GetInt32(15);
 
                     // Check if match already added
                     try

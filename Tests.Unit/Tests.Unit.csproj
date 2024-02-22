@@ -60,10 +60,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Shared\Shared.csproj">
-      <Project>{9ef114eb-6e13-457b-8dea-d6d7c29ea1c4}</Project>
-      <Name>Shared</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WerZaehltWo3\WerZaehltWo3.csproj">
       <Project>{7B37CD00-5946-4331-A600-32EB5625A89C}</Project>
       <Name>WerZaehltWo3</Name>
