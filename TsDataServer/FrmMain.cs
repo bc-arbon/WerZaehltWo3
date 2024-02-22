@@ -1,4 +1,5 @@
 ﻿using BCA.WerZaehltWo3.Common.Adapters;
+using BCA.WerZaehltWo3.Common.Helpers;
 using BCA.WerZaehltWo3.Common.TournamentSoftware;
 using BCA.WerZaehltWo3.Shared.Adapters;
 using Newtonsoft.Json;
@@ -145,6 +146,7 @@ namespace TsDataServer
 
             // Load planned matches
             var plannedMatches = this.tsAdapter.GetPlannedMatches();
+            plannedMatches.Sort(SortingHelper.CompareOrder);
 
             // Load counting and ready matches            
             this.LvwCounting.BeginUpdate();

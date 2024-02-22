@@ -32,6 +32,8 @@ namespace BCA.WerZaehltWo3.Shared.TournamentSoftware
 
         public DateTime PlanDate { get; set; }
 
+        public int Order { get; set; }
+
         public override string ToString()
         {
             return this.Id + "," + this.Team1 + "-" + this.Team2 + "," + this.Draw;
