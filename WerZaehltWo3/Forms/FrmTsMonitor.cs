@@ -133,7 +133,7 @@ namespace BCA.WerZaehltWo3.Forms
             this.LvwCounting.Items.Clear();
             this.LvwReady.Items.Clear();
 
-            for (var i = 1; i <= this.appSettings.CourtCount; i++)
+            for (var i = 1; i <= 8; i++) // TODO: This needs to be fixed
             {
                 var courtMatches = matches.PlannedMatches.FindAll(x => x.Court == i);
                 if (courtMatches.Count >= 1)
