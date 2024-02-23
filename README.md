@@ -6,12 +6,12 @@ Hilfsprogramm für Junioren-Badmintonturniere
 
 ## Features
 - Anzeigen wer auf welchem Feld aktuell spielt, zählen oder sich bereit halten muss
-- Import von Spielern aus Badman und TournamentSoftware
+- Import von Spielern aus TournamentSoftware und Badman (veraltet)
 - Schnelleingabe von Spielernamen mit Autovervollständigung
+- Anzeige der aktuellen und geplanten Spiele aus TournamentSoftware
 
 ## In Progress
-- Direkte Anzeige/Import der Felderbelegung aus TournamentSoftware
-- Auslesen der geplanten Spiele aus TournamentSoftware
+- Vollautomatische Übernahme der Feldbelegung und geplanten Spiele aus TournamentSoftware
 
 ## Todo
 - Port nach .NET6 und WPF

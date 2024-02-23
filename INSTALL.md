@@ -27,19 +27,21 @@ Die beiden Namen bei Doppel und Mixed können mit einem " / " getrennt werden. A
 
 ![Doppelpaarungen](doc/slash.png)
 
-# Tournamentsoftware Data Server (in Entwicklung)
+# Tournamentsoftware Data Server (work in progress)
 
 ## Prerequisites
 - .NET Framework 4.8
-- [RabbitMQ Server](https://www.rabbitmq.com/)
 
 ## Konfiguration
-1. TsDataServer.exe starten
-2. Pfad zur Tournamentsoftware-Datenbank eintragen
-3. RabbitMQ Server und Credentials eintragen
-4. Updateintervall festlegen (10 Sekunden empfohlen)
+1. TsDataServer.exe starten auf gleichem Computer starten wie Tournamentsoftware
+2. Pfad zum TP-File eintragen
+3. Pfad zum Ausgabe-Jsonfile angeben
+4. Updateintervall festlegen
 5. Start
+6. In WzW TsMonitor Pfad zum Ausgabe-Jsonfile angeben
+7. Updateintervall festlegen
+8. Start
 
 ## Hinweise
-
-### Message TTL
+- Auslesen sämtlicher Daten entstanden mit Reverse Engineering aus TP-File (Access-DB)
+- Experimentelle Implementierung für RabbitMQ anstelle Json-File
