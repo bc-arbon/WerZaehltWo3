@@ -194,9 +194,16 @@ namespace TsDataServer
             // Create and send payload to rabbit
             if (this.ChbJson.Checked)
             {
-                var messagePayload = new MatchesPayload { CurrentMatches = currentMatches, PlannedMatches = plannedMatches, Timestamp = DateTime.Now };
-                var json = JsonConvert.SerializeObject(messagePayload);
-                File.WriteAllText(this.TxtJson.Text, json);
+                try
+                {
+                    var messagePayload = new MatchesPayload { CurrentMatches = currentMatches, PlannedMatches = plannedMatches, Timestamp = DateTime.Now };
+                    var json = JsonConvert.SerializeObject(messagePayload);
+                    File.WriteAllText(this.TxtJson.Text, json);
+                }
+                catch
+                {
+                    // Swallow it...
+                }
             }
 
             this.lastUpdate = DateTime.Now;
