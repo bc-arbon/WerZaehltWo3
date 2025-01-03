@@ -92,8 +92,11 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
                     // Check if match already added
                     try
                     {
-                        var bla = result.Find(x => x.Draw.Id == match.Draw.Id && x.Team1.Id == match.Team2.Id && x.Team2.Id == match.Team1.Id);
-                        result.Add(match);
+                        if (match.Team1 != null && match.Team2 != null)
+                        {
+                            var bla = result.Find(x => x.Draw.Id == match.Draw.Id && x.Team1.Id == match.Team2.Id && x.Team2.Id == match.Team1.Id);
+                            result.Add(match);
+                        }
                     }
                     catch (Exception)
                     {

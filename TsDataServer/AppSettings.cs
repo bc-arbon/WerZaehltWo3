@@ -7,11 +7,14 @@ namespace TsDataServer
     {
         public static string Filename = "server.config";
 
-        public string Database { get; set; }
+        public string DatabaseFilePath { get; set; }
+        public bool RabbitEnabled { get; set; }
         public string RabbitServer { get; set; }
         public string RabbitUser { get; set; }
         public string RabbitPassword { get; set; }
         public string RabbitVhost { get; set; }
+        public bool JsonEnabled { get; set; }
+        public string JsonFilePath { get; set; }
         public int Interval { get; set; }
 
         public static AppSettings LoadFromFile(string filePath)

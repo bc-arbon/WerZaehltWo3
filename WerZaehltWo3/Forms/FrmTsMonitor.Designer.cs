@@ -50,6 +50,8 @@
             this.ChrDraw2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ChrRound2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ChrDrawType2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CmsApply = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.MnuApply = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.LvwPlay = new System.Windows.Forms.ListView();
             this.ChrCourt = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -84,15 +86,13 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.CmsApply = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.MnuApply = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.CmsApply.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NudInterval)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.CmsApply.SuspendLayout();
             this.SuspendLayout();
             // 
             // OfdJason
@@ -267,6 +267,21 @@
             // ChrDrawType2
             // 
             this.ChrDrawType2.Text = "Drawtype";
+            // 
+            // CmsApply
+            // 
+            this.CmsApply.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MnuApply});
+            this.CmsApply.Name = "CmsApply";
+            this.CmsApply.Size = new System.Drawing.Size(232, 26);
+            this.CmsApply.Opening += new System.ComponentModel.CancelEventHandler(this.CmsPlay_Opening);
+            // 
+            // MnuApply
+            // 
+            this.MnuApply.Name = "MnuApply";
+            this.MnuApply.Size = new System.Drawing.Size(231, 22);
+            this.MnuApply.Text = "Übernehmen zu xx auf Feld yy";
+            this.MnuApply.Click += new System.EventHandler(this.MnuApply_Click);
             // 
             // groupBox2
             // 
@@ -564,21 +579,6 @@
             // 
             this.columnHeader7.Text = "Drawtype";
             // 
-            // CmsApply
-            // 
-            this.CmsApply.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MnuApply});
-            this.CmsApply.Name = "CmsApply";
-            this.CmsApply.Size = new System.Drawing.Size(234, 26);
-            this.CmsApply.Opening += new System.ComponentModel.CancelEventHandler(this.CmsPlay_Opening);
-            // 
-            // MnuApply
-            // 
-            this.MnuApply.Name = "MnuApply";
-            this.MnuApply.Size = new System.Drawing.Size(233, 22);
-            this.MnuApply.Text = "Übernehmen zu xx auf Feld yy";
-            this.MnuApply.Click += new System.EventHandler(this.MnuApply_Click);
-            // 
             // FrmTsMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -589,6 +589,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmTsMonitor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -598,12 +599,12 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.CmsApply.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.NudInterval)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox5.ResumeLayout(false);
-            this.CmsApply.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

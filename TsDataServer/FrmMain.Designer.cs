@@ -40,7 +40,7 @@
             this.ChrDraw = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ChrRound = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.TxtJson = new System.Windows.Forms.TextBox();
+            this.TxtJsonFilePath = new System.Windows.Forms.TextBox();
             this.ChbJson = new System.Windows.Forms.CheckBox();
             this.ChbRabbit = new System.Windows.Forms.CheckBox();
             this.TxtRabbitPassword = new System.Windows.Forms.MaskedTextBox();
@@ -167,7 +167,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.TxtJson);
+            this.groupBox1.Controls.Add(this.TxtJsonFilePath);
             this.groupBox1.Controls.Add(this.ChbJson);
             this.groupBox1.Controls.Add(this.ChbRabbit);
             this.groupBox1.Controls.Add(this.TxtRabbitPassword);
@@ -192,14 +192,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Konfiguration";
             // 
-            // TxtJson
+            // TxtJsonFilePath
             // 
-            this.TxtJson.Location = new System.Drawing.Point(97, 76);
-            this.TxtJson.Margin = new System.Windows.Forms.Padding(2);
-            this.TxtJson.Name = "TxtJson";
-            this.TxtJson.Size = new System.Drawing.Size(608, 20);
-            this.TxtJson.TabIndex = 23;
-            this.TxtJson.Text = "C:\\btsync\\BCA - Juniorenturnier\\2024\\output.json";
+            this.TxtJsonFilePath.Location = new System.Drawing.Point(97, 76);
+            this.TxtJsonFilePath.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtJsonFilePath.Name = "TxtJsonFilePath";
+            this.TxtJsonFilePath.Size = new System.Drawing.Size(644, 20);
+            this.TxtJsonFilePath.TabIndex = 23;
+            this.TxtJsonFilePath.Text = "C:\\btsync\\BCA - Juniorenturnier\\2024\\output.json";
             // 
             // ChbJson
             // 
@@ -354,7 +354,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtDatabaseFilepath.Location = new System.Drawing.Point(97, 17);
             this.TxtDatabaseFilepath.Name = "TxtDatabaseFilepath";
-            this.TxtDatabaseFilepath.Size = new System.Drawing.Size(649, 20);
+            this.TxtDatabaseFilepath.Size = new System.Drawing.Size(644, 20);
             this.TxtDatabaseFilepath.TabIndex = 7;
             // 
             // groupBox2
@@ -660,7 +660,7 @@
         private System.Windows.Forms.MaskedTextBox TxtRabbitPassword;
         private System.Windows.Forms.OpenFileDialog OfdDatabase;
         private System.Windows.Forms.CheckBox ChbRabbit;
-        private System.Windows.Forms.TextBox TxtJson;
+        private System.Windows.Forms.TextBox TxtJsonFilePath;
         private System.Windows.Forms.Button BtnOpenJson;
         private System.Windows.Forms.SaveFileDialog SfdJson;
         private System.Windows.Forms.CheckBox ChbJson;

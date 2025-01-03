@@ -26,11 +26,14 @@ namespace TsDataServer
             if (File.Exists(AppSettings.Filename))
             {
                 this.appSettings = AppSettings.LoadFromFile(AppSettings.Filename);
-                this.TxtDatabaseFilepath.Text = this.appSettings.Database;
+                this.TxtDatabaseFilepath.Text = this.appSettings.DatabaseFilePath;
+                this.ChbRabbit.Checked = this.appSettings.RabbitEnabled;
                 this.TxtRabbitServer.Text = this.appSettings.RabbitServer;
                 this.TxtRabbitUser.Text = this.appSettings.RabbitUser;
                 this.TxtRabbitPassword.Text = this.appSettings.RabbitPassword;
                 this.TxtRabbitVhost.Text = this.appSettings.RabbitVhost;
+                this.ChbJson.Checked = this.appSettings.JsonEnabled;
+                this.TxtJsonFilePath.Text = this.appSettings.JsonFilePath;
                 this.NudInterval.Value = this.appSettings.Interval;
             }
         }
@@ -38,12 +41,15 @@ namespace TsDataServer
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Stop();
-
-            this.appSettings.Database = this.TxtDatabaseFilepath.Text;
+                        
+            this.appSettings.DatabaseFilePath = this.TxtDatabaseFilepath.Text;
+            this.appSettings.RabbitEnabled = this.ChbRabbit.Checked;
             this.appSettings.RabbitServer = this.TxtRabbitServer.Text;
             this.appSettings.RabbitVhost = this.TxtRabbitVhost.Text;
             this.appSettings.RabbitUser = this.TxtRabbitUser.Text;
             this.appSettings.RabbitPassword = this.TxtRabbitPassword.Text;
+            this.appSettings.JsonEnabled = this.ChbJson.Checked;
+            this.appSettings.JsonFilePath = this.TxtJsonFilePath.Text;
             this.appSettings.Interval = (int)this.NudInterval.Value;
             AppSettings.SaveToFile(AppSettings.Filename, this.appSettings);
 
@@ -85,6 +91,27 @@ namespace TsDataServer
 
         private void Start()
         {
+            // Check inputs
+            try
+            {
+                if (!new FileInfo(this.TxtDatabaseFilepath.Text).Exists)
+                {
+                    MessageBox.Show("Die Datenbank " + this.TxtDatabaseFilepath.Text + " wurde nicht gefunden.", "TsDataServer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (!new FileInfo(this.TxtJsonFilePath.Text).Directory.Exists)
+                {
+                    MessageBox.Show("Ungültiger Pfad: " + this.TxtJsonFilePath.Text, "TsDataServer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ups, da ging etwas schief:\r\n\r\n" + ex, "TsDataServer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             // Connect database
             try
             {
@@ -198,7 +225,7 @@ namespace TsDataServer
                 {
                     var messagePayload = new MatchesPayload { CurrentMatches = currentMatches, PlannedMatches = plannedMatches, Timestamp = DateTime.Now };
                     var json = JsonConvert.SerializeObject(messagePayload);
-                    File.WriteAllText(this.TxtJson.Text, json);
+                    File.WriteAllText(this.TxtJsonFilePath.Text, json);
                 }
                 catch
                 {
@@ -255,7 +282,7 @@ namespace TsDataServer
         {
             if (this.SfdJson.ShowDialog() == DialogResult.OK)
             {
-                this.TxtJson.Text = this.SfdJson.FileName;
+                this.TxtJsonFilePath.Text = this.SfdJson.FileName;
             }
         }
     }
