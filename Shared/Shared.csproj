@@ -64,6 +64,7 @@
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\BadmanDatabaseAdapter.cs" />
@@ -96,6 +97,9 @@
     <Compile Include="TournamentSoftware\PlayerMatch.cs" />
     <Compile Include="TournamentSoftware\Team.cs" />
     <Compile Include="TournamentSoftware\TsPlayer.cs" />
+    <Compile Include="TPNetwork\SendTournamentInfoRequest.cs" />
+    <Compile Include="TPNetwork\TPStream.cs" />
+    <Compile Include="TPNetwork\XMLBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
