@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<VISUALXML VERSION="1.0">
+	<GROUP ID="Header">
+		<GROUP ID="Version">
+			<ITEM ID="Hi" TYPE="Integer">1</ITEM>
+			<ITEM ID="Lo" TYPE="Integer">1</ITEM>
+		</GROUP>
+	</GROUP>
+	<GROUP ID="Action">
+		<ITEM ID="ID" TYPE="String">REPLY</ITEM>
+		<ITEM ID="Password" TYPE="String">asdf</ITEM>
+		<ITEM ID="Unicode" TYPE="String">2c8b2244-42bc-4805-9eee-177073b0d9f0</ITEM>
+		<ITEM ID="Action" TYPE="String">LOGIN</ITEM>
+		<ITEM ID="Result" TYPE="Integer">1</ITEM>
+	</GROUP>
+	<GROUP ID="Client">
+		<ITEM ID="IP" TYPE="String">192.168.10.146</ITEM>
+	</GROUP>
+</VISUALXML>

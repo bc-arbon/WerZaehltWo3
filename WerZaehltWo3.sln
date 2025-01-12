@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.TcpTest", "Tests.TcpL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.TpNetwork", "Tests.TpNetwork\Tests.TpNetwork.csproj", "{23B72DF2-EC33-4A40-AC48-F11D5FAA989C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.TournamentTv", "Tests.TournamentTv\Tests.TournamentTv.csproj", "{7B6A9759-7149-4D68-A65D-5033A92CA6B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +81,10 @@ Global
 		{23B72DF2-EC33-4A40-AC48-F11D5FAA989C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23B72DF2-EC33-4A40-AC48-F11D5FAA989C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23B72DF2-EC33-4A40-AC48-F11D5FAA989C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B6A9759-7149-4D68-A65D-5033A92CA6B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B6A9759-7149-4D68-A65D-5033A92CA6B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B6A9759-7149-4D68-A65D-5033A92CA6B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B6A9759-7149-4D68-A65D-5033A92CA6B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +96,7 @@ Global
 		{137181AB-BAEB-4A46-9F06-51A01395DA3E} = {DCFEB816-58C7-414A-86E0-16EAE415E9DA}
 		{85A0B2BF-17EC-4013-AED2-5BEC6CD5301F} = {DCFEB816-58C7-414A-86E0-16EAE415E9DA}
 		{23B72DF2-EC33-4A40-AC48-F11D5FAA989C} = {DCFEB816-58C7-414A-86E0-16EAE415E9DA}
+		{7B6A9759-7149-4D68-A65D-5033A92CA6B7} = {DCFEB816-58C7-414A-86E0-16EAE415E9DA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC924A90-F3BC-42F6-B5C3-7FE76F9A75EF}

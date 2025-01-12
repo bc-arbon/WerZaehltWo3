@@ -97,13 +97,50 @@
     <Compile Include="TournamentSoftware\PlayerMatch.cs" />
     <Compile Include="TournamentSoftware\Team.cs" />
     <Compile Include="TournamentSoftware\TsPlayer.cs" />
+    <Compile Include="TournamentTv\DisplayMatch.cs" />
+    <Compile Include="TournamentTv\DisplayMatchSet.cs" />
+    <Compile Include="TournamentTv\Draw.cs" />
+    <Compile Include="TournamentTv\DrawMatch.cs" />
+    <Compile Include="TournamentTv\Entry.cs" />
+    <Compile Include="TournamentTv\Event.cs" />
+    <Compile Include="TournamentTv\Official.cs" />
+    <Compile Include="TournamentTv\Stage.cs" />
+    <Compile Include="TournamentTv\Standing.cs" />
+    <Compile Include="TournamentTv\Tournament.cs" />
+    <Compile Include="TournamentTv\TournamentTvUpdateEventArgs.cs" />
+    <Compile Include="TournamentTv\TtvDataObject.cs" />
+    <Compile Include="TournamentTv\VisualDraw.cs" />
+    <Compile Include="TPNetwork\Data\ClubData.cs" />
+    <Compile Include="TPNetwork\Data\CourtData.cs" />
+    <Compile Include="TPNetwork\Data\DrawData.cs" />
+    <Compile Include="TPNetwork\Data\EntryData.cs" />
+    <Compile Include="TPNetwork\Data\EventData.cs" />
+    <Compile Include="TPNetwork\Data\LinkData.cs" />
+    <Compile Include="TPNetwork\Data\LocationData.cs" />
+    <Compile Include="TPNetwork\Data\PlayerData.cs" />
+    <Compile Include="TPNetwork\Data\PlayerMatchData.cs" />
+    <Compile Include="TPNetwork\Data\TournamentInformation.cs" />
+    <Compile Include="TPNetwork\Data\TpDataObject.cs" />
+    <Compile Include="TPNetwork\Models\Entry.cs" />
+    <Compile Include="TPNetwork\Models\Event.cs" />
+    <Compile Include="TPNetwork\Models\Court.cs" />
+    <Compile Include="TPNetwork\Models\Draw.cs" />
+    <Compile Include="TPNetwork\Models\Link.cs" />
+    <Compile Include="TPNetwork\Models\PlayerMatch.cs" />
+    <Compile Include="TPNetwork\Models\Player.cs" />
+    <Compile Include="TPNetwork\Models\Tournament.cs" />
+    <Compile Include="TPNetwork\LoginRequest.cs" />
     <Compile Include="TPNetwork\SendTournamentInfoRequest.cs" />
+    <Compile Include="TPNetwork\TPFile.cs" />
+    <Compile Include="TournamentTv\TtvListener.cs" />
+    <Compile Include="TPNetwork\TPNetworkListener.cs" />
     <Compile Include="TPNetwork\TPStream.cs" />
     <Compile Include="TPNetwork\XMLBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <Compile Include="TPNetwork\Models\Tournament.Load.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
