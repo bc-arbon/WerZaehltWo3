@@ -351,9 +351,9 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
             switch (eventTypeId)
             {
                 case 1:
-                    return EventType.Single;
+                    return EventType.Singles;
                 case 2:
-                    return EventType.Double;
+                    return EventType.Doubles;
                 case 3:
                     return EventType.Mixed;
                 default:
@@ -366,9 +366,9 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
             switch (gender)
             {
                 case 1:
-                    return Gender.Male;
+                    return Gender.Men;
                 case 2:
-                    return Gender.Female;
+                    return Gender.Women;
                 case 4:
                     return Gender.Boys;
                 case 5:

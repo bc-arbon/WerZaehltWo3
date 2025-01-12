@@ -1,6 +1,4 @@
-﻿using BCA.WerZaehltWo3.Shared;
-
-namespace BCA.WerZaehltWo3.ObjectModel
+﻿namespace BCA.WerZaehltWo3.Shared.ObjectModel
 {
     public class TsRequest
     {

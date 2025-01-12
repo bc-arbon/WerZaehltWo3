@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO.Compression;
-using System.IO;
-using System.Linq;
-using System.Net.Sockets;
-using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Sockets;
+using System.Net;
+using System.IO.Compression;
+using System.IO;
 using System.Xml;
 
 namespace BCA.WerZaehltWo3.Shared.TPNetwork
@@ -18,15 +16,66 @@ namespace BCA.WerZaehltWo3.Shared.TPNetwork
 
         public event EventHandler<(string, Exception)> Error;
 
-        public TPStream(string password)
+        public TPStream(string ip, string password)
         {
+            this.IP = IPAddress.Parse(ip);
             Password = password;
         }
 
-        public async Task GetTournamentInfo()
+        public async Task<string> Login()
         {
             TcpClient tcp = new TcpClient();
-            await tcp.ConnectAsync(IPAddress.Loopback, 9901);
+            await tcp.ConnectAsync(this.IP, 9901);
+
+            var loginRequest = new LoginRequest()
+            {
+                Password = Password,
+                IP = IP
+            };
+
+            StringBuilder sb = new StringBuilder();
+            using (StringWriter ss = new StringWriter(sb))
+            using (var xmlWriter = XmlWriter.Create(ss))
+            {
+                loginRequest.CreateDocument().WriteContentTo(xmlWriter);
+            }
+
+            Console.WriteLine(sb.ToString());
+
+            using (MemoryStream memory = new MemoryStream())
+            {
+                using (GZipStream gzip = new GZipStream(memory, CompressionMode.Compress))
+                {
+                    // This shit doesn't work.
+                    // Request is sent out, but no response is coming back
+
+                    using (XmlWriter xmlWriter = XmlWriter.Create(gzip))
+                    {
+                        loginRequest.CreateDocument().WriteContentTo(xmlWriter);
+                        xmlWriter.Flush();
+
+                        using (NetworkStream network = tcp.GetStream())
+                        {
+                            network.Write(new byte[4] { 0x0, 0x0, 0x0, Convert.ToByte(memory.Length) }, 0, 4);
+                            network.Write(memory.ToArray(), 0, (int)memory.Length);
+
+                            network.Read(new byte[4], 0, 4);
+                            using (GZipStream gzip2 = new GZipStream(network, CompressionMode.Decompress))
+                            using (XmlReader reader = XmlReader.Create(gzip2))
+                            {
+                                string xml = reader.ReadOuterXml();
+                                return xml;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        public async Task<string> GetTournamentInfo()
+        {
+            TcpClient tcp = new TcpClient();
+            await tcp.ConnectAsync(this.IP, 9901);
 
             var stir = new SendTournamentInfoRequest()
             {
@@ -40,6 +89,7 @@ namespace BCA.WerZaehltWo3.Shared.TPNetwork
             {
                 stir.CreateDocument().WriteContentTo(xmlWriter);
             }
+
             Console.WriteLine(sb.ToString());
 
             using (MemoryStream memory = new MemoryStream())
@@ -59,12 +109,10 @@ namespace BCA.WerZaehltWo3.Shared.TPNetwork
                     using (GZipStream gzip = new GZipStream(network, CompressionMode.Decompress))
                     using (XmlReader reader = XmlReader.Create(gzip))
                     {
-                        string xml = reader.ReadOuterXml();
+                        return reader.ReadOuterXml();
                     }
                 }
             }
-
-
         }
 
         /*
@@ -143,6 +191,5 @@ namespace BCA.WerZaehltWo3.Shared.TPNetwork
         {
             Error?.Invoke(this, ("An error occured while listening for TP changes", error));
         }
-
     }
 }

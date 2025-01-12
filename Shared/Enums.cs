@@ -7,18 +7,19 @@
 
     public enum EventType
     {
-        Single,
-        Double,
-        Mixed
+        Singles = 1,
+        Doubles = 2,
+        Mixed = 3
     }
 
     public enum Gender
     {
-        Male,
-        Female,
-        Boys,
-        Girls,
-        Unknown
+        Unknown = 0,
+        Men = 1,
+        Women = 2,
+        Mixed = 3,
+        Boys = 4,
+        Girls = 5
     }
 
     public enum DrawType
@@ -26,6 +27,7 @@
         KoSystem = 1,
         Groupsystem = 2,
         FullGroupsystem = 4,
+        QualifierCups = 6,
         SwissLadder = 17,
         DoubleEliminiation = 18,
         Unknown = -1

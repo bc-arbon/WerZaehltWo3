@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace BCA.WerZaehltWo3.Shared.TPNetwork
@@ -40,6 +37,7 @@ namespace BCA.WerZaehltWo3.Shared.TPNetwork
             {
                 throw new NotSupportedException("Item type not supported");
             }
+            
             item.InnerText = val.ToString();
             return item;
         }
