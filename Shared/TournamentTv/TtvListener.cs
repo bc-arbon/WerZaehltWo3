@@ -60,7 +60,7 @@ namespace BCA.WerZaehltWo3.Shared.TournamentTv
             Task.Run(() =>
             {
                 ServiceStarted?.Invoke(this, EventArgs.Empty);
-                TcpListener tcp = new TcpListener(IPAddress.Loopback, 13333);
+                TcpListener tcp = new TcpListener(IPAddress.Any, 13333);
                 tcp.Start();
                 bool runSignal = true;
                 while (runSignal)
@@ -117,7 +117,7 @@ namespace BCA.WerZaehltWo3.Shared.TournamentTv
 
                 var doc = new XmlDocument();
                 doc.LoadXml(plainXml);
-                var rootNode = doc.SelectSingleNode("TOURNAMENT2024");
+                var rootNode = doc.SelectSingleNode("TOURNAMENT2025");
                 this.tournament = new Tournament(rootNode);
                 this.Update?.Invoke(this, new TournamentTvUpdateEventArgs(this.tournament));
             }
