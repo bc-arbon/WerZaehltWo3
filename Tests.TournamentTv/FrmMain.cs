@@ -1,5 +1,4 @@
 using BCA.WerZaehltWo3.Shared.TournamentTv;
-using System.Security.Policy;
 
 namespace Tests.TournamentTv
 {
@@ -10,7 +9,7 @@ namespace Tests.TournamentTv
             this.InitializeComponent();
         }
 
-        private TtvListener listener = new TtvListener(Path.GetDirectoryName(Environment.ProcessPath));
+        private readonly TtvListener listener = new TtvListener(Path.GetDirectoryName(Environment.ProcessPath));
 
         private void BtnStart_Click(object sender, EventArgs e)
         {
@@ -38,36 +37,12 @@ namespace Tests.TournamentTv
 
             foreach (var match in e.Tournament.MatchesOnCourt)
             {
-                var team1 = match.FirstName1 + " " + match.LastName1;
-                if (match.PlayerId2 != null)
-                {
-                    team1 += match.FirstName2 + " " + match.LastName2;
-                }
-
-                var team2 = match.FirstName3 + " " + match.LastName3;
-                if (match.PlayerId3 != null)
-                {
-                    team2 += match.FirstName4 + " " + match.LastName4;
-                }
-
-                onCourtMatches.Add(new ListViewItem(new string[] { match.ScheduledTime.ToString(), match.EventName, match.Round, team1, team2, match.Court }));
+                onCourtMatches.Add(this.CreateItem(match));
             }
 
             foreach (var match in e.Tournament.MatchesScheduled)
             {
-                var team1 = match.FirstName1 + " " + match.LastName1;
-                if (!string.IsNullOrEmpty(match.PlayerId2))
-                {
-                    team1 += " / " + match.FirstName2 + " " + match.LastName2;
-                }
-
-                var team2 = match.FirstName3 + " " + match.LastName3;
-                if (!string.IsNullOrEmpty(match.PlayerId4))
-                {
-                    team2 += " / " + match.FirstName4 + " " + match.LastName4;
-                }
-
-                scheduledMatches.Add(new ListViewItem(new string[] { match.ScheduledTime.ToString(), match.EventName, match.Round, team1, team2, match.Court }));
+                scheduledMatches.Add(this.CreateItem(match));
             }
 
             for (var i = 1; i <= 8; i++)
@@ -75,26 +50,14 @@ namespace Tests.TournamentTv
                 var countFound = false;
                 foreach (var match in e.Tournament.MatchesScheduled)
                 {
-                    var team1 = match.FirstName1 + " " + match.LastName1;
-                    if (!string.IsNullOrEmpty(match.PlayerId2))
-                    {
-                        team1 += " / " + match.FirstName2 + " " + match.LastName2;
-                    }
-
-                    var team2 = match.FirstName3 + " " + match.LastName3;
-                    if (!string.IsNullOrEmpty(match.PlayerId4))
-                    {
-                        team2 += " / " + match.FirstName4 + " " + match.LastName4;
-                    }
-
                     if (match.Court == i.ToString() && !countFound)
                     {
-                        countMatches.Add(new ListViewItem(new string[] { match.ScheduledTime.ToString(), match.EventName, match.Round, team1, team2, match.Court }));
+                        countMatches.Add(this.CreateItem(match));
                         countFound = true;
                     }
                     else if (match.Court == i.ToString() && countFound)
                     {
-                        readyMatches.Add(new ListViewItem(new string[] { match.ScheduledTime.ToString(), match.EventName, match.Round, team1, team2, match.Court }));
+                        readyMatches.Add(this.CreateItem(match));
                         break;
                     }
                 }
@@ -102,19 +65,7 @@ namespace Tests.TournamentTv
 
             foreach (var match in e.Tournament.MatchesFinished)
             {
-                var team1 = match.FirstName1 + " " + match.LastName1;
-                if (match.PlayerId2 != null)
-                {
-                    team1 += match.FirstName2 + " " + match.LastName2;
-                }
-
-                var team2 = match.FirstName3 + " " + match.LastName3;
-                if (match.PlayerId3 != null)
-                {
-                    team2 += match.FirstName4 + " " + match.LastName4;
-                }
-
-                finishedMatches.Add(new ListViewItem(new string[] { match.ScheduledTime.ToString(), match.EventName, match.Round, team1, team2, match.Court }));
+                finishedMatches.Add(this.CreateItem(match));
             }
 
             Invoke(() =>
@@ -135,12 +86,16 @@ namespace Tests.TournamentTv
             });
         }
 
+        private ListViewItem CreateItem(DisplayMatch match)
+        {
+            return new ListViewItem(new string[] { match.Court, match.ScheduledTime.ToString(), match.EventName, match.Round, match.Team1, match.Team2 }) { Tag = match };
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             //listener.ServiceStarted += (sender, e) => Console.WriteLine("Listener started");
             //listener.ServiceError += (sender, e) => Console.WriteLine(e.Item2.Message);
             //listener.ServiceStopped += (sender, e) => Console.WriteLine("Listener stopped");
         }
-
     }
 }

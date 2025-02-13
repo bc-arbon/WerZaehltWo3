@@ -56,7 +56,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -130,6 +130,12 @@
     <Compile Include="Forms\FrmTsImport.Designer.cs">
       <DependentUpon>FrmTsImport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmTtv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTtv.Designer.cs">
+      <DependentUpon>FrmTtv.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usercontrols\CourtDisplayControl.cs">
@@ -173,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmTsImport.resx">
       <DependentUpon>FrmTsImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTtv.resx">
+      <DependentUpon>FrmTtv.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -227,7 +236,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Shared\Shared.csproj">
-      <Project>{9EF114EB-6E13-457B-8DEA-D6D7C29EA1C4}</Project>
+      <Project>{9ef114eb-6e13-457b-8dea-d6d7c29ea1c4}</Project>
       <Name>Shared</Name>
     </ProjectReference>
   </ItemGroup>

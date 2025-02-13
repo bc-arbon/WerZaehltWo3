@@ -32,10 +32,10 @@
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.labelProductName = new System.Windows.Forms.Label();
             this.labelVersion = new System.Windows.Forms.Label();
+            this.labelCopyright = new System.Windows.Forms.Label();
+            this.labelCompanyName = new System.Windows.Forms.Label();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.okButton = new System.Windows.Forms.Button();
-            this.labelCompanyName = new System.Windows.Forms.Label();
-            this.labelCopyright = new System.Windows.Forms.Label();
             this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -101,6 +101,29 @@
             this.labelVersion.Text = "Version 1.0";
             this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // labelCopyright
+            // 
+            this.labelCopyright.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelCopyright.Location = new System.Drawing.Point(143, 52);
+            this.labelCopyright.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
+            this.labelCopyright.MaximumSize = new System.Drawing.Size(0, 17);
+            this.labelCopyright.Name = "labelCopyright";
+            this.labelCopyright.Size = new System.Drawing.Size(271, 17);
+            this.labelCopyright.TabIndex = 21;
+            this.labelCopyright.Text = "Erstellt von Daniel Hafner";
+            this.labelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelCompanyName
+            // 
+            this.labelCompanyName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelCompanyName.Location = new System.Drawing.Point(143, 78);
+            this.labelCompanyName.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
+            this.labelCompanyName.MaximumSize = new System.Drawing.Size(0, 17);
+            this.labelCompanyName.Name = "labelCompanyName";
+            this.labelCompanyName.Size = new System.Drawing.Size(271, 17);
+            this.labelCompanyName.TabIndex = 22;
+            this.labelCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // textBoxDescription
             // 
             this.textBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -123,29 +146,6 @@
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 24;
             this.okButton.Text = "&OK";
-            // 
-            // labelCompanyName
-            // 
-            this.labelCompanyName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelCompanyName.Location = new System.Drawing.Point(143, 78);
-            this.labelCompanyName.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
-            this.labelCompanyName.MaximumSize = new System.Drawing.Size(0, 17);
-            this.labelCompanyName.Name = "labelCompanyName";
-            this.labelCompanyName.Size = new System.Drawing.Size(271, 17);
-            this.labelCompanyName.TabIndex = 22;
-            this.labelCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // labelCopyright
-            // 
-            this.labelCopyright.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelCopyright.Location = new System.Drawing.Point(143, 52);
-            this.labelCopyright.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
-            this.labelCopyright.MaximumSize = new System.Drawing.Size(0, 17);
-            this.labelCopyright.Name = "labelCopyright";
-            this.labelCopyright.Size = new System.Drawing.Size(271, 17);
-            this.labelCopyright.TabIndex = 21;
-            this.labelCopyright.Text = "Erstellt von Daniel Hafner";
-            this.labelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FrmInfo
             // 

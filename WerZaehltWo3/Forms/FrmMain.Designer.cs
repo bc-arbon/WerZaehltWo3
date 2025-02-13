@@ -32,6 +32,7 @@
             this.mnuMain = new System.Windows.Forms.MenuStrip();
             this.mnuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFileShowDisplay = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuFileTsMonitor = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFileSetCourtCount = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFileEditPlayers = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -39,7 +40,6 @@
             this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelpInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlSettingsControls = new System.Windows.Forms.FlowLayoutPanel();
-            this.MnuFileTsMonitor = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,6 +75,13 @@
             this.mnuFileShowDisplay.Size = new System.Drawing.Size(205, 22);
             this.mnuFileShowDisplay.Text = "Display anzeigen";
             this.mnuFileShowDisplay.Click += new System.EventHandler(this.MnuFileShowDisplay_Click);
+            // 
+            // MnuFileTsMonitor
+            // 
+            this.MnuFileTsMonitor.Name = "MnuFileTsMonitor";
+            this.MnuFileTsMonitor.Size = new System.Drawing.Size(205, 22);
+            this.MnuFileTsMonitor.Text = "TTV Client anzeigen";
+            this.MnuFileTsMonitor.Click += new System.EventHandler(this.MnuFileTsMonitor_Click);
             // 
             // mnuFileSetCourtCount
             // 
@@ -124,13 +131,6 @@
             this.pnlSettingsControls.Name = "pnlSettingsControls";
             this.pnlSettingsControls.Size = new System.Drawing.Size(800, 426);
             this.pnlSettingsControls.TabIndex = 1;
-            // 
-            // MnuFileTsMonitor
-            // 
-            this.MnuFileTsMonitor.Name = "MnuFileTsMonitor";
-            this.MnuFileTsMonitor.Size = new System.Drawing.Size(205, 22);
-            this.MnuFileTsMonitor.Text = "TS Monitor anzeigen";
-            this.MnuFileTsMonitor.Click += new System.EventHandler(this.MnuFileTsMonitor_Click);
             // 
             // FrmMain
             // 

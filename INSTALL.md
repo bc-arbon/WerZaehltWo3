@@ -27,21 +27,16 @@ Die beiden Namen bei Doppel und Mixed können mit einem " / " getrennt werden. A
 
 ![Doppelpaarungen](doc/slash.png)
 
-# Tournamentsoftware Data Server (work in progress)
+# Anbindung an Tournament Software
 
-## Prerequisites
-- .NET Framework 4.8
+WerZaehltWo funktioniert identisch wie der offiziele TournamentTV Client.
 
 ## Konfiguration
-1. TsDataServer.exe starten auf gleichem Computer starten wie Tournamentsoftware
-2. Pfad zum TP-File eintragen
-3. Pfad zum Ausgabe-Jsonfile angeben
-4. Updateintervall festlegen
-5. Start
-6. In WzW TsMonitor Pfad zum Ausgabe-Jsonfile angeben
-7. Updateintervall festlegen
-8. Start
+1. Eigene lokale IP-Adresse ermitteln
+2. Im Tournament Software unter Extras -> Turnier TV die IP-Adresse hinzufügen
+3. Im TTV Client-Fenster den Start-Button klicken
+4. Im Tournament Software unter Extras -> Turnier TV den Test-Button klicken
 
 ## Hinweise
-- Auslesen sämtlicher Daten entstanden mit Reverse Engineering aus TP-File (Access-DB)
-- Experimentelle Implementierung für RabbitMQ anstelle Json-File
+- Auslesen sämtlicher Daten entstanden mit Reverse Engineering mittels Wireshark
+- Payload ist ein gzip-komprimiertes XML

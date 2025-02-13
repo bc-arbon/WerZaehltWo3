@@ -7,6 +7,7 @@ using BCA.WerZaehltWo3.Shared.TournamentSoftware;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -244,7 +245,7 @@ namespace BCA.WerZaehltWo3.Forms
             this.LvwCounting.Items.Clear();
         }
 
-        private void CmsPlay_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        private void CmsPlay_Opening(object sender, CancelEventArgs e)
         {
             var sourceObject = (ListView)((ContextMenuStrip)sender).SourceControl;
             if (sourceObject.Name == "LvwPlay")
@@ -298,7 +299,7 @@ namespace BCA.WerZaehltWo3.Forms
             if (handler != null)
             {
                 var match = (KeyValuePair<TsDataType, Match>)this.MnuApply.Tag;
-                handler(this, new SetTsDataEventArgs { Type = match.Key, Court = match.Value.Court, Team1 = match.Value.Team1.ToStringShort(), Team2 = match.Value.Team2.ToStringShort() });
+                handler(this, new SetTsDataEventArgs { Type = match.Key, Court = Convert.ToInt32(match.Value.Court), Team1 = match.Value.Team1.ToStringShort(), Team2 = match.Value.Team2.ToStringShort() });
             }
         }
     }

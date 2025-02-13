@@ -44,6 +44,32 @@ namespace BCA.WerZaehltWo3.Shared.TournamentTv
         public List<DisplayMatchSet> Sets { get; set; } = new List<DisplayMatchSet>();
         public Official Umpire { get; set; }
         public Official ServiceJudge { get; set; }
+        public string Team1
+        {
+            get
+            {
+                var team1 = this.FirstName1 + " " + this.LastName1;
+                if (!string.IsNullOrEmpty(this.PlayerId2))
+                {
+                    team1 += " / " + this.FirstName2 + " " + this.LastName2;
+                }
+
+                return team1;
+            }
+        }
+        public string Team2
+        {
+            get
+            {
+                var team2 = this.FirstName3 + " " + this.LastName3;
+                if (!string.IsNullOrEmpty(this.PlayerId4))
+                {
+                    team2 += " / " + this.FirstName4 + " " + this.LastName4;
+                }
+
+                return team2;
+            }
+        }
 
         public DisplayMatch(XmlNode node)
         {

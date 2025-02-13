@@ -11,8 +11,8 @@ namespace BCA.WerZaehltWo3.Forms
     {
         private AppSettings appSettings = new AppSettings();
         private Playerboard playerboard = new Playerboard();
-        private readonly FrmDisplay displayForm = new FrmDisplay();
-        private FrmTsMonitor frmTsMonitor;
+        private readonly FrmDisplay displayForm = new FrmDisplay();        
+        private FrmTtv frmTtv;
 
         public FrmMain()
         {
@@ -32,9 +32,22 @@ namespace BCA.WerZaehltWo3.Forms
             this.displayForm.InitializeDisplayControls();
             this.displayForm.SetFontSize(this.playerboard.Settings.FontSize);
 
-            this.frmTsMonitor = new FrmTsMonitor(this.appSettings);
-            this.frmTsMonitor.OnSetTsData += FrmTsMonitor_OnSetTsData;
-            this.frmTsMonitor.Show();
+            this.frmTtv = new FrmTtv();
+            this.frmTtv.OnSetTsData += FrmTtv_OnSetTsData;
+            this.frmTtv.Show();
+        }
+
+        private void FrmTtv_OnSetTsData(object sender, SetTsDataEventArgs setTsDataEventArgs)
+        {
+            foreach (var control in this.pnlSettingsControls.Controls)
+            {
+                var settingsControl = (CourtSettingsControl)control;
+                if (settingsControl.CourtNumber == setTsDataEventArgs.Court)
+                {
+                    settingsControl.SetTeams(setTsDataEventArgs.Type, setTsDataEventArgs.Team1, setTsDataEventArgs.Team2);
+                    break;
+                }
+            }
         }
 
         private void MnuFileShowDisplay_Click(object sender, EventArgs e)
@@ -44,7 +57,7 @@ namespace BCA.WerZaehltWo3.Forms
 
         private void MnuFileTsMonitor_Click(object sender, EventArgs e)
         {
-            this.frmTsMonitor.Show();
+            this.frmTtv.Show();
         }
 
         private void MnuFileEditPlayers_Click(object sender, EventArgs e)
