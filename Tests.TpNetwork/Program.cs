@@ -1,15 +1,4 @@
-﻿using BCA.WerZaehltWo3.Shared.TournamentTv;
-using BCA.WerZaehltWo3.Shared.TPNetwork;
-using System;
-using System.Collections.Generic;
-using System.IO.Compression;
-using System.Linq;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-
-namespace Tests.TpNetwork
+﻿namespace Tests.TpNetwork
 {
     public class Program
     {
