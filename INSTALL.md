@@ -19,7 +19,7 @@ Die Import-Funktion ist im Spielereditor zu finden.
 Zum Importieren aller gemeldeten Spieler muss die entsprechende *.tp-Datei ausgewählt werden.
 
 ### Verwalten der Spielerbestände
-Im Programmverzeichnis befindet sich die Datei playerboard.json. Falls man z.B. am Morgen und am Nachmittag verschiedene Spieler in der Halle hat kann man vorgängig verschiedene Versionen der playerboard.json 
+Im Programmverzeichnis befindet sich die Datei playerboard.json. Falls man z.B. am Morgen und am Nachmittag verschiedene Spieler in der Halle hat, kann man vorgängig verschiedene Versionen der playerboard.json 
 vorbereiten und je nach Bedarf im Programmverzeichnis ablegen.
 
 ### Doppelpaarungen
@@ -29,11 +29,13 @@ Die beiden Namen bei Doppel und Mixed können mit einem " / " getrennt werden. A
 
 # Anbindung an Tournament Software
 
-WerZaehltWo funktioniert identisch wie der offiziele TournamentTV Client.
+WerZaehltWo funktioniert identisch wie der offizielle TournamentTV Client.
 
 ## Konfiguration
 1. Eigene lokale IP-Adresse ermitteln
-2. Im Tournament Software unter Extras -> Turnier TV die IP-Adresse hinzufügen
+2. Im Tournament Software unter Extras -> Turnier TV:
+   - die IP-Adresse hinzufügen
+   - die Anzahl der angesetzten Spiele auf 100 setzen
 3. Im TTV Client-Fenster den Start-Button klicken
 4. Funktionstest: Im Tournament Software unter Extras -> Turnier TV den Test-Button klicken
 5. Während Turnierbetrieb Rechtsklick auf eine Paarung und im Kontextmenü "Übernahme..." klicken
