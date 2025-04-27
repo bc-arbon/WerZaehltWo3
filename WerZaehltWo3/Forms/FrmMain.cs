@@ -141,5 +141,14 @@ namespace BCA.WerZaehltWo3.Forms
                 }
             }
         }
+
+        private void MnuApplyAll_Click(object sender, EventArgs e)
+        {
+            foreach (var control in this.pnlSettingsControls.Controls)
+            {
+                var settingsControl = (CourtSettingsControl)control;
+                settingsControl.Apply();
+            }
+        }
     }
 }

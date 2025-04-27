@@ -122,7 +122,7 @@ namespace BCA.WerZaehltWo3.Usercontrols
             this.txtPlay2.Text = null;            
         }
 
-        private void BtnApply_Click(object sender, EventArgs e)
+        public void Apply()
         {
             this.SaveState();
 
@@ -138,6 +138,11 @@ namespace BCA.WerZaehltWo3.Usercontrols
             {
                 handler(this, new CourtEventArgs(this.court));
             }
+        }
+
+        private void BtnApply_Click(object sender, EventArgs e)
+        {
+            this.Apply();
         }
 
         private void BtnUndo_Click(object sender, EventArgs e)
