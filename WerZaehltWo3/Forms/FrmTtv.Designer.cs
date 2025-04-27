@@ -93,9 +93,10 @@ namespace BCA.WerZaehltWo3.Forms
             // 
             // BtnStart
             // 
-            this.BtnStart.Location = new System.Drawing.Point(10, 10);
+            this.BtnStart.Location = new System.Drawing.Point(15, 15);
+            this.BtnStart.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnStart.Name = "BtnStart";
-            this.BtnStart.Size = new System.Drawing.Size(110, 24);
+            this.BtnStart.Size = new System.Drawing.Size(165, 37);
             this.BtnStart.TabIndex = 0;
             this.BtnStart.Text = "Start";
             this.BtnStart.UseVisualStyleBackColor = true;
@@ -115,9 +116,10 @@ namespace BCA.WerZaehltWo3.Forms
             this.LvwOnCourt.ContextMenuStrip = this.CmsApply;
             this.LvwOnCourt.FullRowSelect = true;
             this.LvwOnCourt.HideSelection = false;
-            this.LvwOnCourt.Location = new System.Drawing.Point(10, 67);
+            this.LvwOnCourt.Location = new System.Drawing.Point(15, 103);
+            this.LvwOnCourt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.LvwOnCourt.Name = "LvwOnCourt";
-            this.LvwOnCourt.Size = new System.Drawing.Size(748, 167);
+            this.LvwOnCourt.Size = new System.Drawing.Size(1120, 255);
             this.LvwOnCourt.TabIndex = 1;
             this.LvwOnCourt.UseCompatibleStateImageBehavior = false;
             this.LvwOnCourt.View = System.Windows.Forms.View.Details;
@@ -152,16 +154,17 @@ namespace BCA.WerZaehltWo3.Forms
             // 
             // CmsApply
             // 
+            this.CmsApply.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.CmsApply.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MnuApply});
             this.CmsApply.Name = "CmsApply";
-            this.CmsApply.Size = new System.Drawing.Size(232, 26);
+            this.CmsApply.Size = new System.Drawing.Size(322, 36);
             this.CmsApply.Opening += new System.ComponentModel.CancelEventHandler(this.CmsApply_Opening);
             // 
             // MnuApply
             // 
             this.MnuApply.Name = "MnuApply";
-            this.MnuApply.Size = new System.Drawing.Size(231, 22);
+            this.MnuApply.Size = new System.Drawing.Size(321, 32);
             this.MnuApply.Text = "Übernehmen zu xx auf Feld yy";
             this.MnuApply.Click += new System.EventHandler(this.MnuApply_Click);
             // 
@@ -177,11 +180,13 @@ namespace BCA.WerZaehltWo3.Forms
             this.columnHeader12,
             this.columnHeader13});
             this.LvwScheduled.ContextMenuStrip = this.CmsApply;
+            this.LvwScheduled.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.LvwScheduled.FullRowSelect = true;
             this.LvwScheduled.HideSelection = false;
-            this.LvwScheduled.Location = new System.Drawing.Point(0, 18);
+            this.LvwScheduled.Location = new System.Drawing.Point(0, 42);
+            this.LvwScheduled.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.LvwScheduled.Name = "LvwScheduled";
-            this.LvwScheduled.Size = new System.Drawing.Size(745, 217);
+            this.LvwScheduled.Size = new System.Drawing.Size(1116, 318);
             this.LvwScheduled.TabIndex = 2;
             this.LvwScheduled.UseCompatibleStateImageBehavior = false;
             this.LvwScheduled.View = System.Windows.Forms.View.Details;
@@ -227,11 +232,13 @@ namespace BCA.WerZaehltWo3.Forms
             this.columnHeader19,
             this.columnHeader20});
             this.LvwFinished.ContextMenuStrip = this.CmsApply;
+            this.LvwFinished.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.LvwFinished.FullRowSelect = true;
             this.LvwFinished.HideSelection = false;
-            this.LvwFinished.Location = new System.Drawing.Point(0, 253);
+            this.LvwFinished.Location = new System.Drawing.Point(0, 402);
+            this.LvwFinished.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.LvwFinished.Name = "LvwFinished";
-            this.LvwFinished.Size = new System.Drawing.Size(745, 243);
+            this.LvwFinished.Size = new System.Drawing.Size(1116, 347);
             this.LvwFinished.TabIndex = 3;
             this.LvwFinished.UseCompatibleStateImageBehavior = false;
             this.LvwFinished.View = System.Windows.Forms.View.Details;
@@ -267,36 +274,43 @@ namespace BCA.WerZaehltWo3.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 51);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(13, 66);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 13);
+            this.label1.Size = new System.Drawing.Size(127, 32);
             this.label1.TabIndex = 4;
-            this.label1.Text = "On Court";
+            this.label1.Text = "Spielen:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 3);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(9, 5);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.Size = new System.Drawing.Size(122, 32);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Scheduled";
+            this.label2.Text = "Geplant";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1, 237);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(2, 365);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 13);
+            this.label3.Size = new System.Drawing.Size(128, 32);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Finished";
+            this.label3.Text = "Beendet";
             // 
             // BtnStop
             // 
             this.BtnStop.Enabled = false;
-            this.BtnStop.Location = new System.Drawing.Point(125, 10);
+            this.BtnStop.Location = new System.Drawing.Point(188, 15);
+            this.BtnStop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnStop.Name = "BtnStop";
-            this.BtnStop.Size = new System.Drawing.Size(110, 24);
+            this.BtnStop.Size = new System.Drawing.Size(165, 37);
             this.BtnStop.TabIndex = 0;
             this.BtnStop.Text = "Stop";
             this.BtnStop.UseVisualStyleBackColor = true;
@@ -305,20 +319,22 @@ namespace BCA.WerZaehltWo3.Forms
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(248, 16);
+            this.label4.Location = new System.Drawing.Point(372, 25);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 13);
+            this.label4.Size = new System.Drawing.Size(123, 20);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Last update:";
+            this.label4.Text = "Letztes Update:";
             // 
             // LblLastUpdate
             // 
             this.LblLastUpdate.AutoSize = true;
-            this.LblLastUpdate.Location = new System.Drawing.Point(325, 16);
+            this.LblLastUpdate.Location = new System.Drawing.Point(498, 25);
+            this.LblLastUpdate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblLastUpdate.Name = "LblLastUpdate";
-            this.LblLastUpdate.Size = new System.Drawing.Size(36, 13);
+            this.LblLastUpdate.Size = new System.Drawing.Size(32, 20);
             this.LblLastUpdate.TabIndex = 8;
-            this.LblLastUpdate.Text = "Never";
+            this.LblLastUpdate.Text = "Nie";
             // 
             // tabControl1
             // 
@@ -327,10 +343,12 @@ namespace BCA.WerZaehltWo3.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(10, 238);
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Location = new System.Drawing.Point(15, 366);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(751, 520);
+            this.tabControl1.Size = new System.Drawing.Size(1126, 800);
             this.tabControl1.TabIndex = 9;
             // 
             // tabPage1
@@ -339,12 +357,13 @@ namespace BCA.WerZaehltWo3.Forms
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.LvwReady);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 41);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(743, 494);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage1.Size = new System.Drawing.Size(1118, 755);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Count / Ready";
+            this.tabPage1.Text = "Zählen / Bereit halten";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // LvwCounting
@@ -359,11 +378,13 @@ namespace BCA.WerZaehltWo3.Forms
             this.columnHeader22,
             this.columnHeader23});
             this.LvwCounting.ContextMenuStrip = this.CmsApply;
+            this.LvwCounting.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LvwCounting.FullRowSelect = true;
             this.LvwCounting.HideSelection = false;
-            this.LvwCounting.Location = new System.Drawing.Point(0, 17);
+            this.LvwCounting.Location = new System.Drawing.Point(0, 40);
+            this.LvwCounting.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.LvwCounting.Name = "LvwCounting";
-            this.LvwCounting.Size = new System.Drawing.Size(745, 217);
+            this.LvwCounting.Size = new System.Drawing.Size(1116, 318);
             this.LvwCounting.TabIndex = 7;
             this.LvwCounting.UseCompatibleStateImageBehavior = false;
             this.LvwCounting.View = System.Windows.Forms.View.Details;
@@ -399,20 +420,24 @@ namespace BCA.WerZaehltWo3.Forms
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 2);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(9, 3);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 13);
+            this.label5.Size = new System.Drawing.Size(117, 32);
             this.label5.TabIndex = 9;
-            this.label5.Text = "Counting";
+            this.label5.Text = "Zählen:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1, 237);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(2, 365);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 13);
+            this.label6.Size = new System.Drawing.Size(188, 32);
             this.label6.TabIndex = 10;
-            this.label6.Text = "Get ready";
+            this.label6.Text = "Bereit halten";
             // 
             // LvwReady
             // 
@@ -427,11 +452,13 @@ namespace BCA.WerZaehltWo3.Forms
             this.columnHeader28,
             this.columnHeader29});
             this.LvwReady.ContextMenuStrip = this.CmsApply;
+            this.LvwReady.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LvwReady.FullRowSelect = true;
             this.LvwReady.HideSelection = false;
-            this.LvwReady.Location = new System.Drawing.Point(0, 252);
+            this.LvwReady.Location = new System.Drawing.Point(0, 402);
+            this.LvwReady.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.LvwReady.Name = "LvwReady";
-            this.LvwReady.Size = new System.Drawing.Size(745, 243);
+            this.LvwReady.Size = new System.Drawing.Size(1116, 346);
             this.LvwReady.TabIndex = 8;
             this.LvwReady.UseCompatibleStateImageBehavior = false;
             this.LvwReady.View = System.Windows.Forms.View.Details;
@@ -470,19 +497,20 @@ namespace BCA.WerZaehltWo3.Forms
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.LvwFinished);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 41);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(743, 494);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage2.Size = new System.Drawing.Size(1118, 755);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Scheduled / Finished";
+            this.tabPage2.Text = "Geplant / Beendet";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // FrmTtv
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(771, 769);
+            this.ClientSize = new System.Drawing.Size(1156, 1183);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.LblLastUpdate);
             this.Controls.Add(this.label4);
@@ -491,6 +519,7 @@ namespace BCA.WerZaehltWo3.Forms
             this.Controls.Add(this.BtnStop);
             this.Controls.Add(this.BtnStart);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmTtv";
             this.Text = "TTV Client";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmTtv_FormClosing);
