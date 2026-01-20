@@ -117,9 +117,9 @@ namespace BCA.WerZaehltWo3.Shared.TournamentTv
 
                 var doc = new XmlDocument();
                 doc.LoadXml(plainXml);
-                var rootNode = doc.SelectSingleNode("TOURNAMENT2025");
+                var rootNode = doc.SelectSingleNode("TOURNAMENT" + DateTime.Now.Year);
                 this.tournament = new Tournament(rootNode);
-                this.Update?.Invoke(this, new TournamentTvUpdateEventArgs(this.tournament));
+                this.Update?.Invoke(this, new TournamentTvUpdateEventArgs(this.tournament, plainXml));
             }
         }
 
