@@ -24,5 +24,8 @@ Hilfsprogramm für Junioren-Badmintonturniere
 ## V1.2
 - Implementierung eines Tournament TV-Clients, um Spiele direkt übers Netzwerk anzeigen zu können
 
+## V1.3
+- Jahreszahl-Fix im Tournament-TV-Payload
+
 # Installation
 - [INSTALL.md](INSTALL.md)
