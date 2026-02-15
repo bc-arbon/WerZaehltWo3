@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Threading;
 using System.IO;
-using System.Windows.Forms;
 
 namespace BCA.WerZaehltWo3.Shared.TournamentTv
 {

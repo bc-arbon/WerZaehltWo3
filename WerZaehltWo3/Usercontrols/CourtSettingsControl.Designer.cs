@@ -29,159 +29,165 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lblCourtNumber = new System.Windows.Forms.Label();
-            this.txtReady1 = new System.Windows.Forms.TextBox();
-            this.txtReady2 = new System.Windows.Forms.TextBox();
-            this.txtCount1 = new System.Windows.Forms.TextBox();
-            this.txtCount2 = new System.Windows.Forms.TextBox();
-            this.txtPlay1 = new System.Windows.Forms.TextBox();
-            this.txtPlay2 = new System.Windows.Forms.TextBox();
-            this.btnUndo = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnMove = new System.Windows.Forms.Button();
-            this.btnApply = new System.Windows.Forms.Button();
+            this.LblCourtNumber = new System.Windows.Forms.Label();
+            this.TxtReady1 = new System.Windows.Forms.TextBox();
+            this.TxtReady2 = new System.Windows.Forms.TextBox();
+            this.TxtCount1 = new System.Windows.Forms.TextBox();
+            this.TxtCount2 = new System.Windows.Forms.TextBox();
+            this.TxtPlay1 = new System.Windows.Forms.TextBox();
+            this.TxtPlay2 = new System.Windows.Forms.TextBox();
+            this.BtnUndo = new System.Windows.Forms.Button();
+            this.BtnClear = new System.Windows.Forms.Button();
+            this.BtnMove = new System.Windows.Forms.Button();
+            this.BtnApply = new System.Windows.Forms.Button();
             this.ttpButtons = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
-            // lblCourtNumber
+            // LblCourtNumber
             // 
-            this.lblCourtNumber.AutoSize = true;
-            this.lblCourtNumber.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCourtNumber.Location = new System.Drawing.Point(10, 12);
-            this.lblCourtNumber.Name = "lblCourtNumber";
-            this.lblCourtNumber.Size = new System.Drawing.Size(32, 32);
-            this.lblCourtNumber.TabIndex = 0;
-            this.lblCourtNumber.Text = "0";
+            this.LblCourtNumber.AutoSize = true;
+            this.LblCourtNumber.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCourtNumber.Location = new System.Drawing.Point(10, 12);
+            this.LblCourtNumber.Name = "LblCourtNumber";
+            this.LblCourtNumber.Size = new System.Drawing.Size(31, 32);
+            this.LblCourtNumber.TabIndex = 0;
+            this.LblCourtNumber.Text = "0";
             // 
-            // txtReady1
+            // TxtReady1
             // 
-            this.txtReady1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.txtReady1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtReady1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(181)))), ((int)(((byte)(181)))));
-            this.txtReady1.Location = new System.Drawing.Point(60, 3);
-            this.txtReady1.Name = "txtReady1";
-            this.txtReady1.Size = new System.Drawing.Size(136, 20);
-            this.txtReady1.TabIndex = 0;
+            this.TxtReady1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.TxtReady1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.TxtReady1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(181)))), ((int)(((byte)(181)))));
+            this.TxtReady1.Location = new System.Drawing.Point(60, 3);
+            this.TxtReady1.Name = "TxtReady1";
+            this.TxtReady1.Size = new System.Drawing.Size(136, 20);
+            this.TxtReady1.TabIndex = 0;
+            this.TxtReady1.TextChanged += new System.EventHandler(this.Txtboxes_TextChanged);
             // 
-            // txtReady2
+            // TxtReady2
             // 
-            this.txtReady2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.txtReady2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtReady2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(181)))), ((int)(((byte)(181)))));
-            this.txtReady2.Location = new System.Drawing.Point(60, 31);
-            this.txtReady2.Name = "txtReady2";
-            this.txtReady2.Size = new System.Drawing.Size(136, 20);
-            this.txtReady2.TabIndex = 1;
+            this.TxtReady2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.TxtReady2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.TxtReady2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(181)))), ((int)(((byte)(181)))));
+            this.TxtReady2.Location = new System.Drawing.Point(60, 31);
+            this.TxtReady2.Name = "TxtReady2";
+            this.TxtReady2.Size = new System.Drawing.Size(136, 20);
+            this.TxtReady2.TabIndex = 1;
+            this.TxtReady2.TextChanged += new System.EventHandler(this.Txtboxes_TextChanged);
             // 
-            // txtCount1
+            // TxtCount1
             // 
-            this.txtCount1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.txtCount1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtCount1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(149)))));
-            this.txtCount1.Location = new System.Drawing.Point(202, 3);
-            this.txtCount1.Name = "txtCount1";
-            this.txtCount1.Size = new System.Drawing.Size(136, 20);
-            this.txtCount1.TabIndex = 2;
+            this.TxtCount1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.TxtCount1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.TxtCount1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(149)))));
+            this.TxtCount1.Location = new System.Drawing.Point(202, 3);
+            this.TxtCount1.Name = "TxtCount1";
+            this.TxtCount1.Size = new System.Drawing.Size(136, 20);
+            this.TxtCount1.TabIndex = 2;
+            this.TxtCount1.TextChanged += new System.EventHandler(this.Txtboxes_TextChanged);
             // 
-            // txtCount2
+            // TxtCount2
             // 
-            this.txtCount2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.txtCount2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtCount2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(149)))));
-            this.txtCount2.Location = new System.Drawing.Point(202, 31);
-            this.txtCount2.Name = "txtCount2";
-            this.txtCount2.Size = new System.Drawing.Size(136, 20);
-            this.txtCount2.TabIndex = 3;
+            this.TxtCount2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.TxtCount2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.TxtCount2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(149)))));
+            this.TxtCount2.Location = new System.Drawing.Point(202, 31);
+            this.TxtCount2.Name = "TxtCount2";
+            this.TxtCount2.Size = new System.Drawing.Size(136, 20);
+            this.TxtCount2.TabIndex = 3;
+            this.TxtCount2.TextChanged += new System.EventHandler(this.Txtboxes_TextChanged);
             // 
-            // txtPlay1
+            // TxtPlay1
             // 
-            this.txtPlay1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.txtPlay1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtPlay1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtPlay1.Location = new System.Drawing.Point(344, 3);
-            this.txtPlay1.Name = "txtPlay1";
-            this.txtPlay1.Size = new System.Drawing.Size(136, 20);
-            this.txtPlay1.TabIndex = 4;
+            this.TxtPlay1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.TxtPlay1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.TxtPlay1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.TxtPlay1.Location = new System.Drawing.Point(344, 3);
+            this.TxtPlay1.Name = "TxtPlay1";
+            this.TxtPlay1.Size = new System.Drawing.Size(136, 20);
+            this.TxtPlay1.TabIndex = 4;
+            this.TxtPlay1.TextChanged += new System.EventHandler(this.Txtboxes_TextChanged);
             // 
-            // txtPlay2
+            // TxtPlay2
             // 
-            this.txtPlay2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.txtPlay2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtPlay2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtPlay2.Location = new System.Drawing.Point(344, 31);
-            this.txtPlay2.Name = "txtPlay2";
-            this.txtPlay2.Size = new System.Drawing.Size(136, 20);
-            this.txtPlay2.TabIndex = 5;
+            this.TxtPlay2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.TxtPlay2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.TxtPlay2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.TxtPlay2.Location = new System.Drawing.Point(344, 31);
+            this.TxtPlay2.Name = "TxtPlay2";
+            this.TxtPlay2.Size = new System.Drawing.Size(136, 20);
+            this.TxtPlay2.TabIndex = 5;
+            this.TxtPlay2.TextChanged += new System.EventHandler(this.Txtboxes_TextChanged);
             // 
-            // btnUndo
+            // BtnUndo
             // 
-            this.btnUndo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUndo.BackgroundImage = global::BCA.WerZaehltWo3.Properties.Resources.Undo;
-            this.btnUndo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnUndo.Enabled = false;
-            this.btnUndo.Location = new System.Drawing.Point(490, -1);
-            this.btnUndo.Name = "btnUndo";
-            this.btnUndo.Size = new System.Drawing.Size(27, 27);
-            this.btnUndo.TabIndex = 6;
-            this.ttpButtons.SetToolTip(this.btnUndo, "Rückgängig");
-            this.btnUndo.UseVisualStyleBackColor = true;
-            this.btnUndo.Click += new System.EventHandler(this.BtnUndo_Click);
+            this.BtnUndo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnUndo.BackgroundImage = global::BCA.WerZaehltWo3.Properties.Resources.Undo;
+            this.BtnUndo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnUndo.Enabled = false;
+            this.BtnUndo.Location = new System.Drawing.Point(490, -1);
+            this.BtnUndo.Name = "BtnUndo";
+            this.BtnUndo.Size = new System.Drawing.Size(27, 27);
+            this.BtnUndo.TabIndex = 6;
+            this.ttpButtons.SetToolTip(this.BtnUndo, "Rückgängig");
+            this.BtnUndo.UseVisualStyleBackColor = true;
+            this.BtnUndo.Click += new System.EventHandler(this.BtnUndo_Click);
             // 
-            // btnClear
+            // BtnClear
             // 
-            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClear.BackgroundImage = global::BCA.WerZaehltWo3.Properties.Resources.Clear;
-            this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnClear.Location = new System.Drawing.Point(490, 27);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(27, 27);
-            this.btnClear.TabIndex = 8;
-            this.ttpButtons.SetToolTip(this.btnClear, "Alles löschen");
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.BtnClear_Click);
+            this.BtnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnClear.BackgroundImage = global::BCA.WerZaehltWo3.Properties.Resources.Clear;
+            this.BtnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnClear.Location = new System.Drawing.Point(490, 27);
+            this.BtnClear.Name = "BtnClear";
+            this.BtnClear.Size = new System.Drawing.Size(27, 27);
+            this.BtnClear.TabIndex = 8;
+            this.ttpButtons.SetToolTip(this.BtnClear, "Alles löschen");
+            this.BtnClear.UseVisualStyleBackColor = true;
+            this.BtnClear.Click += new System.EventHandler(this.BtnClear_Click);
             // 
-            // btnMove
+            // BtnMove
             // 
-            this.btnMove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMove.BackgroundImage = global::BCA.WerZaehltWo3.Properties.Resources.Move;
-            this.btnMove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnMove.Location = new System.Drawing.Point(523, -1);
-            this.btnMove.Name = "btnMove";
-            this.btnMove.Size = new System.Drawing.Size(27, 27);
-            this.btnMove.TabIndex = 7;
-            this.ttpButtons.SetToolTip(this.btnMove, "Spieler nach rechts schieben");
-            this.btnMove.UseVisualStyleBackColor = true;
-            this.btnMove.Click += new System.EventHandler(this.BtnMove_Click);
+            this.BtnMove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnMove.BackgroundImage = global::BCA.WerZaehltWo3.Properties.Resources.Move;
+            this.BtnMove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnMove.Location = new System.Drawing.Point(523, -1);
+            this.BtnMove.Name = "BtnMove";
+            this.BtnMove.Size = new System.Drawing.Size(27, 27);
+            this.BtnMove.TabIndex = 7;
+            this.ttpButtons.SetToolTip(this.BtnMove, "Spieler nach rechts schieben");
+            this.BtnMove.UseVisualStyleBackColor = true;
+            this.BtnMove.Click += new System.EventHandler(this.BtnMove_Click);
             // 
-            // btnApply
+            // BtnApply
             // 
-            this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnApply.BackgroundImage = global::BCA.WerZaehltWo3.Properties.Resources.Apply;
-            this.btnApply.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnApply.Location = new System.Drawing.Point(523, 27);
-            this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(27, 27);
-            this.btnApply.TabIndex = 9;
-            this.ttpButtons.SetToolTip(this.btnApply, "Text auf Display übertragen");
-            this.btnApply.UseVisualStyleBackColor = true;
-            this.btnApply.Click += new System.EventHandler(this.BtnApply_Click);
+            this.BtnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnApply.BackgroundImage = global::BCA.WerZaehltWo3.Properties.Resources.Apply;
+            this.BtnApply.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnApply.Location = new System.Drawing.Point(523, 27);
+            this.BtnApply.Name = "BtnApply";
+            this.BtnApply.Size = new System.Drawing.Size(27, 27);
+            this.BtnApply.TabIndex = 9;
+            this.ttpButtons.SetToolTip(this.BtnApply, "Text auf Display übertragen");
+            this.BtnApply.UseVisualStyleBackColor = true;
+            this.BtnApply.Click += new System.EventHandler(this.BtnApply_Click);
             // 
             // CourtSettingsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.btnUndo);
-            this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.btnMove);
-            this.Controls.Add(this.btnApply);
-            this.Controls.Add(this.txtPlay2);
-            this.Controls.Add(this.txtCount2);
-            this.Controls.Add(this.txtReady2);
-            this.Controls.Add(this.txtPlay1);
-            this.Controls.Add(this.txtCount1);
-            this.Controls.Add(this.txtReady1);
-            this.Controls.Add(this.lblCourtNumber);
+            this.Controls.Add(this.BtnUndo);
+            this.Controls.Add(this.BtnClear);
+            this.Controls.Add(this.BtnMove);
+            this.Controls.Add(this.BtnApply);
+            this.Controls.Add(this.TxtPlay2);
+            this.Controls.Add(this.TxtCount2);
+            this.Controls.Add(this.TxtReady2);
+            this.Controls.Add(this.TxtPlay1);
+            this.Controls.Add(this.TxtCount1);
+            this.Controls.Add(this.TxtReady1);
+            this.Controls.Add(this.LblCourtNumber);
             this.Name = "CourtSettingsControl";
             this.Size = new System.Drawing.Size(565, 57);
             this.ResumeLayout(false);
@@ -191,17 +197,17 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblCourtNumber;
-        private System.Windows.Forms.TextBox txtReady1;
-        private System.Windows.Forms.TextBox txtReady2;
-        private System.Windows.Forms.Button btnApply;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.TextBox txtCount1;
-        private System.Windows.Forms.TextBox txtCount2;
-        private System.Windows.Forms.TextBox txtPlay1;
-        private System.Windows.Forms.TextBox txtPlay2;
-        private System.Windows.Forms.Button btnMove;
-        private System.Windows.Forms.Button btnUndo;
+        private System.Windows.Forms.Label LblCourtNumber;
+        private System.Windows.Forms.TextBox TxtReady1;
+        private System.Windows.Forms.TextBox TxtReady2;
+        private System.Windows.Forms.Button BtnApply;
+        private System.Windows.Forms.Button BtnClear;
+        private System.Windows.Forms.TextBox TxtCount1;
+        private System.Windows.Forms.TextBox TxtCount2;
+        private System.Windows.Forms.TextBox TxtPlay1;
+        private System.Windows.Forms.TextBox TxtPlay2;
+        private System.Windows.Forms.Button BtnMove;
+        private System.Windows.Forms.Button BtnUndo;
         private System.Windows.Forms.ToolTip ttpButtons;
     }
 }

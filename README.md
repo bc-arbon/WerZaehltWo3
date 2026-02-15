@@ -27,5 +27,8 @@ Hilfsprogramm für Junioren-Badmintonturniere
 ## V1.3
 - Jahreszahl-Fix im Tournament-TV-Payload
 
+## V1.4
+- Veränderte Spielernamen werden blau hinterlegt, solange sie nicht bestätigt wurden
+
 # Installation
 - [INSTALL.md](INSTALL.md)
