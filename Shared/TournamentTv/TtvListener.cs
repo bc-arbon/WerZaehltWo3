@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Threading;
 using System.IO;
+using System.Windows.Forms;
 
 namespace BCA.WerZaehltWo3.Shared.TournamentTv
 {
@@ -18,7 +19,7 @@ namespace BCA.WerZaehltWo3.Shared.TournamentTv
 
         public event EventHandler ServiceStarted;
         public event EventHandler ServiceStopped;
-        public event EventHandler<(string, Exception)> ServiceError;
+        public event EventHandler<TournamentTvErrorEventArgs> ServiceError;
         public event EventHandler<TournamentTvUpdateEventArgs> Update;
 
         public bool IsListening
@@ -43,8 +44,8 @@ namespace BCA.WerZaehltWo3.Shared.TournamentTv
                 throw new Exception("Listener already running");
             }
 
-            cancellationToken = new CancellationTokenSource();
-            Run();
+            cancellationToken = new CancellationTokenSource();           
+            Run();            
         }
 
         public void Stop()
@@ -61,7 +62,16 @@ namespace BCA.WerZaehltWo3.Shared.TournamentTv
             {
                 ServiceStarted?.Invoke(this, EventArgs.Empty);
                 TcpListener tcp = new TcpListener(IPAddress.Any, 13333);
-                tcp.Start();
+                try
+                {
+                    tcp.Start();
+                }
+                catch (Exception ex)
+                {
+                    OnServiceError(ex, "Failed to start TCP listener");
+                    return;
+                }
+
                 bool runSignal = true;
                 while (runSignal)
                 {
@@ -174,9 +184,9 @@ namespace BCA.WerZaehltWo3.Shared.TournamentTv
         //    return sendUpdates;
         //}        
 
-        private void OnServiceError(Exception error, string message = "An error occured while listening for TP changes")
+        private void OnServiceError(Exception exception, string message = "An error occured while listening for TP changes")
         {
-            ServiceError?.Invoke(this, (message, error));
+            ServiceError?.Invoke(this, new TournamentTvErrorEventArgs(message, exception));
         }
 
         private void OnServiceStop()

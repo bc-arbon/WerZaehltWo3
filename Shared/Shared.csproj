@@ -83,6 +83,7 @@
     <Compile Include="TournamentTv\Stage.cs" />
     <Compile Include="TournamentTv\Standing.cs" />
     <Compile Include="TournamentTv\Tournament.cs" />
+    <Compile Include="TournamentTv\TournamentTvErrorEventArgs.cs" />
     <Compile Include="TournamentTv\TournamentTvUpdateEventArgs.cs" />
     <Compile Include="TournamentTv\TtvDataObject.cs" />
     <Compile Include="TournamentTv\VisualDraw.cs" />

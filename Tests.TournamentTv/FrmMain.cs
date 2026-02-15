@@ -13,7 +13,8 @@ namespace Tests.TournamentTv
 
         private void BtnStart_Click(object sender, EventArgs e)
         {
-            listener.Update += Listener_Update;
+            listener.Update += this.Listener_Update;
+            listener.ServiceError += this.ListenerError;
             listener.Start();
             this.BtnStart.Enabled = false;
             this.BtnStop.Enabled = true;
@@ -84,6 +85,11 @@ namespace Tests.TournamentTv
 
                 this.LblLastUpdate.Text = DateTime.Now.ToString();
             });
+        }
+
+        private void ListenerError(object? sender, TournamentTvErrorEventArgs e)
+        {
+            MessageBox.Show(this, e.Exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private ListViewItem CreateItem(DisplayMatch match)
