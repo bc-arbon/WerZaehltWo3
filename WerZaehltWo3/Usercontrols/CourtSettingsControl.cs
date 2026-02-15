@@ -53,8 +53,9 @@ namespace BCA.WerZaehltWo3.Usercontrols
             }
         }
 
-        public void SetData(Court courtData, List<string> playerlist)
+        public void SetInitialData(Court courtData, List<string> playerlist)
         {
+            // This is only called on application startup and court count change
             this.court = courtData;
             this.lblCourtNumber.Text = courtData.Number.ToString(CultureInfo.InvariantCulture);
 
@@ -160,6 +161,7 @@ namespace BCA.WerZaehltWo3.Usercontrols
 
         private void BtnMove_Click(object sender, EventArgs e)
         {
+            this.SaveState();
             this.txtPlay1.Text = this.txtCount1.Text;
             this.txtPlay2.Text = this.txtCount2.Text;
             this.txtCount1.Text = this.txtReady1.Text;
@@ -170,7 +172,7 @@ namespace BCA.WerZaehltWo3.Usercontrols
 
         private void SaveState()
         {
-            var tempCourt = this.court.Clone();
+            var tempCourt = new Court();
             tempCourt.PlayerReady1 = this.txtReady1.Text;
             tempCourt.PlayerReady2 = this.txtReady2.Text;
             tempCourt.PlayerCount1 = this.txtCount1.Text;

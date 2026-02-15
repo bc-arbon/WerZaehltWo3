@@ -117,7 +117,7 @@ namespace BCA.WerZaehltWo3.Forms
             foreach (var court in this.playerboard.Courts)
             {
                 var settingsControl = new CourtSettingsControl();
-                settingsControl.SetData(court, this.playerboard.Players);
+                settingsControl.SetInitialData(court, this.playerboard.Players);
                 settingsControl.OnApplyRequested += this.SettingsControl_OnApplyRequested;
                 this.pnlSettingsControls.Controls.Add(settingsControl);
             }
