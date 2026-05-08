@@ -28,251 +28,251 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblCourtNumber = new System.Windows.Forms.Label();
-            this.pnlReady = new System.Windows.Forms.Panel();
-            this.tlpRed = new System.Windows.Forms.TableLayoutPanel();
-            this.lblReady2 = new System.Windows.Forms.Label();
-            this.lblReady1 = new System.Windows.Forms.Label();
-            this.pnlCount = new System.Windows.Forms.Panel();
-            this.tlpYellow = new System.Windows.Forms.TableLayoutPanel();
-            this.lblCounting1 = new System.Windows.Forms.Label();
-            this.lblCounting2 = new System.Windows.Forms.Label();
-            this.pnlPlay = new System.Windows.Forms.Panel();
-            this.tlpGreen = new System.Windows.Forms.TableLayoutPanel();
-            this.lblPlay2 = new System.Windows.Forms.Label();
-            this.lblPlay1 = new System.Windows.Forms.Label();
-            this.tlpCourt = new System.Windows.Forms.TableLayoutPanel();
-            this.pnlReady.SuspendLayout();
-            this.tlpRed.SuspendLayout();
-            this.pnlCount.SuspendLayout();
-            this.tlpYellow.SuspendLayout();
-            this.pnlPlay.SuspendLayout();
-            this.tlpGreen.SuspendLayout();
-            this.tlpCourt.SuspendLayout();
+            this.LblNumber = new System.Windows.Forms.Label();
+            this.PnlReady = new System.Windows.Forms.Panel();
+            this.TlpReady = new System.Windows.Forms.TableLayoutPanel();
+            this.LblReady2 = new System.Windows.Forms.Label();
+            this.LblReady1 = new System.Windows.Forms.Label();
+            this.PnlCount = new System.Windows.Forms.Panel();
+            this.TlpCount = new System.Windows.Forms.TableLayoutPanel();
+            this.LblCounting1 = new System.Windows.Forms.Label();
+            this.LblCounting2 = new System.Windows.Forms.Label();
+            this.PnlPlay = new System.Windows.Forms.Panel();
+            this.TlpPlay = new System.Windows.Forms.TableLayoutPanel();
+            this.LblPlay2 = new System.Windows.Forms.Label();
+            this.LblPlay1 = new System.Windows.Forms.Label();
+            this.TlpCourt = new System.Windows.Forms.TableLayoutPanel();
+            this.PnlReady.SuspendLayout();
+            this.TlpReady.SuspendLayout();
+            this.PnlCount.SuspendLayout();
+            this.TlpCount.SuspendLayout();
+            this.PnlPlay.SuspendLayout();
+            this.TlpPlay.SuspendLayout();
+            this.TlpCourt.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lblCourtNumber
+            // LblNumber
             // 
-            this.lblCourtNumber.BackColor = System.Drawing.SystemColors.Control;
-            this.lblCourtNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblCourtNumber.Font = new System.Drawing.Font("Verdana", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCourtNumber.Location = new System.Drawing.Point(0, 0);
-            this.lblCourtNumber.Margin = new System.Windows.Forms.Padding(0);
-            this.lblCourtNumber.Name = "lblCourtNumber";
-            this.lblCourtNumber.Size = new System.Drawing.Size(133, 181);
-            this.lblCourtNumber.TabIndex = 0;
-            this.lblCourtNumber.Text = "0";
-            this.lblCourtNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblNumber.BackColor = System.Drawing.SystemColors.Control;
+            this.LblNumber.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblNumber.Font = new System.Drawing.Font("Verdana", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNumber.Location = new System.Drawing.Point(0, 0);
+            this.LblNumber.Margin = new System.Windows.Forms.Padding(0);
+            this.LblNumber.Name = "LblNumber";
+            this.LblNumber.Size = new System.Drawing.Size(133, 181);
+            this.LblNumber.TabIndex = 0;
+            this.LblNumber.Text = "0";
+            this.LblNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pnlReady
+            // PnlReady
             // 
-            this.pnlReady.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(181)))), ((int)(((byte)(181)))));
-            this.pnlReady.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlReady.Controls.Add(this.tlpRed);
-            this.pnlReady.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlReady.Location = new System.Drawing.Point(133, 0);
-            this.pnlReady.Margin = new System.Windows.Forms.Padding(0);
-            this.pnlReady.Name = "pnlReady";
-            this.pnlReady.Size = new System.Drawing.Size(266, 181);
-            this.pnlReady.TabIndex = 1;
-            this.pnlReady.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlReady_Paint);
+            this.PnlReady.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(181)))), ((int)(((byte)(181)))));
+            this.PnlReady.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PnlReady.Controls.Add(this.TlpReady);
+            this.PnlReady.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlReady.Location = new System.Drawing.Point(133, 0);
+            this.PnlReady.Margin = new System.Windows.Forms.Padding(0);
+            this.PnlReady.Name = "PnlReady";
+            this.PnlReady.Size = new System.Drawing.Size(266, 181);
+            this.PnlReady.TabIndex = 1;
+            this.PnlReady.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlReady_Paint);
             // 
-            // tlpRed
+            // TlpReady
             // 
-            this.tlpRed.ColumnCount = 1;
-            this.tlpRed.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpRed.Controls.Add(this.lblReady2, 0, 1);
-            this.tlpRed.Controls.Add(this.lblReady1, 0, 0);
-            this.tlpRed.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpRed.Location = new System.Drawing.Point(0, 0);
-            this.tlpRed.Margin = new System.Windows.Forms.Padding(2);
-            this.tlpRed.Name = "tlpRed";
-            this.tlpRed.RowCount = 2;
-            this.tlpRed.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpRed.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpRed.Size = new System.Drawing.Size(262, 177);
-            this.tlpRed.TabIndex = 1;
+            this.TlpReady.ColumnCount = 1;
+            this.TlpReady.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TlpReady.Controls.Add(this.LblReady2, 0, 1);
+            this.TlpReady.Controls.Add(this.LblReady1, 0, 0);
+            this.TlpReady.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TlpReady.Location = new System.Drawing.Point(0, 0);
+            this.TlpReady.Margin = new System.Windows.Forms.Padding(2);
+            this.TlpReady.Name = "TlpReady";
+            this.TlpReady.RowCount = 2;
+            this.TlpReady.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TlpReady.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TlpReady.Size = new System.Drawing.Size(262, 177);
+            this.TlpReady.TabIndex = 1;
             // 
-            // lblReady2
+            // LblReady2
             // 
-            this.lblReady2.BackColor = System.Drawing.Color.Transparent;
-            this.lblReady2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblReady2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReady2.Location = new System.Drawing.Point(3, 88);
-            this.lblReady2.Name = "lblReady2";
-            this.lblReady2.Size = new System.Drawing.Size(256, 89);
-            this.lblReady2.TabIndex = 0;
-            this.lblReady2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LblReady2.BackColor = System.Drawing.Color.Transparent;
+            this.LblReady2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblReady2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblReady2.Location = new System.Drawing.Point(3, 88);
+            this.LblReady2.Name = "LblReady2";
+            this.LblReady2.Size = new System.Drawing.Size(256, 89);
+            this.LblReady2.TabIndex = 0;
+            this.LblReady2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblReady1
+            // LblReady1
             // 
-            this.lblReady1.BackColor = System.Drawing.Color.Transparent;
-            this.lblReady1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblReady1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReady1.Location = new System.Drawing.Point(3, 0);
-            this.lblReady1.Name = "lblReady1";
-            this.lblReady1.Size = new System.Drawing.Size(256, 88);
-            this.lblReady1.TabIndex = 0;
-            this.lblReady1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LblReady1.BackColor = System.Drawing.Color.Transparent;
+            this.LblReady1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblReady1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblReady1.Location = new System.Drawing.Point(3, 0);
+            this.LblReady1.Name = "LblReady1";
+            this.LblReady1.Size = new System.Drawing.Size(256, 88);
+            this.LblReady1.TabIndex = 0;
+            this.LblReady1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // pnlCount
+            // PnlCount
             // 
-            this.pnlCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(149)))));
-            this.pnlCount.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlCount.Controls.Add(this.tlpYellow);
-            this.pnlCount.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlCount.Location = new System.Drawing.Point(399, 0);
-            this.pnlCount.Margin = new System.Windows.Forms.Padding(0);
-            this.pnlCount.Name = "pnlCount";
-            this.pnlCount.Size = new System.Drawing.Size(266, 181);
-            this.pnlCount.TabIndex = 2;
-            this.pnlCount.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlCount_Paint);
+            this.PnlCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(149)))));
+            this.PnlCount.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PnlCount.Controls.Add(this.TlpCount);
+            this.PnlCount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlCount.Location = new System.Drawing.Point(399, 0);
+            this.PnlCount.Margin = new System.Windows.Forms.Padding(0);
+            this.PnlCount.Name = "PnlCount";
+            this.PnlCount.Size = new System.Drawing.Size(266, 181);
+            this.PnlCount.TabIndex = 2;
+            this.PnlCount.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlCount_Paint);
             // 
-            // tlpYellow
+            // TlpCount
             // 
-            this.tlpYellow.ColumnCount = 1;
-            this.tlpYellow.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpYellow.Controls.Add(this.lblCounting1, 0, 0);
-            this.tlpYellow.Controls.Add(this.lblCounting2, 0, 1);
-            this.tlpYellow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpYellow.Location = new System.Drawing.Point(0, 0);
-            this.tlpYellow.Margin = new System.Windows.Forms.Padding(2);
-            this.tlpYellow.Name = "tlpYellow";
-            this.tlpYellow.RowCount = 2;
-            this.tlpYellow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpYellow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpYellow.Size = new System.Drawing.Size(262, 177);
-            this.tlpYellow.TabIndex = 3;
+            this.TlpCount.ColumnCount = 1;
+            this.TlpCount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TlpCount.Controls.Add(this.LblCounting1, 0, 0);
+            this.TlpCount.Controls.Add(this.LblCounting2, 0, 1);
+            this.TlpCount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TlpCount.Location = new System.Drawing.Point(0, 0);
+            this.TlpCount.Margin = new System.Windows.Forms.Padding(2);
+            this.TlpCount.Name = "TlpCount";
+            this.TlpCount.RowCount = 2;
+            this.TlpCount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TlpCount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TlpCount.Size = new System.Drawing.Size(262, 177);
+            this.TlpCount.TabIndex = 3;
             // 
-            // lblCounting1
+            // LblCounting1
             // 
-            this.lblCounting1.BackColor = System.Drawing.Color.Transparent;
-            this.lblCounting1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblCounting1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCounting1.Location = new System.Drawing.Point(3, 0);
-            this.lblCounting1.Name = "lblCounting1";
-            this.lblCounting1.Size = new System.Drawing.Size(256, 88);
-            this.lblCounting1.TabIndex = 2;
-            this.lblCounting1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LblCounting1.BackColor = System.Drawing.Color.Transparent;
+            this.LblCounting1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblCounting1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCounting1.Location = new System.Drawing.Point(3, 0);
+            this.LblCounting1.Name = "LblCounting1";
+            this.LblCounting1.Size = new System.Drawing.Size(256, 88);
+            this.LblCounting1.TabIndex = 2;
+            this.LblCounting1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblCounting2
+            // LblCounting2
             // 
-            this.lblCounting2.BackColor = System.Drawing.Color.Transparent;
-            this.lblCounting2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblCounting2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCounting2.Location = new System.Drawing.Point(3, 88);
-            this.lblCounting2.Name = "lblCounting2";
-            this.lblCounting2.Size = new System.Drawing.Size(256, 89);
-            this.lblCounting2.TabIndex = 1;
-            this.lblCounting2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LblCounting2.BackColor = System.Drawing.Color.Transparent;
+            this.LblCounting2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblCounting2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCounting2.Location = new System.Drawing.Point(3, 88);
+            this.LblCounting2.Name = "LblCounting2";
+            this.LblCounting2.Size = new System.Drawing.Size(256, 89);
+            this.LblCounting2.TabIndex = 1;
+            this.LblCounting2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // pnlPlay
+            // PnlPlay
             // 
-            this.pnlPlay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.pnlPlay.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlPlay.Controls.Add(this.tlpGreen);
-            this.pnlPlay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPlay.Location = new System.Drawing.Point(665, 0);
-            this.pnlPlay.Margin = new System.Windows.Forms.Padding(0);
-            this.pnlPlay.Name = "pnlPlay";
-            this.pnlPlay.Size = new System.Drawing.Size(268, 181);
-            this.pnlPlay.TabIndex = 3;
-            this.pnlPlay.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlPlay_Paint);
+            this.PnlPlay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.PnlPlay.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PnlPlay.Controls.Add(this.TlpPlay);
+            this.PnlPlay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlPlay.Location = new System.Drawing.Point(665, 0);
+            this.PnlPlay.Margin = new System.Windows.Forms.Padding(0);
+            this.PnlPlay.Name = "PnlPlay";
+            this.PnlPlay.Size = new System.Drawing.Size(268, 181);
+            this.PnlPlay.TabIndex = 3;
+            this.PnlPlay.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlPlay_Paint);
             // 
-            // tlpGreen
+            // TlpPlay
             // 
-            this.tlpGreen.ColumnCount = 1;
-            this.tlpGreen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpGreen.Controls.Add(this.lblPlay2, 0, 1);
-            this.tlpGreen.Controls.Add(this.lblPlay1, 0, 0);
-            this.tlpGreen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpGreen.Location = new System.Drawing.Point(0, 0);
-            this.tlpGreen.Margin = new System.Windows.Forms.Padding(2);
-            this.tlpGreen.Name = "tlpGreen";
-            this.tlpGreen.RowCount = 2;
-            this.tlpGreen.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpGreen.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpGreen.Size = new System.Drawing.Size(264, 177);
-            this.tlpGreen.TabIndex = 3;
+            this.TlpPlay.ColumnCount = 1;
+            this.TlpPlay.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TlpPlay.Controls.Add(this.LblPlay2, 0, 1);
+            this.TlpPlay.Controls.Add(this.LblPlay1, 0, 0);
+            this.TlpPlay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TlpPlay.Location = new System.Drawing.Point(0, 0);
+            this.TlpPlay.Margin = new System.Windows.Forms.Padding(2);
+            this.TlpPlay.Name = "TlpPlay";
+            this.TlpPlay.RowCount = 2;
+            this.TlpPlay.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TlpPlay.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TlpPlay.Size = new System.Drawing.Size(264, 177);
+            this.TlpPlay.TabIndex = 3;
             // 
-            // lblPlay2
+            // LblPlay2
             // 
-            this.lblPlay2.BackColor = System.Drawing.Color.Transparent;
-            this.lblPlay2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblPlay2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlay2.Location = new System.Drawing.Point(3, 88);
-            this.lblPlay2.Name = "lblPlay2";
-            this.lblPlay2.Size = new System.Drawing.Size(258, 89);
-            this.lblPlay2.TabIndex = 1;
-            this.lblPlay2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LblPlay2.BackColor = System.Drawing.Color.Transparent;
+            this.LblPlay2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblPlay2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPlay2.Location = new System.Drawing.Point(3, 88);
+            this.LblPlay2.Name = "LblPlay2";
+            this.LblPlay2.Size = new System.Drawing.Size(258, 89);
+            this.LblPlay2.TabIndex = 1;
+            this.LblPlay2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblPlay1
+            // LblPlay1
             // 
-            this.lblPlay1.BackColor = System.Drawing.Color.Transparent;
-            this.lblPlay1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblPlay1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlay1.Location = new System.Drawing.Point(3, 0);
-            this.lblPlay1.Name = "lblPlay1";
-            this.lblPlay1.Size = new System.Drawing.Size(258, 88);
-            this.lblPlay1.TabIndex = 2;
-            this.lblPlay1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LblPlay1.BackColor = System.Drawing.Color.Transparent;
+            this.LblPlay1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblPlay1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPlay1.Location = new System.Drawing.Point(3, 0);
+            this.LblPlay1.Name = "LblPlay1";
+            this.LblPlay1.Size = new System.Drawing.Size(258, 88);
+            this.LblPlay1.TabIndex = 2;
+            this.LblPlay1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // tlpCourt
+            // TlpCourt
             // 
-            this.tlpCourt.ColumnCount = 4;
-            this.tlpCourt.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
-            this.tlpCourt.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlpCourt.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlpCourt.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlpCourt.Controls.Add(this.lblCourtNumber, 0, 0);
-            this.tlpCourt.Controls.Add(this.pnlPlay, 3, 0);
-            this.tlpCourt.Controls.Add(this.pnlCount, 2, 0);
-            this.tlpCourt.Controls.Add(this.pnlReady, 1, 0);
-            this.tlpCourt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpCourt.Location = new System.Drawing.Point(0, 0);
-            this.tlpCourt.Margin = new System.Windows.Forms.Padding(2);
-            this.tlpCourt.Name = "tlpCourt";
-            this.tlpCourt.RowCount = 1;
-            this.tlpCourt.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpCourt.Size = new System.Drawing.Size(933, 181);
-            this.tlpCourt.TabIndex = 4;
+            this.TlpCourt.ColumnCount = 4;
+            this.TlpCourt.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
+            this.TlpCourt.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.TlpCourt.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.TlpCourt.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.TlpCourt.Controls.Add(this.LblNumber, 0, 0);
+            this.TlpCourt.Controls.Add(this.PnlPlay, 3, 0);
+            this.TlpCourt.Controls.Add(this.PnlCount, 2, 0);
+            this.TlpCourt.Controls.Add(this.PnlReady, 1, 0);
+            this.TlpCourt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TlpCourt.Location = new System.Drawing.Point(0, 0);
+            this.TlpCourt.Margin = new System.Windows.Forms.Padding(2);
+            this.TlpCourt.Name = "TlpCourt";
+            this.TlpCourt.RowCount = 1;
+            this.TlpCourt.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TlpCourt.Size = new System.Drawing.Size(933, 181);
+            this.TlpCourt.TabIndex = 4;
             // 
             // CourtDisplayControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.Controls.Add(this.tlpCourt);
+            this.Controls.Add(this.TlpCourt);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(12, 12, 12, 19);
             this.Name = "CourtDisplayControl";
             this.Size = new System.Drawing.Size(933, 181);
-            this.pnlReady.ResumeLayout(false);
-            this.tlpRed.ResumeLayout(false);
-            this.pnlCount.ResumeLayout(false);
-            this.tlpYellow.ResumeLayout(false);
-            this.pnlPlay.ResumeLayout(false);
-            this.tlpGreen.ResumeLayout(false);
-            this.tlpCourt.ResumeLayout(false);
+            this.PnlReady.ResumeLayout(false);
+            this.TlpReady.ResumeLayout(false);
+            this.PnlCount.ResumeLayout(false);
+            this.TlpCount.ResumeLayout(false);
+            this.PnlPlay.ResumeLayout(false);
+            this.TlpPlay.ResumeLayout(false);
+            this.TlpCourt.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label lblCourtNumber;
-        private System.Windows.Forms.Panel pnlReady;
-        private System.Windows.Forms.Label lblReady2;
-        private System.Windows.Forms.Label lblReady1;
-        private System.Windows.Forms.Panel pnlCount;
-        private System.Windows.Forms.Label lblCounting2;
-        private System.Windows.Forms.Label lblCounting1;
-        private System.Windows.Forms.Panel pnlPlay;
-        private System.Windows.Forms.Label lblPlay2;
-        private System.Windows.Forms.Label lblPlay1;
-        private System.Windows.Forms.TableLayoutPanel tlpCourt;
-        private System.Windows.Forms.TableLayoutPanel tlpRed;
-        private System.Windows.Forms.TableLayoutPanel tlpYellow;
-        private System.Windows.Forms.TableLayoutPanel tlpGreen;
+        private System.Windows.Forms.Label LblNumber;
+        private System.Windows.Forms.Panel PnlReady;
+        private System.Windows.Forms.Label LblReady2;
+        private System.Windows.Forms.Label LblReady1;
+        private System.Windows.Forms.Panel PnlCount;
+        private System.Windows.Forms.Label LblCounting2;
+        private System.Windows.Forms.Label LblCounting1;
+        private System.Windows.Forms.Panel PnlPlay;
+        private System.Windows.Forms.Label LblPlay2;
+        private System.Windows.Forms.Label LblPlay1;
+        private System.Windows.Forms.TableLayoutPanel TlpCourt;
+        private System.Windows.Forms.TableLayoutPanel TlpReady;
+        private System.Windows.Forms.TableLayoutPanel TlpCount;
+        private System.Windows.Forms.TableLayoutPanel TlpPlay;
     }
 }

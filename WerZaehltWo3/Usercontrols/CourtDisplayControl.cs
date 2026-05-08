@@ -34,31 +34,31 @@ namespace BCA.WerZaehltWo3.Usercontrols
         {
             get
             {
-                return this.lblPlay1.Font.Size;
+                return this.LblPlay1.Font.Size;
             }
 
             set
             {
-                this.lblPlay1.Font = new Font(this.lblPlay1.Font.Name, value, FontStyle.Bold);
-                this.lblPlay2.Font = new Font(this.lblPlay2.Font.Name, value, FontStyle.Bold);
-                this.lblReady1.Font = new Font(this.lblReady1.Font.Name, value, FontStyle.Bold);
-                this.lblReady2.Font = new Font(this.lblReady2.Font.Name, value, FontStyle.Bold);
-                this.lblCounting1.Font = new Font(this.lblCounting1.Font.Name, value, FontStyle.Bold);
-                this.lblCounting2.Font = new Font(this.lblCounting2.Font.Name, value, FontStyle.Bold);
+                this.LblPlay1.Font = new Font(this.LblPlay1.Font.Name, value, FontStyle.Bold);
+                this.LblPlay2.Font = new Font(this.LblPlay2.Font.Name, value, FontStyle.Bold);
+                this.LblReady1.Font = new Font(this.LblReady1.Font.Name, value, FontStyle.Bold);
+                this.LblReady2.Font = new Font(this.LblReady2.Font.Name, value, FontStyle.Bold);
+                this.LblCounting1.Font = new Font(this.LblCounting1.Font.Name, value, FontStyle.Bold);
+                this.LblCounting2.Font = new Font(this.LblCounting2.Font.Name, value, FontStyle.Bold);
             }
         }
 
         public void SetData(Court court)
         {
             this.CourtNumber = court.Number;
-            this.lblCourtNumber.Text = court.Number.ToString(CultureInfo.InvariantCulture);
+            this.LblNumber.Text = court.Number.ToString(CultureInfo.InvariantCulture);
 
-            this.SetPlayer(this.lblReady1, court.PlayerReady1);
-            this.SetPlayer(this.lblReady2, court.PlayerReady2);
-            this.SetPlayer(this.lblCounting1, court.PlayerCount1);
-            this.SetPlayer(this.lblCounting2, court.PlayerCount2);
-            this.SetPlayer(this.lblPlay1, court.PlayerPlay1);
-            this.SetPlayer(this.lblPlay2, court.PlayerPlay2);
+            this.SetPlayer(this.LblReady1, court.PlayerReady1);
+            this.SetPlayer(this.LblReady2, court.PlayerReady2);
+            this.SetPlayer(this.LblCounting1, court.PlayerCount1);
+            this.SetPlayer(this.LblCounting2, court.PlayerCount2);
+            this.SetPlayer(this.LblPlay1, court.PlayerPlay1);
+            this.SetPlayer(this.LblPlay2, court.PlayerPlay2);
         }
 
         private void SetPlayer(Control label, string player)
