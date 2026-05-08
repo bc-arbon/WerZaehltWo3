@@ -1,8 +1,10 @@
-﻿using System.Xml;
+﻿using System;
+using System.Collections.Generic;
+using System.Xml;
 
-namespace Tests.TpNetwork
+namespace BCA.WerZaehltWo3.Shared.TpNetwork.XmlBuilder
 {
-    public class XMLBase
+    public class XmlBase
     {
         protected virtual XmlElement CreateGroup(XmlDocument document, string id)
         {
@@ -35,7 +37,7 @@ namespace Tests.TpNetwork
             {
                 throw new NotSupportedException("Item type not supported");
             }
-            
+
             item.InnerText = val.ToString();
             return item;
         }

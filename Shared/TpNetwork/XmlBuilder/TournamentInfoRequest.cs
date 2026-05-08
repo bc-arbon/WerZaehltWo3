@@ -1,15 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
+using System.Text;
+using System.Threading.Tasks;
 using System.Xml;
 
-namespace Tests.TpNetwork
+namespace BCA.WerZaehltWo3.Shared.TpNetwork.XmlBuilder
 {
-    public class LoginRequest : XMLBase
+    public class TournamentInfoRequest : XmlBase
     {
-        public string Action { get; } = "LOGIN";
+        public string Action { get; } = "SENDTOURNAMENTINFO";
         public string Password { get; set; }
         public IPAddress IP { get; set; }
         public (int low, int high) Version { get; set; } = (1, 1);
+        public string Unicode { get; set; }
 
         public List<XmlElement> CreateElements(XmlDocument document)
         {
@@ -25,6 +30,7 @@ namespace Tests.TpNetwork
             XmlElement actionGroup = CreateGroup(document, "Action");
             actionGroup.AppendChild(CreateItem(document, "ID", Action));
             actionGroup.AppendChild(CreateItem(document, "Password", Password));
+            actionGroup.AppendChild(CreateItem(document, "Unicode", Unicode));
             elements.Add(actionGroup);
 
             XmlElement clientGroup = CreateGroup(document, "Client");

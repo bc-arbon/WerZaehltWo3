@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Adapters\BadmanDatabaseAdapter.cs" />
     <Compile Include="Adapters\RabbitAdapter.cs" />
+    <Compile Include="Adapters\TpNetworkAdapter.cs" />
     <Compile Include="Adapters\TsDatabaseAdapter.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Enums.cs" />
@@ -88,6 +89,15 @@
     <Compile Include="TournamentTv\TtvDataObject.cs" />
     <Compile Include="TournamentTv\VisualDraw.cs" />
     <Compile Include="TournamentTv\TtvListener.cs" />
+    <Compile Include="Helpers\VisualXmlHelpers.cs" />
+    <Compile Include="TpNetwork\Data\Match.cs" />
+    <Compile Include="TpNetwork\Data\Response.cs" />
+    <Compile Include="TpNetwork\Data\ScoringFormat.cs" />
+    <Compile Include="TpNetwork\Data\Setting.cs" />
+    <Compile Include="TpNetwork\Data\TournamentDay.cs" />
+    <Compile Include="TpNetwork\XmlBuilder\TournamentInfoRequest.cs" />
+    <Compile Include="TpNetwork\XmlBuilder\LoginRequest.cs" />
+    <Compile Include="TpNetwork\XmlBuilder\XmlBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -100,5 +110,6 @@
       <Version>6.2.4</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

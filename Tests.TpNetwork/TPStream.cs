@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Buffers.Binary;
+using System.IO;
+using System.IO.Compression;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
-using System.Net.Sockets;
-using System.Net;
-using System.IO.Compression;
-using System.IO;
 using System.Xml;
 
 namespace Tests.TpNetwork
@@ -70,6 +71,36 @@ namespace Tests.TpNetwork
                     }
                 }
             }
+        }
+
+        public static async Task SendCompressedXmlAsync(string host, int port, string xml)
+        {
+            byte[] xmlBytes = new UTF8Encoding(encoderShouldEmitUTF8Identifier: false).GetBytes(xml);
+
+            byte[] gzipBytes;
+            using (var compressedStream = new MemoryStream())
+            {
+                using (var gzip = new GZipStream(compressedStream, CompressionLevel.Optimal, leaveOpen: true))
+                {
+                    await gzip.WriteAsync(xmlBytes, 0, xmlBytes.Length);
+                }
+
+                gzipBytes = compressedStream.ToArray();
+            }
+
+            byte[] packet = new byte[4 + gzipBytes.Length];
+
+            // 4-Byte-Längenpräfix in Big Endian / Network Byte Order
+            BinaryPrimitives.WriteInt32BigEndian(packet.AsSpan(0, 4), gzipBytes.Length);
+
+            Buffer.BlockCopy(gzipBytes, 0, packet, 4, gzipBytes.Length);
+
+            using var client = new TcpClient();
+            await client.ConnectAsync(host, port);
+
+            using NetworkStream stream = client.GetStream();
+            await stream.WriteAsync(packet, 0, packet.Length);
+            await stream.FlushAsync();
         }
 
         public async Task<string> GetTournamentInfo()

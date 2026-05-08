@@ -1,11 +1,45 @@
-﻿namespace Tests.TpNetwork
+﻿using System.Net;
+using System.Net.Sockets;
+using System.Text;
+using System.Xml;
+using System.Xml.Linq;
+using Tests.TpNetwork.Logic;
+
+namespace Tests.TpNetwork
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-            var tpstream = new TPStream("192.168.10.146", "asdf");
-            var bla = tpstream.Login().Result;
+            using var client = new TcpClient();
+
+            client.ConnectAsync("192.168.10.146", 9901).Wait();
+
+            using NetworkStream stream = client.GetStream();
+
+            var loginRequest = new LoginRequest()
+            {
+                Password = "1234",
+                IP = IPAddress.Parse("192.168.10.146")
+            };
+
+            StringBuilder sb = new StringBuilder();
+            using (StringWriter ss = new StringWriter(sb))
+            using (var xmlWriter = XmlWriter.Create(ss))
+            {
+                loginRequest.CreateDocument().WriteContentTo(xmlWriter);
+            }
+
+            var loginRequestXml = sb.ToString();
+
+            TpNetworkConnector.SendCompressedXmlAsync(stream, loginRequestXml).Wait();
+
+            var loginResponseXml = TpNetworkConnector.ReadCompressedXmlAsync(stream).Result;
+            
+            Console.WriteLine(loginResponseXml);
+
+            //var tpstream = new TPStream("192.168.10.146", "1234");
+            //var bla = tpstream.Login().Result;
 
             // ---------------
 
@@ -27,6 +61,11 @@
             //Console.WriteLine("Press any key to stop");
             //Console.ReadKey();
             //listener.Stop();
-        }        
+        }
+
+        private static async Task TpNetworkConnectorSendCompressedXmlAsync(NetworkStream stream, object requestXml)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

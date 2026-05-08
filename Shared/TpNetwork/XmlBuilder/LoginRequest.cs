@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
+using System.Text;
+using System.Threading.Tasks;
 using System.Xml;
 
-namespace Tests.TpNetwork
+namespace BCA.WerZaehltWo3.Shared.TpNetwork.XmlBuilder
 {
-    public class LoginRequest : XMLBase
+    public class LoginRequest : XmlBase
     {
         public string Action { get; } = "LOGIN";
         public string Password { get; set; }
