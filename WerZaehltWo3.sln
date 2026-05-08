@@ -36,6 +36,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.TournamentTv", "Tests
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TpNetworkGui", "TpNetworkGui\TpNetworkGui.csproj", "{C32ED44E-CA64-4A48-AF4E-5A4648B5B29E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SampleData", "SampleData", "{1BA26B35-132C-45D1-AEB8-EEE785B9F56A}"
+	ProjectSection(SolutionItems) = preProject
+		SampleData\loginrequest.xml = SampleData\loginrequest.xml
+		SampleData\loginresponse.xml = SampleData\loginresponse.xml
+		SampleData\tournamentinforequest.xml = SampleData\tournamentinforequest.xml
+		SampleData\tournamentinforesponse.xml = SampleData\tournamentinforesponse.xml
+		SampleData\TournamentTvResponse.xml = SampleData\TournamentTvResponse.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
