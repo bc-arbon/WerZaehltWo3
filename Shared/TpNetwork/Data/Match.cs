@@ -10,9 +10,9 @@ namespace BCA.WerZaehltWo3.Shared.TpNetwork.Data
 {
     public class Match
     {
-        public int Id { get; set; }
-        public int DrawId { get; set; }
-        public int PlanningId { get; set; }
+        public int ID { get; set; }
+        public int DrawID { get; set; }
+        public int PlanningID { get; set; }
         public int From1 { get; set; }
         public int From2{ get; set; }
         public bool IsMatch { get; set; }
@@ -30,14 +30,14 @@ namespace BCA.WerZaehltWo3.Shared.TpNetwork.Data
         public DateTime StartTime { get; set; }
         public int ScoreStatus { get; set; }
         public DateTime PlannedTime { get; set; }
-        public int CourtId { get; set; }
+        public int CourtID { get; set; }
 
         public static Match Parse(XmlNode node)
         {
             var match = new Match();
-            match.Id = Convert.ToInt32(node.SelectSingleNode("ITEM[@ID='ID']").InnerText);
-            match.DrawId = Convert.ToInt32(node.SelectSingleNode("ITEM[@ID='DrawID']").InnerText);
-            match.PlanningId = Convert.ToInt32(node.SelectSingleNode("ITEM[@ID='PlanningID']").InnerText);
+            match.ID = Convert.ToInt32(node.SelectSingleNode("ITEM[@ID='ID']").InnerText);
+            match.DrawID = Convert.ToInt32(node.SelectSingleNode("ITEM[@ID='DrawID']").InnerText);
+            match.PlanningID = Convert.ToInt32(node.SelectSingleNode("ITEM[@ID='PlanningID']").InnerText);
             match.From1 = Convert.ToInt32(node.SelectSingleNode("ITEM[@ID='From1']")?.InnerText);
             match.From2 = Convert.ToInt32(node.SelectSingleNode("ITEM[@ID='From2']")?.InnerText);
             match.IsMatch = Convert.ToBoolean(node.SelectSingleNode("ITEM[@ID='IsMatch']")?.InnerText);
@@ -55,7 +55,7 @@ namespace BCA.WerZaehltWo3.Shared.TpNetwork.Data
             match.StartTime = VisualXmlHelpers.GetDateTime(node.SelectSingleNode("ITEM[@ID='StartTime']/DATETIME"));
             match.ScoreStatus = Convert.ToInt32(node.SelectSingleNode("ITEM[@ID='ScoreStatus']").InnerText);
             match.PlannedTime = VisualXmlHelpers.GetDateTime(node.SelectSingleNode("ITEM[@ID='PlannedTime']/DATETIME"));
-            match.CourtId = Convert.ToInt32(node.SelectSingleNode("ITEM[@ID='CourtID']")?.InnerText);
+            match.CourtID = Convert.ToInt32(node.SelectSingleNode("ITEM[@ID='CourtID']")?.InnerText);
             return match;
         }
     }

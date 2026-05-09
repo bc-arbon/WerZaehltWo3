@@ -90,8 +90,10 @@
     <Compile Include="TournamentTv\VisualDraw.cs" />
     <Compile Include="TournamentTv\TtvListener.cs" />
     <Compile Include="Helpers\VisualXmlHelpers.cs" />
+    <Compile Include="TpNetwork\Data\Event.cs" />
     <Compile Include="TpNetwork\Data\Match.cs" />
-    <Compile Include="TpNetwork\Data\Response.cs" />
+    <Compile Include="TpNetwork\Data\Stage.cs" />
+    <Compile Include="TpNetwork\Data\VisualXmlResponse.cs" />
     <Compile Include="TpNetwork\Data\ScoringFormat.cs" />
     <Compile Include="TpNetwork\Data\Setting.cs" />
     <Compile Include="TpNetwork\Data\TournamentDay.cs" />

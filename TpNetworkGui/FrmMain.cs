@@ -20,7 +20,7 @@ namespace TpNetworkGui
         {
             var result = await TpNetworkAdapter.GetTournamentInfo(this.TxtIp.Text, this.TxtIp.Text, this.TxtPassword.Text, this.TxtUnicode.Text);
             this.TxtResponse.Text = result;
-            var response = Response.Parse(result);
+            var response = VisualXmlResponse.Parse(result);
         }
     }
 }

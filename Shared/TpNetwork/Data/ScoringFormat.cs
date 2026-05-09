@@ -10,7 +10,7 @@ namespace BCA.WerZaehltWo3.Shared.TpNetwork.Data
 {
     public class ScoringFormat
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string Name { get; set; }
         public int NumSets { get; set; }
         public int SetType { get; set; }
@@ -21,7 +21,7 @@ namespace BCA.WerZaehltWo3.Shared.TpNetwork.Data
         public static ScoringFormat Parse(XmlNode node)
         {
             var format = new ScoringFormat();
-            format.Id = Convert.ToInt32(node.SelectSingleNode("ITEM[@ID='ID']").InnerText);
+            format.ID = Convert.ToInt32(node.SelectSingleNode("ITEM[@ID='ID']").InnerText);
             format.Name = node.SelectSingleNode("ITEM[@ID='Name']").InnerText;
             format.NumSets = Convert.ToInt32(node.SelectSingleNode("ITEM[@ID='NumSets']").InnerText);
             format.SetType = Convert.ToInt32(node.SelectSingleNode("ITEM[@ID='SetType']").InnerText);

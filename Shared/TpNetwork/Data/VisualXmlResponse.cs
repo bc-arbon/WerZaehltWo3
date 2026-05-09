@@ -7,14 +7,16 @@ using System.Xml;
 
 namespace BCA.WerZaehltWo3.Shared.TpNetwork
 {
-    public class Response
+    public class VisualXmlResponse
     {
-        public Response()
+        public VisualXmlResponse()
         {
             this.Settings = new List<Setting>();
             this.TournamentDays = new List<TournamentDay>();
             this.ScoringFormats = new List<ScoringFormat>();
             this.Matches = new List<Match>();
+            this.Events = new List<Event>();
+            this.Stages = new List<Stage>();
         }
 
         public int VersionHi { get; set; }
@@ -33,49 +35,65 @@ namespace BCA.WerZaehltWo3.Shared.TpNetwork
         public List<TournamentDay> TournamentDays { get; private set; }
         public List<ScoringFormat> ScoringFormats { get; private set; }
         public List<Match> Matches { get; private set; }
+        public List<Event> Events { get; private set; }
+        public List<Stage> Stages { get; private set; }
 
-        public static Response Parse(string xml)
+        public static VisualXmlResponse Parse(string xml)
         {
-            var response = new Response();
+            var response = new VisualXmlResponse();
             var doc = new XmlDocument();
             doc.LoadXml(xml);
 
-            response.VersionHi = Convert.ToInt32(doc.SelectSingleNode("/VISUALXML/GROUP[@ID='Header']/GROUP[@ID='Version']/ITEM[@ID='Hi']").InnerText);
-            response.VersionLo = Convert.ToInt32(doc.SelectSingleNode("/VISUALXML/GROUP[@ID='Header']/GROUP[@ID='Version']/ITEM[@ID='Lo']").InnerText);
+            var versionNode = doc.SelectSingleNode("/VISUALXML/GROUP[@ID='Header']/GROUP[@ID='Version']");
+            response.VersionHi = Convert.ToInt32(versionNode.SelectSingleNode("ITEM[@ID='Hi']").InnerText);
+            response.VersionLo = Convert.ToInt32(versionNode.SelectSingleNode("ITEM[@ID='Lo']").InnerText);
 
-            response.ActionID = doc.SelectSingleNode("/VISUALXML/GROUP[@ID='Action']/ITEM[@ID='ID']").InnerText;
-            response.Password = doc.SelectSingleNode("VISUALXML/GROUP[@ID='Action']/ITEM[@ID='Password']").InnerText;
-            response.Unicode = doc.SelectSingleNode("/VISUALXML/GROUP[@ID='Action']/ITEM[@ID='Unicode']").InnerText;
-            response.Action = doc.SelectSingleNode("/VISUALXML/GROUP[@ID='Action']/ITEM[@ID='Action']").InnerText;
-            response.Result = Convert.ToInt32(doc.SelectSingleNode("/VISUALXML/GROUP[@ID='Action']/ITEM[@ID='Result']").InnerText);
+            var actionNode = doc.SelectSingleNode("/VISUALXML/GROUP[@ID='Action']");
+            response.ActionID = actionNode.SelectSingleNode("ITEM[@ID='ID']").InnerText;
+            response.Password = actionNode.SelectSingleNode("ITEM[@ID='Password']").InnerText;
+            response.Unicode = actionNode.SelectSingleNode("ITEM[@ID='Unicode']").InnerText;
+            response.Action = actionNode.SelectSingleNode("ITEM[@ID='Action']").InnerText;
+            response.Result = Convert.ToInt32(actionNode.SelectSingleNode("ITEM[@ID='Result']").InnerText);
 
             response.ClientIp = doc.SelectSingleNode("/VISUALXML/GROUP[@ID='Client']/ITEM[@ID='IP']").InnerText;
             response.Xml = xml;
 
+            var tournamentNode = doc.SelectSingleNode("/VISUALXML/GROUP[@ID='Result']/GROUP[@ID='Tournament']");
+
             // Settings
-            var settingNodes = doc.SelectNodes("/VISUALXML/GROUP[@ID='Result']/GROUP[@ID='Tournament']/GROUP[@ID='Settings']/GROUP[@ID='Setting']");
+            var settingNodes = tournamentNode.SelectNodes("GROUP[@ID='Settings']/GROUP[@ID='Setting']");
             foreach (XmlNode settingNode in settingNodes)
             {                
                 response.Settings.Add(Setting.Parse(settingNode));
             }
 
             // TournamentDays
-            var tournamentDayNodes = doc.SelectNodes("/VISUALXML/GROUP[@ID='Result']/GROUP[@ID='Tournament']/GROUP[@ID='TournamentDays']/GROUP[@ID='TournamentDay']");
+            var tournamentDayNodes = tournamentNode.SelectNodes("GROUP[@ID='TournamentDays']/GROUP[@ID='TournamentDay']");
             foreach (XmlNode tournamentDayNode in tournamentDayNodes)
             {                
                 response.TournamentDays.Add(TournamentDay.Parse(tournamentDayNode));
             }
 
             // ScoringFormats
-            var scoringFormatNodes = doc.SelectNodes("/VISUALXML/GROUP[@ID='Result']/GROUP[@ID='Tournament']/GROUP[@ID='ScoringFormats']/GROUP[@ID='ScoringFormat']");
+            var scoringFormatNodes = tournamentNode.SelectNodes("GROUP[@ID='ScoringFormats']/GROUP[@ID='ScoringFormat']");
             foreach (XmlNode scoringFormatNode in scoringFormatNodes)
             {
                 response.ScoringFormats.Add(ScoringFormat.Parse(scoringFormatNode));
             }
 
-            // Events TODO
+            // Events
+            var eventNodes = tournamentNode.SelectNodes("GROUP[@ID='Events']/GROUP[@ID='Event']");
+            foreach (XmlNode eventNode in eventNodes)
+            {
+                response.Events.Add(Event.Parse(eventNode));
+            }
 
-            // Stages TODO
+            // Stages
+            var stageNodes = tournamentNode.SelectNodes("GROUP[@ID='Stages']/GROUP[@ID='Stage']");
+            foreach (XmlNode stageNode in stageNodes)
+            {
+                response.Stages.Add(Stage.Parse(stageNode));
+            }
 
             // Districts TODO
 
