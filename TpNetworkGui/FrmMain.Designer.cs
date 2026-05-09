@@ -33,13 +33,19 @@
             label2 = new Label();
             TxtPassword = new TextBox();
             BtnLogin = new Button();
-            label3 = new Label();
-            label4 = new Label();
-            TxtUnicode = new TextBox();
-            TxtRequest = new TextBox();
-            label5 = new Label();
-            TxtResponse = new TextBox();
             BtnUpdate = new Button();
+            CbxDraws = new ComboBox();
+            label3 = new Label();
+            listView1 = new ListView();
+            ChrRank = new ColumnHeader();
+            ChrPlanning = new ColumnHeader();
+            ChrName = new ColumnHeader();
+            ChrClub = new ColumnHeader();
+            ChrPlayed = new ColumnHeader();
+            ChrWon = new ColumnHeader();
+            ChrBhz = new ColumnHeader();
+            ChrSets = new ColumnHeader();
+            ChrGames = new ColumnHeader();
             SuspendLayout();
             // 
             // label1
@@ -86,59 +92,9 @@
             BtnLogin.UseVisualStyleBackColor = true;
             BtnLogin.Click += BtnLogin_Click;
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(12, 50);
-            label3.Name = "label3";
-            label3.Size = new Size(52, 15);
-            label3.TabIndex = 5;
-            label3.Text = "Request:";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(454, 11);
-            label4.Name = "label4";
-            label4.Size = new Size(54, 15);
-            label4.TabIndex = 6;
-            label4.Text = "Unicode:";
-            // 
-            // TxtUnicode
-            // 
-            TxtUnicode.Location = new Point(514, 6);
-            TxtUnicode.Name = "TxtUnicode";
-            TxtUnicode.Size = new Size(243, 23);
-            TxtUnicode.TabIndex = 7;
-            // 
-            // TxtRequest
-            // 
-            TxtRequest.Location = new Point(12, 68);
-            TxtRequest.Multiline = true;
-            TxtRequest.Name = "TxtRequest";
-            TxtRequest.Size = new Size(376, 375);
-            TxtRequest.TabIndex = 8;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(400, 50);
-            label5.Name = "label5";
-            label5.Size = new Size(60, 15);
-            label5.TabIndex = 5;
-            label5.Text = "Response:";
-            // 
-            // TxtResponse
-            // 
-            TxtResponse.Location = new Point(400, 68);
-            TxtResponse.Multiline = true;
-            TxtResponse.Name = "TxtResponse";
-            TxtResponse.Size = new Size(376, 375);
-            TxtResponse.TabIndex = 8;
-            // 
             // BtnUpdate
             // 
-            BtnUpdate.Location = new Point(313, 39);
+            BtnUpdate.Location = new Point(394, 6);
             BtnUpdate.Name = "BtnUpdate";
             BtnUpdate.Size = new Size(75, 23);
             BtnUpdate.TabIndex = 9;
@@ -146,18 +102,85 @@
             BtnUpdate.UseVisualStyleBackColor = true;
             BtnUpdate.Click += BtnUpdate_Click;
             // 
+            // CbxDraws
+            // 
+            CbxDraws.DisplayMember = "Name";
+            CbxDraws.DropDownStyle = ComboBoxStyle.DropDownList;
+            CbxDraws.FormattingEnabled = true;
+            CbxDraws.Location = new Point(60, 50);
+            CbxDraws.Name = "CbxDraws";
+            CbxDraws.Size = new Size(155, 23);
+            CbxDraws.Sorted = true;
+            CbxDraws.TabIndex = 10;
+            CbxDraws.SelectedIndexChanged += CbxDraws_SelectedIndexChanged;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(12, 53);
+            label3.Name = "label3";
+            label3.Size = new Size(42, 15);
+            label3.TabIndex = 11;
+            label3.Text = "Draws:";
+            // 
+            // listView1
+            // 
+            listView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            listView1.Columns.AddRange(new ColumnHeader[] { ChrRank, ChrPlanning, ChrName, ChrClub, ChrPlayed, ChrWon, ChrBhz, ChrSets, ChrGames });
+            listView1.Location = new Point(12, 79);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(767, 364);
+            listView1.TabIndex = 12;
+            listView1.UseCompatibleStateImageBehavior = false;
+            listView1.View = View.Details;
+            // 
+            // ChrRank
+            // 
+            ChrRank.Text = "Rang";
+            // 
+            // ChrPlanning
+            // 
+            ChrPlanning.Text = "Plannung";
+            ChrPlanning.Width = 80;
+            // 
+            // ChrName
+            // 
+            ChrName.Text = "Name";
+            ChrName.Width = 80;
+            // 
+            // ChrClub
+            // 
+            ChrClub.Text = "Club";
+            // 
+            // ChrPlayed
+            // 
+            ChrPlayed.Text = "Played";
+            // 
+            // ChrWon
+            // 
+            ChrWon.Text = "Won";
+            // 
+            // ChrBhz
+            // 
+            ChrBhz.Text = "BHZ";
+            // 
+            // ChrSets
+            // 
+            ChrSets.Text = "Sets";
+            // 
+            // ChrGames
+            // 
+            ChrGames.Text = "Games";
+            // 
             // FrmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(791, 455);
-            Controls.Add(BtnUpdate);
-            Controls.Add(TxtResponse);
-            Controls.Add(TxtRequest);
-            Controls.Add(TxtUnicode);
-            Controls.Add(label4);
-            Controls.Add(label5);
+            Controls.Add(listView1);
             Controls.Add(label3);
+            Controls.Add(CbxDraws);
+            Controls.Add(BtnUpdate);
             Controls.Add(BtnLogin);
             Controls.Add(TxtPassword);
             Controls.Add(label2);
@@ -176,12 +199,18 @@
         private Label label2;
         private TextBox TxtPassword;
         private Button BtnLogin;
-        private Label label3;
-        private Label label4;
-        private TextBox TxtUnicode;
-        private TextBox TxtRequest;
-        private Label label5;
-        private TextBox TxtResponse;
         private Button BtnUpdate;
+        private ComboBox CbxDraws;
+        private Label label3;
+        private ListView listView1;
+        private ColumnHeader ChrRank;
+        private ColumnHeader ChrPlanning;
+        private ColumnHeader ChrName;
+        private ColumnHeader ChrClub;
+        private ColumnHeader ChrPlayed;
+        private ColumnHeader ChrWon;
+        private ColumnHeader ChrBhz;
+        private ColumnHeader ChrSets;
+        private ColumnHeader ChrGames;
     }
 }

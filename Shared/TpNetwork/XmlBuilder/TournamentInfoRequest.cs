@@ -30,7 +30,7 @@ namespace BCA.WerZaehltWo3.Shared.TpNetwork.XmlBuilder
             XmlElement actionGroup = CreateGroup(document, "Action");
             actionGroup.AppendChild(CreateItem(document, "ID", Action));
             actionGroup.AppendChild(CreateItem(document, "Password", Password));
-            actionGroup.AppendChild(CreateItem(document, "Unicode", Unicode));
+            //actionGroup.AppendChild(CreateItem(document, "Unicode", Unicode));
             elements.Add(actionGroup);
 
             XmlElement clientGroup = CreateGroup(document, "Client");

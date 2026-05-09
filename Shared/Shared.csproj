@@ -110,6 +110,7 @@
     <Compile Include="TpNetwork\Data\ScoringFormat.cs" />
     <Compile Include="TpNetwork\Data\Setting.cs" />
     <Compile Include="TpNetwork\Data\TournamentDay.cs" />
+    <Compile Include="TpNetwork\Logic\TournamentInfoHelper.cs" />
     <Compile Include="TpNetwork\XmlBuilder\TournamentInfoRequest.cs" />
     <Compile Include="TpNetwork\XmlBuilder\LoginRequest.cs" />
     <Compile Include="TpNetwork\XmlBuilder\XmlBase.cs" />

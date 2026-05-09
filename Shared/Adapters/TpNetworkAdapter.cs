@@ -1,4 +1,5 @@
-﻿using BCA.WerZaehltWo3.Shared.TpNetwork.XmlBuilder;
+﻿using BCA.WerZaehltWo3.Shared.TpNetwork;
+using BCA.WerZaehltWo3.Shared.TpNetwork.XmlBuilder;
 using System;
 using System.Buffers.Binary;
 using System.IO;
@@ -44,7 +45,7 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
             return loginResponseXml;
         }
 
-        public static async Task<string> GetTournamentInfo(string serverIp, string clientIp, string password, string unicode)
+        public static async Task<VisualXmlResponse> GetTournamentInfo(string serverIp, string clientIp, string password)
         {
             var client = new TcpClient();
             client.ConnectAsync(serverIp, 9901).Wait();
@@ -52,8 +53,7 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
             var request = new TournamentInfoRequest()
             {
                 IP = IPAddress.Parse(clientIp),
-                Password = password,
-                Unicode = unicode
+                Password = password
             };
 
             StringBuilder sb = new StringBuilder();
@@ -66,8 +66,11 @@ namespace BCA.WerZaehltWo3.Shared.Adapters
             var requestXml = sb.ToString();
             await SendCompressedXmlAsync(stream, requestXml);
             var responseXml = await ReadCompressedXmlAsync(stream);
-            Console.WriteLine(responseXml);
-            return responseXml;
+            
+            var doc = new XmlDocument();
+            doc.LoadXml(responseXml);
+            var response = VisualXmlResponse.Parse(responseXml);
+            return response;
         }
 
         public static async Task SendCompressedXmlAsync(NetworkStream stream, string xml)

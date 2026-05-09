@@ -1,7 +1,6 @@
 ﻿using BCA.WerZaehltWo3.Shared.Helpers;
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using System.Xml;
 
 namespace BCA.WerZaehltWo3.Shared.TpNetwork.Data
@@ -16,6 +15,7 @@ namespace BCA.WerZaehltWo3.Shared.TpNetwork.Data
         public int ID { get; set; }
         public int DrawID { get; set; }
         public int PlanningID { get; set; }
+        public int EntryID { get; set; }
         public int From1 { get; set; }
         public int From2 { get; set; }
         public int Winner { get; set; }
@@ -59,6 +59,7 @@ namespace BCA.WerZaehltWo3.Shared.TpNetwork.Data
             match.ID = Convert.ToInt32(node.SelectSingleNode("ITEM[@ID='ID']").InnerText);
             match.DrawID = Convert.ToInt32(node.SelectSingleNode("ITEM[@ID='DrawID']").InnerText);
             match.PlanningID = Convert.ToInt32(node.SelectSingleNode("ITEM[@ID='PlanningID']").InnerText);
+            match.EntryID = Convert.ToInt32(node.SelectSingleNode("ITEM[@ID='EntryID']")?.InnerText);
             match.From1 = Convert.ToInt32(node.SelectSingleNode("ITEM[@ID='From1']")?.InnerText);
             match.From2 = Convert.ToInt32(node.SelectSingleNode("ITEM[@ID='From2']")?.InnerText);
             match.Winner = Convert.ToInt32(node.SelectSingleNode("ITEM[@ID='Winner']")?.InnerText);
