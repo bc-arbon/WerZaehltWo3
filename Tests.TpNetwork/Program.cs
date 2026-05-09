@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using BCA.WerZaehltWo3.Shared.TpNetwork;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Xml;
@@ -11,32 +12,38 @@ namespace Tests.TpNetwork
     {
         public static void Main(string[] args)
         {
-            using var client = new TcpClient();
+            var response = VisualXmlResponse.Parse(File.ReadAllText("C:\\repos\\bc-arbon\\WerZaehltWo3\\SampleData\\tournamentinforesponse.xml"));
+            Console.WriteLine(response);
+            // ---------------
 
-            client.ConnectAsync("192.168.10.146", 9901).Wait();
+            //using var client = new TcpClient();
 
-            using NetworkStream stream = client.GetStream();
+            //client.ConnectAsync("192.168.10.146", 9901).Wait();
 
-            var loginRequest = new LoginRequest()
-            {
-                Password = "1234",
-                IP = IPAddress.Parse("192.168.10.146")
-            };
+            //using NetworkStream stream = client.GetStream();
 
-            StringBuilder sb = new StringBuilder();
-            using (StringWriter ss = new StringWriter(sb))
-            using (var xmlWriter = XmlWriter.Create(ss))
-            {
-                loginRequest.CreateDocument().WriteContentTo(xmlWriter);
-            }
+            //var loginRequest = new LoginRequest()
+            //{
+            //    Password = "1234",
+            //    IP = IPAddress.Parse("192.168.10.146")
+            //};
 
-            var loginRequestXml = sb.ToString();
+            //StringBuilder sb = new StringBuilder();
+            //using (StringWriter ss = new StringWriter(sb))
+            //using (var xmlWriter = XmlWriter.Create(ss))
+            //{
+            //    loginRequest.CreateDocument().WriteContentTo(xmlWriter);
+            //}
 
-            TpNetworkConnector.SendCompressedXmlAsync(stream, loginRequestXml).Wait();
+            //var loginRequestXml = sb.ToString();
 
-            var loginResponseXml = TpNetworkConnector.ReadCompressedXmlAsync(stream).Result;
+            //TpNetworkConnector.SendCompressedXmlAsync(stream, loginRequestXml).Wait();
+
+            //var loginResponseXml = TpNetworkConnector.ReadCompressedXmlAsync(stream).Result;
             
-            Console.WriteLine(loginResponseXml);
+            //Console.WriteLine(loginResponseXml);
+
+            // ---------------
 
             //var tpstream = new TPStream("192.168.10.146", "1234");
             //var bla = tpstream.Login().Result;

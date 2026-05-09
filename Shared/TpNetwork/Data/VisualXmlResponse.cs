@@ -1,8 +1,6 @@
-﻿using BCA.WerZaehltWo3.Shared.Helpers;
-using BCA.WerZaehltWo3.Shared.TpNetwork.Data;
+﻿using BCA.WerZaehltWo3.Shared.TpNetwork.Data;
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using System.Xml;
 
 namespace BCA.WerZaehltWo3.Shared.TpNetwork
@@ -17,6 +15,18 @@ namespace BCA.WerZaehltWo3.Shared.TpNetwork
             this.Matches = new List<Match>();
             this.Events = new List<Event>();
             this.Stages = new List<Stage>();
+            this.Districts = new List<District>();
+            this.Clubs = new List<Club>();
+            this.Locations = new List<Location>();
+            this.Officials = new List<Official>();
+            this.Draws = new List<Draw>();
+            this.Courts = new List<Court>();
+            this.Links = new List<Link>();
+            this.Players = new List<Player>();
+            this.Payments = new List<Payment>();
+            this.Entries = new List<Entry>();
+            this.StageEntries = new List<StageEntry>();
+            this.MatchWarnings = new List<MatchWarning>();
         }
 
         public int VersionHi { get; set; }
@@ -37,6 +47,18 @@ namespace BCA.WerZaehltWo3.Shared.TpNetwork
         public List<Match> Matches { get; private set; }
         public List<Event> Events { get; private set; }
         public List<Stage> Stages { get; private set; }
+        public List<District> Districts { get; private set; }
+        public List<Club> Clubs { get; private set; }
+        public List<Location> Locations { get; private set; }
+        public List<Official> Officials { get; private set; }
+        public List<Draw> Draws { get; private set; }
+        public List<Court> Courts { get; private set; }
+        public List<Link> Links { get; private set; }
+        public List<Player> Players { get; private set; }
+        public List<Payment> Payments { get; private set; }
+        public List<Entry> Entries { get; private set; }
+        public List<StageEntry> StageEntries { get; private set; }
+        public List<MatchWarning> MatchWarnings { get; private set; }
 
         public static VisualXmlResponse Parse(string xml)
         {
@@ -95,27 +117,82 @@ namespace BCA.WerZaehltWo3.Shared.TpNetwork
                 response.Stages.Add(Stage.Parse(stageNode));
             }
 
-            // Districts TODO
+            // Districts
+            var districtNodes = tournamentNode.SelectNodes("GROUP[@ID='Districts']/GROUP[@ID='District']");
+            foreach (XmlNode districtNode in districtNodes)
+            {
+                response.Districts.Add(District.Parse(districtNode));
+            }
 
-            // Clubs TODO
+            // Clubs
+            var clubNodes = tournamentNode.SelectNodes("GROUP[@ID='Clubs']/GROUP[@ID='Club']");
+            foreach (XmlNode clubNode in clubNodes)
+            {
+                response.Clubs.Add(Club.Parse(clubNode));
+            }
 
-            // Locations TODO
+            // Locations
+            var locationNodes = tournamentNode.SelectNodes("GROUP[@ID='Locations']/GROUP[@ID='Location']"); 
+            foreach (XmlNode locationNode in locationNodes)
+            {
+                response.Locations.Add(Location.Parse(locationNode));
+            }
 
-            // Officials TODO
+            // Officials
+            var officialNodes = tournamentNode.SelectNodes("GROUP[@ID='Officials']/GROUP[@ID='Official']");
+            foreach (XmlNode officialNode in  officialNodes)
+            {
+                response.Officials.Add(Official.Parse(officialNode));
+            }
 
-            // Draws TODO
+            // Draws
+            var drawNodes = tournamentNode.SelectNodes("GROUP[@ID='Draws']/GROUP[@ID='Draw']");
+            foreach (XmlNode drawNode in drawNodes)
+            {
+                response.Draws.Add(Draw.Parse(drawNode));
+            }
 
-            // Courts TODO
+            // Courts
+            var courtNodes = tournamentNode.SelectNodes("GROUP[@ID='Courts']/GROUP[@ID='Court']");
+            foreach (XmlNode courtNode in courtNodes)
+            {
+                response.Courts.Add(Court.Parse(courtNode));
+            }
 
-            // Links TODO
+            // Links
+            var linkNodes = tournamentNode.SelectNodes("GROUP[@ID='Links']/GROUP[@ID='Link']");
+            foreach (XmlNode linkNode in linkNodes)
+            {
+                response.Links.Add(Link.Parse(linkNode));
+            }
 
-            // Players TODO
+            // Players
+            var playerNodes = tournamentNode.SelectNodes("GROUP[@ID='Players']/GROUP[@ID='Player']");
+            foreach (XmlNode playerNode in playerNodes)
+            {
+                response.Players.Add(Player.Parse(playerNode));
+            }
 
-            // Payments TODO
+            // Payments
+            var paymentNodes = tournamentNode.SelectNodes("GROUP[@ID='Payments']/GROUP[@ID='Payment']");
+            foreach (XmlNode paymentNode in paymentNodes)
+            {
+                response.Payments.Add(Payment.Parse(paymentNode));
+            }
 
-            // Entries TODO
+            // Entries
+            var entryNodes = tournamentNode.SelectNodes("GROUP[@ID='Entries']/GROUP[@ID='Entry']");
+            foreach (XmlNode entryNode in entryNodes)
+            {
+                response.Entries.Add(Entry.Parse(entryNode));
+            }
 
-            // StageEntries TODO
+            // StageEntries
+            var stageEntryNodes = tournamentNode.SelectNodes("GROUP[@ID='StageEntries']/GROUP[@ID='StageEntry']");
+            foreach (XmlNode stageEntryNode in stageEntryNodes)
+            {
+                response.StageEntries.Add(StageEntry.Parse(stageEntryNode));
+            }
 
             // Matches
             var matchNodes = doc.SelectNodes("/VISUALXML/GROUP[@ID='Result']/GROUP[@ID='Tournament']/GROUP[@ID='Matches']/GROUP[@ID='Match']");
@@ -124,7 +201,12 @@ namespace BCA.WerZaehltWo3.Shared.TpNetwork
                 response.Matches.Add(Match.Parse(matchNode));
             }
 
-            // MatchWarnings TODO
+            // MatchWarnings
+            var matchWarningNodes = doc.SelectNodes("/VISUALXML/GROUP[@ID='Result']/GROUP[@ID='Tournament']/GROUP[@ID='MatchWarnings']/GROUP[@ID='MatchWarning']");
+            foreach (XmlNode matchWarningNode in matchWarningNodes)
+            {
+                response.MatchWarnings.Add(MatchWarning.Parse(matchWarningNode));
+            }
 
             return response;
         }
